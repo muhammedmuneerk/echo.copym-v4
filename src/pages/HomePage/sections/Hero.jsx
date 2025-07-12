@@ -30,19 +30,19 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700 mb-6">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-              Welcome to COPYM
+             Institutional-Grade Asset Tokenization Platform
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
-              Investing For{' '}
+               Tokenize Real-World Assets{' '}
               <span className="relative">
-                Outliers
+                with Institutional-Grade Security
                 <div className="absolute -bottom-2 left-0 w-full h-1 bg-orange-400"></div>
               </span>
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
-              It's easy, it's fun, and it's got charm to burn. Start investing in your future with our modern platform designed for the next generation.
+           Seamless on-chain investment in real estate, commodities, carbon credits, and luxury assets. No gas fees, no native token required.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
