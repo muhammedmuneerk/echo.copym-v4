@@ -1,0 +1,39 @@
+import React from 'react';
+import Header from './components/Header';
+import Hero from './pages/HomePage/sections/Hero';
+import Features from './pages/HomePage/sections/Features';
+import Dashboard from './pages/HomePage/sections/Dashboard';
+import Footer from './components/Footer';
+import TokenizationHub from './pages/TokenizationHub/TokenizationHub';
+import Marketplace from './pages/Marketplace/Marketplace';
+import HomePage from './pages/HomePage/HomePage';
+import { Box } from "@mui/material";
+import { Routes, Route } from "react-router-dom";
+
+
+function App() {
+  return (
+    <Box 
+     
+      className="min-h-screen relative bg-custom-gradient text-text-primary overflow-x-hidden"
+    >
+      
+      
+      <Header />
+      <main className="relative z-20 overflow-x-hidden">
+        <Routes>
+
+          <Route path="/" element={<HomePage />} />
+          <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/tokenization" element={<TokenizationHub />} />
+        
+        </Routes>
+      </main>
+      <Footer />
+    </Box>
+  );
+}
+
+
+
+export default App;
