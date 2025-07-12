@@ -30,7 +30,7 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700 mb-6">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-              Welcome to COPYM
+              Tokenization portel is open
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
