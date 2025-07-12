@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .brand-title {
+    @apply font-brand text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+
+  .brand-section-title {
+    @apply font-brand text-3xl sm:text-4xl font-bold;
+  }
+
+  .brand-card-title {
+    @apply font-brand text-xl font-semibold;
+  }
+
+  .brand-description {
+    @apply text-xl text-gray-600 leading-relaxed;
+  }
+}

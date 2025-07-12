@@ -5,7 +5,7 @@ const SecurityFeaturesSection = () => {
     <section className="w-full px-6 py-16 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+        <h2 className="brand-section-title text-white mb-4">
           Enterprise-Grade Security, Built for Web3
         </h2>
         <p className="text-gray-300 mb-10 max-w-2xl">
@@ -44,7 +44,7 @@ const SecurityFeaturesSection = () => {
               key={i}
               className="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
             >
-              <h4 className="text-xl font-semibold text-white mb-2">{item.title}</h4>
+              <h4 className="brand-card-title text-white mb-2">{item.title}</h4>
               <p className="text-gray-400 text-sm">{item.desc}</p>
             </div>
           ))}

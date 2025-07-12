@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        brand: ['"Genos"', 'sans-serif'],
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       colors: {

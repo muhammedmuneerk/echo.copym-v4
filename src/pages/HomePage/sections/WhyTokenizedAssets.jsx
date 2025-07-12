@@ -5,10 +5,10 @@ const WhyTokenizedAssets = () => {
     <section className="w-full px-6 py-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        <h2 className="brand-section-title text-gray-900 mb-4">
           Why Tokenized Assets?
         </h2>
-        <p className="text-gray-600 mb-10 max-w-2xl">
+        <p className="brand-description mb-10 max-w-2xl">
           Unlock new investment opportunities with the power of blockchain. Here's why tokenized assets are reshaping the future of investing.
         </p>
 

@@ -7,10 +7,10 @@ export default function MarketplacePreview() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+          <h2 className="brand-section-title text-black mb-4">
             Preview Our Marketplace
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="brand-description max-w-3xl mx-auto">
             Explore how investors can browse, analyze, and purchase tokenized real-world assets with ease.
           </p>
         </div>
@@ -20,7 +20,7 @@ export default function MarketplacePreview() {
           {/* Chart or Preview Panel */}
           <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-200 shadow-lg p-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold text-black">Token Investment Overview</h3>
+              <h3 className="brand-card-title text-black">Token Investment Overview</h3>
               <div className="flex items-center space-x-2">
                 <span className="text-green-500 font-semibold">+12.5% ROI</span>
                 <TrendingUp className="h-4 w-4 text-green-500" />
@@ -81,10 +81,10 @@ export default function MarketplacePreview() {
         </div>
 
         {/* Learn More Button */}
-        <div className="mt-12 text-center">
+        <div className="flex flex-col sm:flex-row gap-4 py-8 justify-center ">
           <a
             href="/marketplace"
-            className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition"
+            className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
           >
             Learn More
           </a>
