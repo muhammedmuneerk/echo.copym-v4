@@ -5,11 +5,13 @@ import WhyTokenizedAssets from "./sections/WhyTokenizedAssets";
 import IssuerSection from "./sections/IssuerSection";
 import SecurityFeaturesSection from "./sections/SecurityFeaturesSection";
 import TechnologyStackSection from "./sections/TechnologyStackSection";
+import AiOverview from "./sections/AiOverview";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       <Hero />
       <HowItWorks />
+      <AiOverview />
       <Dashboard />
       <WhyTokenizedAssets />
       <IssuerSection />
