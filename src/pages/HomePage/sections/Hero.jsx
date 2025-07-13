@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Play, X } from 'lucide-react';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 export default function Hero() {
   const [isVideoOpen, setVideoOpen] = useState(false);
@@ -38,7 +39,6 @@ export default function Hero() {
                Tokenize Real-World Assets{' '}
               <span className="relative">
                 with Institutional-Grade Security
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-orange-400"></div>
               </span>
             </h1>
             
@@ -73,35 +73,14 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Content - Dashboard Preview */}
-          <div className="relative">
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-black">Portfolio Overview</h3>
-                <span className="text-green-500 text-sm font-medium">+12.5%</span>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Total Value</span>
-                  <span className="font-semibold text-black">$124,536.72</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Today's Change</span>
-                  <span className="font-semibold text-green-500">+$2,421.33</span>
-                </div>
-              </div>
-
-              <div className="mt-6 h-32 bg-gray-50 rounded-lg flex items-end justify-between p-4">
-                {[40, 65, 45, 70, 55, 80, 60].map((height, index) => (
-                  <div
-                    key={index}
-                    className="bg-black rounded-sm opacity-80"
-                    style={{ height: `${height}%`, width: '12px' }}
-                  ></div>
-                ))}
-              </div>
-            </div>
+          {/* Right Content - Lottie Animation */}
+          <div className="flex items-center justify-center">
+            <Player
+              autoplay
+              loop
+              src="/assets/lottie/hero-rightgrid-tokenization/hero-rightgrid-tokenization.json"
+              style={{ height: '400px', width: '400px' }}
+            />
           </div>
         </div>
       </div>

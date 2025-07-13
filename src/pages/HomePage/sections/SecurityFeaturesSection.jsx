@@ -2,7 +2,16 @@ import React from 'react';
 
 const SecurityFeaturesSection = () => {
   return (
-    <section className="w-full px-6 py-16 bg-gray-900 text-white">
+    <section
+      style={{
+        backgroundImage:
+          'linear-gradient(135deg,#06140b 0%, #063a19 25%, #0b7c2c 55%, #063a19 80%, #06140b 100%)',
+        backgroundSize: '400% 400%'
+      }}
+      className="relative w-full px-6 py-24 text-white overflow-hidden animate-gradient"
+    >
+      {/* Shining sweep overlay */}
+      <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full animate-sweep" />
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <h2 className="brand-section-title text-white mb-4">
@@ -42,7 +51,7 @@ const SecurityFeaturesSection = () => {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+              className="bg-white/15 backdrop-blur-md p-6 rounded-xl shadow hover:shadow-lg transition"
             >
               <h4 className="brand-card-title text-white mb-2">{item.title}</h4>
               <p className="text-gray-400 text-sm">{item.desc}</p>
@@ -51,7 +60,7 @@ const SecurityFeaturesSection = () => {
         </div>
 
         {/* Visual Placeholder */}
-        <div className="mt-12 h-64 bg-gray-800 border border-dashed border-gray-600 rounded-xl flex items-center justify-center text-gray-500 text-center">
+        <div className="mt-12 h-64 bg-white/15 backdrop-blur-md border border-dashed border-white/40 rounded-xl flex items-center justify-center text-gray-100 text-center">
           Placeholder for security infographic / animation / badge logos
         </div>
       </div>
