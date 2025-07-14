@@ -1,31 +1,43 @@
 import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import LockIcon from '@mui/icons-material/Lock';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
+import CloudDoneIcon from '@mui/icons-material/CloudDone';
 
 const SecurityFeaturesSection = () => {
   const features = [
     {
       title: 'MPC Wallet Infrastructure',
       desc: 'Secure custody with Multi-Party Computation — no single point of failure.',
+      icon: <VpnKeyIcon fontSize="medium" />,
     },
     {
       title: 'Blockchain Transparency',
       desc: 'Immutable transactions and audit trails recorded directly on-chain.',
+      icon: <VisibilityIcon fontSize="medium" />,
     },
     {
       title: 'End-to-End Encryption',
       desc: 'Military-grade encryption to protect your data at rest and in transit.',
+      icon: <LockIcon fontSize="medium" />,
     },
     {
       title: 'Access Control & Whitelisting',
       desc: 'Only verified, permissioned participants can interact with assets.',
+      icon: <VerifiedUserIcon fontSize="medium" />,
     },
     {
       title: 'Audit-Ready Architecture',
       desc: 'Built with compliance in mind — easily integrate with KYC, AML, and reporting tools.',
+      icon: <FactCheckIcon fontSize="medium" />,
     },
     {
       title: 'Uptime & Redundancy',
       desc: 'Highly available infrastructure with automated backups and failover.',
+      icon: <CloudDoneIcon fontSize="medium" />,
     },
   ];
   return (
@@ -58,6 +70,7 @@ const SecurityFeaturesSection = () => {
                 key={i}
                 className="flex-none w-72 bg-white/15 backdrop-blur-md p-6 rounded-xl shadow hover:shadow-lg transition snap-center"
               >
+                <div className="mb-3 text-2xl text-white">{item.icon}</div>
                 <h4 className="brand-card-title text-white mb-2">{item.title}</h4>
                 <p className="text-gray-400 text-sm">{item.desc}</p>
               </div>
@@ -71,6 +84,7 @@ const SecurityFeaturesSection = () => {
                 key={i}
                 className="bg-white/15 backdrop-blur-md p-6 rounded-xl shadow hover:shadow-lg transition"
               >
+                <div className="mb-3 text-2xl text-white">{item.icon}</div>
                 <h4 className="brand-card-title text-white mb-2">{item.title}</h4>
                 <p className="text-gray-400 text-sm">{item.desc}</p>
               </div>

@@ -2,16 +2,41 @@
 import React, { useState, useRef } from 'react';
 import './flowchart.css';
 
+// Icon imports – mix of MUI Icons and lucide-react (as requested)
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import LinkIcon from '@mui/icons-material/Link';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import WorkIcon from '@mui/icons-material/Work';
+
+import { Search as LucideSearch, TrendingUp as LucideTrendingUp } from 'lucide-react';
+
+// --------------------------------------------------------------------------------
+// Journey data with icon components instead of emojis
+// --------------------------------------------------------------------------------
+
 const journeyData = {
   issuer: {
     nodes: [
-      { id: 'marketplace', x: 50, y: 50, icon: '🏛️', label: 'RWA Marketplace', central: true },
-      { id: 'register', x: 20, y: 20, icon: '👤', label: 'Register & KYB' },
-      { id: 'submit', x: 80, y: 15, icon: '📋', label: 'Submit Assets' },
-      { id: 'compliance', x: 85, y: 50, icon: '✅', label: 'Compliance Check' },
-      { id: 'tokenize', x: 70, y: 80, icon: '🔗', label: 'Tokenization' },
-      { id: 'list', x: 30, y: 85, icon: '📊', label: 'List on Market' },
-      { id: 'manage', x: 15, y: 60, icon: '💵', label: 'Manage & Distribute' }
+      {
+        id: 'marketplace',
+        x: 50,
+        y: 50,
+        icon: <StorefrontIcon fontSize="medium" />,
+        label: 'RWA Marketplace',
+        central: true,
+      },
+      { id: 'register', x: 20, y: 20, icon: <PersonAddIcon fontSize="medium" />, label: 'Register & KYB' },
+      { id: 'submit', x: 80, y: 15, icon: <UploadFileIcon fontSize="medium" />, label: 'Submit Assets' },
+      { id: 'compliance', x: 85, y: 50, icon: <CheckCircleIcon fontSize="medium" />, label: 'Compliance Check' },
+      { id: 'tokenize', x: 70, y: 80, icon: <LinkIcon fontSize="medium" />, label: 'Tokenization' },
+      { id: 'list', x: 30, y: 85, icon: <ShowChartIcon fontSize="medium" />, label: 'List on Market' },
+      { id: 'manage', x: 15, y: 60, icon: <AttachMoneyIcon fontSize="medium" />, label: 'Manage & Distribute' },
     ],
     connections: [
       ['register', 'marketplace'], ['register', 'submit'], ['submit', 'compliance'],
@@ -58,13 +83,20 @@ const journeyData = {
   },
   investor: {
     nodes: [
-      { id: 'marketplace', x: 50, y: 50, icon: '🏛️', label: 'RWA Marketplace', central: true },
-      { id: 'signup', x: 20, y: 25, icon: '🔐', label: 'Sign Up & KYC' },
-      { id: 'browse', x: 75, y: 20, icon: '🔍', label: 'Browse Assets' },
-      { id: 'analyze', x: 85, y: 55, icon: '📈', label: 'Analyze Returns' },
-      { id: 'invest', x: 65, y: 80, icon: '💳', label: 'Make Investment' },
-      { id: 'receive', x: 30, y: 80, icon: '🪙', label: 'Receive Tokens' },
-      { id: 'portfolio', x: 15, y: 50, icon: '💼', label: 'Manage Portfolio' }
+      {
+        id: 'marketplace',
+        x: 50,
+        y: 50,
+        icon: <StorefrontIcon fontSize="medium" />,
+        label: 'RWA Marketplace',
+        central: true,
+      },
+      { id: 'signup', x: 20, y: 25, icon: <PersonAddIcon fontSize="medium" />, label: 'Sign Up & KYC' },
+      { id: 'browse', x: 75, y: 20, icon: <LucideSearch size={24} />, label: 'Browse Assets' },
+      { id: 'analyze', x: 85, y: 55, icon: <LucideTrendingUp size={24} />, label: 'Analyze Returns' },
+      { id: 'invest', x: 65, y: 80, icon: <CreditCardIcon fontSize="medium" />, label: 'Make Investment' },
+      { id: 'receive', x: 30, y: 80, icon: <MonetizationOnIcon fontSize="medium" />, label: 'Receive Tokens' },
+      { id: 'portfolio', x: 15, y: 50, icon: <WorkIcon fontSize="medium" />, label: 'Manage Portfolio' },
     ],
     connections: [
       ['signup', 'marketplace'], ['marketplace', 'browse'], ['browse', 'analyze'],

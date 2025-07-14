@@ -1,6 +1,16 @@
 import React from 'react';
+import LoginIcon from '@mui/icons-material/Login';
+import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import PieChartIcon from '@mui/icons-material/PieChart';
 
 const WhyTokenizedAssets = () => {
+  const benefits = [
+    { label: 'Low Entry Barrier', icon: <LoginIcon fontSize="medium" /> },
+    { label: 'Higher Liquidity', icon: <SwapHorizIcon fontSize="medium" /> },
+    { label: 'Passive Income (Dividends)', icon: <MonetizationOnIcon fontSize="medium" /> },
+    { label: 'Diversification', icon: <PieChartIcon fontSize="medium" /> },
+  ];
   return (
     <section className="w-full px-6 py-16 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -14,17 +24,13 @@ const WhyTokenizedAssets = () => {
 
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {[
-            'Low entry barrier',
-            'Higher liquidity',
-            'Passive income (dividends)',
-            'Diversification',
-          ].map((benefit, index) => (
+          {benefits.map((b, index) => (
             <div
               key={index}
-              className="bg-gray-100 p-6 rounded-xl shadow hover:shadow-md transition"
+              className="bg-gray-100 p-6 rounded-xl shadow hover:shadow-md transition text-center"
             >
-              <p className="text-lg font-semibold text-gray-800">{benefit}</p>
+              <div className="mb-3 text-3xl text-black flex justify-center">{b.icon}</div>
+              <p className="text-lg font-semibold text-gray-800">{b.label}</p>
             </div>
           ))}
         </div>

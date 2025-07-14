@@ -1,23 +1,31 @@
 import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
+import DeviceHubIcon from '@mui/icons-material/DeviceHub';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import SecurityIcon from '@mui/icons-material/Security';
 
 const TechnologyStackSection = () => {
   const features = [
     {
       title: 'Multi-Chain Infrastructure',
       desc: 'Interact seamlessly across Ethereum, Polygon, Solana, and more — without compromising performance or security.',
+      icon: <DeviceHubIcon fontSize="medium" />,
     },
     {
       title: 'Smart Contract Transparency',
       desc: 'All smart contracts are open, verifiable, and follow best practices for gas efficiency and audit readiness.',
+      icon: <VisibilityIcon fontSize="medium" />,
     },
     {
       title: 'Custodial & Non-Custodial Options',
       desc: 'Choose full control or delegate asset management securely — with support for MPC wallets and direct wallet connections.',
+      icon: <AccountBalanceWalletIcon fontSize="medium" />,
     },
     {
       title: 'Audits & Security Standards',
       desc: 'Regular smart contract audits, GDPR compliance, and infrastructure built to meet institutional-grade standards.',
+      icon: <SecurityIcon fontSize="medium" />,
     },
   ];
   return (
@@ -41,6 +49,7 @@ const TechnologyStackSection = () => {
                 key={idx}
                 className="flex-none w-72 bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition snap-center"
               >
+                <div className="mb-3 text-3xl text-black">{item.icon}</div>
                 <h4 className="brand-card-title text-gray-800 mb-2">{item.title}</h4>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
               </div>
@@ -54,9 +63,10 @@ const TechnologyStackSection = () => {
                 key={idx}
                 className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition"
               >
+                <div className="mb-3 text-3xl text-black">{item.icon}</div>
                 <h4 className="brand-card-title text-gray-800 mb-2">{item.title}</h4>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
-              </div>
+          </div>
             ))}
           </div>
 
