@@ -10,22 +10,22 @@ const TechnologyStackSection = () => {
     {
       title: 'Multi-Chain Infrastructure',
       desc: 'Interact seamlessly across Ethereum, Polygon, Solana, and more — without compromising performance or security.',
-      icon: <DeviceHubIcon fontSize="medium" />,
+      icon: <DeviceHubIcon fontSize="medium" className="text-black" />,
     },
     {
       title: 'Smart Contract Transparency',
       desc: 'All smart contracts are open, verifiable, and follow best practices for gas efficiency and audit readiness.',
-      icon: <VisibilityIcon fontSize="medium" />,
+      icon: <VisibilityIcon fontSize="medium" className="text-black" />,
     },
     {
       title: 'Custodial & Non-Custodial Options',
       desc: 'Choose full control or delegate asset management securely — with support for MPC wallets and direct wallet connections.',
-      icon: <AccountBalanceWalletIcon fontSize="medium" />,
+      icon: <AccountBalanceWalletIcon fontSize="medium" className="text-black" />,
     },
     {
       title: 'Audits & Security Standards',
       desc: 'Regular smart contract audits, GDPR compliance, and infrastructure built to meet institutional-grade standards.',
-      icon: <SecurityIcon fontSize="medium" />,
+      icon: <SecurityIcon fontSize="medium" className="text-black" />,
     },
   ];
   return (
@@ -49,9 +49,9 @@ const TechnologyStackSection = () => {
                 key={idx}
                 className="flex-none w-72 bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition snap-center"
               >
-                <div className="mb-3 text-3xl text-black">{item.icon}</div>
+                <div className="mb-3 text-3xl">{item.icon}</div>
                 <h4 className="brand-card-title text-gray-800 mb-2">{item.title}</h4>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -63,9 +63,9 @@ const TechnologyStackSection = () => {
                 key={idx}
                 className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition"
               >
-                <div className="mb-3 text-3xl text-black">{item.icon}</div>
+                <div className="mb-3 text-3xl">{item.icon}</div>
                 <h4 className="brand-card-title text-gray-800 mb-2">{item.title}</h4>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
           </div>
             ))}
           </div>

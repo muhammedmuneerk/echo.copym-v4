@@ -6,10 +6,10 @@ import PieChartIcon from '@mui/icons-material/PieChart';
 
 const WhyTokenizedAssets = () => {
   const benefits = [
-    { label: 'Low Entry Barrier', icon: <LoginIcon fontSize="medium" /> },
-    { label: 'Higher Liquidity', icon: <SwapHorizIcon fontSize="medium" /> },
-    { label: 'Passive Income (Dividends)', icon: <MonetizationOnIcon fontSize="medium" /> },
-    { label: 'Diversification', icon: <PieChartIcon fontSize="medium" /> },
+    { label: 'Low Entry Barrier', icon: <LoginIcon fontSize="medium" className="text-black" /> },
+    { label: 'Higher Liquidity', icon: <SwapHorizIcon fontSize="medium" className="text-black" /> },
+    { label: 'Passive Income (Dividends)', icon: <MonetizationOnIcon fontSize="medium" className="text-black" /> },
+    { label: 'Diversification', icon: <PieChartIcon fontSize="medium" className="text-black" /> },
   ];
   return (
     <section className="w-full px-6 py-16 bg-white">
@@ -27,9 +27,9 @@ const WhyTokenizedAssets = () => {
           {benefits.map((b, index) => (
             <div
               key={index}
-              className="bg-gray-100 p-6 rounded-xl shadow hover:shadow-md transition text-center"
+              className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition text-center"
             >
-              <div className="mb-3 text-3xl text-black flex justify-center">{b.icon}</div>
+              <div className="mb-3 text-3xl flex justify-center">{b.icon}</div>
               <p className="text-lg font-semibold text-gray-800">{b.label}</p>
             </div>
           ))}
