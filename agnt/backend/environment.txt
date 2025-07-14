@@ -1,0 +1,57 @@
+# Copy this to .env file in the backend directory
+
+# Database Configuration
+DATABASE_URL="postgresql://username:password@localhost:5432/copymai_dev"
+
+# JWT Configuration
+JWT_SECRET="your-super-secret-jwt-key-change-this-in-production"
+JWT_EXPIRES_IN="7d"
+
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+FRONTEND_URL="http://localhost:3000"
+API_URL="http://localhost:5000"
+
+# AI API Keys (Get from OpenAI and Anthropic)
+OPENAI_API_KEY="your-openai-api-key-here"
+ANTHROPIC_API_KEY="your-anthropic-api-key-here"
+
+# Blockchain RPC URLs (Get from Infura or Alchemy)
+ETHEREUM_RPC_URL="https://mainnet.infura.io/v3/your-infura-project-id"
+POLYGON_RPC_URL="https://polygon-mainnet.infura.io/v3/your-infura-project-id"
+BSC_RPC_URL="https://bsc-dataseed.binance.org/"
+AVALANCHE_RPC_URL="https://api.avax.network/ext/bc/C/rpc"
+
+# Blockchain Configuration
+DEPLOYMENT_PRIVATE_KEY="your-deployment-wallet-private-key"
+
+# File Storage (Optional - AWS S3)
+AWS_ACCESS_KEY_ID="your-aws-access-key"
+AWS_SECRET_ACCESS_KEY="your-aws-secret-key"
+AWS_REGION="us-east-1"
+AWS_S3_BUCKET="copymai-assets"
+
+# External APIs (Optional)
+ALPHA_VANTAGE_API_KEY="your-alpha-vantage-key"
+SEC_API_URL="https://api.sec.gov"
+FINRA_API_URL="https://api.finra.org"
+ESMA_API_URL="https://api.esma.europa.eu"
+REAL_ESTATE_API_URL="your-real-estate-api-url"
+ART_MARKET_API_URL="your-art-market-api-url"
+
+# Redis Configuration (Optional)
+REDIS_URL="redis://localhost:6379"
+
+# Email Configuration (Optional)
+SMTP_HOST="smtp.gmail.com"
+SMTP_PORT=587
+SMTP_USER="your-email@gmail.com"
+SMTP_PASS="your-email-password"
+
+# Logging Configuration
+LOG_LEVEL="info"
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100 
