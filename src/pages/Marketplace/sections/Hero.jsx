@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Play } from 'lucide-react';
+import AssetCard from './AssetCard';
 
 export default function Hero() {
   return (
@@ -34,20 +35,20 @@ export default function Hero() {
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
-              Investing For{' '}
+              Explore Tokenized{' '}
               <span className="relative">
-                Outliers
+                 Real-World Assets
                 <div className="absolute -bottom-2 left-0 w-full h-1 bg-orange-400"></div>
               </span>
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
-              It's easy, it's fun, and it's got charm to burn. Start investing in your future with our modern platform designed for the next generation.
+              Secure, AI-enhanced marketplace powered by Crossmint and Fireblocks
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
-                Start Investing
+                Enter Marketplace
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
               <button className="border border-gray-300 text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 flex items-center justify-center">
@@ -75,31 +76,7 @@ export default function Hero() {
           {/* Right Content - Dashboard Preview */}
           <div className="relative">
             <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-black">Portfolio Overview</h3>
-                <span className="text-green-500 text-sm font-medium">+12.5%</span>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Total Value</span>
-                  <span className="font-semibold text-black">$124,536.72</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Today's Change</span>
-                  <span className="font-semibold text-green-500">+$2,421.33</span>
-                </div>
-              </div>
-
-              <div className="mt-6 h-32 bg-gray-50 rounded-lg flex items-end justify-between p-4">
-                {[40, 65, 45, 70, 55, 80, 60].map((height, index) => (
-                  <div
-                    key={index}
-                    className="bg-black rounded-sm opacity-80"
-                    style={{ height: `${height}%`, width: '12px' }}
-                  ></div>
-                ))}
-              </div>
+             <AssetCard />
             </div>
           </div>
         </div>
