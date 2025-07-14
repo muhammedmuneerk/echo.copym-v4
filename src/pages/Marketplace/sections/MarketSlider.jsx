@@ -254,7 +254,7 @@ const MarketSlider = () => {
   };
 
   return (
-    <div className="max-w-full px-4 h-full overflow-hidden rounded-2xl mt-24">
+    <div className="max-w-full px-4 h-full overflow-hidden rounded-2xl ">
       {/* Header */}
       <motion.div
         className="text-center mt-5"
@@ -264,7 +264,7 @@ const MarketSlider = () => {
       >
         <Typography
           variant="h2"
-          className="text-3xl sm:text-4xl md:text-5xl mb-4 text-center"
+          className="brand-section-title sm:text-4xl md:text-5xl mb-4 text-center bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text"
         >
           <Box
             component="div"
@@ -276,6 +276,7 @@ const MarketSlider = () => {
                 <GradientLetters text="Marketplace Spotlight" keyPrefix="market-lg" />
               </Box>
             </Box>
+
             {/* Small & Medium Screens */}
             <Box className="block lg:hidden">
               <Box component="div" className="flex flex-wrap justify-center">
@@ -285,7 +286,8 @@ const MarketSlider = () => {
           </Box>
         </Typography>
 
-        <p className="text-white max-w-2xl mx-auto text-lg">
+
+        <p className="text-gray-600 max-w-2xl mx-auto text-lg">
           Discover featured tokenized assets currently available in our marketplace.
         </p>
         <p className="text-gray-400 text-sm mt-2 block sm:hidden">

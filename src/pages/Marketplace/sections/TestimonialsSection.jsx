@@ -1,15 +1,39 @@
 export default function TestimonialsSection() {
   return (
-    <section className="py-20 bg-white text-gray-800">
-      <div className="container mx-auto max-w-5xl px-4 text-center">
-        <h2 className="text-3xl font-bold mb-10">What Investors Are Saying</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((id) => (
-            <div key={id} className="bg-gray-50 border border-gray-200 rounded-lg p-6 shadow-sm">
-              <p className="text-gray-600 italic mb-4">
-                “The AI investment insights helped me rebalance and boost ROI significantly.”
+    <section className="py-12 bg-gray-50 text-gray-800">
+      <div className="max-w-6xl mx-auto px-4 text-center">
+        {/* Gradient Title */}
+        <h2 className="brand-section-title sm:text-4xl font-bold mb-10 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
+          What Investors Are Saying
+        </h2>
+
+        {/* Testimonials Grid */}
+        <div className="grid gap-8 md:grid-cols-3">
+          {[
+            {
+              quote:
+                "The AI investment insights helped me rebalance and boost ROI significantly.",
+              name: "Sophia R.",
+            },
+            {
+              quote:
+                "Tokenized real estate access through this platform is a game changer.",
+              name: "Daniel M.",
+            },
+            {
+              quote:
+                "Everything from KYC to portfolio management is seamless and secure.",
+              name: "Arjun K.",
+            },
+          ].map((testimonial, i) => (
+            <div
+              key={i}
+              className="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
+            >
+              <p className="text-gray-600 italic mb-4 leading-relaxed">
+                “{testimonial.quote}”
               </p>
-              <p className="text-sm text-gray-500">— Investor #{id}</p>
+              <p className="text-sm text-gray-500 font-medium">— {testimonial.name}</p>
             </div>
           ))}
         </div>
