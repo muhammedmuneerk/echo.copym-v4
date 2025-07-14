@@ -1,6 +1,25 @@
 import React from 'react';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const TechnologyStackSection = () => {
+  const features = [
+    {
+      title: 'Multi-Chain Infrastructure',
+      desc: 'Interact seamlessly across Ethereum, Polygon, Solana, and more — without compromising performance or security.',
+    },
+    {
+      title: 'Smart Contract Transparency',
+      desc: 'All smart contracts are open, verifiable, and follow best practices for gas efficiency and audit readiness.',
+    },
+    {
+      title: 'Custodial & Non-Custodial Options',
+      desc: 'Choose full control or delegate asset management securely — with support for MPC wallets and direct wallet connections.',
+    },
+    {
+      title: 'Audits & Security Standards',
+      desc: 'Regular smart contract audits, GDPR compliance, and infrastructure built to meet institutional-grade standards.',
+    },
+  ];
   return (
     <section className="w-full px-6 py-16 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -12,40 +31,44 @@ const TechnologyStackSection = () => {
           Built for developers, institutions, and innovators — our infrastructure is designed to be flexible, secure, and future-proof.
         </p>
 
-        {/* Technology Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition">
-            <h4 className="brand-card-title text-gray-800 mb-2">Multi-Chain Infrastructure</h4>
-            <p className="text-gray-600 text-sm">
-              Interact seamlessly across Ethereum, Polygon, Solana, and more — without compromising performance or security.
-            </p>
+        {/* Two-Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left – features */}
+          {/* Small screens: horizontal swipe */}
+          <div className="flex sm:hidden overflow-x-auto space-x-6 pb-4 snap-x snap-mandatory">
+            {features.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex-none w-72 bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition snap-center"
+              >
+                <h4 className="brand-card-title text-gray-800 mb-2">{item.title}</h4>
+                <p className="text-gray-600 text-sm">{item.desc}</p>
+              </div>
+            ))}
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition">
-            <h4 className="brand-card-title text-gray-800 mb-2">Smart Contract Transparency</h4>
-            <p className="text-gray-600 text-sm">
-              All smart contracts are open, verifiable, and follow best practices for gas efficiency and audit readiness.
-            </p>
+          {/* Medium & up: grid */}
+          <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {features.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition"
+              >
+                <h4 className="brand-card-title text-gray-800 mb-2">{item.title}</h4>
+                <p className="text-gray-600 text-sm">{item.desc}</p>
+              </div>
+            ))}
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition">
-            <h4 className="brand-card-title text-gray-800 mb-2">Custodial & Non-Custodial Options</h4>
-            <p className="text-gray-600 text-sm">
-              Choose full control or delegate asset management securely — with support for MPC wallets and direct wallet connections.
-            </p>
+          {/* Right – Crypto chains Lottie */}
+          <div className="flex items-center justify-center w-full">
+            <Player
+              autoplay
+              loop
+              src="/assets/lottie/Crypto%20chains/Crypto%20chains.json"
+              style={{ height: '350px', width: '350px' }}
+            />
           </div>
-
-          <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition">
-            <h4 className="brand-card-title text-gray-800 mb-2">Audits & Security Standards</h4>
-            <p className="text-gray-600 text-sm">
-              Regular smart contract audits, GDPR compliance, and infrastructure built to meet institutional-grade standards.
-            </p>
-          </div>
-        </div>
-
-        {/* Optional Graphic / Badge / Chain Logos */}
-        <div className="mt-12 h-56 bg-gray-100 border border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-500 text-center">
-          Placeholder for blockchain logos, audit badges, or chain flow diagram
         </div>
       </div>
     </section>

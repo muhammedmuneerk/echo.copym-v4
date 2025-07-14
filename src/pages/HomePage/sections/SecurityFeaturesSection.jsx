@@ -1,6 +1,33 @@
 import React from 'react';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const SecurityFeaturesSection = () => {
+  const features = [
+    {
+      title: 'MPC Wallet Infrastructure',
+      desc: 'Secure custody with Multi-Party Computation — no single point of failure.',
+    },
+    {
+      title: 'Blockchain Transparency',
+      desc: 'Immutable transactions and audit trails recorded directly on-chain.',
+    },
+    {
+      title: 'End-to-End Encryption',
+      desc: 'Military-grade encryption to protect your data at rest and in transit.',
+    },
+    {
+      title: 'Access Control & Whitelisting',
+      desc: 'Only verified, permissioned participants can interact with assets.',
+    },
+    {
+      title: 'Audit-Ready Architecture',
+      desc: 'Built with compliance in mind — easily integrate with KYC, AML, and reporting tools.',
+    },
+    {
+      title: 'Uptime & Redundancy',
+      desc: 'Highly available infrastructure with automated backups and failover.',
+    },
+  ];
   return (
     <section
       style={{
@@ -21,47 +48,44 @@ const SecurityFeaturesSection = () => {
           Your assets are protected with cutting-edge security standards trusted by institutions.
         </p>
 
-        {/* Security Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              title: 'MPC Wallet Infrastructure',
-              desc: 'Secure custody with Multi-Party Computation — no single point of failure.',
-            },
-            {
-              title: 'Blockchain Transparency',
-              desc: 'Immutable transactions and audit trails recorded directly on-chain.',
-            },
-            {
-              title: 'End-to-End Encryption',
-              desc: 'Military-grade encryption to protect your data at rest and in transit.',
-            },
-            {
-              title: 'Access Control & Whitelisting',
-              desc: 'Only verified, permissioned participants can interact with assets.',
-            },
-            {
-              title: 'Audit-Ready Architecture',
-              desc: 'Built with compliance in mind — easily integrate with KYC, AML, and reporting tools.',
-            },
-            {
-              title: 'Uptime & Redundancy',
-              desc: 'Highly available infrastructure with automated backups and failover.',
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="bg-white/15 backdrop-blur-md p-6 rounded-xl shadow hover:shadow-lg transition"
-            >
-              <h4 className="brand-card-title text-white mb-2">{item.title}</h4>
-              <p className="text-gray-400 text-sm">{item.desc}</p>
-            </div>
-          ))}
-        </div>
+        {/* Two-Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left – features */}
+          {/* Small screens: horizontal swipe */}
+          <div className="flex sm:hidden overflow-x-auto space-x-6 pb-4 snap-x snap-mandatory">
+            {features.map((item, i) => (
+              <div
+                key={i}
+                className="flex-none w-72 bg-white/15 backdrop-blur-md p-6 rounded-xl shadow hover:shadow-lg transition snap-center"
+              >
+                <h4 className="brand-card-title text-white mb-2">{item.title}</h4>
+                <p className="text-gray-400 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
 
-        {/* Visual Placeholder */}
-        <div className="mt-12 h-64 bg-white/15 backdrop-blur-md border border-dashed border-white/40 rounded-xl flex items-center justify-center text-gray-100 text-center">
-          Placeholder for security infographic / animation / badge logos
+          {/* Medium & up: grid */}
+          <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {features.map((item, i) => (
+              <div
+                key={i}
+                className="bg-white/15 backdrop-blur-md p-6 rounded-xl shadow hover:shadow-lg transition"
+              >
+                <h4 className="brand-card-title text-white mb-2">{item.title}</h4>
+                <p className="text-gray-400 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Right – Lottie animation */}
+          <div className="flex items-center justify-center w-full">
+            <Player
+              autoplay
+              loop
+              src="/assets/lottie/CyberSecurity%20Net%20lock/CyberSecurity%20Net%20lock.json"
+              style={{ height: '450px', width: '450px' }}
+            />
+          </div>
         </div>
       </div>
     </section>

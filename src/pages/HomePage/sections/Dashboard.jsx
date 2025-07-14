@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, DollarSign, PieChart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function MarketplacePreview() {
   return (
@@ -15,79 +15,23 @@ export default function MarketplacePreview() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Chart or Preview Panel */}
-          <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-200 shadow-lg p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="brand-card-title text-black">Token Investment Overview</h3>
-              <div className="flex items-center space-x-2">
-                <span className="text-green-500 font-semibold">+12.5% ROI</span>
-                <TrendingUp className="h-4 w-4 text-green-500" />
-              </div>
-            </div>
-
-            <div className="h-64 bg-gray-50 rounded-lg relative overflow-hidden">
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 200">
-                <polyline
-                  fill="none"
-                  stroke="#000000"
-                  strokeWidth="2"
-                  points="0,150 50,120 100,140 150,100 200,110 250,80 300,90 350,60 400,70"
-                />
-                <polyline
-                  fill="none"
-                  stroke="#f7931a"
-                  strokeWidth="2"
-                  strokeDasharray="5,5"
-                  points="0,160 50,140 100,150 150,120 200,130 250,100 300,110 350,80 400,90"
-                />
-              </svg>
-              <div className="absolute bottom-4 left-4 text-sm text-gray-600">
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center">
-                    <div className="w-3 h-3 bg-black rounded-full mr-2"></div>
-                    My Investments
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-3 h-3 bg-orange-400 rounded-full mr-2"></div>
-                    Market Index
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Stats Panels */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-6">
-              <div className="flex items-center justify-between mb-4">
-                <DollarSign className="h-8 w-8 text-black" />
-                <span className="text-green-500 text-sm font-medium">+8.2%</span>
-              </div>
-              <div className="text-2xl font-bold text-black mb-1">$124,536</div>
-              <div className="text-gray-600 text-sm">Invested Value</div>
-            </div>
-
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-6">
-              <div className="flex items-center justify-between mb-4">
-                <PieChart className="h-8 w-8 text-black" />
-                <span className="text-orange-500 text-sm font-medium">Diversified</span>
-              </div>
-              <div className="text-2xl font-bold text-black mb-1">18 Tokens</div>
-              <div className="text-gray-600 text-sm">Across 4 Asset Classes</div>
-            </div>
-          </div>
+        {/* Device mockup image */}
+        <div className="flex justify-center">
+          <img
+            src="/assets/images/dashboard-on-device.png"
+            alt="Marketplace dashboard displayed on multiple devices"
+            className="w-full max-w-5xl rounded-2xl shadow-lg border border-gray-200"
+          />
         </div>
 
         {/* Learn More Button */}
         <div className="flex flex-col sm:flex-row gap-4 py-8 justify-center ">
-          <a
-            href="/marketplace"
+          <Link
+            to="/marketplace"
             className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
           >
             Learn More
-          </a>
+          </Link>
         </div>
       </div>
     </section>

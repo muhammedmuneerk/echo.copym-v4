@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Play, X } from 'lucide-react';
 import { Player } from '@lottiefiles/react-lottie-player';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   const [isVideoOpen, setVideoOpen] = useState(false);
@@ -47,10 +48,10 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
+              <Link className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center" to="/marketplace">
                 Start Investing
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
+              </Link>
               <button onClick={() => setVideoOpen(true)} className="border border-gray-300 text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 flex items-center justify-center">
                 <Play className="mr-2 h-5 w-5" />
                 Watch Demo
@@ -74,12 +75,12 @@ export default function Hero() {
           </div>
 
           {/* Right Content - Lottie Animation */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center overflow-hidden">
             <Player
               autoplay
               loop
               src="/assets/lottie/hero-rightgrid-tokenization/hero-rightgrid-tokenization.json"
-              style={{ height: '400px', width: '400px' }}
+              className="w-full max-w-[260px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px]"
             />
           </div>
         </div>
