@@ -1,9 +1,12 @@
-import React from 'react';
-import { ArrowRight, Play } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Play, X } from 'lucide-react';
+import { Player } from '@lottiefiles/react-lottie-player';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
+  const [isVideoOpen, setVideoOpen] = useState(false);
   return (
-    <section className="relative bg-white py-20 lg:py-32 overflow-hidden">
+    <section className="relative bg-white py-20 lg:py-28 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
@@ -27,30 +30,29 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left  lg:-mt-24">
             <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700 mb-6">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
              Institutional-Grade Asset Tokenization Platform
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
+            <h1 className="brand-title text-black mb-6">
                Tokenize Real-World Assets{' '}
               <span className="relative">
                 with Institutional-Grade Security
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-orange-400"></div>
               </span>
             </h1>
             
-            <p className="text-xl text-gray-600 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+            <p className="brand-description mb-8 max-w-lg mx-auto lg:mx-0">
            Seamless on-chain investment in real estate, commodities, carbon credits, and luxury assets. No gas fees, no native token required.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
+              <Link className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center" to="/marketplace">
                 Start Investing
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
-              <button className="border border-gray-300 text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 flex items-center justify-center">
+              </Link>
+              <button onClick={() => setVideoOpen(true)} className="border border-gray-300 text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 flex items-center justify-center">
                 <Play className="mr-2 h-5 w-5" />
                 Watch Demo
               </button>
@@ -72,38 +74,48 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Content - Dashboard Preview */}
-          <div className="relative">
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-black">Portfolio Overview</h3>
-                <span className="text-green-500 text-sm font-medium">+12.5%</span>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Total Value</span>
-                  <span className="font-semibold text-black">$124,536.72</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Today's Change</span>
-                  <span className="font-semibold text-green-500">+$2,421.33</span>
-                </div>
-              </div>
-
-              <div className="mt-6 h-32 bg-gray-50 rounded-lg flex items-end justify-between p-4">
-                {[40, 65, 45, 70, 55, 80, 60].map((height, index) => (
-                  <div
-                    key={index}
-                    className="bg-black rounded-sm opacity-80"
-                    style={{ height: `${height}%`, width: '12px' }}
-                  ></div>
-                ))}
-              </div>
-            </div>
+          {/* Right Content - Lottie Animation */}
+          <div className="flex items-center justify-center overflow-hidden">
+            <Player
+              autoplay
+              loop
+              src="/assets/lottie/hero-rightgrid-tokenization/hero-rightgrid-tokenization.json"
+              className="w-full max-w-[260px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px]"
+            />
           </div>
         </div>
       </div>
+      {isVideoOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl aspect-video"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-10 right-0 text-white hover:text-gray-300 focus:outline-none"
+              aria-label="Close video"
+            >
+              <X size={32} />
+            </button>
+            <video
+              src="/assets/videos/how-it-works.mp4"
+              controls
+              autoPlay
+              className="w-full h-full rounded-lg shadow-lg"
+            />
+            <button
+              onClick={() => setVideoOpen(false)}
+              className="mt-4 px-6 py-2 bg-white text-black font-medium rounded shadow hover:bg-gray-100 focus:outline-none absolute left-1/2 transform -translate-x-1/2 bottom- -12"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

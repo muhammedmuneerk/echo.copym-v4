@@ -39,10 +39,10 @@ export default function Features() {
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+          <h2 className="brand-section-title text-black mb-4">
             Invest Like An Outlier
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="brand-description max-w-3xl mx-auto">
             Our platform combines cutting-edge technology with intuitive design to give you everything you need to build wealth and achieve your financial goals.
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function Features() {
               <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4">
                 <feature.icon className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-black mb-3">
+              <h3 className="brand-card-title text-black mb-3">
                 {feature.title}
               </h3>
               <p className="text-gray-600 leading-relaxed">

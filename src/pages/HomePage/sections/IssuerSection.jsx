@@ -6,7 +6,7 @@ const IssuerSection = () => {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
         {/* Left Text Content */}
         <div className="flex-1">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="brand-section-title text-gray-900 mb-4">
             Tokenize Your Real-World Assets
           </h2>
           <p className="text-gray-700 mb-6 max-w-xl">
@@ -30,17 +30,19 @@ const IssuerSection = () => {
           </div>
 
           {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
           <a
-            href="/issuer"
-            className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition"
+            href="/tokenization"
+            className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105  items-center justify-center"
           >
             Learn More About Issuing Tokens
           </a>
+          </div>
         </div>
 
         {/* Right Side: Placeholder for image / flowchart / video */}
         <div className="flex-1 w-full h-[300px] bg-white border border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 text-center">
-          Placeholder for asset tokenization flowchart / explainer video
+          <img className='rounded-2xl border border-gray-200 shadow-lg ' src='/assets/images/image-2.png'></img>
         </div>
       </div>
     </section>
