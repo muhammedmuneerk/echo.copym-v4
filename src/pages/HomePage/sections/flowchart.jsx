@@ -359,7 +359,7 @@ export default function Flowchart() {
     <div className="flowchart-container" ref={containerRef}>
       {/* Enhanced Header - Outside the box */}
       <div className="header">
-        <h1 className="brand-section-title text-gray-900 mb-4">
+        <h1 className="brand-section-title mb-4">
           HOW COPYM WORKS!
         </h1>
         <p className="brand-description max-w-3xl mx-auto">
