@@ -13,6 +13,10 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import WorkIcon from '@mui/icons-material/Work';
+import BusinessIcon from '@mui/icons-material/Business';
+import PersonIcon from '@mui/icons-material/Person';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import StopIcon from '@mui/icons-material/Stop';
 
 import { Search as LucideSearch, TrendingUp as LucideTrendingUp } from 'lucide-react';
 
@@ -27,7 +31,7 @@ const journeyData = {
         id: 'marketplace',
         x: 50,
         y: 50,
-        icon: <StorefrontIcon fontSize="large" className="text-green-400" />,
+        icon: <StorefrontIcon sx={{ fontSize: 48 }} className="text-green-400" />,
         label: 'RWA Marketplace',
         central: true,
         color: 'green'
@@ -36,7 +40,7 @@ const journeyData = {
         id: 'register', 
         x: 20, 
         y: 20, 
-        icon: <PersonAddIcon fontSize="medium" className="text-blue-400" />, 
+        icon: <PersonAddIcon fontSize="large" className="text-blue-400" />, 
         label: 'Register & KYB',
         color: 'blue'
       },
@@ -44,7 +48,7 @@ const journeyData = {
         id: 'submit', 
         x: 80, 
         y: 15, 
-        icon: <UploadFileIcon fontSize="medium" className="text-green-400" />, 
+        icon: <UploadFileIcon fontSize="large" className="text-green-400" />, 
         label: 'Submit Assets',
         color: 'green'
       },
@@ -52,7 +56,7 @@ const journeyData = {
         id: 'compliance', 
         x: 85, 
         y: 50, 
-        icon: <CheckCircleIcon fontSize="medium" className="text-blue-400" />, 
+        icon: <CheckCircleIcon fontSize="large" className="text-blue-400" />, 
         label: 'Compliance Check',
         color: 'blue'
       },
@@ -60,7 +64,7 @@ const journeyData = {
         id: 'tokenize', 
         x: 70, 
         y: 80, 
-        icon: <LinkIcon fontSize="medium" className="text-green-400" />, 
+        icon: <LinkIcon fontSize="large" className="text-green-400" />, 
         label: 'Tokenization',
         color: 'green'
       },
@@ -68,7 +72,7 @@ const journeyData = {
         id: 'list', 
         x: 30, 
         y: 85, 
-        icon: <ShowChartIcon fontSize="medium" className="text-blue-400" />, 
+        icon: <ShowChartIcon fontSize="large" className="text-blue-400" />, 
         label: 'List on Market',
         color: 'blue'
       },
@@ -76,7 +80,7 @@ const journeyData = {
         id: 'manage', 
         x: 15, 
         y: 60, 
-        icon: <AttachMoneyIcon fontSize="medium" className="text-green-400" />, 
+        icon: <AttachMoneyIcon fontSize="large" className="text-green-400" />, 
         label: 'Manage & Distribute',
         color: 'green'
       },
@@ -137,7 +141,7 @@ const journeyData = {
         id: 'marketplace',
         x: 50,
         y: 50,
-        icon: <StorefrontIcon fontSize="large" className="text-green-400" />,
+        icon: <StorefrontIcon sx={{ fontSize: 48 }} className="text-green-400" />,
         label: 'RWA Marketplace',
         central: true,
         color: 'green'
@@ -146,7 +150,7 @@ const journeyData = {
         id: 'signup', 
         x: 20, 
         y: 25, 
-        icon: <PersonAddIcon fontSize="medium" className="text-blue-400" />, 
+        icon: <PersonAddIcon fontSize="large" className="text-blue-400" />, 
         label: 'Sign Up & KYC',
         color: 'blue'
       },
@@ -154,7 +158,7 @@ const journeyData = {
         id: 'browse', 
         x: 75, 
         y: 20, 
-        icon: <LucideSearch size={24} className="text-green-400" />, 
+        icon: <LucideSearch size={32} className="text-green-400" />, 
         label: 'Browse Assets',
         color: 'green'
       },
@@ -162,7 +166,7 @@ const journeyData = {
         id: 'analyze', 
         x: 85, 
         y: 55, 
-        icon: <LucideTrendingUp size={24} className="text-blue-400" />, 
+        icon: <LucideTrendingUp size={32} className="text-blue-400" />, 
         label: 'Analyze Returns',
         color: 'blue'
       },
@@ -170,7 +174,7 @@ const journeyData = {
         id: 'invest', 
         x: 65, 
         y: 80, 
-        icon: <CreditCardIcon fontSize="medium" className="text-green-400" />, 
+        icon: <CreditCardIcon fontSize="large" className="text-green-400" />, 
         label: 'Make Investment',
         color: 'green'
       },
@@ -178,7 +182,7 @@ const journeyData = {
         id: 'receive', 
         x: 30, 
         y: 80, 
-        icon: <MonetizationOnIcon fontSize="medium" className="text-blue-400" />, 
+        icon: <MonetizationOnIcon fontSize="large" className="text-blue-400" />, 
         label: 'Receive Tokens',
         color: 'blue'
       },
@@ -186,7 +190,7 @@ const journeyData = {
         id: 'portfolio', 
         x: 15, 
         y: 50, 
-        icon: <WorkIcon fontSize="medium" className="text-green-400" />, 
+        icon: <WorkIcon fontSize="large" className="text-green-400" />, 
         label: 'Manage Portfolio',
         color: 'green'
       },
@@ -353,31 +357,33 @@ export default function Flowchart() {
 
   return (
     <div className="flowchart-container" ref={containerRef}>
-      {/* Enhanced Header */}
+      {/* Enhanced Header - Outside the box */}
       <div className="header">
-        <h1 className="header-title">
-          HOW <span className="text-green-400">COPYM</span> WORKS!
+        <h1 className="brand-section-title text-gray-900 mb-4">
+          HOW COPYM WORKS!
         </h1>
-        <p className="header-subtitle">
+        <p className="brand-description max-w-3xl mx-auto">
           Transform Real World Assets into Digital Investment Opportunities
         </p>
       </div>
 
-      {/* Enhanced Toggle with Animation Controls */}
-      <div className="journey-controls">
+      {/* Bordered Container with green-50 background */}
+      <div className="rounded-2xl shadow-lg border border-gray-200 bg-green-50 p-8">
+        {/* Enhanced Toggle with Animation Controls */}
+        <div className="journey-controls">
         <div className="journey-toggle">
           <button
             className={`toggle-btn ${journey === 'issuer' ? 'active' : ''}`}
             onClick={() => setJourney('issuer')}
           >
-            <span className="toggle-icon">🏢</span>
+            <BusinessIcon className="toggle-icon" />
             ASSET ISSUER FLOW
           </button>
           <button
             className={`toggle-btn ${journey === 'investor' ? 'active' : ''}`}
             onClick={() => setJourney('investor')}
           >
-            <span className="toggle-icon">👤</span>
+            <PersonIcon className="toggle-icon" />
             INVESTOR FLOW
           </button>
         </div>
@@ -386,12 +392,12 @@ export default function Flowchart() {
         <div className="animation-controls">
           {!isAnimating ? (
             <button className="animation-btn play" onClick={startAnimation}>
-              <span className="animation-icon">▶️</span>
+              <PlayArrowIcon className="animation-icon" />
               Play Animation
             </button>
           ) : (
             <button className="animation-btn stop" onClick={stopAnimation}>
-              <span className="animation-icon">⏹️</span>
+              <StopIcon className="animation-icon" />
               Stop Animation
             </button>
           )}
@@ -425,16 +431,32 @@ export default function Flowchart() {
             const isAnimated = isAnimating && (animationStep >= idx);
             const strokeColor = fromNode.color === 'green' ? 'url(#greenGradient)' : 'url(#blueGradient)';
             
+            // Calculate control points for curved path
+            const dx = toNode.x - fromNode.x;
+            const dy = toNode.y - fromNode.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Create control points for smooth curves
+            // Offset perpendicular to the line direction
+            const offset = Math.min(distance * 0.3, 8); // Limit maximum curve
+            const angle = Math.atan2(dy, dx) + Math.PI / 2;
+            
+            const controlX1 = fromNode.x + Math.cos(angle) * offset;
+            const controlY1 = fromNode.y + Math.sin(angle) * offset;
+            const controlX2 = toNode.x + Math.cos(angle) * offset;
+            const controlY2 = toNode.y + Math.sin(angle) * offset;
+            
+            // Create curved path using cubic Bézier curves
+            const pathData = `M ${fromNode.x} ${fromNode.y} C ${controlX1} ${controlY1}, ${controlX2} ${controlY2}, ${toNode.x} ${toNode.y}`;
+            
             return (
-              <line
+              <path
                 key={idx}
-                x1={fromNode.x}
-                y1={fromNode.y}
-                x2={toNode.x}
-                y2={toNode.y}
+                d={pathData}
                 className={`connection ${isActive ? 'active' : ''} ${isAnimated ? 'animated' : ''}`}
                 stroke={isActive || isAnimated ? strokeColor : undefined}
                 strokeWidth={isActive || isAnimated ? 3 : 2}
+                fill="none"
               />
             );
           })}
@@ -520,6 +542,7 @@ export default function Flowchart() {
           </span>
         </div>
       )}
+      </div>
     </div>
   );
 }
