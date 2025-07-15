@@ -53,7 +53,7 @@ const SecurityFeaturesSection = () => {
       {/* <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full animate-sweep" /> */}
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <h2 className="brand-section-title text-gray-900 mb-4">
+        <h2 className="brand-section-title mb-4 bg-clip-text">
           Enterprise-Grade Security, Built for Web3
         </h2>
         <p className="text-gray-600 mb-10 max-w-2xl">

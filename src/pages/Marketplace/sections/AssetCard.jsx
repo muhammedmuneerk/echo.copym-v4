@@ -14,11 +14,10 @@ const mockAsset = {
 
 export default function AssetCard() {
   const asset = mockAsset;
-
   const progressPercent = (asset.availableTokens / asset.totalTokens) * 100;
 
   return (
-    <div className="w-full max-w-sm rounded-xl shadow-md border border-gray-200 bg-white overflow-hidden">
+    <div className="w-full max-w-sm rounded-2xl shadow-lg border border-gray-100 bg-white overflow-hidden transition hover:shadow-xl hover:border-gray-300">
       {/* Image */}
       <div className="relative w-full aspect-video">
         <img
@@ -26,16 +25,14 @@ export default function AssetCard() {
           alt={asset.title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute top-2 right-2 bg-gray-800 text-white text-xs px-3 py-1 rounded-full">
+        <div className="absolute top-3 right-3 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-white text-[11px] px-3 py-1 rounded-full shadow-md font-semibold uppercase">
           {asset.category}
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-4">
-        <h3 className="text-lg font-bold text-gray-800 mb-2">
-          {asset.title}
-        </h3>
+      <div className="p-5 space-y-4">
+        <h3 className="text-xl font-bold text-gray-900">{asset.title}</h3>
 
         <div className="space-y-2 text-sm text-gray-600">
           <div className="flex items-center gap-2">
@@ -47,7 +44,7 @@ export default function AssetCard() {
             <TrendingUp size={16} className="text-gray-400" />
             <span>
               Expected ROI:{" "}
-              <span className="font-semibold text-gray-800">
+              <span className="font-semibold text-gray-900">
                 {asset.expectedRoi}
               </span>
             </span>
@@ -55,33 +52,36 @@ export default function AssetCard() {
 
           <div className="flex items-center gap-2">
             <Coins size={16} className="text-gray-400" />
-            <span>
+            <span className="text-gray-700">
               {asset.availableTokens}/{asset.totalTokens} tokens available
             </span>
           </div>
         </div>
 
         {/* Progress bar */}
-        <div className="w-full h-2 bg-gray-200 rounded-full mt-4 overflow-hidden">
+        <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gray-800"
+            className="h-full bg-gradient-to-r from-emerald-500 to-blue-500"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
 
-        {/* Price */}
+        {/* Footer */}
         <div className="mt-4 flex justify-between items-center">
           <div>
-            <p className="text-xs text-gray-500 uppercase font-semibold">Price</p>
-            <p className="text-xl font-bold text-gray-800">${asset.price.toLocaleString()}</p>
+            <p className="text-xs text-gray-500 uppercase font-medium">
+              Price
+            </p>
+            <p className="text-xl font-bold text-gray-900">
+              ${asset.price.toLocaleString()}
+            </p>
           </div>
 
-          <button className="px-4 py-2 bg-gray-800 text-white rounded-lg text-sm hover:bg-gray-700 transition">
-            Invest
+          <button className="px-5 py-2.5 text-sm font-semibold text-white btn-gradient">
+            Invest Now
           </button>
         </div>
       </div>
     </div>
   );
 }
-

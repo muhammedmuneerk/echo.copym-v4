@@ -15,7 +15,7 @@ const WhyTokenizedAssets = () => {
     <section className="w-full px-6 py-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <h2 className="brand-section-title text-gray-900 mb-4">
+        <h2 className="brand-section-title mb-4 bg-clip-text">
           Why Tokenized Assets?
         </h2>
         <p className="brand-description mb-10 max-w-2xl">

@@ -33,30 +33,39 @@ export default function Hero() {
           <div className="text-center lg:text-left  lg:-mt-24">
             <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700 mb-6">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-             Institutional-Grade Asset Tokenization Platform
+              Institutional-Grade Asset Tokenization Platform
             </div>
-            
-            <h1 className="brand-title text-black mb-6">
-               Tokenize Real-World Assets{' '}
-              <span className="relative">
+
+            <h1 className="brand-title text-black mb-6 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
+              Tokenize Real-World Assets{' '}
+              <span className="relative bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
                 with Institutional-Grade Security
               </span>
             </h1>
-            
+
             <p className="brand-description mb-8 max-w-lg mx-auto lg:mx-0">
-           Seamless on-chain investment in real estate, commodities, carbon credits, and luxury assets. No gas fees, no native token required.
+              Seamless on-chain investment in real estate, commodities, carbon credits, and luxury assets. No gas fees, no native token required.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center" to="/marketplace">
+              {/* Primary Button – Full gradient fill */}
+              <Link
+                to="/marketplace"
+                className="inline-flex items-center justify-center px-6 py-2.5 font-semibold text-white btn-gradient"
+              >
                 Start Investing
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-              <button onClick={() => setVideoOpen(true)} className="border border-gray-300 text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 flex items-center justify-center">
+
+              {/* Secondary Button – Muted gradient fill */}
+              <button
+                onClick={() => setVideoOpen(true)}
+                className="inline-flex items-center justify-center px-6 py-2.5 font-semibold text-white btn-gradient-secondary">
                 <Play className="mr-2 h-5 w-5" />
                 Watch Demo
               </button>
             </div>
+
 
             <div className="flex items-center justify-center lg:justify-start space-x-8 mt-12 text-sm text-gray-500">
               <div>
