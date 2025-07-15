@@ -35,7 +35,7 @@ const IssuerSection = () => {
             href="/tokenization"
             className="text-white px-8 py-4 rounded-lg font-semibold btn-gradient items-center justify-center"
           >
-            Learn More About Issuing Tokens
+            Learn More
           </a>
           </div>
         </div>

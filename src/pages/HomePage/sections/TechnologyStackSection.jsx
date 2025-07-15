@@ -32,11 +32,11 @@ const TechnologyStackSection = () => {
     <section className="w-full px-6 py-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <h2 className="brand-section-title text-gray-900 mb-4">
+        <h2 className="brand-section-title mb-4 bg-clip-text">
           Unified Access to All Major Blockchains
         </h2>
         <p className="brand-description mb-10 max-w-2xl">
-          Built for developers, institutions, and innovators — our infrastructure is designed to be flexible, secure, and future-proof.
+          Built for developers, institutions, and innovators.Our infrastructure is designed to be flexible, secure, and future-proof.
         </p>
 
         {/* Two-Column Layout */}
