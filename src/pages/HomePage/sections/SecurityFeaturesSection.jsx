@@ -12,32 +12,32 @@ const SecurityFeaturesSection = () => {
     {
       title: 'MPC Wallet Infrastructure',
       desc: 'Secure custody with Multi-Party Computation — no single point of failure.',
-      icon: <VpnKeyIcon fontSize="medium" className="text-green-600" />,
+      icon: <VpnKeyIcon fontSize="medium" className="text-green-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
       title: 'Blockchain Transparency',
       desc: 'Immutable transactions and audit trails recorded directly on-chain.',
-      icon: <VisibilityIcon fontSize="medium" className="text-blue-600" />,
+      icon: <VisibilityIcon fontSize="medium" className="text-blue-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
       title: 'End-to-End Encryption',
       desc: 'Military-grade encryption to protect your data at rest and in transit.',
-      icon: <LockIcon fontSize="medium" className="text-green-600" />,
+      icon: <LockIcon fontSize="medium" className="text-green-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
       title: 'Access Control & Whitelisting',
       desc: 'Only verified, permissioned participants can interact with assets.',
-      icon: <VerifiedUserIcon fontSize="medium" className="text-blue-600" />,
+      icon: <VerifiedUserIcon fontSize="medium" className="text-blue-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
       title: 'Audit-Ready Architecture',
       desc: 'Built with compliance in mind — easily integrate with KYC, AML, and reporting tools.',
-      icon: <FactCheckIcon fontSize="medium" className="text-green-600" />,
+      icon: <FactCheckIcon fontSize="medium" className="text-green-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
       title: 'Uptime & Redundancy',
       desc: 'Highly available infrastructure with automated backups and failover.',
-      icon: <CloudDoneIcon fontSize="medium" className="text-blue-600" />,
+      icon: <CloudDoneIcon fontSize="medium" className="text-blue-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
   ];
   return (

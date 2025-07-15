@@ -12,37 +12,37 @@ const AiOverview = () => {
   const features = [
     {
       title: 'Contextual Chatbots',
-      icon: <SmartToyIcon className="text-green-600" />,
+      icon: <SmartToyIcon className="text-green-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
       description:
         'Engage your users with AI-driven chatbots that understand context, intent, and deliver human-like responses.'
     },
     {
       title: 'Real-Time Analytics',
-      icon: <QueryStatsIcon className="text-blue-600" />,
+      icon: <QueryStatsIcon className="text-blue-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
       description:
         'Our AI engine continuously analyses on-chain & off-chain data streams, surfacing actionable insights in real-time.'
     },
     {
       title: 'Predictive Modelling',
-      icon: <AutoGraphIcon className="text-green-600" />,
+      icon: <AutoGraphIcon className="text-green-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
       description:
         'Leverage machine-learning models to forecast market movements, token demand, and investor behaviour.'
     },
     {
       title: 'Automated Compliance',
-      icon: <GavelIcon className="text-blue-600" />,
+      icon: <GavelIcon className="text-blue-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
       description:
         'Smart policies monitor transactions 24/7 to flag anomalies and enforce KYC/AML requirements automatically.'
     },
     {
       title: 'Personalised Dashboards',
-      icon: <DashboardCustomizeIcon className="text-green-600" />,
+      icon: <DashboardCustomizeIcon className="text-green-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
       description:
         'Each stakeholder sees AI-curated KPIs, alerts, and recommendations tailored to their unique portfolio.'
     },
     {
       title: 'Low-Code Integrations',
-      icon: <IntegrationInstructionsIcon className="text-blue-600" />,
+      icon: <IntegrationInstructionsIcon className="text-blue-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
       description:
         'Plug-and-play widgets & APIs let you embed powerful AI capabilities into your own products within minutes.'
     }

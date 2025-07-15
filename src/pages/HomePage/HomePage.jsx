@@ -13,7 +13,7 @@ export default function HomePage() {
       <HowItWorks />
       <AiOverview />
       <Dashboard />
-      <WhyTokenizedAssets />
+      {/* <WhyTokenizedAssets /> */}
       <IssuerSection />
       <SecurityFeaturesSection />
       <TechnologyStackSection />
