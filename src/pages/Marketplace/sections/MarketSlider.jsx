@@ -25,7 +25,7 @@ const mockAssets = [
     price: 250000,
     availableTokens: 750,
     totalTokens: 1000,
-    image: "/assets/images/premium-office-building-1.png",
+    image: "/assets/Images/premium-office-building-1.png",
   },
   {
     id: "art-1",
@@ -36,7 +36,7 @@ const mockAssets = [
     price: 15000,
     availableTokens: 65,
     totalTokens: 100,
-    image: "/assets/images/digital-art-collection-1.png",
+    image: "/assets/Images/digital-art-collection-1.png",
   },
   {
     id: "commodities-1",
@@ -47,7 +47,7 @@ const mockAssets = [
     price: 50000,
     availableTokens: 320,
     totalTokens: 500,
-    image: "/assets/images/gold-reserve.png",
+    image: "/assets/Images/gold-reserve.png",
   },
   {
     id: "infrastructure-1",
@@ -58,7 +58,7 @@ const mockAssets = [
     price: 120000,
     availableTokens: 1800,
     totalTokens: 2000,
-    image: "/assets/images/solar-farm-project-2.png",
+    image: "/assets/Images/solar-farm-project-2.png",
   },
   {
     id: "startups-1",
@@ -69,7 +69,7 @@ const mockAssets = [
     price: 75000,
     availableTokens: 210,
     totalTokens: 300,
-    image: "/assets/images/tech-2.png",
+    image: "/assets/Images/tech-2.png",
   },
   {
     id: "real-estate-2",
@@ -80,7 +80,7 @@ const mockAssets = [
     price: 350000,
     availableTokens: 1200,
     totalTokens: 1500,
-    image: "/assets/images/apartment-complex.png",
+    image: "/assets/Images/apartment-complex.png",
   },
 ];
 
@@ -262,37 +262,15 @@ const MarketSlider = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Typography
-          variant="h2"
-          className="brand-section-title sm:text-4xl md:text-5xl mb-4 text-center bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text"
-        >
-          <Box
-            component="div"
-            className="flex flex-col items-center justify-center leading-snug max-w-xs sm:max-w-xl lg:max-w-4xl mx-auto"
-          >
-            {/* Large Screens */}
-            <Box className="hidden lg:block">
-              <Box component="div" className="flex flex-wrap justify-center">
-                <GradientLetters text="Marketplace Spotlight" keyPrefix="market-lg" />
-              </Box>
-            </Box>
+        <div className="text-center mb-16">
+          <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
+            Marketplace Spotlight
+          </h2>
 
-            {/* Small & Medium Screens */}
-            <Box className="block lg:hidden">
-              <Box component="div" className="flex flex-wrap justify-center">
-                <GradientLetters text="Marketplace Spotlight" keyPrefix="market-sm" />
-              </Box>
-            </Box>
-          </Box>
-        </Typography>
-
-
-        <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-          Discover featured tokenized assets currently available in our marketplace.
-        </p>
-        <p className="text-gray-400 text-sm mt-2 block sm:hidden">
-          Swipe left or right to navigate
-        </p>
+          <p className="brand-description max-w-3xl mx-auto">
+            Discover featured tokenized assets currently available in our marketplace.
+          </p>
+        </div>
       </motion.div>
 
       {/* Slider */}

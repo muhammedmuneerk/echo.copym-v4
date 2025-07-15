@@ -29,10 +29,10 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center px-3 py-1.5 bg-gray-100 rounded-full text-sm font-medium text-gray-700 mb-5">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-              Market is open
+             AI-Powered
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl  brand-section-title  leading-tight mb-6 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl brand-title  leading-tight mb-6 bg-clip-text">
               Explore Tokenized Real-World Assets
             </h1>
 
@@ -43,13 +43,13 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               {/* Primary Button – Full gradient fill */}
-              <button className="inline-flex items-center justify-center px-6 py-2.5 font-semibold rounded-full text-white bg-gradient-to-r from-[#15a36e] to-[#255f99] hover:opacity-90 transition-all duration-200">
+              <button className="inline-flex items-center justify-center px-6 py-2.5 font-semibold  text-white btn-gradient">
                 Enter Marketplace
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
 
               {/* Secondary Button – Muted gradient fill */}
-              <button className="inline-flex items-center justify-center px-6 py-2.5 font-semibold rounded-full text-white bg-gradient-to-r from-[#b1d8c9] to-[#a3bfdc] hover:opacity-90 transition-all duration-200">
+              <button className="inline-flex items-center justify-center px-6 py-2.5 font-semibold text-white btn-gradient-secondary">
                 <Play className="mr-2 h-5 w-5" />
                 Watch Demo
               </button>

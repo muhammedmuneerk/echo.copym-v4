@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 export default function MarketplacePreview() {
+  const navigate = useNavigate();
   return (
     <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="brand-section-title text-black mb-4">
+          <h2 className="brand-section-title mb-4 bg-clip-text">
             Preview Our Marketplace
           </h2>
           <p className="brand-description max-w-3xl mx-auto">
@@ -25,14 +26,15 @@ export default function MarketplacePreview() {
         </div>
 
         {/* Learn More Button */}
-        <div className="flex flex-col sm:flex-row gap-4 py-8 justify-center ">
-          <Link
-            to="/marketplace"
-            className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
+        <div className="flex flex-col sm:flex-row gap-4 py-8 justify-center">
+          <button
+            onClick={() => navigate("/marketplace")}
+            className="px-8 py-4 font-semibold  text-white flex items-center justify-center btn-gradient"
           >
             Learn More
-          </Link>
+          </button>
         </div>
+
       </div>
     </section>
   );
