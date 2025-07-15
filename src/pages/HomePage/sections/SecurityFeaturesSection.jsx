@@ -12,32 +12,32 @@ const SecurityFeaturesSection = () => {
     {
       title: 'MPC Wallet Infrastructure',
       desc: 'Secure custody with Multi-Party Computation — no single point of failure.',
-      icon: <VpnKeyIcon fontSize="medium" className="text-black" />,
+      icon: <VpnKeyIcon fontSize="medium" className="text-green-600" />,
     },
     {
       title: 'Blockchain Transparency',
       desc: 'Immutable transactions and audit trails recorded directly on-chain.',
-      icon: <VisibilityIcon fontSize="medium" className="text-black" />,
+      icon: <VisibilityIcon fontSize="medium" className="text-blue-600" />,
     },
     {
       title: 'End-to-End Encryption',
       desc: 'Military-grade encryption to protect your data at rest and in transit.',
-      icon: <LockIcon fontSize="medium" className="text-black" />,
+      icon: <LockIcon fontSize="medium" className="text-green-600" />,
     },
     {
       title: 'Access Control & Whitelisting',
       desc: 'Only verified, permissioned participants can interact with assets.',
-      icon: <VerifiedUserIcon fontSize="medium" className="text-black" />,
+      icon: <VerifiedUserIcon fontSize="medium" className="text-blue-600" />,
     },
     {
       title: 'Audit-Ready Architecture',
       desc: 'Built with compliance in mind — easily integrate with KYC, AML, and reporting tools.',
-      icon: <FactCheckIcon fontSize="medium" className="text-black" />,
+      icon: <FactCheckIcon fontSize="medium" className="text-green-600" />,
     },
     {
       title: 'Uptime & Redundancy',
       desc: 'Highly available infrastructure with automated backups and failover.',
-      icon: <CloudDoneIcon fontSize="medium" className="text-black" />,
+      icon: <CloudDoneIcon fontSize="medium" className="text-blue-600" />,
     },
   ];
   return (
@@ -47,7 +47,7 @@ const SecurityFeaturesSection = () => {
       //     'linear-gradient(135deg,#06140b 0%, #063a19 25%, #0b7c2c 55%, #063a19 80%, #06140b 100%)',
       //   backgroundSize: '400% 400%'
       // }}
-      className="relative w-full px-6 py-24 bg-white overflow-hidden"
+      className="relative w-full px-6 py-24 bg-green-50 overflow-hidden"
     >
       {/* Shining sweep overlay */}
       {/* <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full animate-sweep" /> */}

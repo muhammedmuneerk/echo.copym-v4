@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function MarketplacePreview() {
   const navigate = useNavigate();
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">

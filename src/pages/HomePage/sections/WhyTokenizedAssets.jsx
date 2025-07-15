@@ -6,13 +6,13 @@ import PieChartIcon from '@mui/icons-material/PieChart';
 
 const WhyTokenizedAssets = () => {
   const benefits = [
-    { label: 'Low Entry Barrier', icon: <LoginIcon fontSize="medium" className="text-black" /> },
-    { label: 'Higher Liquidity', icon: <SwapHorizIcon fontSize="medium" className="text-black" /> },
-    { label: 'Passive Income (Dividends)', icon: <MonetizationOnIcon fontSize="medium" className="text-black" /> },
-    { label: 'Diversification', icon: <PieChartIcon fontSize="medium" className="text-black" /> },
+    { label: 'Low Entry Barrier', icon: <LoginIcon fontSize="medium" className="text-green-600" /> },
+    { label: 'Higher Liquidity', icon: <SwapHorizIcon fontSize="medium" className="text-blue-600" /> },
+    { label: 'Passive Income (Dividends)', icon: <MonetizationOnIcon fontSize="medium" className="text-green-600" /> },
+    { label: 'Diversification', icon: <PieChartIcon fontSize="medium" className="text-blue-600" /> },
   ];
   return (
-    <section className="w-full px-6 py-16 bg-white">
+    <section className="w-full px-6 py-16 bg-green-50">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <h2 className="brand-section-title mb-4 bg-clip-text">
