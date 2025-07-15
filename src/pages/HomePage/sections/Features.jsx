@@ -36,7 +36,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title text-black mb-4">
@@ -53,7 +53,7 @@ export default function Features() {
               key={index}
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4">
+              <div className={`w-12 h-12 ${index % 2 === 0 ? 'bg-green-600' : 'bg-blue-600'} rounded-lg flex items-center justify-center mb-4`}>
                 <feature.icon className="h-6 w-6 text-white" />
               </div>
               <h3 className="brand-card-title text-black mb-3">

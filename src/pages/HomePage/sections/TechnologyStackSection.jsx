@@ -10,26 +10,26 @@ const TechnologyStackSection = () => {
     {
       title: 'Multi-Chain Infrastructure',
       desc: 'Interact seamlessly across Ethereum, Polygon, Solana, and more — without compromising performance or security.',
-      icon: <DeviceHubIcon fontSize="medium" className="text-black" />,
+      icon: <DeviceHubIcon fontSize="medium" className="text-green-600" />,
     },
     {
       title: 'Smart Contract Transparency',
       desc: 'All smart contracts are open, verifiable, and follow best practices for gas efficiency and audit readiness.',
-      icon: <VisibilityIcon fontSize="medium" className="text-black" />,
+      icon: <VisibilityIcon fontSize="medium" className="text-blue-600" />,
     },
     {
       title: 'Custodial & Non-Custodial Options',
       desc: 'Choose full control or delegate asset management securely — with support for MPC wallets and direct wallet connections.',
-      icon: <AccountBalanceWalletIcon fontSize="medium" className="text-black" />,
+      icon: <AccountBalanceWalletIcon fontSize="medium" className="text-green-600" />,
     },
     {
       title: 'Audits & Security Standards',
       desc: 'Regular smart contract audits, GDPR compliance, and infrastructure built to meet institutional-grade standards.',
-      icon: <SecurityIcon fontSize="medium" className="text-black" />,
+      icon: <SecurityIcon fontSize="medium" className="text-blue-600" />,
     },
   ];
   return (
-    <section className="w-full px-6 py-16 bg-white">
+    <section className="w-full px-6 py-16 bg-green-50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <h2 className="brand-section-title text-gray-900 mb-4">

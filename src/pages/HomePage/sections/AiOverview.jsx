@@ -12,44 +12,44 @@ const AiOverview = () => {
   const features = [
     {
       title: 'Contextual Chatbots',
-      icon: <SmartToyIcon className="text-black" />,
+      icon: <SmartToyIcon className="text-green-600" />,
       description:
         'Engage your users with AI-driven chatbots that understand context, intent, and deliver human-like responses.'
     },
     {
       title: 'Real-Time Analytics',
-      icon: <QueryStatsIcon className="text-black" />,
+      icon: <QueryStatsIcon className="text-blue-600" />,
       description:
         'Our AI engine continuously analyses on-chain & off-chain data streams, surfacing actionable insights in real-time.'
     },
     {
       title: 'Predictive Modelling',
-      icon: <AutoGraphIcon className="text-black" />,
+      icon: <AutoGraphIcon className="text-green-600" />,
       description:
         'Leverage machine-learning models to forecast market movements, token demand, and investor behaviour.'
     },
     {
       title: 'Automated Compliance',
-      icon: <GavelIcon className="text-black" />,
+      icon: <GavelIcon className="text-blue-600" />,
       description:
         'Smart policies monitor transactions 24/7 to flag anomalies and enforce KYC/AML requirements automatically.'
     },
     {
       title: 'Personalised Dashboards',
-      icon: <DashboardCustomizeIcon className="text-black" />,
+      icon: <DashboardCustomizeIcon className="text-green-600" />,
       description:
         'Each stakeholder sees AI-curated KPIs, alerts, and recommendations tailored to their unique portfolio.'
     },
     {
       title: 'Low-Code Integrations',
-      icon: <IntegrationInstructionsIcon className="text-black" />,
+      icon: <IntegrationInstructionsIcon className="text-blue-600" />,
       description:
         'Plug-and-play widgets & APIs let you embed powerful AI capabilities into your own products within minutes.'
     }
   ];
 
   return (
-    <section className="w-full px-6 py-16 bg-white">
+    <section className="w-full px-6 py-16 bg-green-50">
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}

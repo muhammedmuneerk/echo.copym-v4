@@ -34,7 +34,7 @@ import {
 // Hero Section Component
 const Hero = () => {
   return (
-    <section className="relative bg-white py-20 lg:py-32 overflow-hidden">
+    <section className="relative bg-green-50 py-20 lg:py-32 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
@@ -133,7 +133,7 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title text-black mb-4">
@@ -205,7 +205,7 @@ const TokenDistribution = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title text-black mb-4">
@@ -281,7 +281,7 @@ const IssuerDashboard = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title text-black mb-4">
@@ -355,7 +355,7 @@ const InvestorManagement = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title text-black mb-4">
@@ -541,7 +541,7 @@ export default function TokenizationHub() {
   }), []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-green-50">
       <Hero />
       <TokenizationProcess onLaunchCreator={openCreateModal} />
       <TokenDistribution />
