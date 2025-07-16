@@ -517,7 +517,7 @@ const AnalyticsReporting = () => {
           {reportingFeatures.map((feature, index) => (
             <AnimatedCard>
             <div key={index} className="rounded-2xl p-6">
-              <feature.icon className="h-10 w-10 text-green-600 mb-4" />
+              <feature.icon className="h-10 w-10 text-blue-500 mb-4" />
               <h3 className="brand-card-title text-green-800 mb-3">{feature.title}</h3>
               <p className="text-green-700 mb-4">{feature.description}</p>
               <div className="space-y-2">
