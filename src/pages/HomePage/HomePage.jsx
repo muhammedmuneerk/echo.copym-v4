@@ -13,7 +13,6 @@ export default function HomePage() {
       <Hero />
       <HowItWorks />
       <AiOverview />
-      <Features />
       <Dashboard />
       {/* <WhyTokenizedAssets /> */}
       <IssuerSection />
