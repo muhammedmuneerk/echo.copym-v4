@@ -101,6 +101,9 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
     },
     "& svg": {
       stroke: "#00FF85", // Turn the icon green on card hover
+      
+      color: "#00FF85", // Also set fill color for SVG icons
+      
     },
     "& .glass-reflection": {
       animation: `${glassReflection} 2.5s ease-in-out infinite`,
@@ -176,6 +179,13 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
       "&:hover": {
         background: "rgba(0, 0, 0, 0.12)", // Slightly darker on hover
       },
+
+
+      "& svg": {
+        transition: "all 0.3s ease", // Smooth transition for icon color changes
+      },
+
+
     },
   },
   [theme.breakpoints.between("md", "lg")]: {
