@@ -99,7 +99,7 @@ const AiOverview = () => {
             <Player
               autoplay
               loop
-              src="/assets/lottie/simple ai pulse/simple ai pulse.json"
+              src="/assets/lottie/AIBot/AIBot.json"
               style={{ height: '350px', width: '350px' }}
             />
 
