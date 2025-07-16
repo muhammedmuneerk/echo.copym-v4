@@ -11,35 +11,36 @@ import {
   Shield,
   Store,
   Users,
-  Building
+  Building,
+  ArrowRight as ArrowIcon
 } from 'lucide-react';
 
 // Investor Path Data
 const investorSteps = [
   {
     id: 1,
-    icon: <Search className="w-8 h-8" />,
+    icon: <Search className="w-7 h-7" />,
     title: "Browse Listed Assets",
     description: "Explore diverse tokenized real-world assets in our marketplace",
     color: "blue"
   },
   {
     id: 2,
-    icon: <CreditCard className="w-8 h-8" />,
+    icon: <CreditCard className="w-7 h-7" />,
     title: "Buy Fractional Tokens",
     description: "Purchase fractional ownership with secure payment processing",
     color: "green"
   },
   {
     id: 3,
-    icon: <TrendingUp className="w-8 h-8" />,
+    icon: <TrendingUp className="w-7 h-7" />,
     title: "Earn Dividends",
     description: "Receive regular dividend payments and profit sharing",
     color: "purple"
   },
   {
     id: 4,
-    icon: <Store className="w-8 h-8" />,
+    icon: <Store className="w-7 h-7" />,
     title: "Trade in Secondary Market",
     description: "Buy and sell tokens in our liquid secondary marketplace",
     color: "orange"
@@ -50,21 +51,21 @@ const investorSteps = [
 const issuerSteps = [
   {
     id: 1,
-    icon: <Building2 className="w-8 h-8" />,
+    icon: <Building2 className="w-7 h-7" />,
     title: "Tokenize Your Asset",
     description: "Convert your real-world asset into digital tokens in 3 simple steps",
     color: "blue"
   },
   {
     id: 2,
-    icon: <Shield className="w-8 h-8" />,
+    icon: <Shield className="w-7 h-7" />,
     title: "KYC/Compliance",
     description: "Complete integrated onboarding with automated compliance checks",
     color: "green"
   },
   {
     id: 3,
-    icon: <Store className="w-8 h-8" />,
+    icon: <Store className="w-7 h-7" />,
     title: "List in Marketplace",
     description: "Your asset gets listed and available for global investors",
     color: "purple"
@@ -123,50 +124,51 @@ const styles = {
   pathTab: {
     display: 'flex',
     alignItems: 'center',
-    gap: '16px',
-    padding: '24px 32px',
+    gap: '12px',
+    padding: '16px 32px',
     background: 'linear-gradient(135deg, #ffffff, #fafbfc)',
     border: '2px solid #e0f2fe',
-    borderRadius: '16px',
+    borderRadius: '50px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     boxShadow: '0 4px 12px rgba(59, 130, 246, 0.06)',
-    minWidth: '280px'
+    minWidth: '200px',
+    position: 'relative',
+    overflow: 'hidden'
   },
   pathTabActive: {
     borderColor: '#15a36e',
     boxShadow: '0 8px 24px rgba(21, 163, 110, 0.15)',
-    background: 'linear-gradient(135deg, #f0fdf4, #ecfdf5)'
+    background: 'linear-gradient(135deg, #15a36e, #255f99)',
+    color: '#ffffff'
   },
   tabIcon: {
-    width: '48px',
-    height: '48px',
+    width: '24px',
+    height: '24px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     background: 'transparent',
     border: 'none',
     borderRadius: 0,
-    color: '#255f99'
+    color: 'inherit'
   },
   tabIconActive: {
-    color: '#15a36e'
+    color: '#ffffff'
   },
   tabContent: {
     flex: 1
   },
   tabTitle: {
-    fontFamily: "'Genos', sans-serif",
-    fontSize: '18px',
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontSize: '16px',
     fontWeight: 600,
-    color: '#111827',
-    marginBottom: '4px'
+    color: 'inherit',
+    marginBottom: '0px',
+    marginRight: '8px'
   },
   tabDescription: {
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    fontSize: '14px',
-    color: '#6b7280',
-    margin: 0
+    display: 'none'
   },
   flowchartWrapper: {
     maxWidth: '1800px',
@@ -186,16 +188,16 @@ const styles = {
   },
   stepsContainer: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
     zIndex: 5,
     marginBottom: '50px',
-    gap: '15px',
+    gap: '40px',
     flexWrap: 'nowrap',
     width: '100%',
     overflow: 'visible',
-    padding: '0 30px'
+    padding: '0 40px'
   },
   stepWrapper: {
     display: 'flex',
@@ -206,7 +208,7 @@ const styles = {
     background: 'linear-gradient(135deg, #ffffff, #fafbfc)',
     borderRadius: '20px',
     padding: '28px 20px',
-    textAlign: 'left',
+    textAlign: 'center',
     cursor: 'pointer',
     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
     position: 'relative',
@@ -219,7 +221,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     flex: '0 0 240px',
     overflow: 'visible'
   },
@@ -234,18 +236,18 @@ const styles = {
     transform: 'translateY(-2px)'
   },
   stepIcon: {
-    width: '48px',
-    height: '48px',
+    width: '56px',
+    height: '56px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: '20px',
+    marginBottom: '24px',
     transition: 'all 0.3s ease',
     position: 'relative',
     background: '#f3f4f6',
     border: 'none',
     borderRadius: '12px',
-    padding: '12px'
+    padding: '14px'
   },
   stepIconBlue: {
     color: '#255f99',
@@ -265,33 +267,40 @@ const styles = {
   },
   stepContent: {
     flex: 1,
-    width: '100%'
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center'
   },
   stepTitle: {
     fontFamily: "'Genos', sans-serif",
     fontSize: '18px',
     fontWeight: 700,
     color: '#111827',
-    marginBottom: '10px',
-    lineHeight: 1.3
+    marginBottom: '12px',
+    lineHeight: 1.3,
+    textAlign: 'center'
   },
   stepDescription: {
     fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
     fontSize: '14px',
     color: '#6b7280',
-    lineHeight: 1.5,
-    fontWeight: 400
+    lineHeight: 1.6,
+    fontWeight: 400,
+    textAlign: 'center',
+    maxWidth: '200px'
   },
   connectionArrow: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '0 5px',
+    padding: '0 8px',
     color: '#15a36e',
-    opacity: 0.7,
+    opacity: 0.8,
     transition: 'all 0.3s ease',
     flexShrink: 0,
-    minWidth: '20px'
+    minWidth: '24px'
   },
   // Responsive styles
   responsive: {
@@ -450,11 +459,10 @@ export default function Flowchart() {
             ...styles.tabIcon,
             ...(activePath === 'issuer' ? styles.tabIconActive : {})
           }}>
-            <Building className="w-6 h-6" />
+            <Building className="w-5 h-5" />
           </div>
           <div style={styles.tabContent}>
             <h3 style={styles.tabTitle}>Issuer Path</h3>
-            <p style={styles.tabDescription}>For asset owners to tokenize</p>
           </div>
         </button>
         
@@ -472,11 +480,10 @@ export default function Flowchart() {
             ...styles.tabIcon,
             ...(activePath === 'investor' ? styles.tabIconActive : {})
           }}>
-            <Users className="w-6 h-6" />
+            <Users className="w-5 h-5" />
           </div>
           <div style={styles.tabContent}>
             <h3 style={styles.tabTitle}>Investor Path</h3>
-            <p style={styles.tabDescription}>For individuals looking to invest</p>
           </div>
         </button>
       </div>
