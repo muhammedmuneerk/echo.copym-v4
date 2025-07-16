@@ -558,14 +558,10 @@ const MobileStep = ({ step, index, isActive, onClick, isLast }) => {
         }}
         onClick={() => onClick(index)}
       >
-        <div style={mobileStyles.stepNumber}>
-          {index + 1}
-        </div>
-        
+        {/* Step number removed for mobile view */}
         <div style={getStepIconStyle(step.color)}>
           {step.icon}
         </div>
-        
         <div style={mobileStyles.stepContent}>
           <h3 style={mobileStyles.stepTitle}>{step.title}</h3>
           <p style={mobileStyles.stepDescription}>{step.description}</p>

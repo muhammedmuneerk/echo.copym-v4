@@ -53,7 +53,7 @@ const FeaturesSection = () => {
   return (
     <section 
       id="features" 
-      className="relative overflow-hidden py-20"
+      className="relative overflow-hidden py-12 md:py-20"
       style={{
         background: 'linear-gradient(135deg, #0a0a0a 0%, #111111 100%)'
       }}
@@ -66,12 +66,12 @@ const FeaturesSection = () => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             <Launch sx={{ mr: 1, verticalAlign: 'middle' }} />
@@ -83,7 +83,7 @@ const FeaturesSection = () => {
         </motion.div>
         
         {/* Timeline Container */}
-        <div className="relative max-w-6xl mx-auto py-16">
+        <div className="relative max-w-6xl mx-auto py-8 md:py-16">
           {/* Timeline Line */}
           <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 rounded transform -translate-y-1/2 z-10" />
           
@@ -94,14 +94,14 @@ const FeaturesSection = () => {
           />
           
           {/* Timeline Features */}
-          <div className="relative flex justify-between items-center z-30 mx-8">
+          <div className="relative flex flex-col md:flex-row md:justify-between items-center z-30 mx-2 md:mx-8 gap-8 md:gap-0">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="flex flex-col items-center text-center max-w-64 relative transition-all duration-300 ease-out hover:-translate-y-2.5 group"
+                className="flex flex-col items-center text-center w-full md:max-w-64 relative transition-all duration-300 ease-out hover:-translate-y-2.5 group"
               >
                 {/* Feature Icon */}
                 <div 
@@ -133,7 +133,7 @@ const FeaturesSection = () => {
           </div>
           
           {/* Timeline Progress Indicators */}
-          <div className="flex justify-center gap-4 mt-12">
+          <div className="flex justify-center gap-4 mt-8 md:mt-12">
             {[1, 2, 3, 4].map((step) => (
               <button
                 key={step}
@@ -153,9 +153,9 @@ const FeaturesSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-16"
+          className="text-center mt-10 md:mt-16"
         >
-          <div className="bg-gradient-to-r from-green-500 to-green-600 text-white py-8 px-8 rounded-2xl text-xl font-semibold max-w-4xl mx-auto shadow-2xl shadow-green-500/30 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-green-500 to-green-600 text-white py-6 md:py-8 px-4 md:px-8 rounded-2xl text-lg md:text-xl font-semibold max-w-xl md:max-w-4xl mx-auto shadow-2xl shadow-green-500/30 relative overflow-hidden">
             <div 
               className="absolute inset-0 opacity-30"
               style={{
