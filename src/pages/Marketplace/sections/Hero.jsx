@@ -23,7 +23,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="w-full px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left">
@@ -81,7 +81,7 @@ export default function Hero() {
               <Player
                 autoplay
                 loop
-                src="/assets/lottie/TokenizationHub/Dashboard.json"
+                src="/assets/lottie/marketplace/marketplace.json"
                 style={{ height: '350px', width: '100%' }}
               />
             </div>

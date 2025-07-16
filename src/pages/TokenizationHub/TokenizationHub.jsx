@@ -35,7 +35,7 @@ import AnimatedCard from "../../ui/AnimatedCard.jsx"
 // Hero Section Component
 const Hero = () => {
   return (
-    <section className="relative bg-green-50 py-20 lg:py-28 overflow-hidden">
+    <section className="relative bg-green-50 py-12 lg:py-20 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
@@ -57,9 +57,9 @@ const Hero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start -mt-6">
           {/* Left Content */}
-          <div className="text-center lg:text-left  lg:-mt-[310px]">
+          <div className="text-center lg:text-left">
             <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700 mb-6">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
               Tokenization Portal is Open
@@ -89,7 +89,7 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Lottie Animation */}
-          <div className="flex items-center justify-center overflow-hidden">
+          <div className="flex items-start justify-center overflow-hidden">
             <Player
               autoplay
               loop
@@ -511,7 +511,8 @@ const AnalyticsReporting = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reportingFeatures.map((feature, index) => (
-            <div key={index} className="bg-green-100 rounded-2xl p-6">
+            <AnimatedCard>
+            <div key={index} className="rounded-2xl p-6">
               <feature.icon className="h-10 w-10 text-green-600 mb-4" />
               <h3 className="brand-card-title text-green-800 mb-3">{feature.title}</h3>
               <p className="text-green-700 mb-4">{feature.description}</p>
@@ -524,6 +525,7 @@ const AnalyticsReporting = () => {
                 ))}
               </div>
             </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>
