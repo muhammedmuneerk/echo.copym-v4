@@ -14,6 +14,7 @@ import {
   Building,
   ArrowRight as ArrowIcon
 } from 'lucide-react';
+import AnimatedCard from "../../../ui/AnimatedCard.jsx"
 
 // Investor Path Data
 const investorSteps = [
@@ -205,15 +206,15 @@ const styles = {
     flex: '0 0 auto'
   },
   stepCard: {
-    background: 'linear-gradient(135deg, #ffffff, #fafbfc)',
+    // background: 'linear-gradient(135deg, #ffffff, #fafbfc)',
     borderRadius: '20px',
     padding: '28px 20px',
     textAlign: 'center',
     cursor: 'pointer',
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+    // transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
     position: 'relative',
-    border: '1px solid #e5e7eb',
-    boxShadow: '0 4px 20px rgba(21, 163, 110, 0.08)',
+    // border: '1px solid #e5e7eb',
+    // boxShadow: '0 4px 20px rgba(21, 163, 110, 0.08)',
     height: '280px',
     width: '240px',
     minWidth: '240px',
@@ -225,16 +226,16 @@ const styles = {
     flex: '0 0 240px',
     overflow: 'visible'
   },
-  stepCardHover: {
-    transform: 'translateY(-4px)',
-    boxShadow: '0 8px 30px rgba(21, 163, 110, 0.15)',
-    borderColor: '#d1fae5'
-  },
-  stepCardActive: {
-    borderColor: '#15a36e',
-    boxShadow: '0 8px 30px rgba(21, 163, 110, 0.2)',
-    transform: 'translateY(-2px)'
-  },
+  // stepCardHover: {
+  //   transform: 'translateY(-4px)',
+  //   boxShadow: '0 8px 30px rgba(21, 163, 110, 0.15)',
+  //   borderColor: '#d1fae5'
+  // },
+  // stepCardActive: {
+  //   borderColor: '#15a36e',
+  //   boxShadow: '0 8px 30px rgba(21, 163, 110, 0.2)',
+  //   transform: 'translateY(-2px)'
+  // },
   stepIcon: {
     width: '56px',
     height: '56px',
@@ -496,6 +497,7 @@ export default function Flowchart() {
             {currentSteps.map((step, index) => (
               <div key={step.id} style={styles.stepWrapper}>
                 {/* Step Card */}
+                <AnimatedCard>
                 <div 
                   style={{
                     ...styles.stepCard,
@@ -515,6 +517,7 @@ export default function Flowchart() {
                     <p style={styles.stepDescription}>{step.description}</p>
                   </div>
                 </div>
+                </AnimatedCard>
 
                 {/* Connection Arrow */}
                 {index < currentSteps.length - 1 && (
@@ -527,6 +530,6 @@ export default function Flowchart() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>
+  );
 }
