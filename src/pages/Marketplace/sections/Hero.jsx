@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Play } from 'lucide-react';
-import AssetCard from './AssetCard';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 export default function Hero() {
   return (
@@ -29,7 +29,7 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center px-3 py-1.5 bg-gray-100 rounded-full text-sm font-medium text-gray-700 mb-5">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-             AI-Powered
+              AI-Powered
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl brand-title  leading-tight mb-6 bg-clip-text">
@@ -75,11 +75,17 @@ export default function Hero() {
           </div>
 
           {/* Right Content */}
-          <div className="relative">
-            <div className="bg-white rounded-2xl shadow border border-gray-200 p-5 transform hover:scale-[1.01] transition-transform duration-300 max-w-md mx-auto">
-              <AssetCard />
+          
+            {/* Dashboard Lottie Animation */}
+            <div className="flex items-center justify-center p-6 min-h-[400px]">
+              <Player
+                autoplay
+                loop
+                src="/assets/lottie/TokenizationHub/Dashboard.json"
+                style={{ height: '350px', width: '100%' }}
+              />
             </div>
-          </div>
+          
         </div>
       </div>
     </section>

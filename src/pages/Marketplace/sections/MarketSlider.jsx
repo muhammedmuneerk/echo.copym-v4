@@ -96,34 +96,34 @@ const categoryToPath = {
 // Visual theming for each category (gradient + border colors)
 const categoryColors = {
   "Real Estate": {
-    color: "from-blue-400 to-indigo-600",
-    bgColor: "from-blue-900/20 to-indigo-900/20",
-    borderColor: "#4169E1",
+    color: "from-[#15a36e] to-[#255f99]",
+    bgColor: "from-[#d7fbe4]/30 to-[#e2effc]/30",
+    borderColor: "#15a36e",
   },
   Art: {
-    color: "from-purple-400 to-pink-600",
-    bgColor: "from-purple-900/20 to-pink-900/20",
-    borderColor: "#8A2BE2",
+    color: "from-[#15a36e] to-[#255f99]",
+    bgColor: "from-[#d7fbe4]/30 to-[#e2effc]/30",
+    borderColor: "#15a36e",
   },
   Commodities: {
-    color: "from-amber-400 to-yellow-600",
-    bgColor: "from-amber-900/20 to-yellow-900/20",
-    borderColor: "#FFD700",
+    color: "from-[#15a36e] to-[#255f99]",
+    bgColor: "from-[#d7fbe4]/30 to-[#e2effc]/30",
+    borderColor: "#15a36e",
   },
   Infrastructure: {
-    color: "from-teal-400 to-green-600",
-    bgColor: "from-teal-900/20 to-green-900/20",
-    borderColor: "#00d084",
+    color: "from-[#15a36e] to-[#255f99]",
+    bgColor: "from-[#d7fbe4]/30 to-[#e2effc]/30",
+    borderColor: "#15a36e",
   },
   Startups: {
-    color: "from-orange-400 to-red-600",
-    bgColor: "from-orange-900/20 to-red-900/20",
-    borderColor: "#FF4500",
+    color: "from-[#15a36e] to-[#255f99]",
+    bgColor: "from-[#d7fbe4]/30 to-[#e2effc]/30",
+    borderColor: "#15a36e",
   },
   default: {
-    color: "from-violet-400 to-purple-600",
-    bgColor: "from-violet-900/20 to-purple-900/20",
-    borderColor: "#9400D3",
+    color: "from-[#15a36e] to-[#255f99]",
+    bgColor: "from-[#d7fbe4]/30 to-[#e2effc]/30",
+    borderColor: "#15a36e",
   },
 };
 

@@ -1,8 +1,49 @@
-import React from 'react';
+import React, { useState } from "react";
 import { Wallet, LayoutGrid, LineChart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const mediaItems = [
+  {
+    type: "video",
+    src: "/assets/videos/WalletPreview.mp4",
+    label: "Deposit / Withdraw",
+    icon: <Wallet className="w-4 h-4" />,
+    color: "text-emerald-300 bg-emerald-500/20",
+  },
+  {
+    type: "video",
+    src: "/assets/videos/MarketPlacePreview.mp4",
+    label: "Explore Assets",
+    icon: <LayoutGrid className="w-4 h-4" />,
+    color: "text-emerald-300 bg-emerald-500/20",
+  },
+  {
+    type: "image",
+    src: "/assets/Images/MarketplaceDashboard.jpg",
+    label: "Track Portfolio",
+    icon: <LineChart className="w-4 h-4" />,
+    color: "text-emerald-300 bg-emerald-500/20",
+  },
+];
 
 export default function AppPeekSection() {
+  const [index, setIndex] = useState(0);
+  const total = mediaItems.length;
+
+  const getPosition = (i) => {
+    if (i === index) return "center";
+    if (i === (index - 1 + total) % total) return "left";
+    if (i === (index + 1) % total) return "right";
+    return "hidden";
+  };
+
+  const handleClick = (pos, i) => {
+    if (pos === "left" || pos === "right") {
+      setIndex(i);
+    }
+  };
+
   return (
     <section className="py-20 bg-white text-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,83 +58,114 @@ export default function AppPeekSection() {
           </p>
         </div>
 
-        {/* Media Showcase Block */}
-        <div className="relative py-16 px-6 bg-gradient-to-br from-purple-600 via-purple-800 to-purple-900 rounded-3xl overflow-hidden shadow-xl">
+        {/* Glassmorphic Carousel Section */}
+        <div className="relative rounded-3xl px-6 py-16 overflow-hidden shadow-2xl flex flex-col items-center border border-white/20 bg-gradient-to-br from-black/15 via-white/5 to-black/15 backdrop-blur-lg ring-1 ring-white/10 ring-inset">
 
-          {/* Logo on Top Center of Media Content */}
-          <div className="flex justify-center mb-10">
+          {/* Glow effect around */}
+          <div className="absolute inset-0 z-0 rounded-3xl pointer-events-none">
+            <div className="w-full h-full bg-white/10 blur-2xl opacity-30 rounded-3xl" />
+          </div>
+
+          {/* Logo */}
+          <div className="flex justify-center mb-10 z-10">
             <img
-              src="/assets/copym/png/Copym-02-1.png"
+              src="/assets/copym/png/Copym-01-1.png"
               alt="Copym Logo"
               className="w-auto h-24 sm:h-14 md:h-24 object-contain"
             />
           </div>
 
+          {/* Carousel */}
+          <div className="relative w-full max-w-5xl h-[420px] flex items-center justify-center z-10">
+            {mediaItems.map((item, i) => {
+              const pos = getPosition(i);
+              let className = "absolute cursor-pointer transition-all duration-500 ease-in-out";
+              let style = {};
 
+              if (pos === "center") {
+                style = {
+                  transform: "translateX(0) scale(1)",
+                  zIndex: 30,
+                  opacity: 1,
+                };
+              } else if (pos === "left") {
+                style = {
+                  transform: "translateX(-220px) scale(0.85) rotateY(10deg)",
+                  zIndex: 20,
+                  opacity: 0.5,
+                };
+              } else if (pos === "right") {
+                style = {
+                  transform: "translateX(220px) scale(0.85) rotateY(-10deg)",
+                  zIndex: 20,
+                  opacity: 0.5,
+                };
+              } else {
+                style = { transform: "scale(0.5)", opacity: 0, zIndex: 0 };
+              }
 
-          {/* Media Items */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto items-end justify-center z-10 relative">
-
-            {/* Wallet Preview */}
-            <div className="flex flex-col items-center">
-              <video
-                src="/assets/videos/WalletPreview.mp4"
-                className="w-[140px] sm:w-[160px] md:w-[180px] rounded-xl shadow-xl"
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                preload="auto"
-              />
-
-              {/* Tag */}
-              <div className="mt-4 bg-emerald-500/20 text-emerald-300 text-xs sm:text-sm px-3 py-1 rounded-full flex items-center gap-2 font-medium">
-                <Wallet className="w-4 h-4" />
-                Deposit-Withdraw
-              </div>
-            </div>
-
-            {/* Marketplace Preview */}
-            <div className="flex flex-col items-center">
-              <video
-                src="/assets/videos/MarketPlacePreview.mp4"
-                className="w-[140px] sm:w-[160px] md:w-[180px] rounded-xl shadow-xl"
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                preload="auto"
-              />
-              <div className="mt-4 bg-blue-500/20 text-blue-300 text-xs sm:text-sm px-3 py-1 rounded-full flex items-center gap-2 font-medium">
-                <LayoutGrid className="w-4 h-4" />
-                Explore Assets
-              </div>
-            </div>
-
-            {/* Portfolio Dashboard Image */}
-            <div className="flex flex-col items-center">
-              <img
-                src="/assets/Images/MarketplaceDashboard.jpg"
-                alt="Portfolio Preview"
-                className="w-[140px] sm:w-[160px] md:w-[180px] rounded-xl shadow-xl"
-              />
-              <div className="mt-4 bg-yellow-400/20 text-yellow-200 text-xs sm:text-sm px-3 py-1 rounded-full flex items-center gap-2 font-medium">
-                <LineChart className="w-4 h-4" />
-                Track Portfolio
-              </div>
-            </div>
+              return (
+                <motion.div
+                  key={i}
+                  onClick={() => handleClick(pos, i)}
+                  className={`${className} w-[200px] h-[400px] rounded-2xl overflow-hidden shadow-xl bg-white/5 border border-white/20`}
+                  style={style}
+                >
+                  {item.type === "video" ? (
+                    <video
+                      src={item.src}
+                      className="w-full h-full object-contain"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                    />
+                  ) : (
+                    <img
+                      src={item.src}
+                      alt={item.label}
+                      className="w-full h-full object-contain"
+                    />
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
-           {/* Launch App Button */}
-            <div className="flex justify-center mt-12">
-              <Link
-                to="/marketplace"
-                className="inline-flex items-center justify-center px-6 py-3 font-semibold  text-white btn-gradient"
-              >
-                Get App Now
-              </Link>
-            </div>
+
+          {/* Tag below center card */}
+          <div
+            className={`mt-6 px-3 py-1 rounded-full flex items-center gap-2 font-medium text-sm z-10 ${mediaItems[index].color}`}
+          >
+            {mediaItems[index].icon}
+            {mediaItems[index].label}
+          </div>
+
+          {/* Controls */}
+          <div className="flex gap-6 mt-10 z-10">
+            <button
+              onClick={() => setIndex((index - 1 + total) % total)}
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/20 text-gray-800"
+            >
+              ‹
+            </button>
+            <button
+              onClick={() => setIndex((index + 1) % total)}
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/20 text-gray-800"
+            >
+              ›
+            </button>
+          </div>
+
+          {/* CTA Button */}
+          <div className="flex justify-center mt-12 z-10">
+            <Link
+              to="/marketplace"
+              className="inline-flex items-center justify-center px-6 py-3 font-semibold text-white btn-gradient"
+            >
+              Get App Now
+            </Link>
+          </div>
         </div>
       </div>
     </section>
