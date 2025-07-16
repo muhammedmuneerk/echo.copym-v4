@@ -530,6 +530,6 @@ export default function Flowchart() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>
+  );
 }
