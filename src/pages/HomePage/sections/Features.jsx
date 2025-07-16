@@ -1,5 +1,8 @@
 import React from 'react';
 import { Shield, Zap, TrendingUp, Users, Globe, Award } from 'lucide-react';
+import AnimtedCard from '../../../ui/AnimatedCard';
+import { Box } from '@mui/material';
+
 
 const features = [
   {
@@ -43,26 +46,34 @@ export default function Features() {
             Invest Like An Outlier
           </h2>
           <p className="brand-description max-w-3xl mx-auto">
-            Our platform combines cutting-edge technology with intuitive design to give you everything you need to build wealth and achieve your financial goals.
+            Our platform combines cutting-edge technology with intuitive design
+            to give you everything you need to build wealth and achieve your
+            financial goals.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <div className={`w-12 h-12 ${index % 2 === 0 ? 'bg-green-600' : 'bg-blue-600'} rounded-lg flex items-center justify-center mb-4`}>
-                <feature.icon className="h-6 w-6 text-white" />
+            <AnimtedCard>
+              <div key={index} className="  p-6">
+                <Box
+                  className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                  sx={{
+                    background: "rgba(255, 255, 255, 0.05)",
+                    backdropFilter: "blur(5px)",
+                    boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                  }}
+                >
+                  <feature.icon />
+                </Box>
+                <h3 className="brand-card-title text-white mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="brand-card-title text-black mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
+            </AnimtedCard>
           ))}
         </div>
       </div>

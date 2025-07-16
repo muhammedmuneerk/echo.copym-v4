@@ -6,6 +6,8 @@ import LockIcon from '@mui/icons-material/Lock';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import CloudDoneIcon from '@mui/icons-material/CloudDone';
+import AnimtedCard from '../../../ui/AnimatedCard';
+import { Box } from '@mui/material';
 
 const SecurityFeaturesSection = () => {
   const features = [
@@ -57,7 +59,8 @@ const SecurityFeaturesSection = () => {
           Enterprise-Grade Security, Built for Web3
         </h2>
         <p className="text-gray-600 mb-10 max-w-2xl">
-          Your assets are protected with cutting-edge security standards trusted by institutions.
+          Your assets are protected with cutting-edge security standards trusted
+          by institutions.
         </p>
 
         {/* Two-Column Layout */}
@@ -71,8 +74,12 @@ const SecurityFeaturesSection = () => {
                 className="flex-none w-72 bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition snap-center"
               >
                 <div className="mb-3 text-2xl">{item.icon}</div>
-                <h4 className="brand-card-title text-gray-800 mb-2">{item.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                <h4 className="brand-card-title text-gray-800 mb-2">
+                  {item.title}
+                </h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -80,14 +87,26 @@ const SecurityFeaturesSection = () => {
           {/* Medium & up: grid */}
           <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
             {features.map((item, i) => (
-              <div
-                key={i}
-                className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition"
-              >
-                <div className="mb-3 text-2xl">{item.icon}</div>
-                <h4 className="brand-card-title text-gray-800 mb-2">{item.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-              </div>
+              <AnimtedCard>
+                <div key={i} className="p-6 rounded-xl">
+                  <Box
+                    className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                    sx={{
+                      background: "rgba(255, 255, 255, 0.05)",
+                      backdropFilter: "blur(5px)",
+                      boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                    }}
+                  >
+                    {item.icon}
+                  </Box>
+                  <h4 className="brand-card-title text-gray-800 mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </AnimtedCard>
             ))}
           </div>
 
@@ -97,7 +116,7 @@ const SecurityFeaturesSection = () => {
               autoplay
               loop
               src="/assets/lottie/CyberSecurity%20Net%20lock/CyberSecurity%20Net%20lock.json"
-              style={{ height: '450px', width: '450px' }}
+              style={{ height: "450px", width: "450px" }}
             />
           </div>
         </div>

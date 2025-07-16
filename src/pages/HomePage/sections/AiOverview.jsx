@@ -7,6 +7,8 @@ import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import GavelIcon from '@mui/icons-material/Gavel';
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
+import AnimtedCard from '../../../ui/AnimatedCard';
+import { Box } from '@mui/material';
 
 const AiOverview = () => {
   const features = [
@@ -50,7 +52,6 @@ const AiOverview = () => {
 
   return (
     <section className="w-full px-6 py-16 bg-green-50">
-
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <h2 className="brand-section-title text-center mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -58,9 +59,10 @@ const AiOverview = () => {
         </h2>
 
         <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto mb-14">
-          From conversational agents to predictive analytics, our platform weaves artificial intelligence into every
-          layer of the tokenization journey — unlocking smarter, faster and more secure experiences for issuers and
-          investors alike.
+          From conversational agents to predictive analytics, our platform
+          weaves artificial intelligence into every layer of the tokenization
+          journey — unlocking smarter, faster and more secure experiences for
+          issuers and investors alike.
         </p>
 
         {/* Two-Column Layout */}
@@ -74,8 +76,12 @@ const AiOverview = () => {
                 className="flex-none w-72 bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition snap-center"
               >
                 <div className="mb-3 text-2xl">{feature.icon}</div>
-                <h4 className="brand-card-title text-gray-800 mb-2">{feature.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                <h4 className="brand-card-title text-gray-800 mb-2">
+                  {feature.title}
+                </h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -83,14 +89,26 @@ const AiOverview = () => {
           {/* Medium & up: grid layout */}
           <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
             {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition"
-              >
-                <div className="mb-3 text-2xl">{feature.icon}</div>
-                <h4 className="brand-card-title text-gray-800 mb-2">{feature.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
-              </div>
+              <AnimtedCard>
+                <div key={feature.title} className=" p-6 rounded-xl">
+                  <Box
+                    className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                    sx={{
+                      background: "rgba(255, 255, 255, 0.05)",
+                      backdropFilter: "blur(5px)",
+                      boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                    }}
+                  >
+                    {feature.icon}
+                  </Box>
+                  <h4 className="brand-card-title text-gray-800 mb-2">
+                    {feature.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </AnimtedCard>
             ))}
           </div>
 
@@ -100,7 +118,7 @@ const AiOverview = () => {
               autoplay
               loop
               src="/assets/lottie/simple ai pulse/simple ai pulse.json"
-              style={{ height: '350px', width: '350px' }}
+              style={{ height: "350px", width: "350px" }}
             />
 
             <Link

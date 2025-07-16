@@ -4,6 +4,8 @@ import DeviceHubIcon from '@mui/icons-material/DeviceHub';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import SecurityIcon from '@mui/icons-material/Security';
+import AnimtedCard from '../../../ui/AnimatedCard';
+import { Box } from '@mui/material';
 
 const TechnologyStackSection = () => {
   const features = [
@@ -36,7 +38,8 @@ const TechnologyStackSection = () => {
           Unified Access to All Major Blockchains
         </h2>
         <p className="brand-description mb-10 max-w-2xl">
-          Built for developers, institutions, and innovators.Our infrastructure is designed to be flexible, secure, and future-proof.
+          Built for developers, institutions, and innovators.Our infrastructure
+          is designed to be flexible, secure, and future-proof.
         </p>
 
         {/* Two-Column Layout */}
@@ -50,8 +53,12 @@ const TechnologyStackSection = () => {
                 className="flex-none w-72 bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition snap-center"
               >
                 <div className="mb-3 text-3xl">{item.icon}</div>
-                <h4 className="brand-card-title text-gray-800 mb-2">{item.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                <h4 className="brand-card-title text-gray-800 mb-2">
+                  {item.title}
+                </h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -59,14 +66,26 @@ const TechnologyStackSection = () => {
           {/* Medium & up: grid */}
           <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
             {features.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition"
-              >
-                <div className="mb-3 text-3xl">{item.icon}</div>
-                <h4 className="brand-card-title text-gray-800 mb-2">{item.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-          </div>
+              <AnimtedCard>
+                <div key={idx} className="p-6 rounded-xl">
+                  <Box
+                    className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                    sx={{
+                      background: "rgba(255, 255, 255, 0.05)",
+                      backdropFilter: "blur(5px)",
+                      boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                    }}
+                  >
+                    {item.icon}
+                  </Box>
+                  <h4 className="brand-card-title text-gray-800 mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </AnimtedCard>
             ))}
           </div>
 
@@ -76,7 +95,7 @@ const TechnologyStackSection = () => {
               autoplay
               loop
               src="/assets/lottie/Crypto%20chains/Crypto%20chains.json"
-              style={{ height: '350px', width: '350px' }}
+              style={{ height: "350px", width: "350px" }}
             />
           </div>
         </div>
