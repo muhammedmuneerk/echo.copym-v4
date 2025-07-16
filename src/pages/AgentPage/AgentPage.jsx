@@ -9,7 +9,7 @@ import DemoSection from './sections/DemoSection';
 import StatsSection from './sections/StatsSection';
 import BusinessModel from './sections/BusinessModel';
 import RoadmapSection from './sections/RoadmapSection';
-import ComparisonSection from './sections/ComparisonSection';
+import ComparisonSection from './sections/ComparisonSection.jsx';
 import TestimonialsSection from './sections/TestimonialsSection';
 import CTASection from './sections/CTASection';
 
