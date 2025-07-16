@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CreateAssetModal from "./tokenizationDemo.jsx";
 import { createTheme, ThemeProvider as BWThemeProvider } from '@mui/material/styles';
+import { Box } from '@mui/material';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { 
   ArrowRight, 
@@ -222,7 +223,16 @@ const TokenDistribution = () => {
           {distributionMethods.map((method, index) => (
             <AnimatedCard>
             <div key={index} className=" rounded-2xl p-6">
-              <method.icon className="h-10 w-10 text-blue-500 mb-4" />
+              <Box
+                className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                sx={{
+                  background: "rgba(255, 255, 255, 0.9)",
+                  backdropFilter: "blur(5px)",
+                  boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                }}
+              >
+                <method.icon className="h-6 w-6 text-blue-500" />
+              </Box>
               <h3 className="brand-card-title text-black mb-3">{method.title}</h3>
               <p className="text-gray-600 mb-4">{method.description}</p>
               <ul className="space-y-2">
@@ -379,7 +389,16 @@ const InvestorManagement = () => {
             <AnimatedCard>
             <div key={index} className="text-center">
               <div className=" rounded-2xl p-8">
-                <tool.icon className="h-12 w-12 text-blue-500 mx-auto mb-4" />
+                <Box
+                  className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon mx-auto"
+                  sx={{
+                    background: "rgba(255, 255, 255, 0.9)",
+                    backdropFilter: "blur(5px)",
+                    boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                  }}
+                >
+                  <tool.icon className="h-6 w-6 text-blue-500" />
+                </Box>
                 <h3 className="brand-card-title text-black mb-3">{tool.title}</h3>
                 <p className="text-gray-600 mb-4">{tool.description}</p>
                 <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
@@ -517,7 +536,16 @@ const AnalyticsReporting = () => {
           {reportingFeatures.map((feature, index) => (
             <AnimatedCard>
             <div key={index} className="rounded-2xl p-6">
-              <feature.icon className="h-10 w-10 text-blue-500 mb-4" />
+              <Box
+                className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                sx={{
+                  background: "rgba(255, 255, 255, 0.9)",
+                  backdropFilter: "blur(5px)",
+                  boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                }}
+              >
+                <feature.icon className="h-6 w-6 text-blue-500" />
+              </Box>
               <h3 className="brand-card-title text-green-800 mb-3">{feature.title}</h3>
               <p className="text-green-700 mb-4">{feature.description}</p>
               <div className="space-y-2">

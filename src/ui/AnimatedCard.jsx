@@ -82,7 +82,7 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
   "&:hover": {
     transform: "translateY(-8px)",
     boxShadow: "0 20px 40px -20px rgba(0, 0, 0, 0.3), 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 255, 255, 0.5)",
-    borderColor: "rgba(0, 255, 133, 0.2)",
+    borderColor: "rgba(59, 130, 246, 0.2)",
     background: "rgba(255, 255, 255, 0.98)",
     "& .border-right": {
       animation: `${borderAnimationRight} 2.5s linear infinite`,
@@ -121,29 +121,29 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
     top: 0,
     right: "100%",
     height: 3,
-    background: "linear-gradient(to right, rgba(0,0,0,0), #00FF85, rgba(0,0,0,0))",
-    boxShadow: "0 0 10px rgba(0, 255, 133, 0.5)",
+    background: "linear-gradient(to right, rgba(0,0,0,0), #3B82F6, rgba(0,0,0,0))",
+    boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
   },
   "& .border-down": {
     top: 0,
     right: 0,
     width: 3,
-    background: "linear-gradient(to bottom, rgba(0,0,0,0), #00FF85, rgba(0,0,0,0))",
-    boxShadow: "0 0 10px rgba(0, 255, 133, 0.5)",
+    background: "linear-gradient(to bottom, rgba(0,0,0,0), #3B82F6, rgba(0,0,0,0))",
+    boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
   },
   "& .border-left": {
     bottom: 0,
     right: 0,
     height: 3,
-    background: "linear-gradient(to left, rgba(0,0,0,0), #00FF85, rgba(0,0,0,0))",
-    boxShadow: "0 0 10px rgba(0, 255, 133, 0.5)",
+    background: "linear-gradient(to left, rgba(0,0,0,0), #3B82F6, rgba(0,0,0,0))",
+    boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
   },
   "& .border-up": {
     bottom: 0,
     left: 0,
     width: 3,
-    background: "linear-gradient(to top, rgba(0,0,0,0), #00FF85, rgba(0,0,0,0))",
-    boxShadow: "0 0 10px rgba(0, 255, 133, 0.5)",
+    background: "linear-gradient(to top, rgba(0,0,0,0), #3B82F6, rgba(0,0,0,0))",
+    boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
   },
   "& .glass-reflection": {
     position: "absolute",
@@ -169,7 +169,7 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
       color: "#4a4a4a", // Medium dark text for paragraphs
     },
     "& .card-icon": {
-      background: "rgba(0, 0, 0, 0.08)", // Dark icon background
+      background: "rgba(255, 255, 255, 0.9)", // White icon background
       borderRadius: "1rem",
       padding: "0.75rem",
       display: "flex",
@@ -177,7 +177,7 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
       justifyContent: "center",
       transition: "all 0.3s ease",
       "&:hover": {
-        background: "rgba(0, 0, 0, 0.12)", // Slightly darker on hover
+        background: "rgba(255, 255, 255, 1)", // Pure white on hover
       },
 
 
