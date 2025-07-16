@@ -117,7 +117,7 @@ const AiOverview = () => {
             <Player
               autoplay
               loop
-              src="/assets/lottie/AIBot/AIBot.json"
+              src="/assets/lottie/loading/loading.json"
               style={{ height: '450px', width: '450px' }}
             />
 
