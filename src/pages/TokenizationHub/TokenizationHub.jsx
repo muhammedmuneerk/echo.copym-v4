@@ -262,25 +262,29 @@ const IssuerDashboard = () => {
       title: 'Real-Time Analytics',
       description: 'Monitor token performance, holder activity, and market metrics in real-time.',
       icon: BarChart3,
-      color: 'blue'
+      bgClass: 'bg-blue-100',
+      iconClass: 'text-blue-600'
     },
     {
       title: 'Investor Management',
       description: 'Comprehensive investor database with KYC status and communication tools.',
       icon: Users,
-      color: 'green'
+      bgClass: 'bg-green-100',
+      iconClass: 'text-green-600'
     },
     {
       title: 'Compliance Monitoring',
       description: 'Automated compliance tracking and regulatory reporting capabilities.',
       icon: Shield,
-      color: 'purple'
+      bgClass: 'bg-purple-100',
+      iconClass: 'text-purple-600'
     },
     {
       title: 'Distribution Controls',
       description: 'Manage token distributions, dividends, and revenue sharing automatically.',
       icon: Settings,
-      color: 'orange'
+      bgClass: 'bg-orange-100',
+      iconClass: 'text-orange-600'
     }
   ];
 
@@ -312,8 +316,8 @@ const IssuerDashboard = () => {
             {dashboardFeatures.map((feature, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
                 <div className="flex items-start">
-                  <div className={`p-3 rounded-lg bg-${feature.color}-100 mr-4`}>
-                    <feature.icon className={`h-6 w-6 text-${feature.color}-600`} />
+                  <div className={`p-3 rounded-lg mr-4 ${feature.bgClass}`}>
+                    <feature.icon className={`h-6 w-6 ${feature.iconClass}`} />
                   </div>
                   <div>
                     <h4 className="brand-card-title text-black mb-2">{feature.title}</h4>
