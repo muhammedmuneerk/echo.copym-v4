@@ -40,49 +40,49 @@ const glassReflection = keyframes`
   100% { opacity: 0.1; transform: translateY(-100%) translateX(100%); }
 `;
 
-// Green holographic morphing animation
-const holographicMorph = keyframes`
-  0% {
-    transform: scale(1) rotate(0deg) skew(0deg);
-    filter: saturate(1) brightness(1) contrast(1);
-  }
-  25% {
-    transform: scale(1.15) rotate(90deg) skew(5deg);
-    filter: saturate(1.5) brightness(1.3) contrast(1.2);
-  }
-  50% {
-    transform: scale(1.25) rotate(180deg) skew(-5deg);
-    filter: saturate(2) brightness(1.5) contrast(1.4);
-  }
-  75% {
-    transform: scale(1.15) rotate(270deg) skew(5deg);
-    filter: saturate(1.5) brightness(1.3) contrast(1.2);
-  }
-  100% {
-    transform: scale(1) rotate(360deg) skew(0deg);
-    filter: saturate(1) brightness(1) contrast(1);
-  }
-`;
+// // Green holographic morphing animation
+// const holographicMorph = keyframes`
+//   0% {
+//     transform: scale(1) rotate(0deg) skew(0deg);
+//     filter: saturate(1) brightness(1) contrast(1);
+//   }
+//   25% {
+//     transform: scale(1.15) rotate(90deg) skew(5deg);
+//     filter: saturate(1.5) brightness(1.3) contrast(1.2);
+//   }
+//   50% {
+//     transform: scale(1.25) rotate(180deg) skew(-5deg);
+//     filter: saturate(2) brightness(1.5) contrast(1.4);
+//   }
+//   75% {
+//     transform: scale(1.15) rotate(270deg) skew(5deg);
+//     filter: saturate(1.5) brightness(1.3) contrast(1.2);
+//   }
+//   100% {
+//     transform: scale(1) rotate(360deg) skew(0deg);
+//     filter: saturate(1) brightness(1) contrast(1);
+//   }
+// `;
 
-// Green quantum particle effect
-const quantumParticles = keyframes`
-  0% {
-    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
-    transform: scale(1) rotate(0deg);
-  }
-  33% {
-    background: radial-gradient(circle at 30% 70%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
-    transform: scale(1.1) rotate(120deg);
-  }
-  66% {
-    background: radial-gradient(circle at 70% 30%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
-    transform: scale(1.05) rotate(240deg);
-  }
-  100% {
-    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
-    transform: scale(1) rotate(360deg);
-  }
-`;
+// // Green quantum particle effect
+// const quantumParticles = keyframes`
+//   0% {
+//     background: radial-gradient(circle at 50% 50%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
+//     transform: scale(1) rotate(0deg);
+//   }
+//   33% {
+//     background: radial-gradient(circle at 30% 70%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
+//     transform: scale(1.1) rotate(120deg);
+//   }
+//   66% {
+//     background: radial-gradient(circle at 70% 30%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
+//     transform: scale(1.05) rotate(240deg);
+//   }
+//   100% {
+//     background: radial-gradient(circle at 50% 50%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
+//     transform: scale(1) rotate(360deg);
+//   }
+// `;
 
 // Styled component for the animated card
 const AnimatedCard = styled(Box)(({ theme }) => ({
@@ -225,17 +225,17 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
       },
 
 
-      "& svg": {
-        transition: "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)", // Smooth futuristic transition
-        transform: "scale(1) rotate(0deg) skew(0deg)", // Default state
-        filter: "hue-rotate(0deg) saturate(1) brightness(1) contrast(1)", // No effects
-        animation: "none", // No animation by default
-        position: "relative", // For pseudo-elements
-        "&:hover": {
-          animation: `${holographicMorph} 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards`, // Holographic morphing - runs once
-        },
+      // "& svg": {
+      //   transition: "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)", // Smooth futuristic transition
+      //   transform: "scale(1) rotate(0deg) skew(0deg)", // Default state
+      //   filter: "hue-rotate(0deg) saturate(1) brightness(1) contrast(1)", // No effects
+      //   animation: "none", // No animation by default
+      //   position: "relative", // For pseudo-elements
+      //   "&:hover": {
+      //     animation: `${holographicMorph} 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards`, // Holographic morphing - runs once
+      //   },
 
-      },
+      // },
 
 
     },
