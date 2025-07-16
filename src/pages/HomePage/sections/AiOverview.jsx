@@ -7,7 +7,7 @@ import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import GavelIcon from '@mui/icons-material/Gavel';
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
-import AnimtedCard from '../../../ui/AnimatedCard';
+import AnimatedCard from '../../../ui/AnimatedCard';
 import { Box } from '@mui/material';
 
 const AiOverview = () => {
@@ -89,7 +89,7 @@ const AiOverview = () => {
           {/* Medium & up: grid layout */}
           <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
             {features.map((feature) => (
-              <AnimtedCard>
+              <AnimatedCard>
                 <div key={feature.title} className=" p-6 rounded-xl">
                   <Box
                     className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
@@ -108,7 +108,7 @@ const AiOverview = () => {
                     {feature.description}
                   </p>
                 </div>
-              </AnimtedCard>
+              </AnimatedCard>
             ))}
           </div>
 

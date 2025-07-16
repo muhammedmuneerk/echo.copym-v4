@@ -4,7 +4,7 @@ import DeviceHubIcon from '@mui/icons-material/DeviceHub';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import SecurityIcon from '@mui/icons-material/Security';
-import AnimtedCard from '../../../ui/AnimatedCard';
+import AnimatedCard from '../../../ui/AnimatedCard';
 import { Box } from '@mui/material';
 
 const TechnologyStackSection = () => {
@@ -66,7 +66,7 @@ const TechnologyStackSection = () => {
           {/* Medium & up: grid */}
           <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
             {features.map((item, idx) => (
-              <AnimtedCard>
+              <AnimatedCard>
                 <div key={idx} className="p-6 rounded-xl">
                   <Box
                     className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
@@ -85,7 +85,7 @@ const TechnologyStackSection = () => {
                     {item.desc}
                   </p>
                 </div>
-              </AnimtedCard>
+              </AnimatedCard>
             ))}
           </div>
 

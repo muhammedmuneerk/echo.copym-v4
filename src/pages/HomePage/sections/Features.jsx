@@ -1,6 +1,6 @@
 import React from 'react';
 import { Shield, Zap, TrendingUp, Users, Globe, Award } from 'lucide-react';
-import AnimtedCard from '../../../ui/AnimatedCard';
+import AnimatedCard from '../../../ui/AnimatedCard';
 import { Box } from '@mui/material';
 
 
@@ -54,7 +54,7 @@ export default function Features() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <AnimtedCard>
+            <AnimatedCard>
               <div key={index} className="  p-6">
                 <Box
                   className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
@@ -73,7 +73,7 @@ export default function Features() {
                   {feature.description}
                 </p>
               </div>
-            </AnimtedCard>
+            </AnimatedCard>
           ))}
         </div>
       </div>
