@@ -64,7 +64,7 @@ const Hero = () => {
               Tokenization Portal is Open
             </div>
             
-            <h1 className="brand-title text-black mb-6">
+            <h1 className="brand-title mb-6 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
               Tokenize Real-World{' '}
               <span className="relative">
                 Assets
@@ -77,11 +77,11 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
+              <button className="btn-gradient">
                 Start Tokenizing
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
-              <button className="border border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 flex items-center justify-center">
+              <button className="btn-gradient-secondary">
                 <Play className="mr-2 h-5 w-5" />
                 Watch Demo
               </button>
@@ -136,7 +136,7 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
     <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="brand-section-title text-black mb-4">
+          <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
             Tokenization Process
           </h2>
           <p className="brand-description max-w-3xl mx-auto mb-8">
@@ -144,7 +144,7 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
           </p>
           <button 
             onClick={onLaunchCreator}
-            className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center mx-auto"
+            className="btn-gradient mx-auto"
           >
             <Play className="mr-2 h-5 w-5" />
             Launch Token Creator Demo
@@ -208,7 +208,7 @@ const TokenDistribution = () => {
     <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="brand-section-title text-black mb-4">
+          <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
             Token Distribution
           </h2>
           <p className="brand-description max-w-3xl mx-auto">
@@ -284,7 +284,7 @@ const IssuerDashboard = () => {
     <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="brand-section-title text-black mb-4">
+          <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
             Issuer Dashboard
           </h2>
           <p className="brand-description max-w-3xl mx-auto">
@@ -358,7 +358,7 @@ const InvestorManagement = () => {
     <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="brand-section-title text-black mb-4">
+          <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
             Investor Management
           </h2>
           <p className="brand-description max-w-3xl mx-auto">
@@ -418,7 +418,7 @@ const SecurityProtocols = () => {
     <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="brand-section-title text-green-800 mb-4">
+          <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
             Security Protocols
           </h2>
           <p className="brand-description max-w-3xl mx-auto text-green-700">
@@ -495,7 +495,7 @@ const AnalyticsReporting = () => {
     <section className="py-20 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="brand-section-title text-green-800 mb-4">
+          <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
             Analytics & Reporting
           </h2>
           <p className="brand-description max-w-3xl mx-auto text-green-700">
