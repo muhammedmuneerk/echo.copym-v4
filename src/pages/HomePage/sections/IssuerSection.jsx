@@ -42,7 +42,7 @@ const IssuerSection = () => {
 
         {/* Right Side: Placeholder for image / flowchart / video */}
         <div className="flex-1 w-full h-[300px] bg-white border border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 text-center">
-          <img className='rounded-2xl border border-gray-200 shadow-lg ' src='/assets/images/HomePreview.jpeg'></img>
+          <img className='rounded-2xl border border-gray-200 shadow-lg ' src='/assets/Images/HomePreview.jpeg'></img>
         </div>
       </div>
     </section>
