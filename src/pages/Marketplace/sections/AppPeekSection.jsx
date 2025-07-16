@@ -5,22 +5,22 @@ import { motion } from "framer-motion";
 
 const mediaItems = [
   {
-    type: "video",
-    src: "/assets/videos/WalletPreview.mp4",
+    src: "/assets/Images/iphone-mockup-screen-removebg-preview.png",
+    screenshot: "/assets/Images/Walletpreview.jpg",
     label: "Deposit / Withdraw",
     icon: <Wallet className="w-4 h-4" />,
     color: "text-emerald-300 bg-emerald-500/20",
   },
   {
-    type: "video",
-    src: "/assets/videos/MarketPlacePreview.mp4",
+    src: "/assets/Images/iphone-mockup-screen-removebg-preview.png",
+    screenshot: "/assets/Images/MarketPreview.jpg",
     label: "Explore Assets",
     icon: <LayoutGrid className="w-4 h-4" />,
     color: "text-emerald-300 bg-emerald-500/20",
   },
   {
-    type: "image",
-    src: "/assets/Images/MarketplaceDashboard.jpg",
+    src: "/assets/Images/iphone-mockup-screen-removebg-preview.png",
+    screenshot: "/assets/Images/MarketplaceDashboard.jpg",
     label: "Track Portfolio",
     icon: <LineChart className="w-4 h-4" />,
     color: "text-emerald-300 bg-emerald-500/20",
@@ -58,10 +58,10 @@ export default function AppPeekSection() {
           </p>
         </div>
 
-        {/* Glassmorphic Carousel Section */}
+        {/* Glassmorphic Carousel */}
         <div className="relative rounded-3xl px-6 py-16 overflow-hidden shadow-2xl flex flex-col items-center border border-white/20 bg-gradient-to-br from-black/15 via-white/5 to-black/15 backdrop-blur-lg ring-1 ring-white/10 ring-inset">
 
-          {/* Glow effect around */}
+          {/* Glow backdrop */}
           <div className="absolute inset-0 z-0 rounded-3xl pointer-events-none">
             <div className="w-full h-full bg-white/10 blur-2xl opacity-30 rounded-3xl" />
           </div>
@@ -108,26 +108,26 @@ export default function AppPeekSection() {
                 <motion.div
                   key={i}
                   onClick={() => handleClick(pos, i)}
-                  className={`${className} w-[200px] h-[400px] rounded-2xl overflow-hidden shadow-xl bg-white/5 border border-white/20`}
+                  className={`${className} w-[230px] h-[450px] rounded-2xl overflow-hidden`}
                   style={style}
                 >
-                  {item.type === "video" ? (
-                    <video
-                      src={item.src}
-                      className="w-full h-full object-contain"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      controls
-                    />
-                  ) : (
+                  <div className="relative w-full h-full">
+                    {/* Screenshot in screen area */}
                     <img
-                      src={item.src}
-                      alt={item.label}
-                      className="w-full h-full object-contain"
+                      src={item.screenshot}
+                      alt="App Screenshot"
+                      className="absolute top-[12%] left-[14%] w-[72%] h-[75%] object-cover rounded-xl z-0"
                     />
-                  )}
+
+                    {/* Frame scaled up */}
+                    <div className="w-full h-full scale-[2.05]">
+                      <img
+                        src={item.src}
+                        alt={item.label}
+                        className="w-full h-full object-contain z-10 relative"
+                      />
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}
