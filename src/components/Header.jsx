@@ -1,9 +1,27 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Determine which nav buttons to show
+  const navLinks = [
+    { path: '/', label: 'Home' },
+    { path: '/tokenization', label: 'Tokenization' },
+    { path: '/marketplace', label: 'Marketplace' },
+  ];
+  let visibleLinks;
+  if (location.pathname === '/') {
+    visibleLinks = navLinks.filter(link => link.path !== '/');
+  } else if (location.pathname === '/tokenization') {
+    visibleLinks = navLinks.filter(link => link.path !== '/tokenization');
+  } else if (location.pathname === '/marketplace') {
+    visibleLinks = navLinks.filter(link => link.path !== '/marketplace');
+  } else {
+    visibleLinks = navLinks.filter(link => link.path !== '/');
+  }
 
   return (
     <>
@@ -26,18 +44,15 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/tokenization"
-                className="font-semibold bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text hover:opacity-80 transition"
-              >
-                Tokenization
-              </Link>
-              <Link
-                to="/marketplace"
-                className="font-semibold bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text hover:opacity-80 transition"
-              >
-                Marketplace
-              </Link>
+              {visibleLinks.map(link => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="font-semibold bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text hover:opacity-80 transition"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
 
             {/* Mobile Toggle */}
@@ -55,20 +70,16 @@ export default function Header() {
       {isMenuOpen && (
         <div className="fixed top-24 left-0 right-0 z-40 px-4 md:hidden">
           <div className="bg-white rounded-2xl shadow-xl py-4 px-6 space-y-4 text-center">
-            <Link
-              to="/tokenization"
-              className="block text-gray-700 font-medium hover:text-black transition"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Tokenization
-            </Link>
-            <Link
-              to="/marketplace"
-              className="block text-gray-700 font-medium hover:text-black transition"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Marketplace
-            </Link>
+            {visibleLinks.map(link => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="block text-gray-700 font-medium hover:text-black transition"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       )}
