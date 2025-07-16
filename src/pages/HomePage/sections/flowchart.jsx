@@ -1,5 +1,5 @@
 // How It Works - Split for Investors & Issuers
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Modern icon imports
 import { 
@@ -12,9 +12,31 @@ import {
   Store,
   Users,
   Building,
-  ArrowRight as ArrowIcon
+  ArrowRight as ArrowIcon,
+  ChevronDown,
+  ChevronRight
 } from 'lucide-react';
 import AnimatedCard from "../../../ui/AnimatedCard.jsx"
+
+// Custom hook for responsive design
+const useResponsive = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width <= 768);
+      setIsTablet(width > 768 && width <= 1024);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  return { isMobile, isTablet };
+};
 
 // Investor Path Data
 const investorSteps = [
@@ -23,58 +45,58 @@ const investorSteps = [
     icon: <Search className="w-7 h-7 text-blue-500" />,
     title: "Browse Listed Assets",
     description: "Explore diverse tokenized real-world assets in our marketplace",
-    
+    color: "blue"
   },
   {
     id: 2,
     icon: <CreditCard className="w-7 h-7 text-blue-500" />,
     title: "Buy Fractional Tokens",
     description: "Purchase fractional ownership with secure payment processing",
-    // color: "green"
+    color: "green"
   },
   {
     id: 3,
     icon: <TrendingUp className="w-7 h-7 text-blue-500" />,
     title: "Earn Dividends",
     description: "Receive regular dividend payments and profit sharing",
-    // color: "purple"
+    color: "purple"
   },
   {
     id: 4,
     icon: <Store className="w-7 h-7 text-blue-500" />,
     title: "Trade in Secondary Market",
     description: "Buy and sell tokens in our liquid secondary marketplace",
-    // color: "orange"
+    color: "orange"
   }
 ];
 
-// Issuer Path Data (Minimal focus, concise)
+// Issuer Path Data
 const issuerSteps = [
   {
     id: 1,
     icon: <Building2 className="w-7 h-7 text-blue-500" />,
     title: "Tokenize Your Asset",
     description: "Convert your real-world asset into digital tokens in 3 simple steps",
-    // color: "blue"
+    color: "blue"
   },
   {
     id: 2,
     icon: <Shield className="w-7 h-7 text-blue-500" />,
     title: "KYC/Compliance",
     description: "Complete integrated onboarding with automated compliance checks",
-    // color: "green"
+    color: "green"
   },
   {
     id: 3,
     icon: <Store className="w-7 h-7 text-blue-500" />,
     title: "List in Marketplace",
     description: "Your asset gets listed and available for global investors",
-    // color: "purple"
+    color: "purple"
   }
 ];
 
-// Inline Styles
-const styles = {
+// Desktop Styles
+const desktopStyles = {
   container: {
     width: '100%',
     fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
@@ -168,9 +190,6 @@ const styles = {
     marginBottom: '0px',
     marginRight: '8px'
   },
-  tabDescription: {
-    display: 'none'
-  },
   flowchartWrapper: {
     maxWidth: '1800px',
     width: '100%',
@@ -206,15 +225,11 @@ const styles = {
     flex: '0 0 auto'
   },
   stepCard: {
-    // background: 'linear-gradient(135deg, #ffffff, #fafbfc)',
     borderRadius: '20px',
     padding: '28px 20px',
     textAlign: 'center',
     cursor: 'pointer',
-    // transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
     position: 'relative',
-    // border: '1px solid #e5e7eb',
-    // boxShadow: '0 4px 20px rgba(21, 163, 110, 0.08)',
     height: '280px',
     width: '240px',
     minWidth: '240px',
@@ -226,16 +241,6 @@ const styles = {
     flex: '0 0 240px',
     overflow: 'visible'
   },
-  // stepCardHover: {
-  //   transform: 'translateY(-4px)',
-  //   boxShadow: '0 8px 30px rgba(21, 163, 110, 0.15)',
-  //   borderColor: '#d1fae5'
-  // },
-  // stepCardActive: {
-  //   borderColor: '#15a36e',
-  //   boxShadow: '0 8px 30px rgba(21, 163, 110, 0.2)',
-  //   transform: 'translateY(-2px)'
-  // },
   stepIcon: {
     width: '56px',
     height: '56px',
@@ -302,135 +307,332 @@ const styles = {
     transition: 'all 0.3s ease',
     flexShrink: 0,
     minWidth: '24px'
-  },
-  // Responsive styles
-  responsive: {
-    '@media (max-width: 1024px)': {
-      stepsContainer: {
-        flexDirection: 'column',
-        gap: '40px'
-      },
-      stepWrapper: {
-        flexDirection: 'column',
-        width: '100%'
-      },
-      connectionArrow: {
-        transform: 'rotate(90deg)',
-        padding: '20px 0'
-      },
-      pathTabs: {
-        flexDirection: 'column',
-        alignItems: 'center'
-      },
-      pathTab: {
-        minWidth: '320px'
-      }
-    },
-    '@media (max-width: 768px)': {
-      container: {
-        padding: '60px 20px'
-      },
-      mainTitle: {
-        fontSize: '36px'
-      },
-      subtitle: {
-        fontSize: '16px'
-      },
-      flowchartContainer: {
-        padding: '40px 20px'
-      },
-      stepCard: {
-        padding: '24px 16px',
-        height: '240px',
-        width: '200px',
-        minWidth: '200px',
-        maxWidth: '200px',
-        flex: '0 0 200px'
-      },
-      stepIcon: {
-        width: '44px',
-        height: '44px',
-        marginBottom: '18px',
-        padding: '10px'
-      },
-      stepTitle: {
-        fontSize: '18px'
-      },
-      stepDescription: {
-        fontSize: '14px'
-      },
-      pathTab: {
-        minWidth: '280px',
-        padding: '20px 24px'
-      }
-    },
-    '@media (max-width: 480px)': {
-      container: {
-        padding: '40px 16px'
-      },
-      mainTitle: {
-        fontSize: '28px'
-      },
-      flowchartContainer: {
-        padding: '30px 15px'
-      },
-      stepsContainer: {
-        flexDirection: 'column',
-        gap: '20px',
-        padding: '0 10px'
-      },
-      stepCard: {
-        padding: '20px 16px',
-        height: 'auto',
-        width: '100%',
-        minWidth: 'auto',
-        maxWidth: '100%',
-        flex: '1 1 auto'
-      },
-      stepWrapper: {
-        flexDirection: 'column',
-        width: '100%'
-      },
-      connectionArrow: {
-        transform: 'rotate(90deg)',
-        padding: '10px 0'
-      },
-      stepIcon: {
-        width: '40px',
-        height: '40px',
-        marginBottom: '16px',
-        padding: '8px'
-      },
-      pathTab: {
-        minWidth: '260px',
-        padding: '16px 20px'
-      },
-      tabIcon: {
-        width: '40px',
-        height: '40px'
-      }
-    }
   }
+};
+
+// Mobile Styles
+const mobileStyles = {
+  container: {
+    width: '100%',
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    color: '#1f2937',
+    padding: '40px 16px',
+    position: 'relative',
+    overflow: 'hidden'
+  },
+  headerSection: {
+    textAlign: 'center',
+    marginBottom: '30px',
+    position: 'relative',
+    zIndex: 10
+  },
+  headerLine: {
+    width: '40px',
+    height: '3px',
+    background: 'linear-gradient(90deg, #15a36e, #255f99)',
+    margin: '0 auto 15px',
+    borderRadius: '2px'
+  },
+  mainTitle: {
+    fontFamily: "'Genos', sans-serif",
+    fontSize: '28px',
+    fontWeight: 700,
+    background: 'linear-gradient(90deg, #15a36e, #255f99)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    backgroundClip: 'text',
+    marginBottom: '15px',
+    letterSpacing: '-0.025em'
+  },
+  subtitle: {
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontSize: '16px',
+    color: '#6b7280',
+    maxWidth: '100%',
+    margin: '0 auto',
+    lineHeight: 1.5,
+    fontWeight: 400,
+    padding: '0 10px'
+  },
+  pathTabs: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '12px',
+    marginBottom: '30px',
+    padding: '0 10px'
+  },
+  pathTab: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    padding: '16px 20px',
+    background: 'linear-gradient(135deg, #ffffff, #fafbfc)',
+    border: '2px solid #e0f2fe',
+    borderRadius: '16px',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 2px 8px rgba(59, 130, 246, 0.06)',
+    width: '100%',
+    position: 'relative',
+    overflow: 'hidden'
+  },
+  pathTabActive: {
+    borderColor: '#15a36e',
+    boxShadow: '0 4px 16px rgba(21, 163, 110, 0.15)',
+    background: 'linear-gradient(135deg, #15a36e, #255f99)',
+    color: '#ffffff'
+  },
+  tabIcon: {
+    width: '20px',
+    height: '20px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: 'transparent',
+    border: 'none',
+    borderRadius: 0,
+    color: 'inherit'
+  },
+  tabIconActive: {
+    color: '#ffffff'
+  },
+  tabContent: {
+    flex: 1
+  },
+  tabTitle: {
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontSize: '16px',
+    fontWeight: 600,
+    color: 'inherit',
+    marginBottom: '0px'
+  },
+  flowchartWrapper: {
+    width: '100%',
+    margin: '0 auto',
+    position: 'relative'
+  },
+  flowchartContainer: {
+    background: 'linear-gradient(135deg, #f0fdf4, #ecfdf5)',
+    borderRadius: '20px',
+    padding: '30px 20px',
+    position: 'relative',
+    border: '1px solid #d1fae5',
+    boxShadow: '0 10px 30px rgba(21, 163, 110, 0.08)',
+    width: '100%',
+    overflow: 'visible'
+  },
+  stepsContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '20px',
+    width: '100%',
+    overflow: 'visible'
+  },
+  stepWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    position: 'relative'
+  },
+  stepCard: {
+    borderRadius: '16px',
+    padding: '20px 16px',
+    textAlign: 'left',
+    cursor: 'pointer',
+    position: 'relative',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: '16px',
+    background: 'rgba(255, 255, 255, 0.8)',
+    border: '1px solid #e5e7eb',
+    transition: 'all 0.3s ease'
+  },
+  stepCardActive: {
+    borderColor: '#15a36e',
+    boxShadow: '0 4px 16px rgba(21, 163, 110, 0.15)',
+    background: 'rgba(255, 255, 255, 0.95)'
+  },
+  stepIcon: {
+    width: '48px',
+    height: '48px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'all 0.3s ease',
+    position: 'relative',
+    background: '#f3f4f6',
+    border: 'none',
+    borderRadius: '12px',
+    padding: '12px',
+    flexShrink: 0
+  },
+  stepIconBlue: {
+    color: '#255f99',
+    background: '#f3f4f6'
+  },
+  stepIconGreen: {
+    color: '#15a36e',
+    background: '#f3f4f6'
+  },
+  stepIconPurple: {
+    color: '#8b5cf6',
+    background: '#f3f4f6'
+  },
+  stepIconOrange: {
+    color: '#f59e0b',
+    background: '#f3f4f6'
+  },
+  stepContent: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    textAlign: 'left'
+  },
+  stepTitle: {
+    fontFamily: "'Genos', sans-serif",
+    fontSize: '16px',
+    fontWeight: 700,
+    color: '#111827',
+    marginBottom: '6px',
+    lineHeight: 1.3,
+    textAlign: 'left'
+  },
+  stepDescription: {
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontSize: '14px',
+    color: '#6b7280',
+    lineHeight: 1.5,
+    fontWeight: 400,
+    textAlign: 'left',
+    margin: 0
+  },
+  connectionArrow: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '8px 0',
+    color: '#15a36e',
+    opacity: 0.6,
+    transition: 'all 0.3s ease',
+    alignSelf: 'center'
+  },
+  stepNumber: {
+    position: 'absolute',
+    top: '-8px',
+    left: '-8px',
+    width: '24px',
+    height: '24px',
+    background: 'linear-gradient(135deg, #15a36e, #255f99)',
+    color: '#ffffff',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '12px',
+    fontWeight: 700,
+    border: '2px solid #ffffff'
+  }
+};
+
+// Mobile Step Component
+const MobileStep = ({ step, index, isActive, onClick, isLast }) => {
+  const getStepIconStyle = (color) => {
+    switch (color) {
+      case 'blue': return { ...mobileStyles.stepIcon, ...mobileStyles.stepIconBlue };
+      case 'green': return { ...mobileStyles.stepIcon, ...mobileStyles.stepIconGreen };
+      case 'purple': return { ...mobileStyles.stepIcon, ...mobileStyles.stepIconPurple };
+      case 'orange': return { ...mobileStyles.stepIcon, ...mobileStyles.stepIconOrange };
+      default: return mobileStyles.stepIcon;
+    }
+  };
+
+  return (
+    <div style={mobileStyles.stepWrapper}>
+      <div 
+        style={{
+          ...mobileStyles.stepCard,
+          ...(isActive ? mobileStyles.stepCardActive : {})
+        }}
+        onClick={() => onClick(index)}
+      >
+        <div style={mobileStyles.stepNumber}>
+          {index + 1}
+        </div>
+        
+        <div style={getStepIconStyle(step.color)}>
+          {step.icon}
+        </div>
+        
+        <div style={mobileStyles.stepContent}>
+          <h3 style={mobileStyles.stepTitle}>{step.title}</h3>
+          <p style={mobileStyles.stepDescription}>{step.description}</p>
+        </div>
+      </div>
+
+      {!isLast && (
+        <div style={mobileStyles.connectionArrow}>
+          <ChevronDown className="w-5 h-5" />
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Desktop Step Component
+const DesktopStep = ({ step, index, isActive, onClick, isLast }) => {
+  const getStepIconStyle = (color) => {
+    switch (color) {
+      case 'blue': return { ...desktopStyles.stepIcon, ...desktopStyles.stepIconBlue };
+      case 'green': return { ...desktopStyles.stepIcon, ...desktopStyles.stepIconGreen };
+      case 'purple': return { ...desktopStyles.stepIcon, ...desktopStyles.stepIconPurple };
+      case 'orange': return { ...desktopStyles.stepIcon, ...desktopStyles.stepIconOrange };
+      default: return desktopStyles.stepIcon;
+    }
+  };
+
+  return (
+    <div style={desktopStyles.stepWrapper}>
+      <AnimatedCard>
+        <div 
+          style={{
+            ...desktopStyles.stepCard,
+            ...(isActive ? { borderColor: '#15a36e', boxShadow: '0 8px 30px rgba(21, 163, 110, 0.2)', transform: 'translateY(-2px)' } : {})
+          }}
+          onClick={() => onClick(index)}
+        >
+          <div style={getStepIconStyle(step.color)}>
+            {step.icon}
+          </div>
+          
+          <div style={desktopStyles.stepContent}>
+            <h3 style={desktopStyles.stepTitle}>{step.title}</h3>
+            <p style={desktopStyles.stepDescription}>{step.description}</p>
+          </div>
+        </div>
+      </AnimatedCard>
+
+      {!isLast && (
+        <div style={desktopStyles.connectionArrow}>
+          <ArrowRight className="w-6 h-6" />
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default function Flowchart() {
   const [activePath, setActivePath] = useState('issuer');
   const [activeStep, setActiveStep] = useState(0);
+  const { isMobile } = useResponsive();
 
   const currentSteps = activePath === 'investor' ? investorSteps : issuerSteps;
+  const styles = isMobile ? mobileStyles : desktopStyles;
 
   const handleStepClick = (stepIndex) => {
     setActiveStep(stepIndex);
-  };
-
-  const getStepIconStyle = (color) => {
-    switch (color) {
-      case 'blue': return { ...styles.stepIcon, ...styles.stepIconBlue };
-      case 'green': return { ...styles.stepIcon, ...styles.stepIconGreen };
-      case 'purple': return { ...styles.stepIcon, ...styles.stepIconPurple };
-      case 'orange': return { ...styles.stepIcon, ...styles.stepIconOrange };
-      default: return styles.stepIcon;
-    }
   };
 
   return (
@@ -495,41 +697,29 @@ export default function Flowchart() {
           {/* Steps Container */}
           <div style={styles.stepsContainer}>
             {currentSteps.map((step, index) => (
-              <div key={step.id} style={styles.stepWrapper}>
-                {/* Step Card */}
-                <AnimatedCard>
-                <div 
-                  style={{
-                    ...styles.stepCard,
-                    ...(activeStep === index ? styles.stepCardActive : {}),
-                    ...(activeStep === index ? styles.stepCardHover : {})
-                  }}
-                  onClick={() => handleStepClick(index)}
-                >
-                  {/* Step Icon */}
-                  <div style={getStepIconStyle(step.color)}>
-                    {step.icon}
-                  </div>
-                  
-                  {/* Step Content */}
-                  <div style={styles.stepContent}>
-                    <h3 style={styles.stepTitle}>{step.title}</h3>
-                    <p style={styles.stepDescription}>{step.description}</p>
-                  </div>
-                </div>
-                </AnimatedCard>
-
-                {/* Connection Arrow */}
-                {index < currentSteps.length - 1 && (
-                  <div style={styles.connectionArrow}>
-                    <ArrowRight className="w-6 h-6" />
-                  </div>
-                )}
-              </div>
+              isMobile ? (
+                <MobileStep
+                  key={step.id}
+                  step={step}
+                  index={index}
+                  isActive={activeStep === index}
+                  onClick={handleStepClick}
+                  isLast={index === currentSteps.length - 1}
+                />
+              ) : (
+                <DesktopStep
+                  key={step.id}
+                  step={step}
+                  index={index}
+                  isActive={activeStep === index}
+                  onClick={handleStepClick}
+                  isLast={index === currentSteps.length - 1}
+                />
+              )
             ))}
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>
+  );
 }
