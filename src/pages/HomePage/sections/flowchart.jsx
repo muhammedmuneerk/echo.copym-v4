@@ -20,31 +20,31 @@ import AnimatedCard from "../../../ui/AnimatedCard.jsx"
 const investorSteps = [
   {
     id: 1,
-    icon: <Search className="w-7 h-7" />,
+    icon: <Search className="w-7 h-7 text-blue-500" />,
     title: "Browse Listed Assets",
     description: "Explore diverse tokenized real-world assets in our marketplace",
-    color: "blue"
+    
   },
   {
     id: 2,
-    icon: <CreditCard className="w-7 h-7" />,
+    icon: <CreditCard className="w-7 h-7 text-blue-500" />,
     title: "Buy Fractional Tokens",
     description: "Purchase fractional ownership with secure payment processing",
-    color: "green"
+    // color: "green"
   },
   {
     id: 3,
-    icon: <TrendingUp className="w-7 h-7" />,
+    icon: <TrendingUp className="w-7 h-7 text-blue-500" />,
     title: "Earn Dividends",
     description: "Receive regular dividend payments and profit sharing",
-    color: "purple"
+    // color: "purple"
   },
   {
     id: 4,
-    icon: <Store className="w-7 h-7" />,
+    icon: <Store className="w-7 h-7 text-blue-500" />,
     title: "Trade in Secondary Market",
     description: "Buy and sell tokens in our liquid secondary marketplace",
-    color: "orange"
+    // color: "orange"
   }
 ];
 
@@ -52,24 +52,24 @@ const investorSteps = [
 const issuerSteps = [
   {
     id: 1,
-    icon: <Building2 className="w-7 h-7" />,
+    icon: <Building2 className="w-7 h-7 text-blue-500" />,
     title: "Tokenize Your Asset",
     description: "Convert your real-world asset into digital tokens in 3 simple steps",
-    color: "blue"
+    // color: "blue"
   },
   {
     id: 2,
-    icon: <Shield className="w-7 h-7" />,
+    icon: <Shield className="w-7 h-7 text-blue-500" />,
     title: "KYC/Compliance",
     description: "Complete integrated onboarding with automated compliance checks",
-    color: "green"
+    // color: "green"
   },
   {
     id: 3,
-    icon: <Store className="w-7 h-7" />,
+    icon: <Store className="w-7 h-7 text-blue-500" />,
     title: "List in Marketplace",
     description: "Your asset gets listed and available for global investors",
-    color: "purple"
+    // color: "purple"
   }
 ];
 

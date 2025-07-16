@@ -142,20 +142,6 @@ export default function AppPeekSection() {
           </div>
 
           {/* Controls */}
-          <div className="flex gap-6 mt-10 z-10">
-            <button
-              onClick={() => setIndex((index - 1 + total) % total)}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/20 text-gray-800"
-            >
-              ‹
-            </button>
-            <button
-              onClick={() => setIndex((index + 1) % total)}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/20 text-gray-800"
-            >
-              ›
-            </button>
-          </div>
 
           {/* CTA Button */}
           <div className="flex justify-center mt-12 z-10">
