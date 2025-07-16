@@ -1,0 +1,261 @@
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  WorkspacePremium, 
+  TrendingUp, 
+  Speed, 
+  Shield, 
+  Group, 
+  PsychologyAlt, 
+  Bolt, 
+  MonetizationOn, 
+  Assessment, 
+  VerifiedUser, 
+  Security 
+} from '@mui/icons-material';
+
+const ComparisonSection = () => {
+  const [activeMatrixTab, setActiveMatrixTab] = useState('performance');
+
+  const comparisonData = [
+    {
+      feature: 'AI-Powered Guidance',
+      copymAI: '✅ CopymAgent Advanced',
+      traditional: '❌ None or Basic'
+    },
+    {
+      feature: 'Min Investment',
+      copymAI: '💲$100',
+      traditional: '💲10K+'
+    },
+    {
+      feature: 'Asset Verification',
+      copymAI: '✅ AI + Experts',
+      traditional: '❌ Manual / Basic'
+    },
+    {
+      feature: 'Liquidity',
+      copymAI: '⚡ Instant AI trades',
+      traditional: '🕓 Weeks/months'
+    },
+    {
+      feature: 'Portfolio Tools',
+      copymAI: '🔁 CopymAgent Optimized',
+      traditional: '🧍Manual or Limited'
+    }
+  ];
+
+  const metricData = {
+    performance: [
+      {
+        label: 'Return on Investment',
+        icon: <TrendingUp sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '87%', value: '23% Better' },
+        traditional: { width: '64%', value: 'Standard' }
+      },
+      {
+        label: 'Transaction Speed',
+        icon: <Speed sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '95%', value: 'Instant', instant: true },
+        traditional: { width: '25%', value: 'Weeks' }
+      },
+      {
+        label: 'AI Intelligence',
+        icon: <PsychologyAlt sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '92%', value: 'Advanced AI' },
+        traditional: { width: '15%', value: 'Basic' }
+      }
+    ],
+    efficiency: [
+      {
+        label: 'Processing Speed',
+        icon: <Bolt sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '98%', value: 'Real-time' },
+        traditional: { width: '35%', value: 'Hours' }
+      },
+      {
+        label: 'Cost Efficiency',
+        icon: <MonetizationOn sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '85%', value: '90% Lower' },
+        traditional: { width: '45%', value: 'High Fees' }
+      },
+      {
+        label: 'Resource Utilization',
+        icon: <Assessment sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '94%', value: 'Optimized' },
+        traditional: { width: '28%', value: 'Wasteful' }
+      }
+    ],
+    security: [
+      {
+        label: 'Fraud Detection',
+        icon: <Shield sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '99%', value: 'AI-Powered' },
+        traditional: { width: '52%', value: 'Manual' }
+      },
+      {
+        label: 'Identity Verification',
+        icon: <VerifiedUser sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '96%', value: 'Multi-Factor' },
+        traditional: { width: '38%', value: 'Basic' }
+      },
+      {
+        label: 'Data Protection',
+        icon: <Security sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '97%', value: 'Enterprise' },
+        traditional: { width: '42%', value: 'Standard' }
+      }
+    ],
+    accessibility: [
+      {
+        label: 'Global Access',
+        icon: <Group sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '95%', value: '24/7 Global' },
+        traditional: { width: '30%', value: 'Limited Hours' }
+      },
+      {
+        label: 'User Experience',
+        icon: <TrendingUp sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '92%', value: 'Intuitive AI' },
+        traditional: { width: '25%', value: 'Complex' }
+      },
+      {
+        label: 'Mobile Support',
+        icon: <Speed sx={{ fontSize: 20, color: '#4ade80' }} />,
+        copymai: { width: '98%', value: 'Full Mobile' },
+        traditional: { width: '20%', value: 'Desktop Only' }
+      }
+    ]
+  };
+
+  const handleTabClick = (tab) => {
+    setActiveMatrixTab(tab);
+  };
+
+  return (
+    <section id="comparison" className="bg-gradient-to-br from-gray-900 to-black py-20 relative overflow-hidden">
+      {/* Background gradient */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(circle at 50% 50%, rgba(74,222,128,0.05), transparent 60%, rgba(248,113,113,0.05))"
+        }}
+      ></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Why CopymAI is Different
+          </h2>
+          <p className="text-xl text-gray-300">
+            Advanced AI-Powered Platform vs Traditional Investment Systems
+          </p>
+        </motion.div>
+        
+        <div className="max-w-7xl mx-auto">
+          {/* Advanced AI Comparison Matrix */}
+          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-3xl p-8 backdrop-blur-sm hover:border-green-400/30 transition-all duration-500">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
+              <div className="flex items-center gap-4 mb-4 lg:mb-0">
+                <WorkspacePremium className="text-green-400 text-4xl drop-shadow-lg animate-pulse" />
+                <h3 className="text-2xl font-bold text-white">AI-Powered Investment Matrix</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { id: 'performance', icon: <TrendingUp />, label: 'Performance' },
+                  { id: 'efficiency', icon: <Speed />, label: 'Efficiency' },
+                  { id: 'security', icon: <Shield />, label: 'Security' },
+                  { id: 'accessibility', icon: <Group />, label: 'Accessibility' }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => handleTabClick(tab.id)}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
+                      activeMatrixTab === tab.id
+                        ? 'bg-green-400 text-black shadow-lg shadow-green-400/25'
+                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white'
+                    }`}
+                  >
+                    {tab.icon}
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            
+            <div className="space-y-6">
+              {metricData[activeMatrixTab].map((metric, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="bg-gray-800/50 border border-gray-600 rounded-xl p-6 hover:border-green-400/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    {metric.icon}
+                    <span className="text-white font-semibold text-lg">{metric.label}</span>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    {/* CopymAI Bar */}
+                    <div className="flex items-center gap-4">
+                      <div className="flex-1 bg-gray-700 rounded-full h-8 overflow-hidden">
+                        <div 
+                          className={`h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full transition-all duration-1000 ease-out relative ${
+                            metric.copymai.instant ? 'animate-pulse' : ''
+                          }`}
+                          style={{ width: metric.copymai.width }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-bold text-white">
+                            {metric.copymai.value}
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-green-400 font-semibold text-sm min-w-[80px]">CopymAI</span>
+                    </div>
+                    
+                    {/* Traditional Bar */}
+                    <div className="flex items-center gap-4">
+                      <div className="flex-1 bg-gray-700 rounded-full h-8 overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full transition-all duration-1000 ease-out relative"
+                          style={{ width: metric.traditional.width }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-bold text-white">
+                            {metric.traditional.value}
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-blue-400 font-semibold text-sm min-w-[80px]">Traditional</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default ComparisonSection; 
