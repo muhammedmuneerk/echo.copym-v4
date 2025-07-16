@@ -6,7 +6,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import CloudDoneIcon from '@mui/icons-material/CloudDone';
-import AnimtedCard from '../../../ui/AnimatedCard';
+import AnimatedCard from '../../../ui/AnimatedCard';
 import { Box } from '@mui/material';
 
 const SecurityFeaturesSection = () => {
@@ -87,7 +87,7 @@ const SecurityFeaturesSection = () => {
           {/* Medium & up: grid */}
           <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
             {features.map((item, i) => (
-              <AnimtedCard>
+              <AnimatedCard>
                 <div key={i} className="p-6 rounded-xl">
                   <Box
                     className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
@@ -106,7 +106,7 @@ const SecurityFeaturesSection = () => {
                     {item.desc}
                   </p>
                 </div>
-              </AnimtedCard>
+              </AnimatedCard>
             ))}
           </div>
 

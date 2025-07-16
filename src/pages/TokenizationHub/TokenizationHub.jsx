@@ -30,11 +30,12 @@ import {
   CheckCircle,
   AlertCircle
 } from 'lucide-react';
+import AnimatedCard from "../../ui/AnimatedCard.jsx"
 
 // Hero Section Component
 const Hero = () => {
   return (
-    <section className="relative bg-green-50 py-20 lg:py-32 overflow-hidden">
+    <section className="relative bg-green-50 py-20 lg:py-28 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
@@ -58,17 +59,16 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left  lg:-mt-[310px]">
             <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700 mb-6">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
               Tokenization Portal is Open
             </div>
-            
-            <h1 className="brand-title mb-6 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
+
+            <h1 className="brand-title text-black mb-6 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
               Tokenize Real-World{' '}
-              <span className="relative">
+              <span className="relative bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
                 Assets
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-orange-400"></div>
               </span>
             </h1>
             
@@ -89,12 +89,12 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Lottie Animation */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center overflow-hidden">
             <Player
               autoplay
               loop
               src="/assets/lottie/TokenizationHub/staking.json"
-              style={{ height: '400px', width: '400px' }}
+              style={{ height: '500px', width: '500px' }}
             />
           </div>
         </div>
@@ -153,8 +153,9 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
+            <AnimatedCard>
             <div key={index} className="relative">
-              <div className="bg-white rounded-2xl p-6 shadow-lg h-full">
+              <div className=" rounded-2xl p-6 ">
                 <div className="flex items-center mb-4">
                   <span className="text-sm font-bold text-gray-400 mr-3">{step.step}</span>
                   <step.icon className="h-6 w-6 text-blue-500" />
@@ -163,11 +164,12 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
                 <p className="text-gray-600">{step.description}</p>
               </div>
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                <div className="hidden lg:block absolute top-1/2 -right-1 transform -translate-y-1/2">
                   <ArrowRight className="h-5 w-5 text-gray-400" />
                 </div>
               )}
             </div>
+              </AnimatedCard>
           ))}
         </div>
       </div>
@@ -218,7 +220,8 @@ const TokenDistribution = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {distributionMethods.map((method, index) => (
-            <div key={index} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+            <AnimatedCard>
+            <div key={index} className=" rounded-2xl p-6">
               <method.icon className="h-10 w-10 text-blue-500 mb-4" />
               <h3 className="brand-card-title text-black mb-3">{method.title}</h3>
               <p className="text-gray-600 mb-4">{method.description}</p>
@@ -231,6 +234,7 @@ const TokenDistribution = () => {
                 ))}
               </ul>
             </div>
+            </AnimatedCard>
           ))}
         </div>
 
@@ -368,8 +372,9 @@ const InvestorManagement = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {managementTools.map((tool, index) => (
+            <AnimatedCard>
             <div key={index} className="text-center">
-              <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+              <div className=" rounded-2xl p-8">
                 <tool.icon className="h-12 w-12 text-blue-500 mx-auto mb-4" />
                 <h3 className="brand-card-title text-black mb-3">{tool.title}</h3>
                 <p className="text-gray-600 mb-4">{tool.description}</p>
@@ -378,6 +383,7 @@ const InvestorManagement = () => {
                 </div>
               </div>
             </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>
