@@ -659,13 +659,13 @@ const Step1 = ({ financialAssets, nonFinancialAssets, selectedAsset, onSelectAss
         )}
         
         {/* Navigation buttons */}
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 4 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
           <Button 
             variant="contained"
             onClick={onNext}
             disabled={!selectedAsset || (selectedAsset === 'other' && !customAssetName.trim())}
             size="large"
-            sx={{ px: 4 }}
+            sx={{ px: 8, minWidth: 220 }}
           >
             Continue
           </Button>
