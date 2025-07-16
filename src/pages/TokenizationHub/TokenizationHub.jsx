@@ -511,7 +511,8 @@ const AnalyticsReporting = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reportingFeatures.map((feature, index) => (
-            <div key={index} className="bg-green-100 rounded-2xl p-6">
+            <AnimatedCard>
+            <div key={index} className="rounded-2xl p-6">
               <feature.icon className="h-10 w-10 text-green-600 mb-4" />
               <h3 className="brand-card-title text-green-800 mb-3">{feature.title}</h3>
               <p className="text-green-700 mb-4">{feature.description}</p>
@@ -524,6 +525,7 @@ const AnalyticsReporting = () => {
                 ))}
               </div>
             </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>
