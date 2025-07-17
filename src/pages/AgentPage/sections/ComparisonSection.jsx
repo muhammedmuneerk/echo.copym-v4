@@ -155,7 +155,7 @@ const ComparisonSection = () => {
             
           {/* Matrix Content */}
           <div className="space-y-6 sm:space-y-8">
-            <h3 className="brand-card-title text-white mb-4 sm:mb-8 text-lg sm:text-xl md:text-2xl">
+            <h3 className="brand-card-title text-white mb-4 sm:mb-8 text-lg sm:text-xl md:text-2xl text-center">
               Performance Comparison Matrix
             </h3>
             <div className="space-y-4 sm:space-y-6">
@@ -165,7 +165,7 @@ const ComparisonSection = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-gray-800/50 border border-gray-600 rounded-xl p-4 sm:p-6 hover:border-green-400/30 transition-all duration-300"
+                  className="p-4 sm:p-6 transition-all duration-300"
                 >
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-center">
                     {metric.icon}

@@ -72,7 +72,51 @@ const RoadmapSection = () => {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 max-w-6xl mx-auto">
+        {/* Mobile: Horizontal scrollable container */}
+        <div className="block lg:hidden">
+          <div className="flex overflow-x-auto scrollbar-hide gap-6 pb-4 -mx-4 px-4">
+            {roadmapItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="transition-all duration-500 hover:transform hover:-translate-y-3 relative overflow-hidden group flex-shrink-0 w-80"
+                style={{
+                  animationDelay: `${index * 1.5}s`,
+                  animation: 'roadmapFloat 6s ease-in-out infinite'
+                }}
+              >
+                <h3 className="brand-card-title mb-6 sm:mb-8 text-green-400 text-center relative">
+                  {item.quarter}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 h-0.5 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
+                </h3>
+                
+                <ul className="space-y-4 sm:space-y-6">
+                  {item.items.map((task, taskIndex) => (
+                    <motion.li
+                      key={taskIndex}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: taskIndex * 0.1 }}
+                      className="flex items-center justify-center gap-3 sm:gap-4 p-4 sm:p-6 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-xl transition-all duration-300 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 hover:border-green-400 hover:transform hover:translate-x-2 hover:shadow-lg hover:shadow-green-400/20 group/item text-center"
+                    >
+                      <div className="flex-shrink-0 drop-shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                        {task.icon}
+                      </div>
+                      <span className="brand-description text-white text-base sm:text-lg">
+                        {task.text}
+                      </span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Grid layout */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 max-w-6xl mx-auto">
           {roadmapItems.map((item, index) => (
             <motion.div
               key={index}
@@ -121,6 +165,13 @@ const RoadmapSection = () => {
           50% {
             transform: translateY(-8px);
           }
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
     </section>

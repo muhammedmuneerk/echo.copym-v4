@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
   return (
     <section 
       id="testimonials" 
-      className="relative overflow-hidden py-20"
+      className="relative overflow-hidden py-12 sm:py-16 md:py-20"
       style={{
         background: 'black'
       }}
@@ -49,29 +49,29 @@ const TestimonialsSection = () => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="brand-section-title mb-6 text-white flex items-center justify-center gap-4">
-            <Verified sx={{ mr:1, verticalAlign: 'middle' }} />
+          <h2 className="brand-section-title mb-4 sm:mb-6 text-white flex items-center justify-center gap-2 sm:gap-4 text-center">
+            <Verified className="text-green-400" sx={{ fontSize: 24 }} />
             What Industry Leaders Say
           </h2>
-          <p className="brand-description max-w-3xl mx-auto text-gray-300">
+          <p className="brand-description max-w-3xl mx-auto text-gray-300 px-4 sm:px-0 text-center">
             Real feedback from investment professionals and technology experts
           </p>
         </motion.div>
         
-        <div className="space-y-16">
+        <div className="space-y-12 sm:space-y-16">
           {/* Featured Testimonial */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto mb-16 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-3xl p-12 shadow-2xl shadow-black/30 relative overflow-hidden backdrop-blur-md group hover:border-green-400/30 transition-all duration-500"
+            className="max-w-4xl mx-auto mb-12 sm:mb-16 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl shadow-black/30 relative overflow-hidden backdrop-blur-md group hover:border-green-400/30 transition-all duration-500"
           >
             <div 
               className="absolute inset-0 opacity-30"
@@ -81,65 +81,113 @@ const TestimonialsSection = () => {
             />
             
             <div className="relative z-10">
-              <div className="text-center mb-8">
-                <Star className="text-green-400 text-5xl animate-pulse" />
+              <div className="text-center mb-6 sm:mb-8">
+                <Star className="text-green-400 text-3xl sm:text-4xl md:text-5xl animate-pulse" />
               </div>
               
-              <blockquote className="brand-description text-white text-center mb-10 leading-relaxed italic relative px-8">
-                <span className="absolute -top-4 -left-4 text-6xl text-green-400 opacity-30 font-serif">"</span>
+              <blockquote className="brand-description text-white text-center mb-8 sm:mb-10 leading-relaxed italic relative px-4 sm:px-8 text-sm sm:text-base md:text-lg">
+                <span className="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 text-3xl sm:text-4xl md:text-6xl text-green-400 opacity-30 font-serif">"</span>
                 CopymAI democratizes high-value asset investment. The AI predictions have consistently outperformed traditional analysis by 23%. This is the future of investment platforms.
-                <span className="absolute -bottom-8 -right-4 text-6xl text-green-400 opacity-30 font-serif">"</span>
+                <span className="absolute -bottom-4 sm:-bottom-8 -right-2 sm:-right-4 text-3xl sm:text-4xl md:text-6xl text-green-400 opacity-30 font-serif">"</span>
               </blockquote>
               
-              <div className="flex items-center justify-center gap-8 text-center">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-400/20 to-green-400/10 border-3 border-green-400/30 flex items-center justify-center shadow-lg shadow-green-400/20 transition-all duration-300 hover:scale-110">
-                  <AccountBalance className="text-green-400 text-5xl" />
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-center">
+                <div className="flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <AccountBalance className="text-green-400 text-3xl sm:text-4xl md:text-5xl" />
                 </div>
                 <div>
-                  <h4 className="brand-card-title text-white">Sarah Chen</h4>
-                  <p className="brand-description text-gray-400 font-medium">Investment Director</p>
-                  <p className="brand-description text-gray-500">Venture Capital Partners</p>
+                  <h4 className="brand-card-title text-white text-center">Sarah Chen</h4>
+                  <p className="brand-description text-gray-400 font-medium text-center">Investment Director</p>
+                  <p className="brand-description text-gray-500 text-center">Venture Capital Partners</p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Mobile: Horizontal scrollable testimonials */}
+          <div className="block lg:hidden">
+            <div className="flex overflow-x-auto scrollbar-hide gap-6 pb-4 -mx-4 px-4">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 rounded-2xl p-6 transition-all duration-400 ease-out hover:-translate-y-2 hover:border-green-400/30 hover:shadow-2xl hover:shadow-green-400/15 hover:from-gray-700 hover:to-gray-800 relative overflow-hidden backdrop-blur-md group flex-shrink-0 w-80"
+                >
+                  {/* Top border gradient */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-blue-500 transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                  
+                  <div className="flex justify-between items-start mb-4 sm:mb-6">
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="text-yellow-400 text-sm sm:text-base" />
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-110">
+                      {testimonial.avatar}
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4 sm:mb-6">
+                    <blockquote className="brand-description text-gray-300 leading-relaxed text-sm sm:text-base italic relative pl-4 text-center sm:text-left">
+                      <span className="absolute left-0 top-0 text-xl sm:text-2xl text-green-400 opacity-50 font-serif">"</span>
+                      {testimonial.content}
+                    </blockquote>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row justify-between items-center pt-4 sm:pt-6 border-t border-white/10 gap-2 sm:gap-0">
+                    <div className="text-center sm:text-left">
+                      <h4 className="brand-card-title text-white mb-1 text-center sm:text-left">{testimonial.name}</h4>
+                      <p className="brand-description text-green-400 font-medium text-xs sm:text-sm mb-1 text-center sm:text-left">{testimonial.role}</p>
+                      <p className="brand-description text-gray-400 text-xs text-center sm:text-left">{testimonial.company}</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-green-400 text-xs brand-description">
+                      <Verified className="text-sm" />
+                      <span>Verified Professional</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Testimonials Grid */}
+          <div className="hidden lg:grid lg:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 rounded-2xl p-8 transition-all duration-400 ease-out hover:-translate-y-2 hover:border-green-400/30 hover:shadow-2xl hover:shadow-green-400/15 hover:from-gray-700 hover:to-gray-800 relative overflow-hidden backdrop-blur-md group"
+                className="bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 rounded-2xl p-6 sm:p-8 transition-all duration-400 ease-out hover:-translate-y-2 hover:border-green-400/30 hover:shadow-2xl hover:shadow-green-400/15 hover:from-gray-700 hover:to-gray-800 relative overflow-hidden backdrop-blur-md group"
               >
                 {/* Top border gradient */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-blue-500 transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100" />
                 
-                <div className="flex justify-between items-start mb-6">
+                <div className="flex justify-between items-start mb-4 sm:mb-6">
                   <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="text-yellow-400 text-base" />
+                      <Star key={i} className="text-yellow-400 text-sm sm:text-base" />
                     ))}
                   </div>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400/10 to-green-400/5 border-2 border-green-400/20 flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-110 group-hover:border-green-400/40 group-hover:from-green-400/20 group-hover:to-green-400/10">
+                  <div className="flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-110">
                     {testimonial.avatar}
                   </div>
                 </div>
                 
-                <div className="mb-6">
-                  <blockquote className="brand-description text-gray-300 leading-relaxed text-base italic relative pl-4">
-                    <span className="absolute left-0 top-0 text-2xl text-green-400 opacity-50 font-serif">"</span>
+                <div className="mb-4 sm:mb-6">
+                  <blockquote className="brand-description text-gray-300 leading-relaxed text-sm sm:text-base italic relative pl-4 text-center sm:text-left">
+                    <span className="absolute left-0 top-0 text-xl sm:text-2xl text-green-400 opacity-50 font-serif">"</span>
                     {testimonial.content}
                   </blockquote>
                 </div>
                 
-                <div className="flex justify-between items-center pt-6 border-t border-white/10">
-                  <div>
-                    <h4 className="brand-card-title text-white mb-1">{testimonial.name}</h4>
-                    <p className="brand-description text-green-400 font-medium text-sm mb-1">{testimonial.role}</p>
-                    <p className="brand-description text-gray-400 text-xs">{testimonial.company}</p>
+                <div className="flex flex-col sm:flex-row justify-between items-center pt-4 sm:pt-6 border-t border-white/10 gap-2 sm:gap-0">
+                  <div className="text-center sm:text-left">
+                    <h4 className="brand-card-title text-white mb-1 text-center sm:text-left">{testimonial.name}</h4>
+                    <p className="brand-description text-green-400 font-medium text-xs sm:text-sm mb-1 text-center sm:text-left">{testimonial.role}</p>
+                    <p className="brand-description text-gray-400 text-xs text-center sm:text-left">{testimonial.company}</p>
                   </div>
                   <div className="flex items-center gap-2 text-green-400 text-xs brand-description">
                     <Verified className="text-sm" />
@@ -155,14 +203,14 @@ const TestimonialsSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-12 text-center"
+            className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-6 sm:p-8 md:p-12 text-center"
           >
-            <div className="mb-12">
-              <h3 className="brand-section-title text-white mb-4">Trusted by Industry Leaders</h3>
-              <p className="brand-description text-gray-30">Join thousands of professionals already using CopymAI</p>
+            <div className="mb-8 sm:mb-12">
+              <h3 className="brand-section-title text-white mb-4 text-center">Trusted by Industry Leaders</h3>
+              <p className="brand-description text-gray-300 text-center px-4 sm:px-0">Join thousands of professionals already using CopymAI</p>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {[
                 { number: '500+', label: 'Investment Professionals' },
                 { number: '50+', label: 'Financial Institutions' },
@@ -171,12 +219,12 @@ const TestimonialsSection = () => {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="bg-black/30 border border-white/10 rounded-2xl p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-green-400/30 hover:shadow-lg hover:shadow-green-400/10"
+                  className="bg-black/30 border border-white/10 rounded-2xl p-4 sm:p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-green-400/30 hover:shadow-lg hover:shadow-green-400/10"
                 >
-                  <div className="text-3xl font-extrabold text-green-400 mb-2 drop-shadow-lg">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-green-400 mb-2 drop-shadow-lg text-center">
                     {stat.number}
                   </div>
-                  <div className="brand-description text-gray-300 font-medium uppercase tracking-wider">
+                  <div className="brand-description text-gray-300 font-medium uppercase tracking-wider text-center text-xs sm:text-sm">
                     {stat.label}
                   </div>
                 </div>
@@ -185,6 +233,16 @@ const TestimonialsSection = () => {
           </motion.div>
         </div>
       </div>
+
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 };

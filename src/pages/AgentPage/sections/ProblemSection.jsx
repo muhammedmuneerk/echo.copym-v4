@@ -10,7 +10,7 @@ import {
 const ProblemSection = () => {
   const problems = [
     {
-      icon: <AttachMoney sx={{ fontSize: 40, color: '#ef4444' }} />,
+      icon: <AttachMoney sx={{ fontSize: 40, color: '#10b981' }} />,
       title: 'Too Expensive',
       description: 'Most people can\'t afford the high minimum investment (e.g., $10,000+)'
     },
@@ -20,7 +20,7 @@ const ProblemSection = () => {
       description: 'You can\'t buy or sell easily; it takes weeks/months'
     },
     {
-      icon: <Psychology sx={{ fontSize: 40, color: '#8b5cf6' }} />,
+      icon: <Psychology sx={{ fontSize: 40, color: '#10b981' }} />,
       title: 'Complex',
       description: 'Requires deep knowledge and manual analysis'
     }
@@ -38,7 +38,7 @@ const ProblemSection = () => {
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle at 30% 20%, rgba(239, 68, 68, 0.03) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%)'
+          background: 'radial-gradient(circle at 30% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%)'
         }}
       />
 
@@ -65,9 +65,9 @@ const ProblemSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-2xl p-8 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/20 group"
+              className="text-center"
             >
-              <div className="text-6xl mb-6 flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-110">
+              <div className="text-6xl mb-6 flex items-center justify-center transition-all duration-300 ease-out hover:scale-110">
                 {problem.icon}
               </div>
               
