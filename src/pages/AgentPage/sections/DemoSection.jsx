@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Link,
-  SmartToy,
+  Token,
+  Psychology,
   Assessment,
   Verified,
   Speed,
-  ShoppingCart,
+  Storefront,
   Diamond,
   AccountBalance,
-  Token,
   MonetizationOn,
   Analytics,
   TrendingUp
@@ -98,7 +97,7 @@ const DemoSection = () => {
           <h2 className="brand-section-title mb-6 text-white flex items-center justify-center gap-4">
             Try CopymAI Demo
             <div className="filter drop-shadow-lg animate-pulse">
-              <Link sx={{ fontSize: '2rem', color: '#4ade80' }} />
+              <Token sx={{ fontSize: '2rem', color: '#4ade80' }} />
             </div>
           </h2>
           <p className="brand-description max-w-2xl mx-auto text-gray-300">
@@ -109,8 +108,8 @@ const DemoSection = () => {
         {/* Demo Tabs */}
         <div className="flex justify-center gap-4 mb-12 flex-wrap">
           {[
-            { id: 'tokenization', icon: <Link />, label: 'AI Tokenization' },
-            { id: 'advisor', icon: <SmartToy />, label: 'CopymAgent' },
+            { id: 'tokenization', icon: <Token />, label: 'AI Tokenization' },
+            { id: 'advisor', icon: <Psychology />, label: 'CopymAgent' },
             { id: 'portfolio', icon: <Assessment />, label: 'Portfolio Dashboard' }
           ].map((tab) => (
             <button
@@ -150,8 +149,8 @@ const DemoSection = () => {
                 {[
                   { icon: <Verified sx={{ color: '#4ade80' }} />, title: 'Asset Verification', desc: 'AI analyzes and verifies asset authenticity', status: 'completed' },
                   { icon: <Speed sx={{ color: '#3b82f6' }} />, title: 'Smart Valuation', desc: 'AI determines current market value', status: 'completed' },
-                  { icon: <Link sx={{ color: '#4ade80' }} />, title: 'Tokenization', desc: 'Converting asset into blockchain tokens', status: 'active' },
-                  { icon: <ShoppingCart sx={{ color: '#3b82f6' }} />, title: 'Marketplace Listed', desc: 'Available for fractional investment', status: 'pending' }
+                  { icon: <Token sx={{ color: '#4ade80' }} />, title: 'Tokenization', desc: 'Converting asset into blockchain tokens', status: 'active' },
+                  { icon: <Storefront sx={{ color: '#3b82f6' }} />, title: 'Marketplace Listed', desc: 'Available for fractional investment', status: 'pending' }
                 ].map((step, index) => (
                   <div
                     key={index}
@@ -213,7 +212,7 @@ const DemoSection = () => {
               <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-8 border border-gray-600">
                 <div className="flex items-start gap-6 mb-8">
                   <div className="w-16 h-16 rounded-full bg-blue-500/20 border border-blue-500 flex items-center justify-center">
-                    <SmartToy sx={{ color: '#3b82f6', fontSize: 28 }} />
+                    <Psychology sx={{ color: '#3b82f6', fontSize: 28 }} />
                   </div>
                   <div className="flex-1">
                     <p className="text-gray-300 leading-relaxed text-lg">

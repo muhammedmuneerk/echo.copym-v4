@@ -1,26 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  Link,
-  ShoppingCart,
-  SmartToy,
+  Token,
+  Storefront,
+  Psychology,
   AutoAwesome
 } from '@mui/icons-material';
 
 const SolutionSection = () => {
   const solutions = [
     {
-      icon: <Link sx={{ fontSize: 40, color: '#10b981' }} />,
+      icon: <Token sx={{ fontSize: 40, color: '#10b981' }} />,
       title: 'AI Tokenization Engine',
       description: 'Converts real-world assets into secure, blockchain-based tokens using advanced AI'
     },
     {
-      icon: <ShoppingCart sx={{ fontSize: 40, color: '#f59e0b' }} />,
+      icon: <Storefront sx={{ fontSize: 40, color: '#f59e0b' }} />,
       title: 'Integrated Marketplace',
       description: 'Trade tokens instantly with AI-powered liquidity and smart order matching'
     },
     {
-      icon: <SmartToy sx={{ fontSize: 40, color: '#3b82f6' }} />,
+      icon: <Psychology sx={{ fontSize: 40, color: '#3b82f6' }} />,
       title: 'CopymAgent AI Advisor',
       description: 'Personal AI investment advisor that analyzes and recommends optimal portfolio strategies'
     }

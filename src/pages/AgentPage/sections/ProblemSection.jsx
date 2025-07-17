@@ -86,17 +86,13 @@ const ProblemSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center bg-gradient-to-r from-red-900 via-red-800 to-red-900 text-white py-12 px-8 rounded-2xl text-xl font-semibold max-w-4xl mx-auto shadow-2xl shadow-red-900/40 relative overflow-hidden border border-red-700"
+          className="text-center px-4"
         >
-          <div 
-            className="absolute inset-0 opacity-20"
-            style={{
-              background: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>')`
-            }}
-          />
-          <p className="relative z-10">
-            <strong>Result?</strong> Great opportunities are missed by everyday investors.
-          </p>
+          <button className="inline-flex items-center justify-center bg-gradient-to-r from-green-400 via-teal-400 to-blue-500 text-white py-3 sm:py-4 px-4 sm:px-8 md:px-12 lg:px-16 rounded-full text-base sm:text-lg md:text-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-out border-0 cursor-pointer max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto w-full text-center leading-tight">
+            <span className="whitespace-normal sm:whitespace-nowrap">
+              <strong>Result?</strong> Great opportunities are missed by everyday investors.
+            </span>
+          </button>
         </motion.div>
       </div>
     </section>
