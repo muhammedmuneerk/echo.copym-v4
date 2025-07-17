@@ -21,7 +21,7 @@ export default function MarketplacePreview() {
           <img
             src="/assets/Images/mobile-preview-1.png"
             alt="Marketplace dashboard displayed on multiple devices"
-            className="w-full max-w-2xl rounded-2xl shadow-lg border border-gray-200 bg-green-50"
+            className="w-full max-w-4xl rounded-2xl shadow-lg border border-gray-200 bg-green-50"
           />
         </div>
 
