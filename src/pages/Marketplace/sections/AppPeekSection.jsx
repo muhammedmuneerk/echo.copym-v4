@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Wallet, LayoutGrid, LineChart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -31,17 +31,18 @@ export default function AppPeekSection() {
   const [index, setIndex] = useState(0);
   const total = mediaItems.length;
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % total);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [total]);
+
   const getPosition = (i) => {
     if (i === index) return "center";
     if (i === (index - 1 + total) % total) return "left";
     if (i === (index + 1) % total) return "right";
     return "hidden";
-  };
-
-  const handleClick = (pos, i) => {
-    if (pos === "left" || pos === "right") {
-      setIndex(i);
-    }
   };
 
   return (
@@ -79,7 +80,7 @@ export default function AppPeekSection() {
           <div className="relative w-full max-w-5xl h-[420px] flex items-center justify-center z-10">
             {mediaItems.map((item, i) => {
               const pos = getPosition(i);
-              let className = "absolute cursor-pointer transition-all duration-500 ease-in-out";
+              let className = "absolute transition-all duration-700 ease-in-out";
               let style = {};
 
               if (pos === "center") {
@@ -107,19 +108,17 @@ export default function AppPeekSection() {
               return (
                 <motion.div
                   key={i}
-                  onClick={() => handleClick(pos, i)}
                   className={`${className} w-[230px] h-[450px] rounded-2xl overflow-hidden`}
                   style={style}
                 >
                   <div className="relative w-full h-full">
-                    {/* Screenshot in screen area */}
+                    {/* Screenshot inside screen */}
                     <img
                       src={item.screenshot}
                       alt="App Screenshot"
                       className="absolute top-[12%] left-[14%] w-[72%] h-[75%] object-cover rounded-xl z-0"
                     />
-
-                    {/* Frame scaled up */}
+                    {/* Frame */}
                     <div className="w-full h-full scale-[2.05]">
                       <img
                         src={item.src}
@@ -133,15 +132,13 @@ export default function AppPeekSection() {
             })}
           </div>
 
-          {/* Tag below center card */}
+          {/* Caption under center card */}
           <div
-            className={`mt-6 px-3 py-1 rounded-full flex items-center gap-2 font-medium text-sm z-10 ${mediaItems[index].color}`}
+            className={`mt-6 px-4 py-2 rounded-full flex items-center gap-2 font-semibold text-sm z-10 text-gray-800 bg-gray-100/60 shadow`}
           >
             {mediaItems[index].icon}
-            {mediaItems[index].label}
+            <span className="text-gray-800 font-bold">{mediaItems[index].label}</span>
           </div>
-
-          {/* Controls */}
 
           {/* CTA Button */}
           <div className="flex justify-center mt-12 z-10">
