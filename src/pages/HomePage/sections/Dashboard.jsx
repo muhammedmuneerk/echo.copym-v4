@@ -19,9 +19,9 @@ export default function MarketplacePreview() {
         {/* Device mockup image */}
         <div className="flex justify-center">
           <img
-            src="/assets/images/dashboard-on-device.png"
+            src="/assets/Images/mobile-preview-1.png"
             alt="Marketplace dashboard displayed on multiple devices"
-            className="w-full max-w-5xl rounded-2xl shadow-lg border border-gray-200"
+            className="w-full max-w-2xl rounded-2xl shadow-lg border border-gray-200"
           />
         </div>
 

@@ -1,14 +1,35 @@
 import React from 'react';
 
-// Re-use the existing Agent application that lives inside the `agnt` sub-folder.
-// NOTE: the relative path climbs three directories to reach the repository root,
-// then drills into agnt/src. Keeping the file in one place avoids a massive code
-// duplication while still satisfying the router requirement.
-import AgentApp from '../../../agnt/src/App.jsx';
+// Import all converted Tailwind sections
+import HeroSection from './sections/HeroSection';
+import ProblemSection from './sections/ProblemSection';
+import SolutionSection from './sections/SolutionSection';
+import FeaturesSection from './sections/FeaturesSection';
+import DemoSection from './sections/DemoSection';
+import StatsSection from './sections/StatsSection';
+import BusinessModel from './sections/BusinessModel';
+import RoadmapSection from './sections/RoadmapSection';
+import ComparisonSection from './sections/ComparisonSection.jsx';
+import TestimonialsSection from './sections/TestimonialsSection';
+import CTASection from './sections/CTASection';
 
-// We expose it under a descriptive name so it can be referenced by React-Router.
 const AgentPage = () => {
-  return <AgentApp />;
+  return (
+    <div className="app">
+      {/* All sections converted to Tailwind CSS */}
+      <HeroSection />
+      <ProblemSection />
+      <SolutionSection />
+      <FeaturesSection />
+      <DemoSection />
+      <StatsSection />
+      <BusinessModel />
+      <RoadmapSection />
+      <ComparisonSection />
+      <TestimonialsSection />
+      <CTASection />
+    </div>
+  );
 };
 
 export default AgentPage; 

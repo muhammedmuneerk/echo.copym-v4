@@ -12,22 +12,22 @@ const TechnologyStackSection = () => {
     {
       title: 'Multi-Chain Infrastructure',
       desc: 'Interact seamlessly across Ethereum, Polygon, Solana, and more — without compromising performance or security.',
-      icon: <DeviceHubIcon fontSize="medium" className="text-green-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
+      icon: <DeviceHubIcon fontSize="medium" className="text-blue-500 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
       title: 'Smart Contract Transparency',
       desc: 'All smart contracts are open, verifiable, and follow best practices for gas efficiency and audit readiness.',
-      icon: <VisibilityIcon fontSize="medium" className="text-blue-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
+      icon: <VisibilityIcon fontSize="medium" className="text-blue-500 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
       title: 'Custodial & Non-Custodial Options',
       desc: 'Choose full control or delegate asset management securely — with support for MPC wallets and direct wallet connections.',
-      icon: <AccountBalanceWalletIcon fontSize="medium" className="text-green-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
+      icon: <AccountBalanceWalletIcon fontSize="medium" className="text-blue-500 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
       title: 'Audits & Security Standards',
       desc: 'Regular smart contract audits, GDPR compliance, and infrastructure built to meet institutional-grade standards.',
-      icon: <SecurityIcon fontSize="medium" className="text-blue-600 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
+      icon: <SecurityIcon fontSize="medium" className="text-blue-500 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
   ];
   return (

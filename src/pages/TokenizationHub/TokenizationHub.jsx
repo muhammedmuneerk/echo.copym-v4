@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CreateAssetModal from "./tokenizationDemo.jsx";
 import { createTheme, ThemeProvider as BWThemeProvider } from '@mui/material/styles';
+import { Box } from '@mui/material';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { 
   ArrowRight, 
@@ -153,23 +154,29 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <AnimatedCard>
-            <div key={index} className="relative">
-              <div className=" rounded-2xl p-6 ">
-                <div className="flex items-center mb-4">
-                  <span className="text-sm font-bold text-gray-400 mr-3">{step.step}</span>
-                  <step.icon className="h-6 w-6 text-blue-500" />
+            <AnimatedCard key={index}>
+              <div className="relative">
+                <div className="rounded-2xl p-6">
+                  <Box
+                    className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                    sx={{
+                      background: "rgba(255, 255, 255, 0.9)",
+                      backdropFilter: "blur(5px)",
+                      boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                    }}
+                  >
+                    <step.icon className="h-6 w-6 text-blue-500" />
+                  </Box>
+                  <h3 className="brand-card-title text-black mb-3">{step.title}</h3>
+                  <p className="text-gray-600">{step.description}</p>
                 </div>
-                <h3 className="brand-card-title text-black mb-3">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-1 transform -translate-y-1/2">
+                    <ArrowRight className="h-5 w-5 text-gray-400" />
+                  </div>
+                )}
               </div>
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-1 transform -translate-y-1/2">
-                  <ArrowRight className="h-5 w-5 text-gray-400" />
-                </div>
-              )}
-            </div>
-              </AnimatedCard>
+            </AnimatedCard>
           ))}
         </div>
       </div>
@@ -222,7 +229,16 @@ const TokenDistribution = () => {
           {distributionMethods.map((method, index) => (
             <AnimatedCard>
             <div key={index} className=" rounded-2xl p-6">
-              <method.icon className="h-10 w-10 text-blue-500 mb-4" />
+              <Box
+                className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                sx={{
+                  background: "rgba(255, 255, 255, 0.9)",
+                  backdropFilter: "blur(5px)",
+                  boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                }}
+              >
+                <method.icon className="h-6 w-6 text-blue-500" />
+              </Box>
               <h3 className="brand-card-title text-black mb-3">{method.title}</h3>
               <p className="text-gray-600 mb-4">{method.description}</p>
               <ul className="space-y-2">
@@ -262,25 +278,29 @@ const IssuerDashboard = () => {
       title: 'Real-Time Analytics',
       description: 'Monitor token performance, holder activity, and market metrics in real-time.',
       icon: BarChart3,
-      color: 'blue'
+      bgClass: 'bg-blue-100',
+      iconClass: 'text-blue-600'
     },
     {
       title: 'Investor Management',
       description: 'Comprehensive investor database with KYC status and communication tools.',
       icon: Users,
-      color: 'green'
+      bgClass: 'bg-green-100',
+      iconClass: 'text-green-600'
     },
     {
       title: 'Compliance Monitoring',
       description: 'Automated compliance tracking and regulatory reporting capabilities.',
       icon: Shield,
-      color: 'purple'
+      bgClass: 'bg-purple-100',
+      iconClass: 'text-purple-600'
     },
     {
       title: 'Distribution Controls',
       description: 'Manage token distributions, dividends, and revenue sharing automatically.',
       icon: Settings,
-      color: 'orange'
+      bgClass: 'bg-orange-100',
+      iconClass: 'text-orange-600'
     }
   ];
 
@@ -312,8 +332,8 @@ const IssuerDashboard = () => {
             {dashboardFeatures.map((feature, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
                 <div className="flex items-start">
-                  <div className={`p-3 rounded-lg bg-${feature.color}-100 mr-4`}>
-                    <feature.icon className={`h-6 w-6 text-${feature.color}-600`} />
+                  <div className={`p-3 rounded-lg mr-4 ${feature.bgClass}`}>
+                    <feature.icon className={`h-6 w-6 ${feature.iconClass}`} />
                   </div>
                   <div>
                     <h4 className="brand-card-title text-black mb-2">{feature.title}</h4>
@@ -375,7 +395,16 @@ const InvestorManagement = () => {
             <AnimatedCard>
             <div key={index} className="text-center">
               <div className=" rounded-2xl p-8">
-                <tool.icon className="h-12 w-12 text-blue-500 mx-auto mb-4" />
+                <Box
+                  className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon mx-auto"
+                  sx={{
+                    background: "rgba(255, 255, 255, 0.9)",
+                    backdropFilter: "blur(5px)",
+                    boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                  }}
+                >
+                  <tool.icon className="h-6 w-6 text-blue-500" />
+                </Box>
                 <h3 className="brand-card-title text-black mb-3">{tool.title}</h3>
                 <p className="text-gray-600 mb-4">{tool.description}</p>
                 <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
@@ -513,7 +542,16 @@ const AnalyticsReporting = () => {
           {reportingFeatures.map((feature, index) => (
             <AnimatedCard>
             <div key={index} className="rounded-2xl p-6">
-              <feature.icon className="h-10 w-10 text-green-600 mb-4" />
+              <Box
+                className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                sx={{
+                  background: "rgba(255, 255, 255, 0.9)",
+                  backdropFilter: "blur(5px)",
+                  boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                }}
+              >
+                <feature.icon className="h-6 w-6 text-blue-500" />
+              </Box>
               <h3 className="brand-card-title text-green-800 mb-3">{feature.title}</h3>
               <p className="text-green-700 mb-4">{feature.description}</p>
               <div className="space-y-2">

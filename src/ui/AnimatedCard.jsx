@@ -40,6 +40,50 @@ const glassReflection = keyframes`
   100% { opacity: 0.1; transform: translateY(-100%) translateX(100%); }
 `;
 
+// // Green holographic morphing animation
+// const holographicMorph = keyframes`
+//   0% {
+//     transform: scale(1) rotate(0deg) skew(0deg);
+//     filter: saturate(1) brightness(1) contrast(1);
+//   }
+//   25% {
+//     transform: scale(1.15) rotate(90deg) skew(5deg);
+//     filter: saturate(1.5) brightness(1.3) contrast(1.2);
+//   }
+//   50% {
+//     transform: scale(1.25) rotate(180deg) skew(-5deg);
+//     filter: saturate(2) brightness(1.5) contrast(1.4);
+//   }
+//   75% {
+//     transform: scale(1.15) rotate(270deg) skew(5deg);
+//     filter: saturate(1.5) brightness(1.3) contrast(1.2);
+//   }
+//   100% {
+//     transform: scale(1) rotate(360deg) skew(0deg);
+//     filter: saturate(1) brightness(1) contrast(1);
+//   }
+// `;
+
+// // Green quantum particle effect
+// const quantumParticles = keyframes`
+//   0% {
+//     background: radial-gradient(circle at 50% 50%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
+//     transform: scale(1) rotate(0deg);
+//   }
+//   33% {
+//     background: radial-gradient(circle at 30% 70%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
+//     transform: scale(1.1) rotate(120deg);
+//   }
+//   66% {
+//     background: radial-gradient(circle at 70% 30%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
+//     transform: scale(1.05) rotate(240deg);
+//   }
+//   100% {
+//     background: radial-gradient(circle at 50% 50%, rgba(0, 255, 133, 0.8) 0%, transparent 50%);
+//     transform: scale(1) rotate(360deg);
+//   }
+// `;
+
 // Styled component for the animated card
 const AnimatedCard = styled(Box)(({ theme }) => ({
   position: "relative",
@@ -82,7 +126,7 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
   "&:hover": {
     transform: "translateY(-8px)",
     boxShadow: "0 20px 40px -20px rgba(0, 0, 0, 0.3), 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 255, 255, 0.5)",
-    borderColor: "rgba(0, 255, 133, 0.2)",
+    borderColor: "rgba(59, 130, 246, 0.2)",
     background: "rgba(255, 255, 255, 0.98)",
     "& .border-right": {
       animation: `${borderAnimationRight} 2.5s linear infinite`,
@@ -101,6 +145,9 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
     },
     "& svg": {
       stroke: "#00FF85", // Turn the icon green on card hover
+      
+      color: "#00FF85", // Also set fill color for SVG icons
+      
     },
     "& .glass-reflection": {
       animation: `${glassReflection} 2.5s ease-in-out infinite`,
@@ -118,29 +165,29 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
     top: 0,
     right: "100%",
     height: 3,
-    background: "linear-gradient(to right, rgba(0,0,0,0), #00FF85, rgba(0,0,0,0))",
-    boxShadow: "0 0 10px rgba(0, 255, 133, 0.5)",
+    background: "linear-gradient(to right, rgba(0,0,0,0), #3B82F6, rgba(0,0,0,0))",
+    boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
   },
   "& .border-down": {
     top: 0,
     right: 0,
     width: 3,
-    background: "linear-gradient(to bottom, rgba(0,0,0,0), #00FF85, rgba(0,0,0,0))",
-    boxShadow: "0 0 10px rgba(0, 255, 133, 0.5)",
+    background: "linear-gradient(to bottom, rgba(0,0,0,0), #3B82F6, rgba(0,0,0,0))",
+    boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
   },
   "& .border-left": {
     bottom: 0,
     right: 0,
     height: 3,
-    background: "linear-gradient(to left, rgba(0,0,0,0), #00FF85, rgba(0,0,0,0))",
-    boxShadow: "0 0 10px rgba(0, 255, 133, 0.5)",
+    background: "linear-gradient(to left, rgba(0,0,0,0), #3B82F6, rgba(0,0,0,0))",
+    boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
   },
   "& .border-up": {
     bottom: 0,
     left: 0,
     width: 3,
-    background: "linear-gradient(to top, rgba(0,0,0,0), #00FF85, rgba(0,0,0,0))",
-    boxShadow: "0 0 10px rgba(0, 255, 133, 0.5)",
+    background: "linear-gradient(to top, rgba(0,0,0,0), #3B82F6, rgba(0,0,0,0))",
+    boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
   },
   "& .glass-reflection": {
     position: "absolute",
@@ -166,7 +213,7 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
       color: "#4a4a4a", // Medium dark text for paragraphs
     },
     "& .card-icon": {
-      background: "rgba(0, 0, 0, 0.08)", // Dark icon background
+      background: "rgba(255, 255, 255, 0.9)", // White icon background
       borderRadius: "1rem",
       padding: "0.75rem",
       display: "flex",
@@ -174,8 +221,23 @@ const AnimatedCard = styled(Box)(({ theme }) => ({
       justifyContent: "center",
       transition: "all 0.3s ease",
       "&:hover": {
-        background: "rgba(0, 0, 0, 0.12)", // Slightly darker on hover
+        background: "rgba(255, 255, 255, 1)", // Pure white on hover
       },
+
+
+      // "& svg": {
+      //   transition: "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)", // Smooth futuristic transition
+      //   transform: "scale(1) rotate(0deg) skew(0deg)", // Default state
+      //   filter: "hue-rotate(0deg) saturate(1) brightness(1) contrast(1)", // No effects
+      //   animation: "none", // No animation by default
+      //   position: "relative", // For pseudo-elements
+      //   "&:hover": {
+      //     animation: `${holographicMorph} 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards`, // Holographic morphing - runs once
+      //   },
+
+      // },
+
+
     },
   },
   [theme.breakpoints.between("md", "lg")]: {
