@@ -2,7 +2,7 @@ import React from 'react';
 
 const IssuerSection = () => {
   return (
-    <section className="w-full px-6 py-16 bg-gradient-to-br from-blue-50 to-white">
+    <section className="w-full px-6 py-16 bg-gradient-to-br from-white to-white">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
         {/* Left Text Content */}
         <div className="flex-1">

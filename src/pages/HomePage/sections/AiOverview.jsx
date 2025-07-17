@@ -51,7 +51,7 @@ const AiOverview = () => {
   ];
 
   return (
-    <section className="w-full px-6 py-16 bg-green-50">
+    <section className="w-full px-6 py-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <h2 className="brand-section-title text-center mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">

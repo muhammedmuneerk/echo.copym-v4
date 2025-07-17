@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function MarketplacePreview() {
   const navigate = useNavigate();
   return (
-    <section className="py-20 bg-green-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">
@@ -21,7 +21,7 @@ export default function MarketplacePreview() {
           <img
             src="/assets/Images/mobile-preview-1.png"
             alt="Marketplace dashboard displayed on multiple devices"
-            className="w-full max-w-2xl rounded-2xl shadow-lg border border-gray-200"
+            className="w-full max-w-2xl rounded-2xl shadow-lg border border-gray-200 bg-green-50"
           />
         </div>
 
