@@ -180,7 +180,7 @@ const ComparisonSection = () => {
                           style={{ width: metric.copymai.width }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-bold text-white whitespace-nowrap">{metric.copymai.value}</span>
+                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-semibold text-white whitespace-nowrap">{metric.copymai.value}</span>
                         </div>
                       </div>
                       <span className="text-green-400 font-semibold text-xs sm:text-sm min-w-[60px] sm:min-w-[80px] text-center">CopymAI</span>
@@ -193,7 +193,7 @@ const ComparisonSection = () => {
                           style={{ width: metric.traditional.width }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-bold text-white whitespace-nowrap">{metric.traditional.value}</span>
+                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-semibold text-white whitespace-nowrap">{metric.traditional.value}</span>
                         </div>
                       </div>
                       <span className="text-blue-400 font-semibold text-xs sm:text-sm min-w-[60px] sm:min-w-[80px] text-center">Traditional</span>

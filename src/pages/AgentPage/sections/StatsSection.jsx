@@ -34,9 +34,9 @@ const StatsSection = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center p-6 bg-gray-900 rounded-xl border border-gray-700 transition-all duration-300 hover:transform hover:-translate-y-1 hover:border-white hover:shadow-lg hover:shadow-white/10 flex-shrink-0 w-64"
+                className="text-center p-6 bg-gray-900 rounded-xl border border-gray-700 transition-all duration-300 hover:transform hover:-translate-y-1 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/10 flex-shrink-0 w-64"
               >
-                <div className="brand-card-title text-white mb-2">
+                <div className="brand-card-title text-green-400 mb-2">
                   {stat.number}
                 </div>
                 <div className="brand-description text-gray-300">
@@ -55,9 +55,9 @@ const StatsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center p-6 md:p-8 bg-gray-900 rounded-xl border border-gray-700 transition-all duration-300 hover:transform hover:-translate-y-1 hover:border-white hover:shadow-lg hover:shadow-white/10"
+              className="text-center p-6 md:p-8 bg-gray-900 rounded-xl border border-gray-700 transition-all duration-300 hover:transform hover:-translate-y-1 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/10"
             >
-              <div className="brand-card-title text-white mb-2">
+              <div className="brand-card-title text-green-400 mb-2">
                 {stat.number}
               </div>
               <div className="brand-description text-gray-300">

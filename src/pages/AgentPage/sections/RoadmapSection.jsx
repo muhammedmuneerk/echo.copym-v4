@@ -81,11 +81,7 @@ const RoadmapSection = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="transition-all duration-500 hover:transform hover:-translate-y-3 relative overflow-hidden group flex-shrink-0 w-80"
-                style={{
-                  animationDelay: `${index * 1.5}s`,
-                  animation: 'roadmapFloat 6s ease-in-out infinite'
-                }}
+                className="transition-all duration-300 hover:transform hover:-translate-y-2 relative overflow-hidden group flex-shrink-0 w-80"
               >
                 <h3 className="brand-card-title mb-6 sm:mb-8 text-green-400 text-center relative">
                   {item.quarter}
@@ -101,7 +97,7 @@ const RoadmapSection = () => {
                       transition={{ duration: 0.4, delay: taskIndex * 0.1 }}
                       className="flex items-center justify-center gap-3 sm:gap-4 p-4 sm:p-6 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-xl transition-all duration-300 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 hover:border-green-400 hover:transform hover:translate-x-2 hover:shadow-lg hover:shadow-green-400/20 group/item text-center"
                     >
-                      <div className="flex-shrink-0 drop-shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                      <div className="flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
                         {task.icon}
                       </div>
                       <span className="brand-description text-white text-base sm:text-lg">
@@ -123,11 +119,7 @@ const RoadmapSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="transition-all duration-500 hover:transform hover:-translate-y-3 relative overflow-hidden group"
-              style={{
-                animationDelay: `${index * 1.5}s`,
-                animation: 'roadmapFloat 6s ease-in-out infinite'
-              }}
+              className="transition-all duration-300 hover:transform hover:-translate-y-2 relative overflow-hidden group"
             >
               <h3 className="brand-card-title mb-6 sm:mb-8 text-green-400 text-center relative">
                 {item.quarter}
@@ -143,7 +135,7 @@ const RoadmapSection = () => {
                     transition={{ duration: 0.4, delay: taskIndex * 0.1 }}
                     className="flex items-center justify-center gap-3 sm:gap-4 p-4 sm:p-6 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-xl transition-all duration-300 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 hover:border-green-400 hover:transform hover:translate-x-2 hover:shadow-lg hover:shadow-green-400/20 group/item text-center"
                   >
-                    <div className="flex-shrink-0 drop-shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                    <div className="flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
                       {task.icon}
                     </div>
                     <span className="brand-description text-white text-base sm:text-lg">
@@ -158,14 +150,6 @@ const RoadmapSection = () => {
       </div>
 
       <style jsx>{`
-        @keyframes roadmapFloat {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-8px);
-          }
-        }
         .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;

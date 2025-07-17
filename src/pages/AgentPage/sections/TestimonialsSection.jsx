@@ -203,7 +203,7 @@ const TestimonialsSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-6 sm:p-8 md:p-12 text-center"
+            className="text-center"
           >
             <div className="mb-8 sm:mb-12">
               <h3 className="brand-section-title text-white mb-4 text-center">Trusted by Industry Leaders</h3>
@@ -219,9 +219,9 @@ const TestimonialsSection = () => {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="bg-black/30 border border-white/10 rounded-2xl p-4 sm:p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-green-400/30 hover:shadow-lg hover:shadow-green-400/10"
+                  className="bg-gray-900 border border-gray-700 rounded-2xl p-4 sm:p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/10"
                 >
-                  <div className="text-2xl sm:text-3xl font-extrabold text-green-400 mb-2 drop-shadow-lg text-center">
+                  <div className="brand-card-title text-green-400 mb-2 text-center">
                     {stat.number}
                   </div>
                   <div className="brand-description text-gray-300 font-medium uppercase tracking-wider text-center text-xs sm:text-sm">
