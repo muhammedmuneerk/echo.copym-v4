@@ -10,7 +10,7 @@ import {
 const ProblemSection = () => {
   const problems = [
     {
-      icon: <AttachMoney sx={{ fontSize: 40, color: '#ef4444' }} />,
+      icon: <AttachMoney sx={{ fontSize: 40, color: '#10b981' }} />,
       title: 'Too Expensive',
       description: 'Most people can\'t afford the high minimum investment (e.g., $10,000+)'
     },
@@ -20,7 +20,7 @@ const ProblemSection = () => {
       description: 'You can\'t buy or sell easily; it takes weeks/months'
     },
     {
-      icon: <Psychology sx={{ fontSize: 40, color: '#8b5cf6' }} />,
+      icon: <Psychology sx={{ fontSize: 40, color: '#10b981' }} />,
       title: 'Complex',
       description: 'Requires deep knowledge and manual analysis'
     }
@@ -38,7 +38,7 @@ const ProblemSection = () => {
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle at 30% 20%, rgba(239, 68, 68, 0.03) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%)'
+          background: 'radial-gradient(circle at 30% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%)'
         }}
       />
 
@@ -65,9 +65,9 @@ const ProblemSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-2xl p-8 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/20 group"
+              className="text-center"
             >
-              <div className="text-6xl mb-6 flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-110">
+              <div className="text-6xl mb-6 flex items-center justify-center transition-all duration-300 ease-out hover:scale-110">
                 {problem.icon}
               </div>
               
@@ -86,17 +86,13 @@ const ProblemSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center bg-gradient-to-r from-red-900 via-red-800 to-red-900 text-white py-12 px-8 rounded-2xl text-xl font-semibold max-w-4xl mx-auto shadow-2xl shadow-red-900/40 relative overflow-hidden border border-red-700"
+          className="text-center px-4"
         >
-          <div 
-            className="absolute inset-0 opacity-20"
-            style={{
-              background: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>')`
-            }}
-          />
-          <p className="relative z-10">
-            <strong>Result?</strong> Great opportunities are missed by everyday investors.
-          </p>
+          <button className="inline-flex items-center justify-center bg-gradient-to-r from-green-400 via-teal-400 to-blue-500 text-white py-3 sm:py-4 px-4 sm:px-8 md:px-12 lg:px-16 rounded-full text-base sm:text-lg md:text-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-out border-0 cursor-pointer max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto w-full text-center leading-tight">
+            <span className="whitespace-normal sm:whitespace-nowrap">
+              <strong>Result?</strong> Great opportunities are missed by everyday investors.
+            </span>
+          </button>
         </motion.div>
       </div>
     </section>

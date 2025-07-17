@@ -44,7 +44,33 @@ const BusinessModel = () => {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
+        {/* Mobile: Horizontal scrollable container */}
+        <div className="block lg:hidden mb-8 md:mb-12">
+          <div className="flex overflow-x-auto scrollbar-hide gap-4 pb-4 -mx-4 px-4">
+            {revenueStreams.map((stream, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-gray-800 border border-gray-700 rounded-xl p-6 text-center transition-all duration-300 hover:transform hover:-translate-y-1 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/10 flex-shrink-0 w-72"
+              >
+                <div className="brand-card-title text-green-400 mb-4">
+                  {stream.percentage}
+                </div>
+                <h3 className="brand-card-title mb-4 text-white">
+                  {stream.title}
+                </h3>
+                <p className="brand-description text-gray-300 text-sm">
+                  {stream.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Grid layout */}
+        <div className="hidden lg:grid lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
           {revenueStreams.map((stream, index) => (
             <motion.div
               key={index}
@@ -53,7 +79,7 @@ const BusinessModel = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-gray-800 border border-gray-700 rounded-xl p-6 md:p-8 text-center transition-all duration-300 hover:transform hover:-translate-y-1 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/10"
             >
-              <div className="text-4xl font-bold text-green-400 mb-4">
+              <div className="brand-card-title text-green-400 mb-4">
                 {stream.percentage}
               </div>
               <h3 className="brand-card-title mb-4 text-white">
@@ -77,6 +103,16 @@ const BusinessModel = () => {
           </p>
         </motion.div>
       </div>
+
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 };
