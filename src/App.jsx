@@ -8,6 +8,7 @@ import TokenizationHub from './pages/TokenizationHub/TokenizationHub';
 import Marketplace from './pages/Marketplace/Marketplace';
 import HomePage from './pages/HomePage/HomePage';
 import AgentPage from './pages/AgentPage/AgentPage';
+import ScrollToTop from "./components/ScrollToTop";
 import { Box } from "@mui/material";
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <Box className="min-h-screen relative bg-green-50 text-text-primary overflow-x-hidden">
+      <ScrollToTop />
       {location.pathname !== "/agent" && <Header />}
       <main className="relative z-20 overflow-x-hidden">
         <Routes>
