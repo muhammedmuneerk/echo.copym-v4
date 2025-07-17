@@ -81,8 +81,8 @@ export default function Hero() {
               <Player
                 autoplay
                 loop
-                src="/assets/lottie/marketplace/marketplace.json"
-                style={{ height: '350px', width: '100%' }}
+                src="/assets/lottie/Advanced Analytics/Advanced Analytics.json"
+                style={{ height: '400px', width: '100%' }}
               />
             </div>
           
