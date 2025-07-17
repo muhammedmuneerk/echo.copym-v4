@@ -84,24 +84,24 @@ const FeaturesSection = () => {
         
         {/* Timeline Container */}
         <div className="relative max-w-6xl mx-auto py-8 md:py-16">
-          {/* Timeline Line */}
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 rounded transform -translate-y-1/2 z-10" />
+          {/* Timeline Line - Hidden on mobile */}
+          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 rounded transform -translate-y-1/2 z-10" />
           
-          {/* Timeline Progress */}
+          {/* Timeline Progress - Hidden on mobile */}
           <div 
-            className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-green-400 to-green-500 rounded transform -translate-y-1/2 z-20 transition-all duration-2000 ease-in-out shadow-lg shadow-green-400/30"
+            className="hidden md:block absolute top-1/2 left-0 h-1 bg-gradient-to-r from-green-400 to-green-500 rounded transform -translate-y-1/2 z-20 transition-all duration-2000 ease-in-out shadow-lg shadow-green-400/30"
             style={{ width: `${(activeStep / 4) * 100}%` }}
           />
           
           {/* Timeline Features */}
-          <div className="relative flex flex-col md:flex-row md:justify-between items-center z-30 mx-2 md:mx-8 gap-8 md:gap-0">
+          <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 z-30">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="flex flex-col items-center text-center w-full md:max-w-64 relative transition-all duration-300 ease-out hover:-translate-y-2.5 group"
+                className="flex flex-col items-center text-center relative transition-all duration-300 ease-out hover:-translate-y-2.5 group"
               >
                 {/* Feature Icon */}
                 <div 
@@ -114,7 +114,7 @@ const FeaturesSection = () => {
                 </div>
                 
                 {/* Feature Content */}
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-2xl p-6 relative transition-all duration-300 ease-out group-hover:border-current group-hover:shadow-xl group-hover:shadow-black/30 group-hover:-translate-y-1.5">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-2xl p-6 relative transition-all duration-300 ease-out group-hover:border-current group-hover:shadow-xl group-hover:shadow-black/30 group-hover:-translate-y-1.5 w-full">
                   <h3 className="brand-card-title mb-3 leading-tight text-white">
                     {feature.title}
                   </h3>
@@ -123,9 +123,9 @@ const FeaturesSection = () => {
                   </p>
                 </div>
                 
-                {/* Feature Connector */}
+                {/* Feature Connector - Hidden on mobile */}
                 <div 
-                  className="absolute top-10 left-1/2 w-0.5 h-10 bg-gradient-to-b from-current to-transparent transform -translate-x-1/2 opacity-60 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:h-12"
+                  className="hidden md:block absolute top-10 left-1/2 w-0.5 h-10 bg-gradient-to-b from-current to-transparent transform -translate-x-1/2 opacity-60 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:h-12"
                   style={{ color: feature.color }}
                 />
               </motion.div>

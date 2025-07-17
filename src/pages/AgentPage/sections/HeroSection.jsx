@@ -415,23 +415,15 @@ const HeroSection = () => {
           <div className="flex gap-6 justify-center mb-20 flex-wrap">
             <button 
               onClick={handleInvestRedirect} 
-              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold border-2 border-transparent rounded-xl text-black bg-gradient-to-br from-green-400 to-green-500 shadow-lg shadow-green-400/30 min-w-[200px] relative overflow-hidden transition-all duration-400 ease-out hover:from-green-500 hover:to-green-600 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-400/40 active:scale-95"
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                letterSpacing: '0.01em'
-              }}
+              className="btn-gradient min-w-[200px] relative overflow-hidden transition-all duration-400 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-green-400/40 active:scale-95"
             >
               <span className="relative z-10">Invest in Assets</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-full" />
             </button>
             
             <button 
-              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold border-2 border-white/20 rounded-xl text-white bg-white/10 backdrop-blur-md min-w-[200px] relative overflow-hidden transition-all duration-400 ease-out hover:bg-white/15 hover:border-white/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-white/10 active:scale-95"
+              className="btn-gradient-secondary min-w-[200px] relative overflow-hidden transition-all duration-400 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-white/10 active:scale-95"
               onClick={handleContactRedirect}
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                letterSpacing: '0.01em'
-              }}
             >
               <span className="relative z-10">Partner With CopymAI</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-full" />

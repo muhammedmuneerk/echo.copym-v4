@@ -58,28 +58,24 @@ const ProblemSection = () => {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-7xl mx-auto">
           {problems.map((problem, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 rounded-3xl p-12 text-center transition-all duration-400 ease-out hover:-translate-y-3 hover:border-red-400/30 hover:shadow-2xl hover:shadow-red-400/15 hover:from-gray-700 hover:to-gray-800 flex flex-col items-center justify-center min-h-80 relative overflow-hidden backdrop-blur-md group"
+              className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-2xl p-8 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/20 group"
             >
-              {/* Top border gradient */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-orange-500 transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100" />
-              
-              <div className="text-6xl mb-8 flex items-center justify-center w-24 h-24 rounded-full bg-white/5 transition-all duration-400 ease-out group-hover:bg-red-400/10 group-hover:scale-110 group-hover:rotate-6 relative">
+              <div className="text-6xl mb-6 flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-110">
                 {problem.icon}
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
               </div>
               
-              <h3 className="brand-card-title mb-6 text-white leading-tight tracking-tight">
+              <h3 className="brand-card-title mb-4 text-white leading-tight tracking-tight">
                 {problem.title}
               </h3>
               
-              <p className="brand-description max-w-xs mx-auto text-gray-300">
+              <p className="brand-description text-gray-300">
                 {problem.description}
               </p>
             </motion.div>
@@ -90,10 +86,10 @@ const ProblemSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center bg-gradient-to-r from-red-500 to-red-600 text-white py-12 px-8 rounded-3xl text-xl font-semibold max-w-4xl mx-auto shadow-2xl shadow-red-500/30 relative overflow-hidden"
+          className="text-center bg-gradient-to-r from-red-900 via-red-800 to-red-900 text-white py-12 px-8 rounded-2xl text-xl font-semibold max-w-4xl mx-auto shadow-2xl shadow-red-900/40 relative overflow-hidden border border-red-700"
         >
           <div 
-            className="absolute inset-0 opacity-30"
+            className="absolute inset-0 opacity-20"
             style={{
               background: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>')`
             }}

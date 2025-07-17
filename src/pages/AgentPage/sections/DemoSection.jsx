@@ -116,10 +116,10 @@ const DemoSection = () => {
             <button
               key={tab.id}
               onClick={() => setActiveDemo(tab.id)}
-              className={`bg-gradient-to-br from-gray-800 to-gray-900 border-2 px-8 py-4 rounded-xl cursor-pointer transition-all duration-300 ease-out font-semibold flex items-center gap-2 min-w-48 justify-center ${
+              className={`px-8 py-4 rounded-xl cursor-pointer transition-all duration-300 ease-out font-semibold flex items-center gap-2 min-w-48 justify-center ${
                 activeDemo === tab.id
-                  ? 'border-green-400 bg-gradient-to-br from-green-500 to-green-600 text-black shadow-lg shadow-green-400/30 -translate-y-1'
-                  : 'border-gray-600 text-white hover:border-green-400 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-400/20'
+                  ? 'btn-gradient text-black shadow-lg shadow-green-400/30 -translate-y-1'
+                  : 'btn-gradient-secondary text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-green-400/20'
               }`}
             >
               <div className={`transition-all duration-300 ease-out ${
@@ -133,20 +133,20 @@ const DemoSection = () => {
         </div>
 
         {/* Demo Content */}
-        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-12 shadow-2xl shadow-black/30 border border-gray-600 mb-12">
+        <div className="space-y-12 mb-12">
           {/* Tokenization Panel */}
           {activeDemo === 'tokenization' && (
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="space-y-8"
+              className="space-y-12"
             >
-              <h3 className="brand-card-title text-white text-center mb-8">
+              <h3 className="brand-card-title text-white text-center mb-12">
                 AI Asset Tokenization Process
               </h3>
               
               {/* Tokenization Steps */}
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {[
                   { icon: <Verified sx={{ color: '#4ade80' }} />, title: 'Asset Verification', desc: 'AI analyzes and verifies asset authenticity', status: 'completed' },
                   { icon: <Speed sx={{ color: '#3b82f6' }} />, title: 'Smart Valuation', desc: 'AI determines current market value', status: 'completed' },
@@ -155,7 +155,7 @@ const DemoSection = () => {
                 ].map((step, index) => (
                   <div
                     key={index}
-                    className={`flex items-center gap-6 p-6 rounded-2xl border-2 transition-all duration-300 ease-out ${
+                    className={`flex items-center gap-8 p-8 rounded-2xl border-2 transition-all duration-300 ease-out ${
                       step.status === 'completed'
                         ? 'border-green-500 bg-gradient-to-br from-green-500/10 to-green-500/5'
                         : step.status === 'active'
@@ -163,25 +163,19 @@ const DemoSection = () => {
                         : 'border-gray-600 bg-gradient-to-br from-gray-700 to-gray-800'
                     }`}
                   >
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center border-2 transition-all duration-300 ease-out ${
-                      step.status === 'completed'
-                        ? 'border-green-500 bg-green-500/20'
-                        : step.status === 'active'
-                        ? 'border-blue-500 bg-blue-500/20'
-                        : 'border-gray-600 bg-gray-700'
-                    }`}>
+                    <div className="flex items-center justify-center transition-all duration-300 ease-out">
                       {step.icon}
                     </div>
-                    <div>
-                      <h4 className="brand-card-title text-white mb-2">{step.title}</h4>
-                      <p className="text-gray-300">{step.desc}</p>
+                    <div className="flex-1">
+                      <h4 className="brand-card-title text-white mb-3">{step.title}</h4>
+                      <p className="text-gray-300 text-lg">{step.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Asset Metrics Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
                   { icon: <Diamond sx={{ fontSize: 32, color: '#4ade80' }} />, title: 'Selected Asset', value: demoAssets.find(a => a.id === demoData.selectedAsset)?.name },
                   { icon: <AccountBalance sx={{ fontSize: 32, color: '#3b82f6' }} />, title: 'Total Value', value: `$${demoData.assetValue.toLocaleString()}` },
@@ -190,14 +184,14 @@ const DemoSection = () => {
                 ].map((metric, index) => (
                   <div
                     key={index}
-                    className="bg-gradient-to-br from-gray-700 to-gray-800 border border-gray-600 rounded-2xl p-6 flex items-center gap-4 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/20 group"
+                    className="bg-gradient-to-br from-gray-700 to-gray-800 border border-gray-600 rounded-2xl p-8 flex items-center gap-6 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/20 group"
                   >
                     <div className="group-hover:scale-110 transition-transform duration-300 ease-out">
                       {metric.icon}
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-300 mb-1">{metric.title}</h4>
-                      <p className="text-lg font-bold text-white">{metric.value}</p>
+                      <h4 className="text-sm font-semibold text-gray-300 mb-2">{metric.title}</h4>
+                      <p className="text-xl font-bold text-white">{metric.value}</p>
                     </div>
                   </div>
                 ))}
@@ -210,49 +204,49 @@ const DemoSection = () => {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="space-y-8"
+              className="space-y-12"
             >
-              <h3 className="brand-card-title text-white text-center mb-8">
+              <h3 className="brand-card-title text-white text-center mb-12">
                 CopymAgent AI Recommendations
               </h3>
               
-              <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-6 border border-gray-600">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-blue-500/20 border border-blue-500 flex items-center justify-center">
-                    <SmartToy sx={{ color: '#3b82f6' }} />
+              <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-8 border border-gray-600">
+                <div className="flex items-start gap-6 mb-8">
+                  <div className="w-16 h-16 rounded-full bg-blue-500/20 border border-blue-500 flex items-center justify-center">
+                    <SmartToy sx={{ color: '#3b82f6', fontSize: 28 }} />
                   </div>
                   <div className="flex-1">
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-gray-300 leading-relaxed text-lg">
                       Hello! I'm CopymAgent, your AI investment advisor. Based on your risk profile and investment goals, I've analyzed the market and found these recommendations:
                     </p>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {demoAssets.map((asset) => (
                     <div
                       key={asset.id}
-                      className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-xl p-6 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/20"
+                      className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-xl p-8 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/20"
                     >
-                      <div className="mb-4">
-                        <h4 className="text-lg font-bold text-white mb-1">{asset.name}</h4>
-                        <p className="text-sm text-gray-400">{asset.type}</p>
+                      <div className="mb-6">
+                        <h4 className="text-xl font-bold text-white mb-2">{asset.name}</h4>
+                        <p className="text-gray-400">{asset.type}</p>
                       </div>
                       
-                      <div className="grid grid-cols-3 gap-4 mb-4">
+                      <div className="grid grid-cols-3 gap-6 mb-6">
                         <div>
-                          <span className="text-xs text-gray-400 block">AI Score</span>
-                          <span className="text-sm font-semibold text-white">{asset.aiScore}/100</span>
+                          <span className="text-xs text-gray-400 block mb-1">AI Score</span>
+                          <span className="text-lg font-semibold text-white">{asset.aiScore}/100</span>
                         </div>
                         <div>
-                          <span className="text-xs text-gray-400 block">Performance</span>
-                          <span className={`text-sm font-semibold ${asset.change.includes('+') ? 'text-green-400' : 'text-red-400'}`}>
+                          <span className="text-xs text-gray-400 block mb-1">Performance</span>
+                          <span className={`text-lg font-semibold ${asset.change.includes('+') ? 'text-green-400' : 'text-red-400'}`}>
                             {asset.change}
                           </span>
                         </div>
                         <div>
-                          <span className="text-xs text-gray-400 block">Risk Level</span>
-                          <span className={`text-sm font-semibold ${
+                          <span className="text-xs text-gray-400 block mb-1">Risk Level</span>
+                          <span className={`text-lg font-semibold ${
                             asset.risk === 'Low' ? 'text-green-400' : 
                             asset.risk === 'Medium' ? 'text-yellow-400' : 'text-red-400'
                           }`}>
@@ -262,7 +256,7 @@ const DemoSection = () => {
                       </div>
                       
                       <button 
-                        className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2 px-4 rounded-lg font-semibold transition-all duration-300 ease-out hover:from-green-600 hover:to-green-700 hover:shadow-lg hover:shadow-green-500/30"
+                        className="w-full btn-gradient py-3 px-6 rounded-lg font-semibold transition-all duration-300 ease-out hover:-translate-y-1"
                         onClick={() => console.log('View details for:', asset.id)}
                       >
                         View Details
@@ -279,14 +273,14 @@ const DemoSection = () => {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="space-y-8"
+              className="space-y-12"
             >
-              <h3 className="brand-card-title text-white text-center mb-8">
+              <h3 className="brand-card-title text-white text-center mb-12">
                 AI-Powered Portfolio Dashboard
               </h3>
               
               {/* Portfolio Summary */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 {[
                   { icon: <AccountBalance sx={{ fontSize: 32, color: '#4ade80' }} />, title: 'Total Portfolio Value', value: `$${demoData.portfolioValue.toLocaleString()}`, change: '+8.7% this month', changeType: 'positive' },
                   { icon: <Analytics sx={{ fontSize: 32, color: '#3b82f6' }} />, title: 'AI Accuracy', value: `${demoData.predictionAccuracy}%`, change: '+23% vs traditional', changeType: 'positive' },
@@ -294,15 +288,15 @@ const DemoSection = () => {
                 ].map((summary, index) => (
                   <div
                     key={index}
-                    className="bg-gradient-to-br from-gray-700 to-gray-800 border border-gray-600 rounded-2xl p-6 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/20"
+                    className="bg-gradient-to-br from-gray-700 to-gray-800 border border-gray-600 rounded-2xl p-8 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/20"
                   >
-                    <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-6 mb-6">
                       <div className="group-hover:scale-110 transition-transform duration-300 ease-out">
                         {summary.icon}
                       </div>
                       <div>
-                        <h4 className="text-sm font-semibold text-gray-300 mb-1">{summary.title}</h4>
-                        <p className="text-2xl font-bold text-white">{summary.value}</p>
+                        <h4 className="text-sm font-semibold text-gray-300 mb-2">{summary.title}</h4>
+                        <p className="text-3xl font-bold text-white">{summary.value}</p>
                         <p className={`text-sm ${
                           summary.changeType === 'positive' ? 'text-green-400' : 
                           summary.changeType === 'negative' ? 'text-red-400' : 'text-gray-400'
@@ -316,23 +310,23 @@ const DemoSection = () => {
               </div>
 
               {/* Asset Allocation */}
-              <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-6 border border-gray-600">
-                <h4 className="brand-card-title text-white mb-6">Asset Allocation</h4>
-                <div className="space-y-4">
+              <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-8 border border-gray-600">
+                <h4 className="brand-card-title text-white mb-8">Asset Allocation</h4>
+                <div className="space-y-6">
                   {[
                     { name: 'Real Estate', percentage: 40, color: 'bg-blue-500' },
                     { name: 'Luxury Goods', percentage: 30, color: 'bg-green-500' },
                     { name: 'Fine Art', percentage: 20, color: 'bg-purple-500' },
                     { name: 'Wine Investment', percentage: 10, color: 'bg-red-500' }
                   ].map((allocation, index) => (
-                    <div key={index} className="flex items-center gap-4">
-                      <div className="flex-1 bg-gray-600 rounded-full h-3">
+                    <div key={index} className="flex items-center gap-6">
+                      <div className="flex-1 bg-gray-600 rounded-full h-4">
                         <div 
                           className={`h-full rounded-full transition-all duration-1000 ease-out ${allocation.color}`}
                           style={{ width: `${allocation.percentage}%` }}
                         />
                       </div>
-                      <span className="text-sm font-semibold text-white min-w-32">
+                      <span className="text-lg font-semibold text-white min-w-40">
                         {allocation.name} ({allocation.percentage}%)
                       </span>
                     </div>
@@ -352,7 +346,7 @@ const DemoSection = () => {
         >
           <button 
             onClick={handleInvestRedirect}
-            className="bg-gradient-to-r from-green-500 to-green-600 text-white py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 ease-out hover:from-green-600 hover:to-green-700 hover:shadow-2xl hover:shadow-green-500/30 hover:-translate-y-1 mb-4"
+            className="btn-gradient py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 ease-out hover:-translate-y-1 mb-4"
           >
             Start Investing with CopymAI
           </button>
