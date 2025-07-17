@@ -31,7 +31,7 @@ const ProblemSection = () => {
       id="problem" 
       className="relative overflow-hidden py-20"
       style={{
-        background: 'linear-gradient(135deg, #0a0a0a 0%, #111111 100%)'
+        background: 'black'
       }}
     >
       {/* Background gradient overlay */}
@@ -49,11 +49,11 @@ const ProblemSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="brand-section-title mb-4 text-white">
             <Extension sx={{ mr: 1, verticalAlign: 'middle' }} /> 
             The Problem We Solve
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="brand-description max-w-3xl mx-auto text-gray-300">
             Traditional RWA (Real-World Asset) investment is broken:
           </p>
         </motion.div>
@@ -75,11 +75,11 @@ const ProblemSection = () => {
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
               </div>
               
-              <h3 className="text-2xl font-bold mb-6 text-white leading-tight tracking-tight">
+              <h3 className="brand-card-title mb-6 text-white leading-tight tracking-tight">
                 {problem.title}
               </h3>
               
-              <p className="text-gray-300 leading-relaxed text-lg max-w-xs mx-auto font-normal">
+              <p className="brand-description max-w-xs mx-auto text-gray-300">
                 {problem.description}
               </p>
             </motion.div>

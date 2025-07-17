@@ -29,7 +29,7 @@ const CTASection = () => {
       id="cta" 
       className="relative overflow-hidden py-12 md:py-20"
       style={{
-        background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 100%)'
+        background: 'black'
       }}
     >
       {/* Background gradient overlay */}
@@ -53,18 +53,18 @@ const CTASection = () => {
               <div className="mb-6 md:mb-8">
                 <TrendingUp className="text-green-400 text-5xl md:text-6xl mx-auto mb-4 md:mb-6 animate-pulse" />
               </div>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white flex items-center justify-center gap-2 md:gap-4">
+              <h2 className="brand-section-title mb-4 md:mb-6 text-white flex items-center justify-center gap-2 md:gap-4">
                 <RocketLaunch className="text-green-400" />
                 Investment Opportunity
               </h2>
-              <p className="text-lg md:text-xl text-gray-300">
+              <p className="brand-description text-gray-300">
                 Join the Future of AI-Powered Asset Investment
               </p>
             </div>
             
             <div className="max-w-2xl md:max-w-4xl mx-auto mb-8 md:mb-16">
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                We're raising <strong className="text-green-400">$3.5M seed funding</strong> to accelerate CopymAI development, ensure full regulatory compliance, and acquire premium assets for our growing platform.
+              <p className="brand-description text-gray-300 leading-relaxed">
+                We're raising <strong className="text-green-400">$30.5M seed funding</strong> to accelerate CopymAI development, ensure full regulatory compliance, and acquire premium assets for our growing platform.
               </p>
             </div>
 
@@ -115,7 +115,7 @@ const CTASection = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="bg-gradient-to-br from-green-400/10 to-blue-500/10 border border-green-400/20 rounded-2xl p-12 mb-16"
             >
-              <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-6 md:mb-8 flex items-center justify-center gap-2 md:gap-3">
+              <h3 className="brand-card-title text-white mb-6 md:mb-8 text-center flex items-center justify-center gap-2 md:gap-3">
                 <Help className="text-green-400" />
                 Why Invest in CopymAI?
               </h3>

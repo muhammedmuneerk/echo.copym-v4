@@ -63,11 +63,11 @@ const RoadmapSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 flex items-center justify-center">
+          <h2 className="brand-section-title mb-4 text-white flex items-center justify-center">
             <Public className="mr-4 text-green-400 text-4xl md:text-5xl lg:text-6xl drop-shadow-lg animate-pulse" />
             Roadmap
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="brand-description text-gray-300">
             Our strategic plan for CopymAI growth and AI advancement
           </p>
         </motion.div>
@@ -88,7 +88,7 @@ const RoadmapSection = () => {
               {/* Top border accent */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              <h3 className="text-3xl font-bold mb-8 text-green-400 text-center relative">
+              <h3 className="brand-card-title mb-8 text-green-400 text-center relative">
                 {item.quarter}
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
               </h3>
@@ -105,7 +105,7 @@ const RoadmapSection = () => {
                     <div className="flex-shrink-0 drop-shadow-lg group-hover/item:scale-110 transition-transform duration-300">
                       {task.icon}
                     </div>
-                    <span className="text-white font-medium text-lg">
+                    <span className="brand-description text-white text-lg">
                       {task.text}
                     </span>
                   </motion.li>

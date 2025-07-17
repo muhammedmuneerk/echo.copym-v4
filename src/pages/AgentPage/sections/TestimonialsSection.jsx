@@ -38,7 +38,7 @@ const TestimonialsSection = () => {
       id="testimonials" 
       className="relative overflow-hidden py-20"
       style={{
-        background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)'
+        background: 'black'
       }}
     >
       {/* Background gradient overlay */}
@@ -56,22 +56,22 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white flex items-center justify-center gap-4">
-            <Star className="text-green-400" />
+          <h2 className="brand-section-title mb-6 text-white flex items-center justify-center gap-4">
+            <Verified sx={{ mr:1, verticalAlign: 'middle' }} />
             What Industry Leaders Say
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Trusted by investment professionals and financial institutions worldwide
+          <p className="brand-description max-w-3xl mx-auto text-gray-300">
+            Real feedback from investment professionals and technology experts
           </p>
         </motion.div>
         
         <div className="space-y-16">
           {/* Featured Testimonial */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-green-400/10 to-blue-500/10 border border-green-400/20 rounded-3xl p-12 shadow-2xl shadow-black/30 relative overflow-hidden"
+            className="max-w-4xl mx-auto mb-16 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-3xl p-12 shadow-2xl shadow-black/30 relative overflow-hidden backdrop-blur-md group hover:border-green-400/30 transition-all duration-500"
           >
             <div 
               className="absolute inset-0 opacity-30"
@@ -85,7 +85,7 @@ const TestimonialsSection = () => {
                 <Star className="text-green-400 text-5xl animate-pulse" />
               </div>
               
-              <blockquote className="text-2xl font-medium text-white text-center mb-10 leading-relaxed italic relative px-8">
+              <blockquote className="brand-description text-white text-center mb-10 leading-relaxed italic relative px-8">
                 <span className="absolute -top-4 -left-4 text-6xl text-green-400 opacity-30 font-serif">"</span>
                 CopymAI democratizes high-value asset investment. The AI predictions have consistently outperformed traditional analysis by 23%. This is the future of investment platforms.
                 <span className="absolute -bottom-8 -right-4 text-6xl text-green-400 opacity-30 font-serif">"</span>
@@ -96,17 +96,9 @@ const TestimonialsSection = () => {
                   <AccountBalance className="text-green-400 text-5xl" />
                 </div>
                 <div>
-                  <h4 className="text-2xl font-bold text-white mb-2">Sarah Chen</h4>
-                  <p className="text-green-400 font-semibold text-lg mb-1">Investment Director</p>
-                  <p className="text-gray-400 text-base mb-3">Venture Capital Partners</p>
-                  <div className="flex gap-2 justify-center">
-                    <span className="bg-green-400/10 text-green-400 px-3 py-1 rounded-full text-sm font-semibold border border-green-400/20">
-                      15+ Years Experience
-                    </span>
-                    <span className="bg-green-400/10 text-green-400 px-3 py-1 rounded-full text-sm font-semibold border border-green-400/20">
-                      $2B+ AUM
-                    </span>
-                  </div>
+                  <h4 className="brand-card-title text-white">Sarah Chen</h4>
+                  <p className="brand-description text-gray-400 font-medium">Investment Director</p>
+                  <p className="brand-description text-gray-500">Venture Capital Partners</p>
                 </div>
               </div>
             </div>
@@ -137,7 +129,7 @@ const TestimonialsSection = () => {
                 </div>
                 
                 <div className="mb-6">
-                  <blockquote className="text-gray-300 leading-relaxed text-base italic relative pl-4">
+                  <blockquote className="brand-description text-gray-300 leading-relaxed text-base italic relative pl-4">
                     <span className="absolute left-0 top-0 text-2xl text-green-400 opacity-50 font-serif">"</span>
                     {testimonial.content}
                   </blockquote>
@@ -145,11 +137,11 @@ const TestimonialsSection = () => {
                 
                 <div className="flex justify-between items-center pt-6 border-t border-white/10">
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-1">{testimonial.name}</h4>
-                    <p className="text-green-400 font-medium text-sm mb-1">{testimonial.role}</p>
-                    <p className="text-gray-400 text-xs">{testimonial.company}</p>
+                    <h4 className="brand-card-title text-white mb-1">{testimonial.name}</h4>
+                    <p className="brand-description text-green-400 font-medium text-sm mb-1">{testimonial.role}</p>
+                    <p className="brand-description text-gray-400 text-xs">{testimonial.company}</p>
                   </div>
-                  <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
+                  <div className="flex items-center gap-2 text-green-400 text-xs brand-description">
                     <Verified className="text-sm" />
                     <span>Verified Professional</span>
                   </div>
@@ -166,8 +158,8 @@ const TestimonialsSection = () => {
             className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-12 text-center"
           >
             <div className="mb-12">
-              <h3 className="text-3xl font-bold text-white mb-4">Trusted by Industry Leaders</h3>
-              <p className="text-xl text-gray-300">Join thousands of professionals already using CopymAI</p>
+              <h3 className="brand-section-title text-white mb-4">Trusted by Industry Leaders</h3>
+              <p className="brand-description text-gray-30">Join thousands of professionals already using CopymAI</p>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -184,7 +176,7 @@ const TestimonialsSection = () => {
                   <div className="text-3xl font-extrabold text-green-400 mb-2 drop-shadow-lg">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-gray-300 font-medium uppercase tracking-wider">
+                  <div className="brand-description text-gray-300 font-medium uppercase tracking-wider">
                     {stat.label}
                   </div>
                 </div>

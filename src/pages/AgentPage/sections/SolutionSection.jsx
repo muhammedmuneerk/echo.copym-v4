@@ -31,7 +31,7 @@ const SolutionSection = () => {
       id="solution" 
       className="relative overflow-hidden py-20"
       style={{
-        background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 100%)'
+        background: 'black'
       }}
     >
       {/* Background gradient overlay */}
@@ -49,11 +49,11 @@ const SolutionSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="brand-section-title mb-6 text-white">
             <AutoAwesome sx={{ mr: 1, verticalAlign: 'middle' }} /> 
             Our Solution: CopymAI-Powered Tokenization + Marketplace
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="brand-description max-w-3xl mx-auto text-gray-300">
             We've built an AI-first platform that solves all this with three key components:
           </p>
         </motion.div>
@@ -74,11 +74,11 @@ const SolutionSection = () => {
                 {solution.icon}
               </div>
               
-              <h3 className="text-2xl font-bold mb-6 text-white leading-tight tracking-tight">
+              <h3 className="brand-card-title mb-6 text-white leading-tight tracking-tight">
                 {solution.title}
               </h3>
               
-              <p className="text-gray-300 leading-relaxed text-lg font-normal">
+              <p className="brand-description text-gray-300">
                 {solution.description}
               </p>
             </motion.div>

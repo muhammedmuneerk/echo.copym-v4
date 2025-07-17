@@ -55,7 +55,7 @@ const FeaturesSection = () => {
       id="features" 
       className="relative overflow-hidden py-12 md:py-20"
       style={{
-        background: 'linear-gradient(135deg, #0a0a0a 0%, #111111 100%)'
+        background: 'black'
       }}
     >
       {/* Background gradient overlay */}
@@ -73,11 +73,11 @@ const FeaturesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="brand-section-title mb-6 text-white">
             <Launch sx={{ mr: 1, verticalAlign: 'middle' }} />
             Key Features
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="brand-description max-w-3xl mx-auto text-gray-300">
             Advanced AI and blockchain technology powering your investment journey
           </p>
         </motion.div>
@@ -115,10 +115,10 @@ const FeaturesSection = () => {
                 
                 {/* Feature Content */}
                 <div className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-2xl p-6 relative transition-all duration-300 ease-out group-hover:border-current group-hover:shadow-xl group-hover:shadow-black/30 group-hover:-translate-y-1.5">
-                  <h3 className="text-xl font-bold text-white mb-3 leading-tight">
+                  <h3 className="brand-card-title mb-3 leading-tight text-white">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className="brand-description text-gray-300">
                     {feature.description}
                   </p>
                 </div>

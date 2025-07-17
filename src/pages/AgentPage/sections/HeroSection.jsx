@@ -370,9 +370,9 @@ const HeroSection = () => {
       {/* Hero Section */}
       <section 
         id="hero" 
-        className="min-h-screen flex items-center justify-center text-center px-8 py-16 relative bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden"
+        className="min-h-screen flex items-center justify-center text-center px-8 py-16 relative overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #0a0a0a 0%, #111111 100%)'
+          background: 'black'
         }}
       >
         {/* Background gradient overlay */}
@@ -390,7 +390,7 @@ const HeroSection = () => {
           className="max-w-6xl mx-auto relative z-10"
         >
           <h1 
-            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 leading-tight tracking-tight"
+            className="brand-title mb-6 leading-tight tracking-tight"
             style={{
               background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #e0e0e0 100%)',
               WebkitBackgroundClip: 'text',
@@ -403,11 +403,11 @@ const HeroSection = () => {
             Introducing CopymAI
           </h1>
           
-          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-10 text-green-400 leading-tight tracking-tight">
+          <h2 className="brand-section-title mb-10 text-green-400 leading-tight tracking-tight">
             Revolutionizing Real-World Asset Investment
           </h2>
           
-          <p className="text-xl font-normal mb-16 text-gray-300 max-w-4xl mx-auto leading-relaxed tracking-wide">
+          <p className="brand-description mb-16 text-gray-300 max-w-4xl mx-auto leading-relaxed tracking-wide">
             We're building a next-gen AI-powered investment platform that uses artificial intelligence and blockchain to make investing in high-value real-world assets 
             (like real estate, art, or rare collectibles) easy, accessible, and profitable — even for everyday investors.
           </p>

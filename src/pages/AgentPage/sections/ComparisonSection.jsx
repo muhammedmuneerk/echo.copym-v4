@@ -17,34 +17,6 @@ import {
 const ComparisonSection = () => {
   const [activeMatrixTab, setActiveMatrixTab] = useState('performance');
 
-  const comparisonData = [
-    {
-      feature: 'AI-Powered Guidance',
-      copymAI: '✅ CopymAgent Advanced',
-      traditional: '❌ None or Basic'
-    },
-    {
-      feature: 'Min Investment',
-      copymAI: '💲$100',
-      traditional: '💲10K+'
-    },
-    {
-      feature: 'Asset Verification',
-      copymAI: '✅ AI + Experts',
-      traditional: '❌ Manual / Basic'
-    },
-    {
-      feature: 'Liquidity',
-      copymAI: '⚡ Instant AI trades',
-      traditional: '🕓 Weeks/months'
-    },
-    {
-      feature: 'Portfolio Tools',
-      copymAI: '🔁 CopymAgent Optimized',
-      traditional: '🧍Manual or Limited'
-    }
-  ];
-
   const metricData = {
     performance: [
       {
@@ -133,7 +105,7 @@ const ComparisonSection = () => {
   };
 
   return (
-    <section id="comparison" className="bg-gradient-to-br from-gray-900 to-black py-20 relative overflow-hidden">
+    <section id="comparison" className="bg-black py-20 relative overflow-hidden">
       {/* Background gradient */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -149,92 +121,82 @@ const ComparisonSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="brand-section-title mb-4 text-white">
             Why CopymAI is Different
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="brand-description text-gray-300">
             Advanced AI-Powered Platform vs Traditional Investment Systems
           </p>
         </motion.div>
         
-        <div className="max-w-7xl mx-auto">
-          {/* Advanced AI Comparison Matrix */}
-          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-3xl p-8 backdrop-blur-sm hover:border-green-400/30 transition-all duration-500">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
-              <div className="flex items-center gap-4 mb-4 lg:mb-0">
-                <WorkspacePremium className="text-green-400 text-4xl drop-shadow-lg animate-pulse" />
-                <h3 className="text-2xl font-bold text-white">AI-Powered Investment Matrix</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { id: 'performance', icon: <TrendingUp />, label: 'Performance' },
-                  { id: 'efficiency', icon: <Speed />, label: 'Efficiency' },
-                  { id: 'security', icon: <Shield />, label: 'Security' },
-                  { id: 'accessibility', icon: <Group />, label: 'Accessibility' }
-                ].map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => handleTabClick(tab.id)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
-                      activeMatrixTab === tab.id
-                        ? 'bg-green-400 text-black shadow-lg shadow-green-400/25'
-                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white'
-                    }`}
-                  >
-                    {tab.icon}
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-            
-            <div className="space-y-6">
+        <div className="max-w-4xl mx-auto">
+          {/* Matrix Tabs */}
+          <div className="flex flex-wrap justify-center mb-8 gap-2 sm:gap-4">
+            {[
+              { id: 'performance', icon: <TrendingUp />, label: 'Performance' },
+              { id: 'efficiency', icon: <Speed />, label: 'Efficiency' },
+              { id: 'security', icon: <Shield />, label: 'Security' },
+              { id: 'accessibility', icon: <Group />, label: 'Accessibility' }
+            ].map((tab, index) => (
+              <button
+                key={index}
+                onClick={() => handleTabClick(tab.id)}
+                className={`px-6 py-3 mx-2 rounded-full font-semibold transition-all duration-300 ${
+                  activeMatrixTab === tab.id
+                    ? 'bg-green-400 text-black shadow-lg shadow-green-400/30'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                }`}
+              >
+                {tab.icon}
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          
+          {/* Matrix Content */}
+          <div className="space-y-6 sm:space-y-8">
+            <h3 className="brand-card-title text-white mb-4 sm:mb-8 text-lg sm:text-xl md:text-2xl">
+              Performance Comparison Matrix
+            </h3>
+            <div className="space-y-4 sm:space-y-6">
               {metricData[activeMatrixTab].map((metric, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-gray-800/50 border border-gray-600 rounded-xl p-6 hover:border-green-400/30 transition-all duration-300"
+                  className="bg-gray-800/50 border border-gray-600 rounded-xl p-4 sm:p-6 hover:border-green-400/30 transition-all duration-300"
                 >
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                     {metric.icon}
-                    <span className="text-white font-semibold text-lg">{metric.label}</span>
+                    <span className="brand-card-title text-white text-base sm:text-lg">{metric.label}</span>
                   </div>
-                  
-                  <div className="space-y-3">
+                  <div className="space-y-2 sm:space-y-3">
                     {/* CopymAI Bar */}
-                    <div className="flex items-center gap-4">
-                      <div className="flex-1 bg-gray-700 rounded-full h-8 overflow-hidden">
+                    <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                      <div className="flex-1 w-full bg-gray-700 rounded-full h-6 sm:h-8 overflow-hidden">
                         <div 
-                          className={`h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full transition-all duration-1000 ease-out relative ${
-                            metric.copymai.instant ? 'animate-pulse' : ''
-                          }`}
+                          className={`h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full transition-all duration-1000 ease-out relative ${metric.copymai.instant ? 'animate-pulse' : ''}`}
                           style={{ width: metric.copymai.width }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-bold text-white">
-                            {metric.copymai.value}
-                          </span>
+                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-bold text-white whitespace-nowrap">{metric.copymai.value}</span>
                         </div>
                       </div>
-                      <span className="text-green-400 font-semibold text-sm min-w-[80px]">CopymAI</span>
+                      <span className="text-green-400 font-semibold text-xs sm:text-sm min-w-[60px] sm:min-w-[80px] text-center">CopymAI</span>
                     </div>
-                    
                     {/* Traditional Bar */}
-                    <div className="flex items-center gap-4">
-                      <div className="flex-1 bg-gray-700 rounded-full h-8 overflow-hidden">
+                    <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                      <div className="flex-1 w-full bg-gray-700 rounded-full h-6 sm:h-8 overflow-hidden">
                         <div 
                           className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full transition-all duration-1000 ease-out relative"
                           style={{ width: metric.traditional.width }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-bold text-white">
-                            {metric.traditional.value}
-                          </span>
+                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-bold text-white whitespace-nowrap">{metric.traditional.value}</span>
                         </div>
                       </div>
-                      <span className="text-blue-400 font-semibold text-sm min-w-[80px]">Traditional</span>
+                      <span className="text-blue-400 font-semibold text-xs sm:text-sm min-w-[60px] sm:min-w-[80px] text-center">Traditional</span>
                     </div>
                   </div>
                 </motion.div>

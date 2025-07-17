@@ -19,7 +19,7 @@ const StatsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 flex items-center justify-center">
+          <h2 className="brand-section-title mb-4 text-white flex items-center justify-center">
             <TrendingUp className="mr-4 text-green-400" />
             Massive Market Potential
           </h2>
@@ -34,10 +34,10 @@ const StatsSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="text-center p-6 md:p-8 bg-gray-900 rounded-xl border border-gray-700 transition-all duration-300 hover:transform hover:-translate-y-1 hover:border-white hover:shadow-lg hover:shadow-white/10"
             >
-              <div className="text-5xl font-bold text-white mb-2">
+              <div className="brand-card-title text-white mb-2">
                 {stat.number}
               </div>
-              <div className="text-base text-gray-300 font-medium">
+              <div className="brand-description text-gray-300">
                 {stat.label}
               </div>
             </motion.div>

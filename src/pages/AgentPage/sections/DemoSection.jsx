@@ -77,7 +77,7 @@ const DemoSection = () => {
       id="demo" 
       className="relative overflow-hidden py-20"
       style={{
-        background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)'
+        background: 'black'
       }}
     >
       {/* Background gradient overlay */}
@@ -95,13 +95,13 @@ const DemoSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white flex items-center justify-center gap-4">
+          <h2 className="brand-section-title mb-6 text-white flex items-center justify-center gap-4">
             Try CopymAI Demo
             <div className="filter drop-shadow-lg animate-pulse">
               <Link sx={{ fontSize: '2rem', color: '#4ade80' }} />
             </div>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="brand-description max-w-2xl mx-auto text-gray-300">
             Experience the power of AI-driven asset investment
           </p>
         </motion.div>
@@ -141,7 +141,7 @@ const DemoSection = () => {
               animate={{ opacity: 1, x: 0 }}
               className="space-y-8"
             >
-              <h3 className="text-3xl font-bold text-white text-center mb-8">
+              <h3 className="brand-card-title text-white text-center mb-8">
                 AI Asset Tokenization Process
               </h3>
               
@@ -173,7 +173,7 @@ const DemoSection = () => {
                       {step.icon}
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-white mb-2">{step.title}</h4>
+                      <h4 className="brand-card-title text-white mb-2">{step.title}</h4>
                       <p className="text-gray-300">{step.desc}</p>
                     </div>
                   </div>
@@ -212,7 +212,7 @@ const DemoSection = () => {
               animate={{ opacity: 1, x: 0 }}
               className="space-y-8"
             >
-              <h3 className="text-3xl font-bold text-white text-center mb-8">
+              <h3 className="brand-card-title text-white text-center mb-8">
                 CopymAgent AI Recommendations
               </h3>
               
@@ -281,7 +281,7 @@ const DemoSection = () => {
               animate={{ opacity: 1, x: 0 }}
               className="space-y-8"
             >
-              <h3 className="text-3xl font-bold text-white text-center mb-8">
+              <h3 className="brand-card-title text-white text-center mb-8">
                 AI-Powered Portfolio Dashboard
               </h3>
               
@@ -317,7 +317,7 @@ const DemoSection = () => {
 
               {/* Asset Allocation */}
               <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-6 border border-gray-600">
-                <h4 className="text-xl font-bold text-white mb-6">Asset Allocation</h4>
+                <h4 className="brand-card-title text-white mb-6">Asset Allocation</h4>
                 <div className="space-y-4">
                   {[
                     { name: 'Real Estate', percentage: 40, color: 'bg-blue-500' },

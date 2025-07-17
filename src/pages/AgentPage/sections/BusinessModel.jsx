@@ -27,7 +27,7 @@ const BusinessModel = () => {
   ];
 
   return (
-    <section className="bg-gray-900 py-12 md:py-20">
+    <section className="bg-black py-12 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,11 +35,11 @@ const BusinessModel = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 flex items-center justify-center">
+          <h2 className="brand-section-title mb-4 text-white flex items-center justify-center">
             <MonetizationOn className="mr-4 text-green-400" />
             Business Model
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="brand-description text-gray-300">
             Multiple AI-powered revenue streams with projected $18M/year by Year 3
           </p>
         </motion.div>
@@ -56,10 +56,10 @@ const BusinessModel = () => {
               <div className="text-4xl font-bold text-green-400 mb-4">
                 {stream.percentage}
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-white">
+              <h3 className="brand-card-title mb-4 text-white">
                 {stream.title}
               </h3>
-              <p className="text-gray-300 text-sm">
+              <p className="brand-description text-gray-300 text-sm">
                 {stream.description}
               </p>
             </motion.div>
