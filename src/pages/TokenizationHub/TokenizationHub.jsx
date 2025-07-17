@@ -154,23 +154,29 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <AnimatedCard>
-            <div key={index} className="relative">
-              <div className=" rounded-2xl p-6 ">
-                <div className="flex items-center mb-4">
-                  <span className="text-sm font-bold text-gray-400 mr-3">{step.step}</span>
-                  <step.icon className="h-6 w-6 text-blue-500" />
+            <AnimatedCard key={index}>
+              <div className="relative">
+                <div className="rounded-2xl p-6">
+                  <Box
+                    className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                    sx={{
+                      background: "rgba(255, 255, 255, 0.9)",
+                      backdropFilter: "blur(5px)",
+                      boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                    }}
+                  >
+                    <step.icon className="h-6 w-6 text-blue-500" />
+                  </Box>
+                  <h3 className="brand-card-title text-black mb-3">{step.title}</h3>
+                  <p className="text-gray-600">{step.description}</p>
                 </div>
-                <h3 className="brand-card-title text-black mb-3">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-1 transform -translate-y-1/2">
+                    <ArrowRight className="h-5 w-5 text-gray-400" />
+                  </div>
+                )}
               </div>
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-1 transform -translate-y-1/2">
-                  <ArrowRight className="h-5 w-5 text-gray-400" />
-                </div>
-              )}
-            </div>
-              </AnimatedCard>
+            </AnimatedCard>
           ))}
         </div>
       </div>
