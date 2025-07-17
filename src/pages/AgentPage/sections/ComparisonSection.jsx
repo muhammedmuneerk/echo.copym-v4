@@ -132,27 +132,27 @@ const ComparisonSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Matrix Tabs */}
           <div className="flex flex-wrap justify-center mb-8 gap-2 sm:gap-4">
-            {[
-              { id: 'performance', icon: <TrendingUp />, label: 'Performance' },
-              { id: 'efficiency', icon: <Speed />, label: 'Efficiency' },
-              { id: 'security', icon: <Shield />, label: 'Security' },
-              { id: 'accessibility', icon: <Group />, label: 'Accessibility' }
+                {[
+                  { id: 'performance', icon: <TrendingUp />, label: 'Performance' },
+                  { id: 'efficiency', icon: <Speed />, label: 'Efficiency' },
+                  { id: 'security', icon: <Shield />, label: 'Security' },
+                  { id: 'accessibility', icon: <Group />, label: 'Accessibility' }
             ].map((tab, index) => (
-              <button
+                  <button
                 key={index}
-                onClick={() => handleTabClick(tab.id)}
+                    onClick={() => handleTabClick(tab.id)}
                 className={`px-6 py-3 mx-2 rounded-full font-semibold transition-all duration-300 ${
-                  activeMatrixTab === tab.id
+                      activeMatrixTab === tab.id
                     ? 'bg-green-400 text-black shadow-lg shadow-green-400/30'
                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                }`}
-              >
-                {tab.icon}
-                {tab.label}
-              </button>
-            ))}
-          </div>
-          
+                    }`}
+                  >
+                    {tab.icon}
+                    {tab.label}
+                  </button>
+                ))}
+            </div>
+            
           {/* Matrix Content */}
           <div className="space-y-6 sm:space-y-8">
             <h3 className="brand-card-title text-white mb-4 sm:mb-8 text-lg sm:text-xl md:text-2xl">
@@ -167,7 +167,7 @@ const ComparisonSection = () => {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="bg-gray-800/50 border border-gray-600 rounded-xl p-4 sm:p-6 hover:border-green-400/30 transition-all duration-300"
                 >
-                  <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-center">
                     {metric.icon}
                     <span className="brand-card-title text-white text-base sm:text-lg">{metric.label}</span>
                   </div>
