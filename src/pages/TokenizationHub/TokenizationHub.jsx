@@ -36,7 +36,7 @@ import AnimatedCard from "../../ui/AnimatedCard.jsx"
 // Hero Section Component
 const Hero = () => {
   return (
-    <section className="relative bg-green-50 py-12 lg:py-20 overflow-hidden">
+    <section className="relative bg-white py-12 lg:py-20 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
@@ -134,7 +134,7 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
   ];
 
   return (
-    <section className="py-20 bg-green-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -214,7 +214,7 @@ const TokenDistribution = () => {
   ];
 
   return (
-    <section className="py-20 bg-green-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -257,7 +257,7 @@ const TokenDistribution = () => {
         {/* Token Distribution Network Image */}
         <div className="flex flex-col items-center mt-16">
           <img
-            src="/assets/images/Token-Distribution.png"
+            src="/assets/Images/Token-Distribution.png"
             alt="The Digital Securities Distribution Network"
             className="max-w-full h-auto rounded-xl shadow-lg border border-gray-100"
             style={{ background: 'white' }}
@@ -305,7 +305,7 @@ const IssuerDashboard = () => {
   ];
 
   return (
-    <section className="py-20 bg-green-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -318,7 +318,7 @@ const IssuerDashboard = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Dashboard Lottie Animation */}
-          <div className="flex items-center justify-center bg-white rounded-2xl border border-gray-200 shadow-lg p-6 min-h-[400px]">
+          <div className="flex items-center justify-center bg-green-50 rounded-2xl border border-gray-200 shadow-lg p-6 min-h-[400px]">
             <Player
               autoplay
               loop
@@ -379,7 +379,7 @@ const InvestorManagement = () => {
   ];
 
   return (
-    <section className="py-20 bg-green-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -450,7 +450,7 @@ const SecurityProtocols = () => {
   ];
 
   return (
-    <section className="py-20 bg-green-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -483,7 +483,7 @@ const SecurityProtocols = () => {
         {/* Token Issuance Compliance Image */}
         <div className="flex flex-col items-center mt-16">
           <img
-            src="/assets/images/token-issuence.png"
+            src="/assets/Images/token-issuence.png"
             alt="Token Issuance Compliance Rules"
             className="max-w-xs h-auto rounded-xl shadow-lg border border-gray-100"
             style={{ background: 'white' }}
@@ -527,7 +527,7 @@ const AnalyticsReporting = () => {
   ];
 
   return (
-    <section className="py-20 bg-green-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -587,7 +587,7 @@ export default function TokenizationHub() {
   }), []);
 
   return (
-    <div className="min-h-screen bg-green-50">
+    <div className="min-h-screen bg-white">
       <Hero />
       <TokenizationProcess onLaunchCreator={openCreateModal} />
       <TokenDistribution />

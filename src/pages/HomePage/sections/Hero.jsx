@@ -9,7 +9,7 @@ export default function Hero() {
   const [isVideoOpen, setVideoOpen] = useState(false);
 
   return (
-    <section className="relative bg-green-50 py-20 lg:py-28 overflow-hidden">
+    <section className="relative bg-white py-20 lg:py-28 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">

@@ -16,7 +16,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <Box className="min-h-screen relative bg-green-50 text-text-primary overflow-x-hidden">
+    <Box className="min-h-screen relative bg-white text-text-primary overflow-x-hidden">
       <ScrollToTop />
       {location.pathname !== "/agent" && <Header />}
       <main className="relative z-20 overflow-x-hidden">
