@@ -48,7 +48,7 @@ const IssuerSection = () => {
                 <div key={index} className="flex items-start gap-5">
                   <div className="p-4 bg-white/30 rounded-xl shadow-md">{step.icon}</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-800 mb-1">{step.title}</h4>
+                    <h4 className="brand-card-title text-gray-800 mb-1">{step.title}</h4>
                     <p className="text-gray-700 text-base">{step.description}</p>
                   </div>
                 </div>

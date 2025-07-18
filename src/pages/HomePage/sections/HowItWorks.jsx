@@ -81,7 +81,7 @@ const Flowchart = () => {
   };
 
   return (
-    <section className="relative w-full rounded-3xl px-6 py-10 overflow-hidden shadow-xl border border-white/20 bg-gradient-to-br from-black/15 via-white/5 to-black/15 backdrop-blur-lg ring-1 ring-white/10 ring-inset">
+    <section className="relative w-full px-6 py-20 bg-green-50 overflow-hidden">
       <div className="text-center mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

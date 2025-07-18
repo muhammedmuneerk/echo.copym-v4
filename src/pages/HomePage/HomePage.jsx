@@ -4,6 +4,7 @@ import HowItWorks from "./sections/HowItWorks";
 import IssuerSection from "./sections/IssuerSection";
 import WhyCopym from "./sections/WhyCopym";
 import InvestmentSection from "./sections/InvestmentSection";
+import Testimonials from "./sections/Testimonials";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-green-50">
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Dashboard />
       <IssuerSection />
       <WhyCopym />
+      <Testimonials />
     </div>
   );
 }

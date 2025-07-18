@@ -85,7 +85,7 @@ const Feature = ({ icon, title, description }) => (
   <div className="flex items-start gap-5">
     <div className="p-4 bg-white/30 rounded-xl shadow-md">{icon}</div>
     <div>
-      <h4 className="text-xl font-semibold text-gray-800 mb-1">{title}</h4>
+      <h4 className="brand-card-title text-gray-800 mb-1">{title}</h4>
       <p className="text-gray-700 text-base">{description}</p>
     </div>
   </div>
