@@ -99,7 +99,7 @@ const HowItWorks = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 30 }}
               transition={{ duration: 0.4 }}
-              className="bg-white shadow-xl rounded-xl p-6 sm:p-10 w-full max-w-5xl mx-auto"
+              className="bg-white shadow-xl rounded-xl p-6 sm:p-10 w-full max-w-6xl mx-auto overflow-hidden"
             >
               <Flowchart />
             </motion.div>

@@ -45,13 +45,13 @@ export default function Header() {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {visibleLinks.map(link => (
-                <Link
+              <Link
                   key={link.path}
                   to={link.path}
-                  className="font-semibold bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text hover:opacity-80 transition"
-                >
+                className="font-semibold bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text hover:opacity-80 transition"
+              >
                   {link.label}
-                </Link>
+              </Link>
               ))}
             </nav>
 
@@ -71,14 +71,14 @@ export default function Header() {
         <div className="fixed top-24 left-0 right-0 z-40 px-4 md:hidden">
           <div className="bg-white rounded-2xl shadow-xl py-4 px-6 space-y-4 text-center">
             {visibleLinks.map(link => (
-              <Link
+            <Link
                 key={link.path}
                 to={link.path}
-                className="block text-gray-700 font-medium hover:text-black transition"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              className="block text-gray-700 font-medium hover:text-black transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
                 {link.label}
-              </Link>
+            </Link>
             ))}
           </div>
         </div>
