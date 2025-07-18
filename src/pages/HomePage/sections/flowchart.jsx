@@ -633,15 +633,6 @@ export default function Flowchart() {
 
   return (
     <div style={styles.container}>
-      {/* Header Section */}
-      <div style={styles.headerSection}>
-        <div style={styles.headerLine}></div>
-        <h1 style={styles.mainTitle}>How It Works</h1>
-        <p style={styles.subtitle}>
-          Discover how tokenization revolutionizes asset ownership. From fractional investments to global liquidity, see how our platform bridges traditional assets with blockchain innovation.
-        </p>
-      </div>
-
       {/* Path Selection Tabs */}
       <div style={styles.pathTabs}>
         <button

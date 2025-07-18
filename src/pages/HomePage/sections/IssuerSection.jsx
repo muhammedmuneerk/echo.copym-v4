@@ -1,49 +1,80 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ShieldCheck, Code, BadgeCheck } from "lucide-react";
+
+const steps = [
+  {
+    icon: <ShieldCheck className="w-10 h-10 text-blue-500" />,
+    title: "Complete KYC",
+  },
+  {
+    icon: <Code className="w-10 h-10 text-blue-500" />,
+    title: "Deploy Smart Contract",
+  },
+  {
+    icon: <BadgeCheck className="w-10 h-10 text-blue-500" />,
+    title: "Get Listed",
+  },
+];
 
 const IssuerSection = () => {
+  const [currentStep, setCurrentStep] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentStep((prev) => (prev + 1) % steps.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="w-full px-6 py-16 bg-gradient-to-br from-blue-50 to-white">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
-        {/* Left Text Content */}
-        <div className="flex-1">
-          <h2 className="brand-section-title mb-4 bg-clip-text">
-            Tokenize Your Real-World Assets
-          </h2>
-          <p className="text-gray-700 mb-6 max-w-xl">
-            Whether you're a real estate developer, art collector, or small business owner, our platform enables you to raise funds and unlock liquidity by tokenizing your assets.
-          </p>
+    <section className="w-full px-6 py-16 bg-gradient-to-br from-blue-50 to-white text-center flex flex-col items-center">
+      {/* Section Title & Description */}
+      <div className="max-w-3xl mx-auto mb-8">
+        <h2 className="brand-section-title mb-4 bg-clip-text">
+          Tokenize Real-World Assets
+        </h2>
+        <p className="text-gray-700 text-lg">
+          Turn your real-world assets into digital tokens.
+        </p>
+      </div>
 
-          {/* Benefits */}
-          <ul className="list-disc list-inside text-gray-600 mb-6">
-            <li>Raise capital with fractional ownership</li>
-            <li>Boost asset liquidity and reach global investors</li>
-          </ul>
-
-          {/* Simple Steps */}
-          <div className="mb-8">
-            <h4 className="font-semibold text-gray-800 mb-2">How it works:</h4>
-            <ol className="list-decimal list-inside text-gray-600">
-              <li>KYC & Verification</li>
-              <li>Smart Contract Deployment</li>
-              <li>Your Asset Gets Listed</li>
-            </ol>
-          </div>
-
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <a
-            href="/tokenization"
-            className="text-white px-8 py-4 rounded-lg font-semibold btn-gradient items-center justify-center"
+      {/* Animated 3-Step Slider */}
+      <div className="relative h-32 mb-10 w-full flex justify-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentStep}
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -60 }}
+            transition={{ duration: 0.5 }}
+            className="absolute w-full flex flex-col items-center"
           >
-            Learn More
-          </a>
-          </div>
-        </div>
+            <div className="mb-2">{steps[currentStep].icon}</div>
+            <h4 className="brand-card-title text-gray-600 text-xl font-semibold">
+              {steps[currentStep].title}
+            </h4>
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
-        {/* Right Side: Placeholder for image / flowchart / video */}
-        <div className="flex-1 w-full h-[300px] bg-white  border-gray-300 rounded-xl flex items-center justify-center text-gray-400 text-center">
-          <img className='rounded-2xl border border-gray-200 shadow-lg ' src='/assets/Images/HomePreview.jpeg'></img>
-        </div>
+      {/* Visual Preview */}
+      <div className="w-full max-w-sm mb-10">
+        <img
+          src="/assets/Images/HomePreview.jpeg"
+          alt="Tokenization Preview"
+          className="rounded-2xl border border-gray-200 shadow-lg w-full"
+        />
+      </div>
+
+      {/* CTA Button */}
+      <div className="mt-6">
+        <a
+          href="/tokenization"
+          className="px-8 py-4 rounded-lg font-semibold text-white btn-gradient"
+        >
+          Learn More
+        </a>
       </div>
     </section>
   );

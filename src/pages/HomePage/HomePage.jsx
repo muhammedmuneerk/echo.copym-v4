@@ -1,7 +1,6 @@
 import Dashboard from "./sections/Dashboard";
 import Hero from "./sections/Hero";
 import HowItWorks from "./sections/HowItWorks";
-import WhyTokenizedAssets from "./sections/WhyTokenizedAssets";
 import IssuerSection from "./sections/IssuerSection";
 import SecurityFeaturesSection from "./sections/SecurityFeaturesSection";
 import TechnologyStackSection from "./sections/TechnologyStackSection";
@@ -13,11 +12,10 @@ export default function HomePage() {
       <Hero />
       <HowItWorks />
       <AiOverview />
-      <Dashboard />
-      {/* <WhyTokenizedAssets /> */}
-      <IssuerSection />
       <SecurityFeaturesSection />
       <TechnologyStackSection />
+      <Dashboard />
+      <IssuerSection />
     </div>
   );
 }
