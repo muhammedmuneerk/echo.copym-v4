@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -6,98 +6,119 @@ import LockIcon from '@mui/icons-material/Lock';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import CloudDoneIcon from '@mui/icons-material/CloudDone';
-import { motion, AnimatePresence } from 'framer-motion';
+import AnimatedCard from '../../../ui/AnimatedCard';
+import { Box } from '@mui/material';
 
 const SecurityFeaturesSection = () => {
   const features = [
     {
-      title: 'MPC Wallets',
-      desc: 'No single point of failure—keys split securely.',
-      icon: <VpnKeyIcon fontSize="medium" className="text-blue-500" />,
-    
+      title: 'MPC Wallet Infrastructure',
+      desc: 'Secure custody with Multi-Party Computation — no single point of failure.',
+      icon: <VpnKeyIcon fontSize="medium" className="text-blue-500 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
-      title: 'On‑Chain Transparency',
-      desc: 'Immutable audit trails for every transaction.',
-      icon: <VisibilityIcon fontSize="medium" className="text-blue-500" />,
-     
+      title: 'Blockchain Transparency',
+      desc: 'Immutable transactions and audit trails recorded directly on-chain.',
+      icon: <VisibilityIcon fontSize="medium" className="text-blue-500 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
-      title: 'Encrypted Data',
-      desc: 'AES‑level protection in transit and at rest.',
-      icon: <LockIcon fontSize="medium" className="text-blue-500" />,
-     
+      title: 'End-to-End Encryption',
+      desc: 'Military-grade encryption to protect your data at rest and in transit.',
+      icon: <LockIcon fontSize="medium" className="text-blue-500 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
-      title: 'Permissioned Access',
-      desc: 'Only verified users can transact.',
-      icon: <VerifiedUserIcon fontSize="medium" className="text-blue-500" />,
-     
+      title: 'Access Control & Whitelisting',
+      desc: 'Only verified, permissioned participants can interact with assets.',
+      icon: <VerifiedUserIcon fontSize="medium" className="text-blue-500 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
-      title: 'Compliance‑Ready',
-      desc: 'Built‑in KYC/AML integration.',
-      icon: <FactCheckIcon fontSize="medium" className="text-blue-500" />,
-     
+      title: 'Audit-Ready Architecture',
+      desc: 'Built with compliance in mind — easily integrate with KYC, AML, and reporting tools.',
+      icon: <FactCheckIcon fontSize="medium" className="text-blue-500 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
     {
-      title: 'High Availability',
-      desc: 'Backups and failover for uptime.',
-      icon: <CloudDoneIcon fontSize="medium" className="text-blue-500" />,
-     
+      title: 'Uptime & Redundancy',
+      desc: 'Highly available infrastructure with automated backups and failover.',
+      icon: <CloudDoneIcon fontSize="medium" className="text-blue-500 transition-all duration-500 ease-in-out transform hover:scale-110 hover:rotate-x-12 hover:rotate-12" />,
     },
   ];
-
-  const [currentFeature, setCurrentFeature] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentFeature((prev) => (prev + 1) % features.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="relative w-full px-6 py-12 bg-green-50 overflow-hidden">
-      <div className="max-w-2xl mx-auto text-center">
-        <h2 className="brand-section-title bg-clip-text">
-          Enterprise-Grade Web3 Security
+    <section
+      // style={{
+      //   backgroundImage:
+      //     'linear-gradient(135deg,#06140b 0%, #063a19 25%, #0b7c2c 55%, #063a19 80%, #06140b 100%)',
+      //   backgroundSize: '400% 400%'
+      // }}
+      className="relative w-full px-6 py-24 bg-green-50 overflow-hidden"
+    >
+      {/* Shining sweep overlay */}
+      {/* <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full animate-sweep" /> */}
+      <div className="max-w-7xl mx-auto">
+        {/* Heading */}
+        <h2 className="brand-section-title mb-4 bg-clip-text">
+          Enterprise-Grade Security, Built for Web3
         </h2>
-        <p className="text-gray-600 mb-10">
-          Secure your assets with institutional-grade protections you can trust.
+        <p className="text-gray-600 mb-10 max-w-2xl">
+          Your assets are protected with cutting-edge security standards trusted
+          by institutions.
         </p>
 
-          {/* Animated Feature Text */}
-        <div className="relative h-32 mb-8">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentFeature}
-             initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }} 
-              transition={{ duration: 0.6 }}
-              className="absolute w-full"
-            >
-              <div className="flex flex-col items-center space-y-2">
-                <div className="mb-2">{features[currentFeature].icon}</div>
-                <h4 className="brand-card-title text-gray-600 mb-1">
-                  {features[currentFeature].title}
+        {/* Two-Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left – features */}
+          {/* Small screens: horizontal swipe */}
+          <div className="flex sm:hidden overflow-x-auto space-x-6 pb-4 snap-x snap-mandatory">
+            {features.map((item, i) => (
+              <div
+                key={i}
+                className="flex-none w-72 bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition snap-center"
+              >
+                <div className="mb-3 text-2xl">{item.icon}</div>
+                <h4 className="brand-card-title text-gray-800 mb-2">
+                  {item.title}
                 </h4>
-                <p className="text-gray-600 text-sm">
-                  {features[currentFeature].desc}
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {item.desc}
                 </p>
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-         {/* Lottie Animation */}
-        <div className="flex items-center justify-center w-full">
-          <Player
-            autoplay
-            loop
-            src="/assets/lottie/CyberSecurity%20Net%20lock/CyberSecurity%20Net%20lock.json"
-            style={{ height: '450px', width: '450px' }}
-          />
+            ))}
+          </div>
+
+          {/* Medium & up: grid */}
+          <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {features.map((item, i) => (
+              <AnimatedCard>
+                <div key={i} className="p-6 rounded-xl">
+                  <Box
+                    className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
+                    sx={{
+                      background: "rgba(255, 255, 255, 0.05)",
+                      backdropFilter: "blur(5px)",
+                      boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                    }}
+                  >
+                    {item.icon}
+                  </Box>
+                  <h4 className="brand-card-title text-gray-800 mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </AnimatedCard>
+            ))}
+          </div>
+
+          {/* Right – Lottie animation */}
+          <div className="flex items-center justify-center w-full">
+            <Player
+              autoplay
+              loop
+              src="/assets/lottie/CyberSecurity%20Net%20lock/CyberSecurity%20Net%20lock.json"
+              style={{ height: "450px", width: "450px" }}
+            />
+          </div>
         </div>
       </div>
     </section>

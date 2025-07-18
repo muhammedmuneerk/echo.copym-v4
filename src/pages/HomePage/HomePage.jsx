@@ -11,8 +11,8 @@ export default function HomePage() {
       <InvestmentSection />
       <HowItWorks />
       <Dashboard />
-      <WhyCopym />
       <IssuerSection />
+      <WhyCopym />
     </div>
   );
 }

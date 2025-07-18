@@ -1,82 +1,41 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  User, 
-  Search, 
-  CreditCard, 
-  TrendingUp, 
+import {
+  User,
+  Search,
+  CreditCard,
+  TrendingUp,
   ArrowRight,
-  CheckCircle,
-  Building,
-  Euro,
-  DollarSign,
-  Coins
+  Building
 } from 'lucide-react';
 
 const Flowchart = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
-  {
-    id: 1,
+    {
+      id: 1,
       title: "Login",
       icon: User,
-      content: {
-        type: "form",
-        email: "alexander@example.com",
-        buttonText: "Continue",
-        socialOptions: ["Google", "MetaMask", "WalletConnect"]
-      }
-  },
-  {
-    id: 2,
+      content: { type: "form" }
+    },
+    {
+      id: 2,
       title: "Tokenize your asset",
       icon: Building,
-      content: {
-        type: "tokenization",
-        assetName: "Premium Office Building",
-        assetType: "Real Estate",
-        value: "$2,500,000",
-        tokenCount: "10,000",
-        tokenValue: "$250",
-        features: [
-          "Legal Compliance",
-          "Smart Contract",
-          "Digital Ownership"
-        ]
-      }
-  },
-  {
-    id: 3,
+      content: { type: "tokenization" }
+    },
+    {
+      id: 3,
       title: "List in marketplace",
       icon: Search,
-      content: {
-        type: "marketplace",
-        assetName: "Premium Office Building",
-        totalTokens: "10,000",
-        availableTokens: "7,000",
-        pricePerToken: "$250",
-        status: "Live",
-        metrics: {
-          totalValue: "$2.5M",
-          tokensSold: "3,000",
-          remainingTokens: "7,000"
-        }
-      }
-  },
-  {
-    id: 4,
+      content: { type: "marketplace" }
+    },
+    {
+      id: 4,
       title: "Investors buy fractional shares",
       icon: TrendingUp,
-      content: {
-        type: "investment",
-        assetName: "Premium Office Building",
-        pricePerToken: "$250",
-        availableTokens: "7,000",
-        totalValue: "$2.5M",
-        soldPercentage: 30,
-        buttonText: "Buy 10 Tokens"
-      }
+      content: { type: "investment" }
     }
   ];
 
@@ -84,141 +43,89 @@ const Flowchart = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 20,
-      scale: 0.95
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    },
-    hover: {
-      y: -8,
-      scale: 1.02,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut"
-      }
-    }
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } },
+    hover: { y: -6, scale: 1.03, transition: { duration: 0.3 } }
   };
 
   const arrowVariants = {
     hidden: { opacity: 0, x: -20 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: {
-        duration: 0.5,
-        delay: 0.3
-      }
-    }
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.3 } }
   };
 
   const renderStepContent = (step) => {
+    const iconWrapper = (Icon, bgColor, iconColor) => (
+      <div className={`flex items-center justify-center w-12 h-12 rounded-full mb-4 ${bgColor}`}>
+        <Icon className={`w-7 h-7 ${iconColor}`} />
+      </div>
+    );
+
+    const imageBlock = (src, label) => (
+      <div className="bg-gradient-to-br from-blue-500 to-green-500 rounded-xl p-4 text-white">
+        <img src={src} alt={label} className="w-full h-32 object-cover rounded-md mb-3" />
+        <div className="text-sm opacity-90">{label}</div>
+      </div>
+    );
+
+    const button = (text) => (
+      <button className="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-green-700 transition-all duration-300">
+        {text}
+      </button>
+    );
+
     switch (step.id) {
       case 1:
         return (
           <div className="p-6">
-            <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4">
-              <step.icon className="w-6 h-6 text-blue-600" />
-            </div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Sign up/Log in</h3>
+            {iconWrapper(User, "bg-blue-100", "text-blue-600")}
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">Sign up / Log in</h3>
             <div className="space-y-4">
-              <div className="bg-gradient-to-br from-blue-400 to-green-400 rounded-lg p-4 text-white">
-                <img 
-                  src="/assets/images/flowchart4.png" 
-                  alt="Login Interface" 
-                  className="w-full h-32 object-cover rounded-lg mb-3"
-                />
-                <div className="text-sm opacity-90">Login Interface</div>
-              </div>
-              <button className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-600 hover:to-green-600 transition-all duration-300">
-                Continue
-              </button>
+              {imageBlock("/assets/images/flowchart4.png", "Login Interface")}
+              {button("Continue")}
             </div>
           </div>
         );
       case 2:
         return (
           <div className="p-6">
-            <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4">
-              <step.icon className="w-6 h-6 text-green-600" />
-            </div>
+            {iconWrapper(Building, "bg-green-100", "text-green-600")}
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Tokenize Asset</h3>
             <div className="space-y-4">
-              <div className="bg-gradient-to-br from-blue-400 to-green-400 rounded-lg p-4 text-white">
-                <img 
-                  src="/assets/images/flowchart1.png" 
-                  alt="Tokenization Process" 
-                  className="w-full h-32 object-cover rounded-lg mb-3"
-                />
-                <div className="text-sm opacity-90">Asset Tokenization</div>
-              </div>
-              <button className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-600 hover:to-green-600 transition-all duration-300">
-                Tokenize Now
-              </button>
+              {imageBlock("/assets/images/flowchart1.png", "Asset Tokenization")}
+              {button("Tokenize Now")}
             </div>
           </div>
         );
       case 3:
         return (
           <div className="p-6">
-            <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4">
-              <step.icon className="w-6 h-6 text-green-600" />
-            </div>
+            {iconWrapper(Search, "bg-green-100", "text-green-600")}
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Marketplace Listing</h3>
             <div className="space-y-4">
-              <div className="bg-gradient-to-br from-green-400 to-blue-400 rounded-lg p-4 text-white">
-                <img 
-                  src="/assets/images/flowchart2.png" 
-                  alt="Marketplace Interface" 
-                  className="w-full h-32 object-cover rounded-lg mb-3"
-                />
+              <div className="bg-gradient-to-br from-green-500 to-blue-500 rounded-xl p-4 text-white">
+                <img src="/assets/images/flowchart2.png" alt="Marketplace" className="w-full h-32 object-cover rounded-md mb-3" />
                 <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-sm opacity-90">Marketplace</div>
-                  </div>
-                  <div className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">Live</div>
+                  <span className="text-sm opacity-90">Marketplace</span>
+                  <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full">Live</span>
                 </div>
               </div>
-              <button className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 px-6 rounded-lg font-medium hover:from-green-600 hover:to-blue-600 transition-all duration-300">
-                View Listing
-              </button>
+              {button("View Listing")}
             </div>
           </div>
         );
       case 4:
         return (
           <div className="p-6">
-            <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-400 to-blue-400 rounded-full mb-4">
-              <step.icon className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Investors buy fractional shares</h3>
+            {iconWrapper(TrendingUp, "bg-gradient-to-br from-green-500 to-blue-500", "text-white")}
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">Fractional Ownership</h3>
             <div className="space-y-4">
-              <div className="bg-gradient-to-br from-green-400 to-blue-400 rounded-lg p-4 text-white">
-                <img 
-                  src="/assets/images/flowchart5.png" 
-                  alt="Fractional Ownership" 
-                  className="w-full h-32 object-cover rounded-lg mb-3"
-                />
-                <div className="text-sm opacity-90">Fractional Investment</div>
-              </div>
-              <button className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 px-6 rounded-lg font-medium hover:from-green-600 hover:to-blue-600 transition-all duration-300">
-                Buy 10 Tokens
-              </button>
+              {imageBlock("/assets/images/flowchart5.png", "Fractional Investment")}
+              {button("Buy 10 Tokens")}
             </div>
           </div>
         );
@@ -240,12 +147,12 @@ const Flowchart = () => {
             How It Works
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Tokenize your real-world assets and list them in our marketplace in just 4 simple steps
+            Tokenize your real-world assets and list them in our marketplace in just 4 simple steps.
           </p>
         </motion.div>
       </div>
 
-      {/* Flowchart */}
+      {/* Flowchart Steps */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -262,12 +169,10 @@ const Flowchart = () => {
                 onClick={() => setActiveStep(index)}
               >
                 <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden cursor-pointer h-full min-h-[350px] flex flex-col">
-                  <div className="flex-1">
-                    {renderStepContent(step)}
-                  </div>
+                  <div className="flex-1">{renderStepContent(step)}</div>
                   <div className="px-6 pb-4">
                     <div className="text-sm text-gray-500 text-center">
-                      {step.id} {step.title}
+                      Step {step.id}: {step.title}
                     </div>
                   </div>
                 </div>

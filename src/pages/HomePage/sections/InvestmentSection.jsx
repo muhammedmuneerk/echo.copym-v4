@@ -25,7 +25,7 @@ const features = [
 
 const RealEstateInvestmentSection = () => {
   return (
-    <section className="w-full px-6 py-20 bg-green-50">
+    <section className="w-full px-6 py-20 bg-green-20">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-start">
         {/* Left Content */}
         <div className="flex-1 flex items-center justify-center mt-14">
