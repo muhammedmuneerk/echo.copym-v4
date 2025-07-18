@@ -41,7 +41,7 @@ const TechnologyStackSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full px-6 py-24 bg-green-50 overflow-hidden">
+    <section className="relative w-full px-6 py-12 bg-green-50 overflow-hidden">
       <div className="max-w-2xl mx-auto text-center">
         {/* Section Header */}
         <h2 className="brand-section-title bg-clip-text">

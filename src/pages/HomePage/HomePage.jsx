@@ -2,19 +2,16 @@ import Dashboard from "./sections/Dashboard";
 import Hero from "./sections/Hero";
 import HowItWorks from "./sections/HowItWorks";
 import IssuerSection from "./sections/IssuerSection";
-import SecurityFeaturesSection from "./sections/SecurityFeaturesSection";
-import TechnologyStackSection from "./sections/TechnologyStackSection";
-import AiOverview from "./sections/AiOverview";
-import Features from "./sections/Features";
+import WhyCopym from "./sections/WhyCopym";
+import InvestmentSection from "./sections/InvestmentSection";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-green-50">
       <Hero />
+      <InvestmentSection />
       <HowItWorks />
-      <AiOverview />
-      <SecurityFeaturesSection />
-      <TechnologyStackSection />
       <Dashboard />
+      <WhyCopym />
       <IssuerSection />
     </div>
   );
