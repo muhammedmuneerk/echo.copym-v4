@@ -49,16 +49,18 @@ const SecurityFeaturesSection = () => {
       //     'linear-gradient(135deg,#06140b 0%, #063a19 25%, #0b7c2c 55%, #063a19 80%, #06140b 100%)',
       //   backgroundSize: '400% 400%'
       // }}
-      className="relative w-full px-6 py-24 bg-white overflow-hidden"
+      className="relative w-full px-6 py-24 bg-green-50 overflow-hidden"
     >
       {/* Shining sweep overlay */}
       {/* <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full animate-sweep" /> */}
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <h2 className="brand-section-title mb-4 bg-clip-text">
-          Enterprise-Grade Security, Built for Web3
-        </h2>
-        <p className="text-gray-600 mb-10 max-w-2xl">
+        <h2 className="brand-section-title text-center mb-4 bg-clip-text">
+           <span className='text-[#255f99]'>Enterprise-Grade </span>
+           <span className="text-[#15a36e]">Security </span>
+            <span className='text-[#255f99]'>Built for Web3</span>
+          </h2>
+        <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto mb-14">
           Your assets are protected with cutting-edge security standards trusted
           by institutions.
         </p>

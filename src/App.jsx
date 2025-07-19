@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './pages/HomePage/sections/Hero';
-import Features from './pages/HomePage/sections/Features';
 import Dashboard from './pages/HomePage/sections/Dashboard';
 import Footer from './components/Footer';
 import TokenizationHub from './pages/TokenizationHub/TokenizationHub';

@@ -66,9 +66,9 @@ const Hero = () => {
               Tokenization Portal is Open
             </div>
 
-            <h1 className="brand-title text-black mb-6 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
+            <h1 className="brand-title mb-6 text-[#255f99] bg-clip-text">
               Tokenize Real-World{' '}
-              <span className="relative bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
+              <span className="relative text-[#15a36e] bg-clip-text">
                 Assets
               </span>
             </h1>
