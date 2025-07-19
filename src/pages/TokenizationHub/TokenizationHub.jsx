@@ -94,7 +94,7 @@ const Hero = () => {
             <Player
               autoplay
               loop
-              src="/assets/lottie/TokenizationHub/staking.json"
+              src="/assets/lottie/crypto animation/crypto animation.json"
               style={{ height: '500px', width: '500px' }}
             />
           </div>
