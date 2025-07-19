@@ -234,7 +234,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative bg-white py-20 lg:py-28 overflow-hidden">
+    <section className="relative bg-white py-20 lg:py-0 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
@@ -255,29 +255,28 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 relative z-10">
         {/* Hero Container */}
         <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-8 lg:p-12 shadow-lg relative overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0 opacity-100 mix-blend-multiply">
             <img 
-              src="/assets/images/cover.png" 
+              src="/assets/Images/cover.png" 
               alt="Background" 
               className="w-full h-full object-cover object-center"
             />
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-            {/* Left Content */}
             <div className="text-center lg:text-left lg:-mt-24">
-              <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 mb-6">
+              <div className="inline-flex items-center px-4 py-2 mt-2  bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 mb-6">
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                 Institutional-Grade Asset Tokenization Platform
               </div>
 
-              <h1 className="brand-title text-black mb-6 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
+              <h1 className="brand-title text-black mb-6 bg-gradient-to-r from-[#ffffff] via-[#f8f9fa] to-[#f0f0f0] text-transparent bg-clip-textbg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
                 Tokenize Real-World Assets{' '}
-                <span className="relative bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
+                <span className="relative bg-gradient-to-r from-[#ffffff] via-[#f8f9fa] to-[#f0f0f0] text-transparent bg-clip-textbg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
                   with Institutional-Grade Security
                 </span>
               </h1>
@@ -330,6 +329,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
+            {/* Left Content */}
       </div>
       
       {isVideoOpen && (
