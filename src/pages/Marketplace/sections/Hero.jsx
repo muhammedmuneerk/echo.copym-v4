@@ -32,8 +32,9 @@ export default function Hero() {
               AI-Powered
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl brand-title  leading-tight mb-6 bg-clip-text">
-              Explore Tokenized Real-World Assets
+           <h1 className="brand-title">
+              <span className="text-[#255f99]">Explore Tokenized Real-World </span>
+              <span className="text-[#15a36e]">Assets</span>
             </h1>
 
             <p className="text-lg brand-description text-gray-600 leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">

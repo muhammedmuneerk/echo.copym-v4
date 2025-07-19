@@ -55,8 +55,9 @@ const AiOverview = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <h2 className="brand-section-title text-center mb-4 bg-clip-text">
-          AI-Powered Overview
-        </h2>
+           <span className='text-[#255f99]'>AI Powered </span>
+           <span className="text-[#15a36e]">Overview</span>
+          </h2>
 
         <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto mb-14">
           From conversational agents to predictive analytics, our platform

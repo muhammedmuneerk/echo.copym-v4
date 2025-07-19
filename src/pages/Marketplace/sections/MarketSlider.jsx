@@ -263,9 +263,11 @@ const MarketSlider = () => {
         transition={{ duration: 0.8 }}
       >
         <div className="text-center mb-16">
-          <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
-            Marketplace Spotlight
-          </h2>
+          <h1 className="brand-section-title">
+              <span className="text-[#255f99]">Marketplace </span>
+              <span className="text-[#15a36e]">Spotlight</span>
+
+            </h1>
 
           <p className="brand-description max-w-3xl mx-auto">
             Discover featured tokenized assets currently available in our marketplace.

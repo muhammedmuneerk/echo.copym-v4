@@ -88,8 +88,9 @@ const Flowchart = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="brand-section-title mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#15a36e] to-[#255f99]">
-            Tokenize or Invest in Real-World Assets in Just 4 Simple Steps
+          <h2 className="brand-section-title mb-4 bg-clip-text">
+           <span className='text-[#255f99]'>Tokenize or Invest in Real-World Assets in just </span>
+           <span className="text-[#15a36e]">4 Simple Steps</span>
           </h2>
         </motion.div>
       </div>

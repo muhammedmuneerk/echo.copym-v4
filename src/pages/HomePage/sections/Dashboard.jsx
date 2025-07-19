@@ -1,33 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  BarChart3,
-  PiggyBank,
-  Building2,
-} from "lucide-react";
+import { BarChart3, PiggyBank, Building2 } from "lucide-react";
 
 export default function MarketplacePreview() {
   const navigate = useNavigate();
 
   return (
-    <section className="relative w-full px-6 py-20 bg-green-50 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Glass Container */}
-        <div className="relative w-full rounded-3xl px-6 py-10 overflow-hidden shadow-xl border border-white/20 bg-gradient-to-br from-black/15 via-white/5 to-black/15 backdrop-blur-lg ring-1 ring-white/10 ring-inset">
-          {/* Glow backdrop */}
-          <div className="absolute inset-0 z-0 rounded-3xl pointer-events-none">
-            <div className="w-full h-full bg-white/10 blur-2xl opacity-30 rounded-3xl" />
-          </div>
-
+    <section className="w-full py-20 bg-green-50 overflow-hidden">
+  <div className="w-full px-4 sm:px-6 lg:px-8">
+        {/* Clean Container */}
+        <div className="relative w-full rounded-3xl px-6 py-12 bg-green-50 shadow-xl border border-gray-200">
           {/* Title */}
-          <div className="relative z-10 text-center mb-12">
-            <h2 className="brand-section-title text-transparent bg-clip-text text-3xl sm:text-4xl font-bold">
-              Preview Our Marketplace
-            </h2>
+          <div className="text-center mb-12">
+            <h1 className="brand-section-title">
+              <span className="text-[#255f99]">Preview Our </span>
+              <span className="text-[#15a36e]">Marketplace</span>
+            </h1>
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-14">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-14">
             {/* Features */}
             <div className="flex flex-col gap-8 max-w-md -translate-x-4">
               <Feature
@@ -47,7 +39,7 @@ export default function MarketplacePreview() {
               />
             </div>
 
-            {/* Phone */}
+            {/* Phone Preview */}
             <div className="relative w-[200px] h-[390px] rounded-2xl overflow-hidden shrink-0 -translate-x-2">
               <div className="relative w-full h-full">
                 <img
@@ -66,8 +58,8 @@ export default function MarketplacePreview() {
             </div>
           </div>
 
-          {/* CTA Button Centered at Bottom */}
-          <div className="relative z-10 flex justify-center mt-12">
+          {/* CTA Button */}
+          <div className="flex justify-center mt-12">
             <button
               onClick={() => navigate("/marketplace")}
               className="inline-flex items-center justify-center px-6 py-3 font-semibold text-white btn-gradient rounded-lg"
@@ -83,9 +75,9 @@ export default function MarketplacePreview() {
 
 const Feature = ({ icon, title, description }) => (
   <div className="flex items-start gap-5">
-    <div className="p-4 bg-white/30 rounded-xl shadow-md">{icon}</div>
+    <div className="p-4 bg-green-100 rounded-xl shadow-md">{icon}</div>
     <div>
-      <h4 className="brand-card-title text-gray-800 mb-1">{title}</h4>
+      <h4 className="brand-card-title text-gray-900 mb-1">{title}</h4>
       <p className="text-gray-700 text-base">{description}</p>
     </div>
   </div>

@@ -48,7 +48,7 @@ export default function Header() {
               <Link
                   key={link.path}
                   to={link.path}
-                className="font-semibold bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text hover:opacity-80 transition"
+                className="font-semibold text-[#255f99] bg-clip-text hover:opacity-80 transition"
               >
                   {link.label}
               </Link>

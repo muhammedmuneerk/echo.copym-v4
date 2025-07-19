@@ -51,9 +51,11 @@ export default function AppPeekSection() {
 
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <h2 className="brand-section-title mb-4 text-transparent bg-clip-text">
-            Peek Into Our Web3 Investment Hub
-          </h2>
+            <h1 className="brand-section-title">
+              <span className="text-[#255f99]">Peek Into Our </span>
+              <span className="text-[#15a36e]">Web3 </span>
+              <span className="text-[#255f99]">Investment Hub</span>
+            </h1>
           <p className="brand-description max-w-3xl mx-auto text-gray-700">
             Manage your assets, monitor real-time performance, and view tokenized ownership — all through an intuitive interface built for next-gen investors.
           </p>

@@ -3,7 +3,7 @@ export default function TestimonialsSection() {
     <section className="py-12 bg-gray-50 text-gray-800">
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* Gradient Title */}
-        <h2 className="brand-section-title sm:text-4xl font-bold mb-10 bg-clip-text">
+        <h2 className="brand-section-title text-[#255f99] sm:text-4xl font-bold mb-10 bg-clip-text">
           What Investors Are Saying
         </h2>
 

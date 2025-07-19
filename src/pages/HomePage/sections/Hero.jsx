@@ -37,8 +37,9 @@ export default function Hero() {
               Institutional-Grade Asset Tokenization Platform
             </div>
 
-            <h1 className="brand-title text-black mb-6 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
-              Invest in Real-World Assets with Confidence
+            <h1 className="brand-title">
+              <span className="text-[#255f99]">Access Passive Income Through Tokenized</span>
+              <span className="text-[#15a36e]"> Real-World Assets</span>
             </h1>
 
             <p className="brand-description mb-8 max-w-lg mx-auto lg:mx-0 text-gray-700">
@@ -78,42 +79,42 @@ export default function Hero() {
 
       {/* Animated Stats */}
       <motion.div
-  className="mt-24 lg:mt-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
->
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
-    <div className="flex flex-col items-center">
-      <Users className="w-3 h-3 mb-1 text-[#15a36e]" />
-      <p className="text-l font-semibold text-[#15a36e]">
-        <CountUp end={10000} duration={2} separator="," />+
-      </p>
-      <p className="text-gray-700 text-sm">Verified Investors</p>
-    </div>
+        className="mt-24 lg:mt-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+          <div className="flex flex-col items-center">
+            <Users className="w-3 h-3 mb-1 text-[#15a36e]" />
+            <p className="text-l font-semibold text-[#15a36e]">
+              <CountUp end={10000} duration={2} separator="," />+
+            </p>
+            <p className="text-gray-700 text-sm">Verified Investors</p>
+          </div>
 
-    <div className="flex flex-col items-center">
-      <Vault className="w-3 h-3 mb-1 text-[#255f99]" />
-      <p className="text-l font-semibold text-[#255f99]">
-        $<CountUp end={500000} duration={2} separator="," />
-      </p>
-      <p className="text-gray-700 text-sm">Assets Tokenized</p>
-    </div>
+          <div className="flex flex-col items-center">
+            <Vault className="w-3 h-3 mb-1 text-[#255f99]" />
+            <p className="text-l font-semibold text-[#255f99]">
+              $<CountUp end={500000} duration={2} separator="," />
+            </p>
+            <p className="text-gray-700 text-sm">Assets Tokenized</p>
+          </div>
 
-    <div className="flex flex-col items-center">
-      <Zap className="w-3 h-3 mb-1 text-[#15a36e]" />
-      <p className="text-l font-semibold text-[#15a36e]">0 Gas</p>
-      <p className="text-gray-700 text-sm">Fees for Users</p>
-    </div>
+          <div className="flex flex-col items-center">
+            <Zap className="w-3 h-3 mb-1 text-[#15a36e]" />
+            <p className="text-l font-semibold text-[#15a36e]">0 Gas</p>
+            <p className="text-gray-700 text-sm">Fees for Users</p>
+          </div>
 
-    <div className="flex flex-col items-center">
-      <Clock className="w-3 h-3 mb-1 text-[#255f99]" />
-      <p className="text-l font-semibold text-[#255f99]">24/7</p>
-      <p className="text-gray-700 text-sm">On-Chain Access</p>
-    </div>
-  </div>
-</motion.div>
+          <div className="flex flex-col items-center">
+            <Clock className="w-3 h-3 mb-1 text-[#255f99]" />
+            <p className="text-l font-semibold text-[#255f99]">24/7</p>
+            <p className="text-gray-700 text-sm">On-Chain Access</p>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Modal Video */}
       {isVideoOpen && (

@@ -35,8 +35,9 @@ const TechnologyStackSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <h2 className="brand-section-title text-center mb-4 bg-clip-text">
-          Unified Access to All Major Blockchains
-        </h2>
+           <span className='text-[#255f99]'>Unified Access To All </span>
+           <span className="text-[#15a36e]">Major Blockchains</span>
+          </h2>
         <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto mb-14">
           Built for developers, institutions, and innovators.Our infrastructure
           is designed to be flexible, secure, and future-proof.

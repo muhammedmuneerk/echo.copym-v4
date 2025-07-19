@@ -55,9 +55,11 @@ const SecurityFeaturesSection = () => {
       {/* <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full animate-sweep" /> */}
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <h2 className="brand-section-title mb-4 text-center bg-clip-text ">
-          Enterprise-Grade Security, Built for Web3
-        </h2>
+        <h2 className="brand-section-title text-center mb-4 bg-clip-text">
+           <span className='text-[#255f99]'>Enterprise-Grade </span>
+           <span className="text-[#15a36e]">Security </span>
+            <span className='text-[#255f99]'>Built for Web3</span>
+          </h2>
         <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto mb-14">
           Your assets are protected with cutting-edge security standards trusted
           by institutions.
