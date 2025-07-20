@@ -9,6 +9,7 @@ export default function Header() {
   // Determine which nav buttons to show
   const navLinks = [
     { path: '/', label: 'Home' },
+    { path: '/roadmap', label: 'Roadmap' },
     { path: '/tokenization', label: 'Tokenization' },
     { path: '/marketplace', label: 'Marketplace' },
   ];

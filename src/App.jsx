@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage/HomePage';
 import AgentPage from './pages/AgentPage/AgentPage';
 import { Box } from "@mui/material";
 import { Routes, Route, useLocation } from "react-router-dom";
+import Roadmap from './pages/Roadmap/Roadmap';
 
 function App() {
   const location = useLocation();
@@ -20,6 +21,7 @@ function App() {
       <main className="relative z-20 overflow-x-hidden">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/tokenization" element={<TokenizationHub />} />
           <Route path="/agent" element={<AgentPage />} />
