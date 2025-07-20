@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function RWARoadmap() {
+export default function InvestorRoadmap() {
   const roadmapRef = useRef(null);
   const ballRef = useRef(null);
   const lineRef = useRef(null);
@@ -14,13 +14,13 @@ export default function RWARoadmap() {
       quarter: "Step 1",
       title: "Login & Access",
       side: "left",
-      color: "bg-blue-500",
-      glowColor: "shadow-blue-500/50",
-      ballColor: "#3B82F6",
+      color: "bg-green-500",
+      glowColor: "shadow-green-500/50",
+      ballColor: "#10B981",
       items: [
-        "Secure issuer portal access",
+        "Secure wallet connection",
         "Multi-factor authentication",
-        "User-friendly dashboard",
+        "User-friendly interface",
         "Cross-platform compatibility"
       ]
     },
@@ -29,9 +29,9 @@ export default function RWARoadmap() {
       quarter: "Step 2",
       title: "Identity Verification",
       side: "right", 
-      color: "bg-green-500",
-      glowColor: "shadow-green-500/50",
-      ballColor: "#10B981",
+      color: "bg-blue-500",
+      glowColor: "shadow-blue-500/50",
+      ballColor: "#3B82F6",
       items: [
         "KYC/AML compliance process",
         "Document verification system",
@@ -42,61 +42,61 @@ export default function RWARoadmap() {
     {
       id: 3,
       quarter: "Step 3", 
-      title: "Asset Tokenization",
+      title: "Token Purchase",
       side: "left",
-      color: "bg-blue-500", 
-      glowColor: "shadow-blue-500/50",
-      ballColor: "#3B82F6",
+      color: "bg-green-500", 
+      glowColor: "shadow-green-500/50",
+      ballColor: "#10B981",
       items: [
-        "Asset documentation upload",
-        "Smart contract generation",
-        "Legal compliance verification",
-        "Token creation process"
+        "Browse available RWA tokens",
+        "Real-time pricing information",
+        "Secure payment processing",
+        "Instant token delivery"
       ]
     },
     {
       id: 4,
       quarter: "Step 4",
-      title: "Blockchain Selection", 
+      title: "Trading Platform", 
       side: "right",
-      color: "bg-green-500",
-      glowColor: "shadow-green-500/50",
-      ballColor: "#10B981",
+      color: "bg-blue-500",
+      glowColor: "shadow-blue-500/50",
+      ballColor: "#3B82F6",
       items: [
-        "Choose blockchain (BTC, ETH, SOL)",
-        "Network fee optimization",
-        "Cross-chain compatibility",
-        "Security considerations"
+        "Advanced trading interface",
+        "Order book management",
+        "Real-time market data",
+        "Trading history & analytics"
       ]
     },
     {
       id: 5,
       quarter: "Step 5",
-      title: "Token Standard", 
+      title: "P2P Trading", 
       side: "left", 
-      color: "bg-blue-500",
-      glowColor: "shadow-blue-500/50",
-      ballColor: "#3B82F6",
+      color: "bg-green-500",
+      glowColor: "shadow-green-500/50",
+      ballColor: "#10B981",
       items: [
-        "Select token type (ERC20, ERC721, ERC1155)",
-        "Tokenomics configuration",
-        "Metadata setup",
-        "Smart contract deployment"
+        "Direct peer-to-peer trading",
+        "Escrow protection system",
+        "Dispute resolution mechanism",
+        "Community trading features"
       ]
     },
     {
       id: 6,
       quarter: "Step 6",
-      title: "Marketplace Listing",
+      title: "Market Analytics",
       side: "right",
-      color: "bg-green-500", 
-      glowColor: "shadow-green-500/50",
-      ballColor: "#10B981",
+      color: "bg-blue-500", 
+      glowColor: "shadow-blue-500/50",
+      ballColor: "#3B82F6",
       items: [
-        "Marketplace integration",
-        "Pricing strategy setup",
-        "Liquidity pool creation",
-        "Trading pair establishment"
+        "Advanced charting tools",
+        "Technical analysis indicators",
+        "Portfolio performance tracking",
+        "Market insights & alerts"
       ]
     }
   ];
@@ -340,22 +340,6 @@ export default function RWARoadmap() {
         
 
         {/* Header */}
-        <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <h2 className="brand-section-title text-4xl lg:text-6xl font-light leading-tight mb-6 ">
-            RWA Roadmap
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Our journey to revolutionize real-world asset tokenization, bringing traditional finance 
-            into the decentralized future through innovative blockchain technology.
-          </p>
-        </motion.div>
-
 
          <motion.div 
           className="text-center mb-20"
@@ -364,8 +348,8 @@ export default function RWARoadmap() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="brand-section-title text-3xl lg:text-5xl font-light leading-tight mb-6">
-            Issuer Roadmap
+          <h2 className="brand-section-title text-3xl lg:text-5xl font-light leading-tight  mb-6">
+            Investor Roadmap
           </h2>
           <p className="text-md text-gray-400 max-w-2xl mx-auto leading-relaxed">
             Our journey to revolutionize real-world asset tokenization, bringing traditional finance 
@@ -380,7 +364,7 @@ export default function RWARoadmap() {
           <div className="absolute left-1/2 top-0 w-1 h-full bg-gray-700 transform -translate-x-1/2 z-5">
             <div 
               ref={lineRef}
-              className="w-full bg-gradient-to-b from-blue-500 to-green-500 origin-top"
+              className="w-full bg-gradient-to-b from-green-500 to-blue-500 origin-top"
               style={{ height: '100%' }}
             />
           </div>
@@ -464,7 +448,7 @@ export default function RWARoadmap() {
                         color: activeSection === index ? item.ballColor : 'inherit',
                         borderColor: activeSection === index ? item.ballColor : 'rgba(75, 85, 99, 0.3)'
                       }}
-                      // variants={glowVariants}
+                    //   variants={glowVariants}
                       animate={activeSection === index ? "active" : "inactive"}
                     >
                       {/* Glow overlay */}
@@ -552,7 +536,6 @@ export default function RWARoadmap() {
             className="inline-flex items-center justify-center px-6 py-2.5 font-semibold text-white btn-gradient"
             whileHover={{ 
               scale: 1.05,
-              boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)"
             }}
             whileTap={{ scale: 0.95 }}
           >
