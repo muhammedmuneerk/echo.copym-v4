@@ -261,7 +261,7 @@ export default function Hero() {
           {/* Background Image */}
           <div className="absolute inset-0 opacity-100 mix-blend-multiply">
             <img 
-              src="/assets/images/cover.png" 
+              src="/assets/Images/cover.png" 
               alt="Background" 
               className="w-full h-full object-cover object-center"
             />

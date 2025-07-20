@@ -350,7 +350,7 @@ export default function RWARoadmap() {
           <h2 className="brand-section-title text-4xl lg:text-6xl font-light leading-tight mb-6 ">
             RWA Roadmap
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Our journey to revolutionize real-world asset tokenization, bringing traditional finance 
             into the decentralized future through innovative blockchain technology.
           </p>
@@ -367,7 +367,7 @@ export default function RWARoadmap() {
           <h2 className="brand-section-title text-3xl lg:text-5xl font-light leading-tight mb-6">
             Issuer Roadmap
           </h2>
-          <p className="text-md text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-md text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Our journey to revolutionize real-world asset tokenization, bringing traditional finance 
             into the decentralized future through innovative blockchain technology.
           </p>
@@ -459,7 +459,7 @@ export default function RWARoadmap() {
 
                     {/* Content Card with Glow Effect */}
                     <motion.div 
-                      className="bg-gray-800 rounded-2xl p-6 border-2 transition-all duration-300 relative overflow-hidden"
+                      className="bg-blue-100 rounded-2xl p-6 border-2 transition-all duration-300 relative overflow-hidden"
                       style={{ 
                         color: activeSection === index ? item.ballColor : 'inherit',
                         borderColor: activeSection === index ? item.ballColor : 'rgba(75, 85, 99, 0.3)'
@@ -490,7 +490,7 @@ export default function RWARoadmap() {
                       </AnimatePresence>
 
                       <div className="relative z-10">
-                        <h3 className="text-xl font-bold text-white mb-4">{item.title}</h3>
+                        <h3 className="text-xl font-bold brand-card-title text-black mb-4">{item.title}</h3>
                         
                         <ul className="space-y-2">
                           {item.items.map((feature, idx) => (
@@ -498,7 +498,7 @@ export default function RWARoadmap() {
                               key={idx}
                               className="text-gray-300 flex items-start"
                               animate={{
-                                color: activeSection === index ? '#fff' : '#D1D5DB',
+                                color: activeSection === index ? '#000' : '#000000ff',
                                 x: activeSection === index ? 5 : 0
                               }}
                               transition={{ delay: idx * 0.1, duration: 0.3 }}
