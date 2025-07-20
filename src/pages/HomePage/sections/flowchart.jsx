@@ -1,721 +1,458 @@
-// How It Works - Split for Investors & Issuers
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-// Modern icon imports
-import { 
-  Search, 
-  CreditCard, 
-  TrendingUp, 
-  ArrowRight,
-  Building2,
-  Shield,
-  Store,
-  Users,
-  Building,
-  ArrowRight as ArrowIcon,
-  ChevronDown,
-  ChevronRight
-} from 'lucide-react';
-import AnimatedCard from "../../../ui/AnimatedCard.jsx"
+export default function HowItWorks() {
+  const [activeStep, setActiveStep] = useState(1);
 
-// Custom hook for responsive design
-const useResponsive = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      const width = window.innerWidth;
-      setIsMobile(width <= 768);
-      setIsTablet(width > 768 && width <= 1024);
-    };
-
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
-
-  return { isMobile, isTablet };
-};
-
-// Investor Path Data
-const investorSteps = [
+  const steps = [
   {
     id: 1,
-    icon: <Search className="w-7 h-7 text-blue-500" />,
-    title: "Browse Listed Assets",
-    description: "Explore diverse tokenized real-world assets in our marketplace",
-    color: "blue"
+      title: "Connect Your Wallet",
+      description: "Start by connecting your crypto wallet—MetaMask, WalletConnect, or Coinbase. RWA securely links your wallet for seamless transactions."
   },
   {
     id: 2,
-    icon: <CreditCard className="w-7 h-7 text-blue-500" />,
-    title: "Buy Fractional Tokens",
-    description: "Purchase fractional ownership with secure payment processing",
-    color: "green"
+      title: "Explore, Research, and Invest", 
+      description: "Whether it's real estate tokens, commodity pools, or infrastructure projects. RWA curates vetted opportunities to help you diversify smartly."
   },
   {
     id: 3,
-    icon: <TrendingUp className="w-7 h-7 text-blue-500" />,
-    title: "Earn Dividends",
-    description: "Receive regular dividend payments and profit sharing",
-    color: "purple"
-  },
-  {
-    id: 4,
-    icon: <Store className="w-7 h-7 text-blue-500" />,
-    title: "Trade in Secondary Market",
-    description: "Buy and sell tokens in our liquid secondary marketplace",
-    color: "orange"
-  }
-];
-
-// Issuer Path Data
-const issuerSteps = [
-  {
-    id: 1,
-    icon: <Building2 className="w-7 h-7 text-blue-500" />,
-    title: "Tokenize Your Asset",
-    description: "Convert your real-world asset into digital tokens in 3 simple steps",
-    color: "blue"
-  },
-  {
-    id: 2,
-    icon: <Shield className="w-7 h-7 text-blue-500" />,
-    title: "KYC/Compliance",
-    description: "Complete integrated onboarding with automated compliance checks",
-    color: "green"
-  },
-  {
-    id: 3,
-    icon: <Store className="w-7 h-7 text-blue-500" />,
-    title: "List in Marketplace",
-    description: "Your asset gets listed and available for global investors",
-    color: "purple"
-  }
-];
-
-// Desktop Styles
-const desktopStyles = {
-  container: {
-    width: '100%',
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    color: '#1f2937',
-    padding: '80px 20px',
-    position: 'relative',
-    overflow: 'hidden'
-  },
-  headerSection: {
-    textAlign: 'center',
-    marginBottom: '50px',
-    position: 'relative',
-    zIndex: 10
-  },
-  headerLine: {
-    width: '60px',
-    height: '4px',
-    background: 'linear-gradient(90deg, #15a36e, #255f99)',
-    margin: '0 auto 20px',
-    borderRadius: '2px'
-  },
-  mainTitle: {
-    fontFamily: "'Genos', sans-serif",
-    fontSize: '48px',
-    fontWeight: 700,
-    background: 'linear-gradient(90deg, #15a36e, #255f99)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    marginBottom: '20px',
-    letterSpacing: '-0.025em'
-  },
-  subtitle: {
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    fontSize: '18px',
-    color: '#6b7280',
-    maxWidth: '600px',
-    margin: '0 auto',
-    lineHeight: 1.6,
-    fontWeight: 400
-  },
-  pathTabs: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '20px',
-    marginBottom: '50px'
-  },
-  pathTab: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    padding: '16px 32px',
-    background: 'linear-gradient(135deg, #ffffff, #fafbfc)',
-    border: '2px solid #e0f2fe',
-    borderRadius: '50px',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 4px 12px rgba(59, 130, 246, 0.06)',
-    minWidth: '200px',
-    position: 'relative',
-    overflow: 'hidden'
-  },
-  pathTabActive: {
-    borderColor: '#15a36e',
-    boxShadow: '0 8px 24px rgba(21, 163, 110, 0.15)',
-    background: 'linear-gradient(135deg, #15a36e, #255f99)',
-    color: '#ffffff'
-  },
-  tabIcon: {
-    width: '24px',
-    height: '24px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    background: 'transparent',
-    border: 'none',
-    borderRadius: 0,
-    color: 'inherit'
-  },
-  tabIconActive: {
-    color: '#ffffff'
-  },
-  tabContent: {
-    flex: 1
-  },
-  tabTitle: {
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    fontSize: '16px',
-    fontWeight: 600,
-    color: 'inherit',
-    marginBottom: '0px',
-    marginRight: '8px'
-  },
-  flowchartWrapper: {
-    maxWidth: '1800px',
-    width: '100%',
-    margin: '0 auto',
-    position: 'relative'
-  },
-  flowchartContainer: {
-    background: 'linear-gradient(135deg, #f0fdf4, #ecfdf5)',
-    borderRadius: '24px',
-    padding: '60px 120px',
-    position: 'relative',
-    border: '1px solid #d1fae5',
-    boxShadow: '0 20px 40px rgba(21, 163, 110, 0.08)',
-    width: '100%',
-    overflow: 'visible'
-  },
-  stepsContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'relative',
-    zIndex: 5,
-    marginBottom: '50px',
-    gap: '40px',
-    flexWrap: 'nowrap',
-    width: '100%',
-    overflow: 'visible',
-    padding: '0 40px'
-  },
-  stepWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    flex: '0 0 auto'
-  },
-  stepCard: {
-    borderRadius: '20px',
-    padding: '28px 20px',
-    textAlign: 'center',
-    cursor: 'pointer',
-    position: 'relative',
-    height: '280px',
-    width: '240px',
-    minWidth: '240px',
-    maxWidth: '240px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    flex: '0 0 240px',
-    overflow: 'visible'
-  },
-  stepIcon: {
-    width: '56px',
-    height: '56px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: '24px',
-    transition: 'all 0.3s ease',
-    position: 'relative',
-    background: '#f3f4f6',
-    border: 'none',
-    borderRadius: '12px',
-    padding: '14px'
-  },
-  stepIconBlue: {
-    color: '#255f99',
-    background: '#f3f4f6'
-  },
-  stepIconGreen: {
-    color: '#15a36e',
-    background: '#f3f4f6'
-  },
-  stepIconPurple: {
-    color: '#8b5cf6',
-    background: '#f3f4f6'
-  },
-  stepIconOrange: {
-    color: '#f59e0b',
-    background: '#f3f4f6'
-  },
-  stepContent: {
-    flex: 1,
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center'
-  },
-  stepTitle: {
-    fontFamily: "'Genos', sans-serif",
-    fontSize: '18px',
-    fontWeight: 700,
-    color: '#111827',
-    marginBottom: '12px',
-    lineHeight: 1.3,
-    textAlign: 'center'
-  },
-  stepDescription: {
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    fontSize: '14px',
-    color: '#6b7280',
-    lineHeight: 1.6,
-    fontWeight: 400,
-    textAlign: 'center',
-    maxWidth: '200px'
-  },
-  connectionArrow: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '0 8px',
-    color: '#15a36e',
-    opacity: 0.8,
-    transition: 'all 0.3s ease',
-    flexShrink: 0,
-    minWidth: '24px'
-  }
-};
-
-// Mobile Styles
-const mobileStyles = {
-  container: {
-    width: '100%',
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    color: '#1f2937',
-    padding: '40px 16px',
-    position: 'relative',
-    overflow: 'hidden'
-  },
-  headerSection: {
-    textAlign: 'center',
-    marginBottom: '30px',
-    position: 'relative',
-    zIndex: 10
-  },
-  headerLine: {
-    width: '40px',
-    height: '3px',
-    background: 'linear-gradient(90deg, #15a36e, #255f99)',
-    margin: '0 auto 15px',
-    borderRadius: '2px'
-  },
-  mainTitle: {
-    fontFamily: "'Genos', sans-serif",
-    fontSize: '28px',
-    fontWeight: 700,
-    background: 'linear-gradient(90deg, #15a36e, #255f99)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    marginBottom: '15px',
-    letterSpacing: '-0.025em'
-  },
-  subtitle: {
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    fontSize: '16px',
-    color: '#6b7280',
-    maxWidth: '100%',
-    margin: '0 auto',
-    lineHeight: 1.5,
-    fontWeight: 400,
-    padding: '0 10px'
-  },
-  pathTabs: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '12px',
-    marginBottom: '30px',
-    padding: '0 10px'
-  },
-  pathTab: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    padding: '16px 20px',
-    background: 'linear-gradient(135deg, #ffffff, #fafbfc)',
-    border: '2px solid #e0f2fe',
-    borderRadius: '16px',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 2px 8px rgba(59, 130, 246, 0.06)',
-    width: '100%',
-    position: 'relative',
-    overflow: 'hidden'
-  },
-  pathTabActive: {
-    borderColor: '#15a36e',
-    boxShadow: '0 4px 16px rgba(21, 163, 110, 0.15)',
-    background: 'linear-gradient(135deg, #15a36e, #255f99)',
-    color: '#ffffff'
-  },
-  tabIcon: {
-    width: '20px',
-    height: '20px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    background: 'transparent',
-    border: 'none',
-    borderRadius: 0,
-    color: 'inherit'
-  },
-  tabIconActive: {
-    color: '#ffffff'
-  },
-  tabContent: {
-    flex: 1
-  },
-  tabTitle: {
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    fontSize: '16px',
-    fontWeight: 600,
-    color: 'inherit',
-    marginBottom: '0px'
-  },
-  flowchartWrapper: {
-    width: '100%',
-    margin: '0 auto',
-    position: 'relative'
-  },
-  flowchartContainer: {
-    background: 'linear-gradient(135deg, #f0fdf4, #ecfdf5)',
-    borderRadius: '20px',
-    padding: '30px 20px',
-    position: 'relative',
-    border: '1px solid #d1fae5',
-    boxShadow: '0 10px 30px rgba(21, 163, 110, 0.08)',
-    width: '100%',
-    overflow: 'visible'
-  },
-  stepsContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px',
-    width: '100%',
-    overflow: 'visible'
-  },
-  stepWrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
-    position: 'relative'
-  },
-  stepCard: {
-    borderRadius: '16px',
-    padding: '20px 16px',
-    textAlign: 'left',
-    cursor: 'pointer',
-    position: 'relative',
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: '16px',
-    background: 'rgba(255, 255, 255, 0.8)',
-    border: '1px solid #e5e7eb',
-    transition: 'all 0.3s ease'
-  },
-  stepCardActive: {
-    borderColor: '#15a36e',
-    boxShadow: '0 4px 16px rgba(21, 163, 110, 0.15)',
-    background: 'rgba(255, 255, 255, 0.95)'
-  },
-  stepIcon: {
-    width: '48px',
-    height: '48px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'all 0.3s ease',
-    position: 'relative',
-    background: '#f3f4f6',
-    border: 'none',
-    borderRadius: '12px',
-    padding: '12px',
-    flexShrink: 0
-  },
-  stepIconBlue: {
-    color: '#255f99',
-    background: '#f3f4f6'
-  },
-  stepIconGreen: {
-    color: '#15a36e',
-    background: '#f3f4f6'
-  },
-  stepIconPurple: {
-    color: '#8b5cf6',
-    background: '#f3f4f6'
-  },
-  stepIconOrange: {
-    color: '#f59e0b',
-    background: '#f3f4f6'
-  },
-  stepContent: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    textAlign: 'left'
-  },
-  stepTitle: {
-    fontFamily: "'Genos', sans-serif",
-    fontSize: '16px',
-    fontWeight: 700,
-    color: '#111827',
-    marginBottom: '6px',
-    lineHeight: 1.3,
-    textAlign: 'left'
-  },
-  stepDescription: {
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    fontSize: '14px',
-    color: '#6b7280',
-    lineHeight: 1.5,
-    fontWeight: 400,
-    textAlign: 'left',
-    margin: 0
-  },
-  connectionArrow: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '8px 0',
-    color: '#15a36e',
-    opacity: 0.6,
-    transition: 'all 0.3s ease',
-    alignSelf: 'center'
-  },
-  stepNumber: {
-    position: 'absolute',
-    top: '-8px',
-    left: '-8px',
-    width: '24px',
-    height: '24px',
-    background: 'linear-gradient(135deg, #15a36e, #255f99)',
-    color: '#ffffff',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '12px',
-    fontWeight: 700,
-    border: '2px solid #ffffff'
-  }
-};
-
-// Mobile Step Component
-const MobileStep = ({ step, index, isActive, onClick, isLast }) => {
-  const getStepIconStyle = (color) => {
-    switch (color) {
-      case 'blue': return { ...mobileStyles.stepIcon, ...mobileStyles.stepIconBlue };
-      case 'green': return { ...mobileStyles.stepIcon, ...mobileStyles.stepIconGreen };
-      case 'purple': return { ...mobileStyles.stepIcon, ...mobileStyles.stepIconPurple };
-      case 'orange': return { ...mobileStyles.stepIcon, ...mobileStyles.stepIconOrange };
-      default: return mobileStyles.stepIcon;
+      title: "Track Your Growth",
+      description: "Build a diversified portfolio with real-time tracking, yield analytics, and insights to help you monitor performance across all assets."
     }
-  };
+  ];
 
   return (
-    <div style={mobileStyles.stepWrapper}>
-      <div 
-        style={{
-          ...mobileStyles.stepCard,
-          ...(isActive ? mobileStyles.stepCardActive : {})
-        }}
-        onClick={() => onClick(index)}
-      >
-        {/* Step number removed for mobile view */}
-        <div style={getStepIconStyle(step.color)}>
-          {step.icon}
-        </div>
-        <div style={mobileStyles.stepContent}>
-          <h3 style={mobileStyles.stepTitle}>{step.title}</h3>
-          <p style={mobileStyles.stepDescription}>{step.description}</p>
-        </div>
-      </div>
+    <section className="min-h-screen bg-green-50 relative overflow-hidden">
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-8 lg:px-12 pt-12 pb-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
+          
+          {/* Left Content */}
+          <div className="space-y-12">
+            {/* Header */}
+            <div className="space-y-4">
+              <h1 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight">
+                How it works
+              </h1>
+              <p className="text-lg text-gray-600 max-w-md leading-relaxed">
+                A few simple steps can transform your portfolio.
+                <br />
+                RWA helps you invest, track, and grow with confidence.
+              </p>
+            </div>
 
-      {!isLast && (
-        <div style={mobileStyles.connectionArrow}>
-          <ChevronDown className="w-5 h-5" />
-        </div>
-      )}
-    </div>
-  );
-};
-
-// Desktop Step Component
-const DesktopStep = ({ step, index, isActive, onClick, isLast }) => {
-  const getStepIconStyle = (color) => {
-    switch (color) {
-      case 'blue': return { ...desktopStyles.stepIcon, ...desktopStyles.stepIconBlue };
-      case 'green': return { ...desktopStyles.stepIcon, ...desktopStyles.stepIconGreen };
-      case 'purple': return { ...desktopStyles.stepIcon, ...desktopStyles.stepIconPurple };
-      case 'orange': return { ...desktopStyles.stepIcon, ...desktopStyles.stepIconOrange };
-      default: return desktopStyles.stepIcon;
-    }
-  };
-
-  return (
-    <div style={desktopStyles.stepWrapper}>
-      <AnimatedCard>
-        <div 
-          style={{
-            ...desktopStyles.stepCard,
-            ...(isActive ? { borderColor: '#15a36e', boxShadow: '0 8px 30px rgba(21, 163, 110, 0.2)', transform: 'translateY(-2px)' } : {})
-          }}
-          onClick={() => onClick(index)}
-        >
-          <div style={getStepIconStyle(step.color)}>
-            {step.icon}
+            {/* Interactive Steps */}
+            <div className="space-y-8">
+              {steps.map((step) => (
+                <motion.div 
+                  key={step.id}
+                  className={`cursor-pointer transition-all duration-500 ${
+                    activeStep === step.id ? 'opacity-100' : 'opacity-50 hover:opacity-75'
+                  }`}
+                  onClick={() => setActiveStep(step.id)}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="flex items-start space-x-4">
+                    <motion.div 
+                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
+                        activeStep === step.id 
+                          ? 'bg-black text-white' 
+                          : 'bg-white text-gray-600 border-2 border-gray-300'
+                      }`}
+                      animate={{ 
+                        scale: activeStep === step.id ? 1.1 : 1,
+                        rotate: activeStep === step.id ? 360 : 0
+                      }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                    >
+                      {step.id}
+                    </motion.div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-medium text-gray-900 mb-2">
+                        {step.title}
+                      </h3>
+                      <motion.p 
+                        className="text-gray-600 max-w-md leading-relaxed overflow-hidden"
+                        animate={{ 
+                          height: activeStep === step.id ? 'auto' : 0,
+                          opacity: activeStep === step.id ? 1 : 0
+                        }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        {step.description}
+                      </motion.p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
           
-          <div style={desktopStyles.stepContent}>
-            <h3 style={desktopStyles.stepTitle}>{step.title}</h3>
-            <p style={desktopStyles.stepDescription}>{step.description}</p>
+          {/* Right Side - BIGGER CONTAINER FOR PHONES */}
+          <div className="relative h-[700px] w-full lg:w-[120%] lg:-mr-[10%]">
+            
+            {/* Right Phone - Analytics (DYNAMIC Z-INDEX) */}
+            <motion.div 
+              className="absolute"
+              style={{ 
+                zIndex: activeStep === 3 ? 30 : 10
+              }}
+              initial={{ 
+                x: 280, 
+                y: 50, 
+                rotate: 15, 
+                scale: 0.75 
+              }}
+              animate={{
+                x: activeStep === 1 ? 280 : activeStep === 2 ? 320 : 120,
+                y: activeStep === 1 ? 50 : activeStep === 2 ? 80 : 0,
+                rotate: activeStep === 1 ? 15 : activeStep === 2 ? 18 : 0,
+                scale: activeStep === 1 ? 0.75 : activeStep === 2 ? 0.8 : 1.05,
+                opacity: activeStep === 1 ? 0.6 : activeStep === 2 ? 0.8 : 1
+              }}
+              transition={{ 
+                duration: 1.2, 
+                ease: [0.23, 1, 0.320, 1],
+                type: "spring",
+                stiffness: 100,
+                damping: 20
+              }}
+            >
+              <div className="w-64 h-[520px] bg-black rounded-[2.5rem] p-2 shadow-2xl">
+                <div className="w-full h-full bg-gray-900 rounded-[2rem] overflow-hidden relative">
+                  {/* Status Bar */}
+                  <div className="flex justify-between items-center px-4 pt-3 pb-2">
+                    <span className="text-xs font-medium text-white">21:41</span>
+                    <div className="w-12 h-4 bg-white rounded-full"></div>
+                    <div className="flex items-center space-x-1">
+                      <div className="w-3 h-2 border border-white rounded-sm"></div>
+                      <span className="text-xs text-white">100%</span>
           </div>
         </div>
-      </AnimatedCard>
-
-      {!isLast && (
-        <div style={desktopStyles.connectionArrow}>
-          <ArrowRight className="w-6 h-6" />
+                  
+                  {/* Content */}
+                  <div className="px-4 py-3">
+                    <div className="text-center mb-4">
+                      <h2 className="text-sm font-semibold text-white mb-1">Meditations</h2>
+                      <div className="text-lg font-bold text-green-400">24</div>
+                      <div className="text-xs text-green-400">completed</div>
         </div>
-      )}
+                    
+                    {/* Calendar Grid */}
+                    <div className="mb-3">
+                      <div className="grid grid-cols-7 gap-1 mb-2">
+                        {['Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We'].map(day => (
+                          <div key={day} className="text-xs text-gray-400 text-center py-1">{day}</div>
+                        ))}
     </div>
-  );
-};
+                      
+                      <div className="grid grid-cols-7 gap-1">
+                        {Array.from({length: 35}, (_, i) => {
+                          const dayNum = i - 2;
+                          const isActive = [3, 8, 15, 22, 29].includes(dayNum);
+                          const isToday = dayNum === 24;
+                          return (
+                            <motion.div 
+                              key={i} 
+                              className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${
+                                isToday 
+                                  ? 'bg-white text-black font-bold' 
+                                  : isActive 
+                                  ? 'bg-blue-600 text-white' 
+                                  : dayNum > 0 && dayNum < 32
+                                  ? 'text-gray-400'
+                                  : 'text-transparent'
+                              }`}
+                              whileHover={{ scale: 1.1 }}
+                              animate={{ 
+                                scale: isActive ? [1, 1.1, 1] : 1 
+                              }}
+                              transition={{ 
+                                duration: 2, 
+                                repeat: Infinity,
+                                delay: i * 0.05 
+                              }}
+                            >
+                              {dayNum > 0 && dayNum < 32 ? dayNum : ''}
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </div>
 
-export default function Flowchart() {
-  const [activePath, setActivePath] = useState('issuer');
-  const [activeStep, setActiveStep] = useState(0);
-  const { isMobile } = useResponsive();
+                    {/* Bottom Sessions */}
+                    <div className="space-y-1 text-white text-xs">
+                      <div className="bg-gray-800 p-2 rounded">
+                        <div className="font-medium">Morning breathwork</div>
+                      </div>
+                      <div className="bg-gray-800 p-2 rounded">
+                        <div className="font-medium">Sleep meditation</div>
+                      </div>
+                      <div className="bg-gray-800 p-2 rounded">
+                        <div className="font-medium">Easy breathing</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
 
-  const currentSteps = activePath === 'investor' ? investorSteps : issuerSteps;
-  const styles = isMobile ? mobileStyles : desktopStyles;
-
-  const handleStepClick = (stepIndex) => {
-    setActiveStep(stepIndex);
-  };
-
-  return (
-    <div style={styles.container}>
-      {/* Header Section */}
-      <div style={styles.headerSection}>
-        <div style={styles.headerLine}></div>
-        <h1 style={styles.mainTitle}>How It Works</h1>
-        <p style={styles.subtitle}>
-          Discover how tokenization revolutionizes asset ownership. From fractional investments to global liquidity, see how our platform bridges traditional assets with blockchain innovation.
-        </p>
+            {/* Center Phone - Main Session (DYNAMIC Z-INDEX) */}
+            <motion.div 
+              className="absolute"
+              style={{ 
+                zIndex: activeStep === 2 ? 30 : 20
+              }}
+              initial={{ 
+                x: 120, 
+                y: 0, 
+                rotate: 3, 
+                scale: 0.95 
+              }}
+              animate={{
+                x: activeStep === 1 ? 120 : activeStep === 2 ? 80 : -120,
+                y: activeStep === 1 ? 0 : activeStep === 2 ? -20 : 10,
+                rotate: activeStep === 1 ? 3 : activeStep === 2 ? 0 : -25,
+                scale: activeStep === 1 ? 0.95 : activeStep === 2 ? 1.05 : 0.7,
+                opacity: activeStep === 1 ? 0.85 : activeStep === 2 ? 1 : 0.3
+              }}
+              transition={{ 
+                duration: 1.2, 
+                ease: [0.23, 1, 0.320, 1],
+                type: "spring",
+                stiffness: 120,
+                damping: 25
+              }}
+            >
+              <div className="w-72 h-[580px] bg-black rounded-[3rem] p-2 shadow-2xl">
+                <div className="w-full h-full bg-gradient-to-b from-pink-50 to-pink-100 rounded-[2.5rem] overflow-hidden relative">
+                  {/* Status Bar */}
+                  <div className="flex justify-between items-center px-6 pt-4 pb-2">
+                    <span className="text-sm font-medium">21:41</span>
+                    <div className="w-16 h-6 bg-black rounded-full"></div>
+                    <div className="flex items-center space-x-1">
+                      <div className="w-4 h-3 border border-black rounded-sm"></div>
+                      <span className="text-xs">100%</span>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="px-6 py-6 text-center">
+                    <div className="text-sm text-gray-500 mb-4">Daily session</div>
+                    <motion.h2 
+                      className="text-2xl font-semibold mb-8 text-gray-800"
+                      key={activeStep}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                      {activeStep === 1 && "Connect.."}
+                      {activeStep === 2 && "Breathe in.."}
+                      {activeStep === 3 && "Track.."}
+                    </motion.h2>
+                    
+                    {/* Large Circular Element */}
+                    <div className="relative mx-auto mb-12">
+                      <div className="w-48 h-48 mx-auto">
+                        <motion.div 
+                          className="w-full h-full border-4 border-pink-200 rounded-full relative"
+                          animate={{ rotate: 360 }}
+                          transition={{ 
+                            duration: 15, 
+                            repeat: Infinity, 
+                            ease: "linear" 
+                          }}
+                        >
+                          {/* Progress Circle */}
+                          <div className="absolute inset-0">
+                            <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                              <circle
+                                cx="50"
+                                cy="50"
+                                r="45"
+                                stroke="#F3E8FF"
+                                strokeWidth="2"
+                                fill="none"
+                              />
+                              <motion.circle
+                                cx="50"
+                                cy="50"
+                                r="45"
+                                stroke="#EC4899"
+                                strokeWidth="3"
+                                fill="none"
+                                strokeDasharray="282.6"
+                                strokeDashoffset="282.6"
+                                animate={{ 
+                                  strokeDashoffset: 282.6 - (activeStep * 94.2)
+                                }}
+                                transition={{ duration: 1.5, ease: "easeInOut" }}
+                              />
+                            </svg>
       </div>
 
-      {/* Path Selection Tabs */}
-      <div style={styles.pathTabs}>
-        <button
-          style={{
-            ...styles.pathTab,
-            ...(activePath === 'issuer' ? styles.pathTabActive : {})
-          }}
-          onClick={() => {
-            setActivePath('issuer');
-            setActiveStep(0);
-          }}
-        >
-          <div style={{
-            ...styles.tabIcon,
-            ...(activePath === 'issuer' ? styles.tabIconActive : {})
-          }}>
-            <Building className="w-5 h-5" />
+                          {/* Inner Content */}
+                          <motion.div 
+                            className="absolute inset-6 bg-pink-200/50 rounded-full flex items-center justify-center"
+                            animate={{ 
+                              scale: [1, 1.05, 1]
+                            }}
+                            transition={{ 
+                              duration: 3, 
+                              repeat: Infinity, 
+                              ease: "easeInOut" 
+                            }}
+                          >
+                            <div className="w-16 h-16 bg-pink-300/50 rounded-full flex items-center justify-center">
+                              <motion.div 
+                                className="text-2xl"
+                                key={activeStep}
+                                initial={{ scale: 0, rotate: -180 }}
+                                animate={{ scale: 1, rotate: 0 }}
+                                transition={{ 
+                                  duration: 0.8, 
+                                  type: "spring", 
+                                  stiffness: 200 
+                                }}
+                              >
+                                {activeStep === 1 && "👛"}
+                                {activeStep === 2 && "🏠"}
+                                {activeStep === 3 && "📈"}
+                              </motion.div>
+                            </div>
+                          </motion.div>
+                        </motion.div>
+                      </div>
+                    </div>
+                    
+                    {/* Animated Pause Button */}
+                    <motion.button 
+                      className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      animate={{ 
+                        y: [0, -2, 0]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      <div className="w-3 h-3 bg-gray-600 rounded-sm"></div>
+                      <div className="w-3 h-3 bg-gray-600 rounded-sm ml-1"></div>
+                    </motion.button>
+                  </div>
           </div>
-          <div style={styles.tabContent}>
-            <h3 style={styles.tabTitle}>Issuer Path</h3>
           </div>
-        </button>
+            </motion.div>
         
-        <button
+            {/* Left Phone - Portfolio Selection (DYNAMIC Z-INDEX) */}
+            <motion.div 
+              className="absolute"
           style={{
-            ...styles.pathTab,
-            ...(activePath === 'investor' ? styles.pathTabActive : {})
-          }}
-          onClick={() => {
-            setActivePath('investor');
-            setActiveStep(0);
-          }}
-        >
-          <div style={{
-            ...styles.tabIcon,
-            ...(activePath === 'investor' ? styles.tabIconActive : {})
-          }}>
-            <Users className="w-5 h-5" />
+                zIndex: activeStep === 1 ? 30 : 10
+              }}
+              initial={{ 
+                x: 0, 
+                y: 30, 
+                rotate: -12, 
+                scale: 1 
+              }}
+              animate={{
+                x: activeStep === 1 ? 0 : activeStep === 2 ? -120 : 280,
+                y: activeStep === 1 ? 30 : activeStep === 2 ? 10 : 50,
+                rotate: activeStep === 1 ? -12 : activeStep === 2 ? -25 : 15,
+                scale: activeStep === 1 ? 1 : activeStep === 2 ? 0.7 : 0.75,
+                opacity: activeStep === 1 ? 1 : activeStep === 2 ? 0.3 : 0.6
+              }}
+              transition={{ 
+                duration: 1.2, 
+                ease: [0.23, 1, 0.320, 1],
+                type: "spring",
+                stiffness: 100,
+                damping: 20
+              }}
+            >
+              <div className="w-72 h-[580px] bg-black rounded-[3rem] p-2 shadow-2xl">
+                <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
+                  {/* Status Bar */}
+                  <div className="flex justify-between items-center px-6 pt-4 pb-2">
+                    <span className="text-sm font-medium">21:41</span>
+                    <div className="w-16 h-6 bg-black rounded-full"></div>
+                    <div className="flex items-center space-x-1">
+                      <div className="w-4 h-3 border border-black rounded-sm"></div>
+                      <span className="text-xs">100%</span>
           </div>
-          <div style={styles.tabContent}>
-            <h3 style={styles.tabTitle}>Investor Path</h3>
-          </div>
-        </button>
       </div>
 
-      {/* Main Flowchart Container */}
-      <div style={styles.flowchartWrapper}>
-        <div style={styles.flowchartContainer}>
-          {/* Steps Container */}
-          <div style={styles.stepsContainer}>
-            {currentSteps.map((step, index) => (
-              isMobile ? (
-                <MobileStep
-                  key={step.id}
-                  step={step}
-                  index={index}
-                  isActive={activeStep === index}
-                  onClick={handleStepClick}
-                  isLast={index === currentSteps.length - 1}
-                />
-              ) : (
-                <DesktopStep
-                  key={step.id}
-                  step={step}
-                  index={index}
-                  isActive={activeStep === index}
-                  onClick={handleStepClick}
-                  isLast={index === currentSteps.length - 1}
-                />
-              )
-            ))}
+                  {/* Content */}
+                  <div className="px-6 py-4">
+                    <div className="text-sm text-gray-500 mb-2">Hi John,</div>
+                    <h2 className="text-xl font-semibold mb-6">How are you feeling today?</h2>
+                    
+                    {/* Investment Options */}
+                    <div className="space-y-3">
+                      {[
+                        { emoji: "😊", title: "Calm", desc: "Maintain a peaceful state", color: "bg-gray-50" },
+                        { emoji: "😤", title: "Stressed", desc: "Reduce tension and anxiety", color: "bg-gray-50" },
+                        { emoji: "😴", title: "Restless", desc: "Slow down and relax", color: "bg-gray-50" },
+                        { emoji: "😪", title: "Sleepy", desc: "Wind down for better rest", color: "bg-pink-100" },
+                        { emoji: "😐", title: "Unmotivated", desc: "Find inspiration", color: "bg-pink-100" }
+                      ].map((option, index) => (
+                        <motion.div 
+                          key={index}
+                          className={`flex items-center justify-between p-3 ${option.color} rounded-xl cursor-pointer`}
+                          whileHover={{ 
+                            scale: 1.02, 
+                            x: 5,
+                            boxShadow: "0 5px 15px rgba(0,0,0,0.1)" 
+                          }}
+                          whileTap={{ scale: 0.98 }}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ 
+                            delay: index * 0.1,
+                            duration: 0.5,
+                            ease: "easeOut"
+                          }}
+                        >
+                          <div className="flex items-center space-x-3">
+                            <motion.div 
+                              className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center"
+                              animate={{ rotate: [0, 5, -5, 0] }}
+                              transition={{ 
+                                duration: 2, 
+                                repeat: Infinity, 
+                                delay: index * 0.2 
+                              }}
+                            >
+                              {option.emoji}
+                            </motion.div>
+                            <div>
+                              <div className="font-medium text-sm">{option.title}</div>
+                              <div className="text-xs text-gray-500">{option.desc}</div>
+                            </div>
+                          </div>
+                          <motion.div 
+                            className="text-gray-400"
+                            animate={{ x: [0, 3, 0] }}
+                            transition={{ 
+                              duration: 1.5, 
+                              repeat: Infinity, 
+                              delay: index * 0.1 
+                            }}
+                          >
+                            ›
+                          </motion.div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
