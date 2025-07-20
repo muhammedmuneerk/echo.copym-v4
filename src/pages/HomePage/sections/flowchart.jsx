@@ -7,18 +7,18 @@ export default function HowItWorks() {
   const steps = [
   {
     id: 1,
-      title: "Connect Your Wallet",
-      description: "Start by connecting your crypto wallet—MetaMask, WalletConnect, or Coinbase. RWA securely links your wallet for seamless transactions."
+      title: "Asset Tokenization",
+      description: "Transform real-world assets like real estate, commodities, and luxury items into blockchain tokens with our secure and compliant platform."
   },
   {
     id: 2,
-      title: "Explore, Research, and Invest", 
-      description: "Whether it's real estate tokens, commodity pools, or infrastructure projects. RWA curates vetted opportunities to help you diversify smartly."
+      title: "List in Marketplace", 
+      description: "Tokenized assets are listed in our transparent marketplace where investors can discover and evaluate opportunities with comprehensive analytics."
   },
   {
     id: 3,
-      title: "Track Your Growth",
-      description: "Build a diversified portfolio with real-time tracking, yield analytics, and insights to help you monitor performance across all assets."
+      title: "Buy Fractional Ownership",
+      description: "Purchase fractional shares of high-value assets, enabling access to investments that were previously out of reach for individual investors."
     }
   ];
 
@@ -135,63 +135,49 @@ export default function HowItWorks() {
                   {/* Content */}
                   <div className="px-4 py-3">
                     <div className="text-center mb-4">
-                      <h2 className="text-sm font-semibold text-white mb-1">Meditations</h2>
-                      <div className="text-lg font-bold text-green-400">24</div>
-                      <div className="text-xs text-green-400">completed</div>
+                      <h2 className="text-sm font-semibold text-white mb-1">Portfolio</h2>
+                      <div className="text-lg font-bold text-green-400">$24.5K</div>
+                      <div className="text-xs text-green-400">Total Value</div>
         </div>
                     
-                    {/* Calendar Grid */}
+                    {/* Asset Performance */}
                     <div className="mb-3">
-                      <div className="grid grid-cols-7 gap-1 mb-2">
-                        {['Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We'].map(day => (
-                          <div key={day} className="text-xs text-gray-400 text-center py-1">{day}</div>
+                      <div className="space-y-2">
+                        {[
+                          { name: "Gold Reserve", value: "$8.2K", change: "+12.5%", color: "bg-yellow-500" },
+                          { name: "Luxury Villa", value: "$12.1K", change: "+8.3%", color: "bg-blue-500" },
+                          { name: "Art Collection", value: "$4.2K", change: "+15.7%", color: "bg-purple-500" }
+                        ].map((asset, index) => (
+                          <motion.div 
+                            key={index}
+                            className="flex items-center justify-between p-2 bg-gray-800 rounded"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                          >
+                            <div className="flex items-center space-x-2">
+                              <div className={`w-3 h-3 ${asset.color} rounded-full`}></div>
+                              <div>
+                                <div className="text-xs text-white font-medium">{asset.name}</div>
+                                <div className="text-xs text-gray-400">{asset.value}</div>
+                              </div>
+                            </div>
+                            <div className="text-xs text-green-400 font-medium">{asset.change}</div>
+                          </motion.div>
                         ))}
-    </div>
-                      
-                      <div className="grid grid-cols-7 gap-1">
-                        {Array.from({length: 35}, (_, i) => {
-                          const dayNum = i - 2;
-                          const isActive = [3, 8, 15, 22, 29].includes(dayNum);
-                          const isToday = dayNum === 24;
-                          return (
-                            <motion.div 
-                              key={i} 
-                              className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${
-                                isToday 
-                                  ? 'bg-white text-black font-bold' 
-                                  : isActive 
-                                  ? 'bg-blue-600 text-white' 
-                                  : dayNum > 0 && dayNum < 32
-                                  ? 'text-gray-400'
-                                  : 'text-transparent'
-                              }`}
-                              whileHover={{ scale: 1.1 }}
-                              animate={{ 
-                                scale: isActive ? [1, 1.1, 1] : 1 
-                              }}
-                              transition={{ 
-                                duration: 2, 
-                                repeat: Infinity,
-                                delay: i * 0.05 
-                              }}
-                            >
-                              {dayNum > 0 && dayNum < 32 ? dayNum : ''}
-                            </motion.div>
-                          );
-                        })}
                       </div>
                     </div>
 
-                    {/* Bottom Sessions */}
+                    {/* Quick Actions */}
                     <div className="space-y-1 text-white text-xs">
                       <div className="bg-gray-800 p-2 rounded">
-                        <div className="font-medium">Morning breathwork</div>
+                        <div className="font-medium">Buy More Shares</div>
                       </div>
                       <div className="bg-gray-800 p-2 rounded">
-                        <div className="font-medium">Sleep meditation</div>
+                        <div className="font-medium">View Analytics</div>
                       </div>
                       <div className="bg-gray-800 p-2 rounded">
-                        <div className="font-medium">Easy breathing</div>
+                        <div className="font-medium">Withdraw Earnings</div>
                       </div>
                     </div>
                   </div>
@@ -227,20 +213,20 @@ export default function HowItWorks() {
               }}
             >
               <div className="w-72 h-[580px] bg-black rounded-[3rem] p-2 shadow-2xl">
-                <div className="w-full h-full bg-gradient-to-b from-pink-50 to-pink-100 rounded-[2.5rem] overflow-hidden relative">
+                <div className="w-full h-full bg-gradient-to-b from-blue-50 to-blue-100 rounded-[2.5rem] overflow-hidden relative">
                   {/* Status Bar */}
                   <div className="flex justify-between items-center px-6 pt-4 pb-2">
-                    <span className="text-sm font-medium">21:41</span>
+                    <span className="text-sm font-medium text-black">21:41</span>
                     <div className="w-16 h-6 bg-black rounded-full"></div>
                     <div className="flex items-center space-x-1">
                       <div className="w-4 h-3 border border-black rounded-sm"></div>
-                      <span className="text-xs">100%</span>
+                      <span className="text-xs text-black">100%</span>
                     </div>
                   </div>
                   
                   {/* Content */}
                   <div className="px-6 py-6 text-center">
-                    <div className="text-sm text-gray-500 mb-4">Daily session</div>
+                    <div className="text-sm text-gray-500 mb-4">Marketplace</div>
                     <motion.h2 
                       className="text-2xl font-semibold mb-8 text-gray-800"
                       key={activeStep}
@@ -248,16 +234,16 @@ export default function HowItWorks() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                      {activeStep === 1 && "Connect.."}
-                      {activeStep === 2 && "Breathe in.."}
-                      {activeStep === 3 && "Track.."}
+                      {activeStep === 1 && "Tokenize.."}
+                      {activeStep === 2 && "List Assets.."}
+                      {activeStep === 3 && "Trade.."}
                     </motion.h2>
                     
                     {/* Large Circular Element */}
                     <div className="relative mx-auto mb-12">
                       <div className="w-48 h-48 mx-auto">
                         <motion.div 
-                          className="w-full h-full border-4 border-pink-200 rounded-full relative"
+                          className="w-full h-full border-4 border-blue-200 rounded-full relative"
                           animate={{ rotate: 360 }}
                           transition={{ 
                             duration: 15, 
@@ -272,7 +258,7 @@ export default function HowItWorks() {
                                 cx="50"
                                 cy="50"
                                 r="45"
-                                stroke="#F3E8FF"
+                                stroke="#DBEAFE"
                                 strokeWidth="2"
                                 fill="none"
                               />
@@ -280,7 +266,7 @@ export default function HowItWorks() {
                                 cx="50"
                                 cy="50"
                                 r="45"
-                                stroke="#EC4899"
+                                stroke="#3B82F6"
                                 strokeWidth="3"
                                 fill="none"
                                 strokeDasharray="282.6"
@@ -295,7 +281,7 @@ export default function HowItWorks() {
 
                           {/* Inner Content */}
                           <motion.div 
-                            className="absolute inset-6 bg-pink-200/50 rounded-full flex items-center justify-center"
+                            className="absolute inset-6 bg-blue-200/50 rounded-full flex items-center justify-center"
                             animate={{ 
                               scale: [1, 1.05, 1]
                             }}
@@ -305,7 +291,7 @@ export default function HowItWorks() {
                               ease: "easeInOut" 
                             }}
                           >
-                            <div className="w-16 h-16 bg-pink-300/50 rounded-full flex items-center justify-center">
+                            <div className="w-16 h-16 bg-blue-300/50 rounded-full flex items-center justify-center">
                               <motion.div 
                                 className="text-2xl"
                                 key={activeStep}
@@ -317,9 +303,9 @@ export default function HowItWorks() {
                                   stiffness: 200 
                                 }}
                               >
-                                {activeStep === 1 && "👛"}
-                                {activeStep === 2 && "🏠"}
-                                {activeStep === 3 && "📈"}
+                                {activeStep === 1 && "🏢"}
+                                {activeStep === 2 && "📊"}
+                                {activeStep === 3 && "💰"}
                               </motion.div>
                             </div>
                           </motion.div>
@@ -374,33 +360,33 @@ export default function HowItWorks() {
             >
               <div className="w-72 h-[580px] bg-black rounded-[3rem] p-2 shadow-2xl">
                 <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
-                  {/* Status Bar */}
+                                    {/* Status Bar */}
                   <div className="flex justify-between items-center px-6 pt-4 pb-2">
-                    <span className="text-sm font-medium">21:41</span>
+                    <span className="text-sm font-medium text-black">21:41</span>
                     <div className="w-16 h-6 bg-black rounded-full"></div>
                     <div className="flex items-center space-x-1">
                       <div className="w-4 h-3 border border-black rounded-sm"></div>
-                      <span className="text-xs">100%</span>
-          </div>
-      </div>
+                      <span className="text-xs text-black">100%</span>
+                    </div>
+                  </div>
 
                   {/* Content */}
                   <div className="px-6 py-4">
-                    <div className="text-sm text-gray-500 mb-2">Hi John,</div>
-                    <h2 className="text-xl font-semibold mb-6">How are you feeling today?</h2>
+                    <div className="text-sm text-gray-500 mb-2">Welcome back,</div>
+                    <h2 className="text-xl font-semibold mb-6">Choose Asset Type</h2>
                     
-                    {/* Investment Options */}
+                    {/* Asset Options */}
                     <div className="space-y-3">
                       {[
-                        { emoji: "😊", title: "Calm", desc: "Maintain a peaceful state", color: "bg-gray-50" },
-                        { emoji: "😤", title: "Stressed", desc: "Reduce tension and anxiety", color: "bg-gray-50" },
-                        { emoji: "😴", title: "Restless", desc: "Slow down and relax", color: "bg-gray-50" },
-                        { emoji: "😪", title: "Sleepy", desc: "Wind down for better rest", color: "bg-pink-100" },
-                        { emoji: "😐", title: "Unmotivated", desc: "Find inspiration", color: "bg-pink-100" }
+                        { icon: "🏢", title: "Real Estate", desc: "Commercial & residential properties", color: "bg-blue-50", border: "border-blue-200" },
+                        { icon: "🥇", title: "Commodities", desc: "Gold, silver, oil & gas", color: "bg-yellow-50", border: "border-yellow-200" },
+                        { icon: "🎨", title: "Art & Collectibles", desc: "Fine art & luxury items", color: "bg-purple-50", border: "border-purple-200" },
+                        { icon: "⚡", title: "Infrastructure", desc: "Solar farms & utilities", color: "bg-green-50", border: "border-green-200" },
+                        { icon: "💎", title: "Carbon Credits", desc: "Environmental investments", color: "bg-emerald-50", border: "border-emerald-200" }
                       ].map((option, index) => (
                         <motion.div 
                           key={index}
-                          className={`flex items-center justify-between p-3 ${option.color} rounded-xl cursor-pointer`}
+                          className={`flex items-center justify-between p-3 ${option.color} ${option.border} border rounded-xl cursor-pointer`}
                           whileHover={{ 
                             scale: 1.02, 
                             x: 5,
@@ -417,7 +403,7 @@ export default function HowItWorks() {
                         >
                           <div className="flex items-center space-x-3">
                             <motion.div 
-                              className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center"
+                              className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm"
                               animate={{ rotate: [0, 5, -5, 0] }}
                               transition={{ 
                                 duration: 2, 
@@ -425,11 +411,11 @@ export default function HowItWorks() {
                                 delay: index * 0.2 
                               }}
                             >
-                              {option.emoji}
+                              <span className="text-lg">{option.icon}</span>
                             </motion.div>
                             <div>
-                              <div className="font-medium text-sm">{option.title}</div>
-                              <div className="text-xs text-gray-500">{option.desc}</div>
+                              <div className="font-medium text-sm text-gray-900">{option.title}</div>
+                              <div className="text-xs text-gray-600">{option.desc}</div>
                             </div>
                           </div>
                           <motion.div 

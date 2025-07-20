@@ -234,7 +234,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative bg-white py-20 lg:py-0 overflow-hidden">
+    <section className="relative bg-green-50 py-20 lg:py-0 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
@@ -261,7 +261,7 @@ export default function Hero() {
           {/* Background Image */}
           <div className="absolute inset-0 opacity-100 mix-blend-multiply">
             <img 
-              src="/assets/Images/cover.png" 
+              src="/assets/images/cover.png" 
               alt="Background" 
               className="w-full h-full object-cover object-center"
             />
