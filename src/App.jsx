@@ -11,12 +11,14 @@ import AgentPage from './pages/AgentPage/AgentPage';
 import { Box } from "@mui/material";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Roadmap from './pages/Roadmap/Roadmap';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const location = useLocation();
 
   return (
     <Box className="min-h-screen relative bg-green-50 text-text-primary overflow-x-hidden">
+      <ScrollToTop />
       {location.pathname !== "/agent" && <Header />}
       <main className="relative z-20 overflow-x-hidden">
         <Routes>
