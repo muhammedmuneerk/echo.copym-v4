@@ -229,8 +229,9 @@ export default function Header() {
     ],
     Company: [
       {
-        title: "About RWA",
-        description: "Learn about our mission to revolutionize real-world asset tokenization and our innovative approach",
+        title: "About us",
+        description: "Vision, team, and mission - discover the story behind our revolutionary approach to real-world asset tokenization",
+        path: "/about",
         visual: (
           <div className="w-full h-48 bg-gradient-to-br from-teal-100 to-cyan-200 rounded-xl p-6 relative overflow-hidden">
             <div className="absolute top-6 left-6">
@@ -251,46 +252,75 @@ export default function Header() {
         )
       },
       {
-        title: "Knowledge Hub",
-        description: "Access comprehensive guides, tutorials, and insights about real-world asset tokenization",
+        title: "Roadmap",
+        description: "Explore our development timeline and upcoming features that will shape the future of RWA tokenization",
+        path: "/roadmap",
         visual: (
-          <div className="w-full h-48 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-xl p-6 relative">
-            <div className="absolute top-4 left-4 text-xs text-yellow-600 font-semibold">Latest Articles</div>
+          <div className="w-full h-48 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-6 relative overflow-hidden">
+            <div className="absolute top-4 left-4 text-xs text-purple-600 font-semibold">Development Timeline</div>
             <div className="mt-8 space-y-3">
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-yellow-400 rounded"></div>
-                <div className="h-2 bg-yellow-300 rounded flex-1"></div>
-                <div className="px-2 py-1 bg-yellow-500 text-white text-xs rounded">Read</div>
+                <div className="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <div className="h-2 bg-purple-300 rounded flex-1"></div>
+                <div className="text-xs text-purple-700 font-medium">Q1 2024</div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-yellow-400 rounded"></div>
-                <div className="h-2 bg-yellow-300 rounded flex-1"></div>
-                <div className="px-2 py-1 bg-yellow-500 text-white text-xs rounded">Read</div>
+                <div className="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <div className="h-2 bg-purple-300 rounded flex-1"></div>
+                <div className="text-xs text-purple-700 font-medium">Q2 2024</div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-yellow-400 rounded"></div>
-                <div className="h-2 bg-yellow-300 rounded flex-1"></div>
-                <div className="px-2 py-1 bg-yellow-500 text-white text-xs rounded">Read</div>
+                <div className="w-6 h-6 bg-purple-300 rounded-full flex items-center justify-center">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <div className="h-2 bg-purple-200 rounded flex-1"></div>
+                <div className="text-xs text-purple-600 font-medium">Q3 2024</div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <div className="h-2 bg-gray-200 rounded flex-1"></div>
+                <div className="text-xs text-gray-500 font-medium">Q4 2024</div>
               </div>
             </div>
           </div>
         )
       },
       {
-        title: "Partner Program",
-        description: "Join our ecosystem of partners and unlock opportunities in the RWA tokenization space",
+        title: "Contact",
+        description: "Let's connect - reach out to our team for partnerships, support, or to learn more about our platform",
+        path: "/contact",
         visual: (
-          <div className="w-full h-48 bg-gradient-to-br from-pink-100 to-pink-200 rounded-xl p-6 relative overflow-hidden">
-            <div className="absolute top-4 left-4 text-xs text-pink-600 font-semibold">Partner Network</div>
-            <div className="mt-8 flex items-center justify-center space-x-4">
-              <div className="w-12 h-12 bg-pink-300 rounded-full opacity-60"></div>
-              <div className="w-16 h-16 bg-pink-400 rounded-full opacity-80"></div>
-              <div className="w-12 h-12 bg-pink-300 rounded-full opacity-60"></div>
+          <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl p-6 relative overflow-hidden">
+            <div className="absolute top-4 left-4 text-xs text-blue-600 font-semibold">Get in Touch</div>
+            <div className="mt-8 space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
+                <div className="text-xs text-blue-700">hello@copym.ai</div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
+                <div className="text-xs text-blue-700">+1 (555) 123-4567</div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
+                <div className="text-xs text-blue-700">Support & Partnerships</div>
+              </div>
             </div>
-            <div className="absolute bottom-6 left-6 right-6">
-              <div className="flex justify-between items-center">
-                <div className="text-xs text-pink-700">50+ Partners</div>
-                <div className="text-xs text-pink-700">25+ Countries</div>
+            <div className="absolute bottom-6 right-6">
+              <div className="w-12 h-12 bg-blue-300 rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 bg-blue-500 rounded-full"></div>
               </div>
             </div>
           </div>
