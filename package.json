@@ -16,14 +16,20 @@
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
     "chart.js": "^4.5.0",
+<<<<<<< HEAD
     "framer-motion": "^12.23.6",
+=======
+    "framer-motion": "^12.23.5",
+    "gsap": "^3.13.0",
+>>>>>>> a7afdf58e958e0339079f6843983480c20c346c2
     "lenis": "^1.3.4",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.3.0",
     "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.6.3"
+    "react-router-dom": "^7.6.3",
+    "three": "^0.178.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",

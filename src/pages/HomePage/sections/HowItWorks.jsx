@@ -81,70 +81,7 @@ const Flowchart = () => {
   };
 
   return (
-    <section className="relative w-full px-6 py-20 bg-green-50 overflow-hidden">
-      <div className="text-center mb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="brand-section-title mb-4 bg-clip-text">
-           <span className='text-[#255f99]'>Tokenize or Invest in Real-World Assets in just </span>
-           <span className="text-[#15a36e]">4 Simple Steps</span>
-          </h2>
-        </motion.div>
-      </div>
-
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative"
-      >
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-6">
-          {steps.map((step, index) => (
-            <React.Fragment key={step.id}>
-              <motion.div
-                variants={cardVariants}
-                whileHover="hover"
-                className="w-full max-w-xs lg:w-44"
-                onClick={() => setActiveStep(index)}
-              >
-                <div className={`bg-gradient-to-br from-[#15a36e] to-[#255f99] text-white rounded-2xl shadow-xl overflow-hidden cursor-pointer h-full min-h-[280px] flex flex-col justify-between`}>
-                  <div className="flex-1">{renderStepContent(step)}</div>
-                  <div className="px-4 py-2 text-xs text-center text-white/80">
-                    Step {step.id}: {step.title}
-                  </div>
-                </div>
-              </motion.div>
-
-              {index < steps.length - 1 && (
-                <motion.div
-                  variants={arrowVariants}
-                  className="hidden lg:flex items-center justify-center text-white/60"
-                >
-                  <ArrowRight className="w-6 h-6" />
-                </motion.div>
-              )}
-            </React.Fragment>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Mobile Indicators */}
-      <div className="flex justify-center mt-8 lg:hidden">
-        <div className="flex space-x-2">
-          {steps.map((_, index) => (
-            <div
-              key={index}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                index === activeStep ? 'bg-white' : 'bg-white/30'
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    <Flowchart />
   );
 };
 
