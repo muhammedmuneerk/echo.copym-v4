@@ -267,17 +267,17 @@ export default function Hero() {
           
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
             <div className="text-center lg:text-left lg:-mt-24">
-              <div className="inline-flex items-center px-4 py-2 mt-2  bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 mb-6">
+              {/* <div className="inline-flex items-center px-4 py-2 mt-2  bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 mb-6">
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                 Institutional-Grade Asset Tokenization Platform
-              </div>
+              </div> */}
 
-              <h1 className="brand-title">
+              <h1 className="brand-title mt-20">
             <span className="text-[#255f99]">Unlock Exclusive Assets,</span>
              <span className="text-[#255f99]">Invest With Confidence</span>
           </h1>
 
-              <p className="brand-description mb-8 max-w-lg mx-auto lg:mx-0">
+              <p className="brand-description mb-8 mt-4 max-w-lg mx-auto lg:mx-0">
                 Seamless on-chain investment in real estate, commodities, carbon credits, and luxury assets. No gas fees, no native token required.
               </p>
 
