@@ -26,7 +26,7 @@ const IssuerSection = () => {
   return (
     <section className="w-full px-4 py-24 bg-green-50">
       <div className="max-w-7xl mx-auto">
-        <div className="relative w-full rounded-3xl px-6 py-12 bg-green-50 shadow-xl border border-gray-200">
+       
         {/* Title */}
         <div className="text-center mb-16">
           <h1 className="brand-section-title">
@@ -70,7 +70,7 @@ const IssuerSection = () => {
           </button>
         </div>
         </div>
-      </div>
+     
     </section>
   );
 };
