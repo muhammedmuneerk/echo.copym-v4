@@ -156,7 +156,7 @@ export default function HowItWorks() {
                             transition={{ delay: index * 0.1 }}
                           >
                             <div className="flex items-center space-x-2">
-                              <div className={w-3 h-3 ${asset.color} rounded-full}></div>
+                              <div className={`w-3 h-3 ${asset.color} rounded-full`}></div>
                               <div>
                                 <div className="text-xs text-white font-medium">{asset.name}</div>
                                 <div className="text-xs text-gray-400">{asset.value}</div>
@@ -386,7 +386,7 @@ export default function HowItWorks() {
                       ].map((option, index) => (
                         <motion.div 
                           key={index}
-                          className={flex items-center justify-between p-3 ${option.color} ${option.border} border rounded-xl cursor-pointer}
+                          className={`flex items-center justify-between p-3 ${option.color} ${option.border} border rounded-xl cursor-pointer`}
                           whileHover={{ 
                             scale: 1.02, 
                             x: 5,
@@ -440,5 +440,5 @@ export default function HowItWorks() {
         </div>
       </div>
     </section>
-  );
+  );
 }

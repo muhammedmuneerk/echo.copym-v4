@@ -11,7 +11,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-green-50">
       <Hero />
       <InvestmentSection />
-      {/* <HowItWorks /> */}
+      <HowItWorks />
       <SupportedAssets />
       <Dashboard />
       <IssuerSection />
