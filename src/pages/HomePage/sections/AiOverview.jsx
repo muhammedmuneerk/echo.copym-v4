@@ -124,7 +124,7 @@ const AiOverview = () => {
 
             <Link
               to="/agent"
-              className="mt-8 bg-black text-white px-8 py-4 font-semibold btn-gradient"
+              className="mt-8 text-white px-8 py-4 font-semibold btn-gradient"
             >
               Learn More
             </Link>

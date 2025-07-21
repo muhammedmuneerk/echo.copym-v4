@@ -30,7 +30,7 @@ const RealEstateInvestmentSection = () => {
         {/* Left Content */}
         <div className="flex-1 flex items-center justify-center mt-14">
           <div className="text-center lg:text-left max-w-xl">
-            <h2 className="brand-section-title text-3xl lg:text-4xl font-bold">
+            <h2 className="brand-section-title ">
               <span className="text-[#255f99]">Own fractions of </span>
               <span className="text-[#15a36e]">high-performing</span>
               <span className="text-[#255f99]"> assets and earn from yield, rent, and long-term value growth.</span>

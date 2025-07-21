@@ -10,8 +10,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-green-50">
       <Hero />
-      <InvestmentSection />
       <HowItWorks />
+      <InvestmentSection />
       <SupportedAssets />
       <Dashboard />
       <IssuerSection />

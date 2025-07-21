@@ -272,12 +272,10 @@ export default function Hero() {
                 Institutional-Grade Asset Tokenization Platform
               </div>
 
-              <h1 className="brand-title text-black mb-6 bg-gradient-to-r from-[#ffffff] via-[#f8f9fa] to-[#f0f0f0] text-transparent bg-clip-textbg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
-                Tokenize Real-World Assets{' '}
-                <span className="relative bg-gradient-to-r from-[#ffffff] via-[#f8f9fa] to-[#f0f0f0] text-transparent bg-clip-textbg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
-                  with Institutional-Grade Security
-                </span>
-              </h1>
+              <h1 className="brand-title">
+            <span className="text-[#255f99]">Unlock Exclusive Assets,</span>
+             <span className="text-[#255f99]">Invest With Confidence</span>
+          </h1>
 
               <p className="brand-description mb-8 max-w-lg mx-auto lg:mx-0">
                 Seamless on-chain investment in real estate, commodities, carbon credits, and luxury assets. No gas fees, no native token required.

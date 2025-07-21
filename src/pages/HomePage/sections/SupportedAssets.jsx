@@ -56,8 +56,9 @@ export default function AssetTypesSection() {
     <section className="w-full px-4 py-24 bg-green-50 relative z-10">
       <div className="max-w-6xl mx-auto text-center mb-16">
         <h2 className="brand-section-title leading-tight">
-          <span className="text-[#15a36e]">Invest Across a World of Real Assets,</span>{' '}
-          <span className="text-[#255f99]">Curated for You</span>
+          <span className="text-[#255f99]">Invest Across a World of </span>{' '}
+          <span className="text-[#15a36e]">Real Assets,</span>
+           <span className="text-[#255f99]">Curated for You</span>{' '}
         </h2>
         <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
           Access institutional-grade opportunities in real estate, gold, private equity, commodities, and fine art—all through a single, intuitive platform.
