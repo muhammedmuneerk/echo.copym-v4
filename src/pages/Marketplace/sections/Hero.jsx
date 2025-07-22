@@ -32,10 +32,11 @@ export default function Hero() {
               AI-Powered
             </div>
 
-           <h1 className="brand-title">
+            <h1 className="brand-title rounded-lg px-4 py-2 inline-block">
               <span className="text-[#255f99]">Explore Tokenized Real-World </span>
               <span className="text-[#15a36e]">Assets</span>
             </h1>
+
 
             <p className="text-lg brand-description text-gray-600 leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
               Secure, AI-enhanced marketplace powered by Crossmint and Fireblocks.
@@ -76,17 +77,17 @@ export default function Hero() {
           </div>
 
           {/* Right Content */}
-          
-            {/* Dashboard Lottie Animation */}
-            <div className="flex items-center justify-center p-6 min-h-[400px]">
-              <Player
-                autoplay
-                loop
-                src="/assets/lottie/Advanced Analytics/Advanced Analytics.json"
-                style={{ height: '400px', width: '100%' }}
-              />
-            </div>
-          
+
+          {/* Dashboard Lottie Animation */}
+          <div className="flex items-center justify-center p-6 min-h-[400px]">
+            <Player
+              autoplay
+              loop
+              src="/assets/lottie/Advanced Analytics/Advanced Analytics.json"
+              style={{ height: '400px', width: '100%' }}
+            />
+          </div>
+
         </div>
       </div>
     </section>
