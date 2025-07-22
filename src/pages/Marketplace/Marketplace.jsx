@@ -5,14 +5,11 @@ import TestimonialsSection from "./sections/TestimonialsSection";
 
 export default function Marketplace() {
   return (
-    <div className="bg-white">
+    <div className="bg-green-50">
       <Hero />
       <AppPeekSection />
       <div
         className="py-12 text-center"
-        style={{
-          backgroundImage: 'linear-gradient(to right, #15a36e10, #255f9910)', // subtle gradient with low opacity (hex-based)
-        }}
       >
         <MarketSlider />
       </div>

@@ -4,7 +4,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 
 export default function Hero() {
   return (
-    <section className="relative bg-white pt-12 pb-16 overflow-hidden w-full">
+    <section className="relative pt-12 pb-16 overflow-hidden w-full">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
