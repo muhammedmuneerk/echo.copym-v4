@@ -118,29 +118,32 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       {/* Main building */}
       <div className="relative">
-        <div className={`w-32 h-40 bg-gradient-to-t from-blue-600 to-blue-400 rounded-lg shadow-2xl relative overflow-hidden visual-element ${isAnimating ? 'stagger-in' : ''
-          }`} style={{ animationDelay: '0.1s' }}>
+        <div className={`w-48 h-80 bg-gradient-to-t from-blue-600 to-blue-400 rounded-lg shadow-2xl relative overflow-hidden visual-element ${
+          isAnimating ? 'stagger-in' : ''
+        }`} style={{ animationDelay: '0.1s' }}>
           {/* Building windows */}
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className={`absolute w-3 h-3 bg-yellow-300 rounded-sm visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
-                }`}
+              className={`absolute w-4 h-4 bg-yellow-300 rounded-sm visual-element ${
+                isAnimating ? 'stagger-in' : 'animate-pulse'
+              }`}
               style={{
-                left: `${15 + (i % 3) * 15}px`,
-                top: `${10 + Math.floor(i / 3) * 10}px`,
+                left: `${15 + (i % 3) * 20}px`,
+                top: `${10 + Math.floor(i / 3) * 15}px`,
                 animationDelay: isAnimating ? `${0.3 + i * 0.05}s` : `${i * 0.2}s`
               }}
             />
           ))}
-
+          
           {/* Fraction lines */}
           <div className="absolute inset-0 grid grid-cols-4 gap-0">
             {Array.from({ length: 16 }).map((_, i) => (
               <div
                 key={i}
-                className={`border border-white/40 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
-                  }`}
+                className={`border border-white/40 visual-element ${
+                  isAnimating ? 'stagger-in' : 'animate-pulse'
+                }`}
                 style={{ animationDelay: isAnimating ? `${0.4 + i * 0.02}s` : `${i * 0.1}s` }}
               />
             ))}
@@ -151,11 +154,12 @@ const RealEstateInvestmentSection = () => {
         {['25%', '12.5%', '6.25%', '31.25%'].map((percent, i) => (
           <div
             key={i}
-            className={`absolute w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
-              }`}
+            className={`absolute w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg visual-element ${
+              isAnimating ? 'stagger-in' : 'animate-bounce'
+            }`}
             style={{
-              left: `${-20 + i * 30}px`,
-              top: `${50 + Math.sin(i) * 20}px`,
+              left: `${-30 + i * 40}px`,
+              top: `${60 + Math.sin(i) * 25}px`,
               animationDelay: isAnimating ? `${0.2 + i * 0.1}s` : `${i * 0.3}s`,
               animationDuration: isAnimating ? '0.6s' : '2s'
             }}
@@ -165,9 +169,10 @@ const RealEstateInvestmentSection = () => {
         ))}
 
         {/* AI Agent indicator */}
-        <div className={`absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
-          }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
-          <span className="text-white text-xs">📊</span>
+        <div className={`absolute -top-6 -right-6 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center visual-element ${
+          isAnimating ? 'stagger-in' : 'animate-pulse'
+        }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
+          <span className="text-white text-lg">📊</span>
         </div>
       </div>
     </div>
@@ -177,23 +182,25 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* Central money flow */}
-        <div className={`w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-2xl visual-element ${isAnimating ? 'stagger-in' : ''
-          }`} style={{ animationDelay: '0.1s' }}>
-          <DollarSign className={`w-12 h-12 text-white ${isAnimating ? '' : 'animate-pulse'}`} />
+        <div className={`w-48 h-48 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-2xl visual-element ${
+          isAnimating ? 'stagger-in' : ''
+        }`} style={{ animationDelay: '0.1s' }}>
+          <DollarSign className={`w-24 h-24 text-white ${isAnimating ? '' : 'animate-pulse'}`} />
         </div>
 
         {/* Orbiting coins */}
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
-            className={`absolute w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center text-xs font-bold visual-element ${isAnimating ? 'stagger-in' : ''
-              }`}
+            className={`absolute w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center text-base font-bold visual-element ${
+              isAnimating ? 'stagger-in' : ''
+            }`}
             style={{
               left: '50%',
               top: '50%',
-              marginLeft: '-12px',
-              marginTop: '-12px',
-              transformOrigin: `${Math.cos(i * Math.PI / 3) * 50}px ${Math.sin(i * Math.PI / 3) * 50}px`,
+              marginLeft: '-20px',
+              marginTop: '-20px',
+              transformOrigin: `${Math.cos(i * Math.PI / 3) * 70}px ${Math.sin(i * Math.PI / 3) * 70}px`,
               animation: isAnimating ? 'staggerSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards' : 'spin 8s linear infinite',
               animationDelay: isAnimating ? `${0.2 + i * 0.1}s` : `${i * 0.3}s`
             }}
@@ -206,11 +213,12 @@ const RealEstateInvestmentSection = () => {
         {['+16.3%', '+12.8%', '+18.2%'].map((yield_, i) => (
           <div
             key={i}
-            className={`absolute bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
-              }`}
+            className={`absolute bg-green-500 text-white px-4 py-2 rounded-full text-base font-medium visual-element ${
+              isAnimating ? 'stagger-in' : 'animate-bounce'
+            }`}
             style={{
-              left: `${-40 + i * 40}px`,
-              top: `${-60 + i * 20}px`,
+              left: `${-50 + i * 50}px`,
+              top: `${-80 + i * 25}px`,
               animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : `${i * 0.4}s`
             }}
           >
@@ -219,8 +227,9 @@ const RealEstateInvestmentSection = () => {
         ))}
 
         {/* Professional management indicator */}
-        <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-2 rounded-lg text-xs visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
-          }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
+        <div className={`absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-6 py-3 rounded-lg text-sm visual-element ${
+          isAnimating ? 'stagger-in' : 'animate-pulse'
+        }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
           Expert Management
         </div>
       </div>
@@ -231,15 +240,17 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* Chart container */}
-        <div className={`w-48 h-32 bg-white rounded-lg shadow-2xl p-4 relative overflow-hidden visual-element ${isAnimating ? 'stagger-in' : ''
-          }`} style={{ animationDelay: '0.1s' }}>
+        <div className={`w-64 h-40 bg-white rounded-lg shadow-2xl p-6 relative overflow-hidden visual-element ${
+          isAnimating ? 'stagger-in' : ''
+        }`} style={{ animationDelay: '0.1s' }}>
           {/* Animated chart bars */}
           <div className="flex items-end justify-between h-full">
             {[65, 45, 80, 35, 90, 70, 95].map((height, i) => (
               <div
                 key={i}
-                className={`bg-gradient-to-t from-blue-500 to-green-400 w-4 rounded-t visual-element ${isAnimating ? 'stagger-in' : ''
-                  }`}
+                className={`bg-gradient-to-t from-blue-500 to-green-400 w-6 rounded-t visual-element ${
+                  isAnimating ? 'stagger-in' : ''
+                }`}
                 style={{
                   height: `${height}%`,
                   animationDelay: isAnimating ? `${0.2 + i * 0.05}s` : `${i * 0.2}s`,
@@ -254,7 +265,7 @@ const RealEstateInvestmentSection = () => {
             <path
               d="M10 80 Q50 60 80 40 T140 20"
               stroke="#10B981"
-              strokeWidth="2"
+              strokeWidth="3"
               fill="none"
               className={isAnimating ? '' : 'animate-pulse'}
               strokeDasharray="5,5"
@@ -263,8 +274,9 @@ const RealEstateInvestmentSection = () => {
         </div>
 
         {/* Percentage indicators */}
-        <div className={`absolute -top-8 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-full font-bold text-lg visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
-          }`} style={{ animationDelay: isAnimating ? '0.3s' : '0s' }}>
+        <div className={`absolute -top-12 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full font-bold text-xl visual-element ${
+          isAnimating ? 'stagger-in' : 'animate-bounce'
+        }`} style={{ animationDelay: isAnimating ? '0.3s' : '0s' }}>
           16.3%
         </div>
 
@@ -276,11 +288,12 @@ const RealEstateInvestmentSection = () => {
         ].map((metric, i) => (
           <div
             key={i}
-            className={`absolute ${metric.color} text-white px-2 py-1 rounded text-xs visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
-              }`}
+            className={`absolute ${metric.color} text-white px-4 py-2 rounded text-sm visual-element ${
+              isAnimating ? 'stagger-in' : 'animate-pulse'
+            }`}
             style={{
-              left: `${-30 + i * 30}px`,
-              bottom: `${-40 + i * 10}px`,
+              left: `${-40 + i * 40}px`,
+              bottom: `${-50 + i * 15}px`,
               animationDelay: isAnimating ? `${0.4 + i * 0.1}s` : `${i * 0.3}s`
             }}
           >
@@ -296,25 +309,28 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* Trading interface mockup */}
-        <div className={`w-40 h-48 bg-gray-900 rounded-2xl p-3 shadow-2xl visual-element ${isAnimating ? 'stagger-in' : ''
-          }`} style={{ animationDelay: '0.1s' }}>
-          <div className="bg-white rounded-lg p-3 h-full">
+        <div className={`w-56 h-64 bg-gray-900 rounded-2xl p-4 shadow-2xl visual-element ${
+          isAnimating ? 'stagger-in' : ''
+        }`} style={{ animationDelay: '0.1s' }}>
+          <div className="bg-white rounded-lg p-4 h-full">
             {/* Header */}
-            <div className={`text-center mb-4 visual-element ${isAnimating ? 'stagger-in' : ''
-              }`} style={{ animationDelay: '0.2s' }}>
-              <div className="text-sm font-bold text-gray-800">Secondary Market</div>
-              <div className="text-xs text-gray-500">Instant Liquidity</div>
+            <div className={`text-center mb-6 visual-element ${
+              isAnimating ? 'stagger-in' : ''
+            }`} style={{ animationDelay: '0.2s' }}>
+              <div className="text-base font-bold text-gray-800">Secondary Market</div>
+              <div className="text-sm text-gray-500">Instant Liquidity</div>
             </div>
 
             {/* Asset tokens */}
-            <div className="space-y-2 mb-4">
+            <div className="space-y-3 mb-6">
               {[
                 { name: 'NYC Apt #123', price: '$2,450', change: '+5.2%' },
                 { name: 'Gold ETF', price: '$1,890', change: '+2.1%' },
                 { name: 'Art Token', price: '$950', change: '+8.7%' }
               ].map((asset, i) => (
-                <div key={i} className={`bg-gray-50 rounded p-2 text-xs visual-element ${isAnimating ? 'stagger-in' : ''
-                  }`} style={{ animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : '0s' }}>
+                <div key={i} className={`bg-gray-50 rounded p-3 text-sm visual-element ${
+                  isAnimating ? 'stagger-in' : ''
+                }`} style={{ animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : '0s' }}>
                   <div className="font-medium text-gray-800">{asset.name}</div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">{asset.price}</span>
@@ -325,8 +341,9 @@ const RealEstateInvestmentSection = () => {
             </div>
 
             {/* Sell button */}
-            <button className={`w-full bg-red-500 text-white py-2 rounded font-medium text-xs visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
-              }`} style={{ animationDelay: isAnimating ? '0.6s' : '0s' }}>
+            <button className={`w-full bg-red-500 text-white py-3 rounded font-medium text-sm visual-element ${
+              isAnimating ? 'stagger-in' : 'animate-pulse'
+            }`} style={{ animationDelay: isAnimating ? '0.6s' : '0s' }}>
               Sell Instantly
             </button>
           </div>
@@ -336,19 +353,21 @@ const RealEstateInvestmentSection = () => {
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
-            className={`absolute w-3 h-3 bg-blue-400 rounded-full visual-element ${isAnimating ? 'stagger-in' : 'animate-ping'
-              }`}
+            className={`absolute w-4 h-4 bg-blue-400 rounded-full visual-element ${
+              isAnimating ? 'stagger-in' : 'animate-ping'
+            }`}
             style={{
-              left: `${Math.cos(i * Math.PI / 3) * 80}px`,
-              top: `${Math.sin(i * Math.PI / 3) * 80}px`,
+              left: `${Math.cos(i * Math.PI / 3) * 100}px`,
+              top: `${Math.sin(i * Math.PI / 3) * 100}px`,
               animationDelay: isAnimating ? `${0.4 + i * 0.05}s` : `${i * 0.2}s`
             }}
           />
         ))}
 
         {/* Transaction speed indicator */}
-        <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-3 py-1 rounded-full text-xs visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
-          }`} style={{ animationDelay: isAnimating ? '0.7s' : '0s' }}>
+        <div className={`absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-2 rounded-full text-sm visual-element ${
+          isAnimating ? 'stagger-in' : 'animate-bounce'
+        }`} style={{ animationDelay: isAnimating ? '0.7s' : '0s' }}>
           ⚡ 2-second settlement
         </div>
       </div>
@@ -359,45 +378,54 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* Central globe */}
-        <div className={`w-32 h-32 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center shadow-2xl relative overflow-hidden visual-element ${isAnimating ? 'stagger-in' : ''
-          }`} style={{ animationDelay: '0.1s' }}>
-          <Globe className={`w-16 h-16 text-white ${isAnimating ? '' : 'animate-spin'}`} style={{ animationDuration: '10s' }} />
-
+        <div className={`w-48 h-48 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center shadow-2xl relative visual-element ${
+          isAnimating ? 'stagger-in' : ''
+        }`} style={{ animationDelay: '0.1s' }}>
+          <Globe className={`w-24 h-24 text-white ${isAnimating ? '' : 'animate-spin'}`} style={{ animationDuration: '10s' }} />
+          
           {/* Orbiting asset icons */}
           {[
             { icon: Home, color: 'bg-blue-500', label: 'Real Estate' },
             { icon: Coins, color: 'bg-yellow-500', label: 'Gold' },
             { icon: Briefcase, color: 'bg-purple-500', label: 'Private Equity' },
             { icon: BarChart3, color: 'bg-green-500', label: 'Commodities' }
-          ].map((asset, i) => (
-            <div
-              key={i}
-              className={`absolute w-10 h-10 ${asset.color} rounded-full flex items-center justify-center shadow-lg visual-element ${isAnimating ? 'stagger-in' : ''
+          ].map((asset, i) => {
+            const angle = (i * Math.PI / 2); // 0, 90, 180, 270 degrees
+            const radius = 120;
+            const x = Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius;
+            
+            return (
+              <div
+                key={i}
+                className={`absolute w-14 h-14 ${asset.color} rounded-full flex items-center justify-center shadow-lg visual-element ${
+                  isAnimating ? 'stagger-in' : ''
                 }`}
-              style={{
-                left: '50%',
-                top: '50%',
-                marginLeft: '-20px',
-                marginTop: '-20px',
-                transformOrigin: `${Math.cos(i * Math.PI / 2) * 70}px ${Math.sin(i * Math.PI / 2) * 70}px`,
-                animation: isAnimating ? 'staggerSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards' : 'spin 12s linear infinite',
-                animationDelay: isAnimating ? `${0.2 + i * 0.1}s` : `${i * 0.5}s`
-              }}
-            >
-              <asset.icon className="w-5 h-5 text-white" />
-            </div>
-          ))}
+                style={{
+                  left: `calc(50% + ${x}px)`,
+                  top: `calc(50% + ${y}px)`,
+                  marginLeft: '-28px',
+                  marginTop: '-28px',
+                  animation: isAnimating ? 'staggerSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards' : 'spin 12s linear infinite',
+                  animationDelay: isAnimating ? `${0.2 + i * 0.1}s` : `${i * 0.5}s`
+                }}
+              >
+                <asset.icon className="w-7 h-7 text-white" />
+              </div>
+            );
+          })}
         </div>
 
         {/* Asset class labels */}
         {['Real Estate', 'Gold', 'Commodities', 'Private Equity'].map((asset, i) => (
           <div
             key={i}
-            className={`absolute bg-white shadow-lg rounded-full px-3 py-1 text-xs font-medium visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
-              }`}
+            className={`absolute bg-white shadow-lg rounded-full px-4 py-2 text-sm font-medium text-gray-900 visual-element ${
+              isAnimating ? 'stagger-in' : 'animate-pulse'
+            }`}
             style={{
-              left: `${-50 + i * 35}px`,
-              top: `${-70 + Math.sin(i) * 30}px`,
+              left: `${-60 + i * 45}px`,
+              top: `${-90 + Math.sin(i) * 40}px`,
               animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : `${i * 0.4}s`,
               animationDuration: isAnimating ? '0.6s' : '3s'
             }}
@@ -407,8 +435,9 @@ const RealEstateInvestmentSection = () => {
         ))}
 
         {/* AI insights badge */}
-        <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
-          }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
+        <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full text-sm visual-element ${
+          isAnimating ? 'stagger-in' : 'animate-bounce'
+        }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
           📈 AI Investment Insights
         </div>
       </div>
@@ -417,7 +446,7 @@ const RealEstateInvestmentSection = () => {
 
   const renderVisualContent = (sectionIndex) => {
     const isCurrentlyAnimating = activeSection === sectionIndex;
-
+    
     switch (sections[sectionIndex]?.visual) {
       case 'asset-fractionalization':
         return renderAssetFractionalization(isCurrentlyAnimating);
@@ -472,8 +501,18 @@ const RealEstateInvestmentSection = () => {
         .visual-element {
           transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-      `}</style>
 
+        .sticky-visual {
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 50% !important;
+          height: 100vh !important;
+          z-index: 10 !important;
+          background: linear-gradient(to bottom right, #f0fdf4, #dcfce7) !important;
+        }
+      `}</style>
+      
       {/* Main Container with proper flex layout */}
       <div className="flex">
         {/* Left Side - Visual Panel (will be pinned by GSAP) */}
@@ -482,7 +521,7 @@ const RealEstateInvestmentSection = () => {
           className="w-1/2 h-screen flex items-center justify-center p-12 bg-gradient-to-br from-green-50 to-green-100"
         >
           <div
-            className="visual-content relative w-80 h-80 flex items-center justify-center"
+            className="visual-content relative w-96 h-[500px] flex items-center justify-center"
             style={{
               background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, transparent 100%)',
               backdropFilter: 'blur(10px)',
@@ -508,7 +547,7 @@ const RealEstateInvestmentSection = () => {
             </div>
 
             {/* Main visual content */}
-            <div className="relative z-10">
+            <div className="relative z-10" style={{ overflow: 'visible' }}>
               {renderVisualContent(activeSection)}
             </div>
 
@@ -522,66 +561,66 @@ const RealEstateInvestmentSection = () => {
 
         {/* Right Side - Scrollable Content */}
         <div ref={contentRef} className="w-1/2">
-          {sections.map((section, index) => (
-            <div
-              key={section.id}
-              ref={el => sectionsRef.current[index] = el}
+            {sections.map((section, index) => (
+              <div
+                key={section.id}
+                ref={el => sectionsRef.current[index] = el}
               className="min-h-screen flex items-center px-12 py-20"
-            >
-              <div className="max-w-lg">
-                <div className="flex items-center gap-3 mb-6">
+              >
+                <div className="max-w-lg">
+                  <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-sm">AI</span>
-                  </div>
+                      <span className="text-white font-bold text-sm">AI</span>
+                    </div>
                   <div className="text-sm font-medium text-green-600">
-                    COPYM • 0{index + 1}
-                  </div>
-                </div>
-
-                <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 ${
-                  activeSection === index 
-                    ? 'bg-green-500/20 text-green-700 border border-green-500/30' 
-                    : 'bg-gray-200/50 text-gray-600 border border-gray-300/30'
-                }`}>
-                  {section.highlight}
-                </div>
-                
-                <h2 className={`text-5xl font-bold mb-4 transition-all duration-700 leading-tight ${
-                  activeSection === index 
-                    ? 'text-gray-900' 
-                    : 'text-gray-500'
-                }`}>
-                  {section.title}
-                </h2>
-                
-                <h3 className={`text-2xl font-semibold mb-6 transition-all duration-500 ${
-                  activeSection === index 
-                    ? 'text-blue-600' 
-                    : 'text-gray-600'
-                }`}>
-                  {section.subtitle}
-                </h3>
-                
-                <p className={`text-lg leading-relaxed transition-all duration-500 ${
-                  activeSection === index 
-                    ? 'text-gray-700' 
-                    : 'text-gray-500'
-                }`}>
-                  {section.content}
-                </p>
-
-                {activeSection === index && (
-                  <div className="mt-8 space-y-4">
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      AI Investment Assistant • Market Analytics
+                      COPYM • 0{index + 1}
                     </div>
                   </div>
-                )}
+                  
+                  <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 ${
+                    activeSection === index 
+                    ? 'bg-green-500/20 text-green-700 border border-green-500/30' 
+                    : 'bg-gray-200/50 text-gray-600 border border-gray-300/30'
+                  }`}>
+                    {section.highlight}
+                  </div>
+                  
+                  <h2 className={`text-5xl font-bold mb-4 transition-all duration-700 leading-tight ${
+                    activeSection === index 
+                    ? 'text-gray-900' 
+                      : 'text-gray-500'
+                  }`}>
+                    {section.title}
+                  </h2>
+                  
+                  <h3 className={`text-2xl font-semibold mb-6 transition-all duration-500 ${
+                    activeSection === index 
+                    ? 'text-blue-600' 
+                      : 'text-gray-600'
+                  }`}>
+                    {section.subtitle}
+                  </h3>
+                  
+                  <p className={`text-lg leading-relaxed transition-all duration-500 ${
+                    activeSection === index 
+                    ? 'text-gray-700' 
+                      : 'text-gray-500'
+                  }`}>
+                    {section.content}
+                  </p>
+
+                  {activeSection === index && (
+                    <div className="mt-8 space-y-4">
+                      <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        AI Investment Assistant • Market Analytics
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
