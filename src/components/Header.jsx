@@ -332,9 +332,9 @@ export default function Header() {
   return (
     <>
       {/* Modern Clean Header */}
-      <header className="absolute top-6 inset-x-0 z-50 flex justify-center pointer-events-none">
+      <header className="absolute top-2 inset-x-0 z-50 flex justify-center pointer-events-none">
         {/* Main header container */}
-        <div className="w-[98%] max-w-7xl rounded-lg bg-green-100 shadow-lg border border-green-200 pointer-events-auto px-8 py-4">
+        <div className="w-[98%] max-w-7xl  pointer-events-auto px-8 py-4">
           
           <div className="flex items-center justify-between w-full">
 
@@ -343,7 +343,7 @@ export default function Header() {
               <img
                 src="/assets/copym/png/Copym-01-1.png"
                 alt="COPYM"
-                className="h-10 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </Link>
 
