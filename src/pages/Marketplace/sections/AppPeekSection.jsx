@@ -1,154 +1,109 @@
 import React, { useEffect, useState } from "react";
 import { Wallet, LayoutGrid, LineChart } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import PhoneMockup from "../../../components/PhoneMockup";
 
 const mediaItems = [
   {
-    src: "/assets/Images/iphone-mockup-screen-removebg-preview.png",
     screenshot: "/assets/Images/Walletpreview.jpg",
     label: "Deposit / Withdraw",
-    icon: <Wallet className="w-4 h-4" />,
-    color: "text-emerald-300 bg-emerald-500/20",
+    icon: <Wallet className="w-5 h-5" />,
   },
   {
-    src: "/assets/Images/iphone-mockup-screen-removebg-preview.png",
     screenshot: "/assets/Images/MarketPreview.jpg",
     label: "Explore Assets",
-    icon: <LayoutGrid className="w-4 h-4" />,
-    color: "text-emerald-300 bg-emerald-500/20",
+    icon: <LayoutGrid className="w-5 h-5" />,
   },
   {
-    src: "/assets/Images/iphone-mockup-screen-removebg-preview.png",
     screenshot: "/assets/Images/MarketplaceDashboard.jpg",
     label: "Track Portfolio",
-    icon: <LineChart className="w-4 h-4" />,
-    color: "text-emerald-300 bg-emerald-500/20",
+    icon: <LineChart className="w-5 h-5" />,
   },
 ];
 
 export default function AppPeekSection() {
-  const [index, setIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const total = mediaItems.length;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % total);
-    }, 2000);
+      setActiveIndex((prev) => (prev + 1) % total);
+    }, 4000);
     return () => clearInterval(interval);
   }, [total]);
 
-  const getPosition = (i) => {
-    if (i === index) return "center";
-    if (i === (index - 1 + total) % total) return "left";
-    if (i === (index + 1) % total) return "right";
-    return "hidden";
+  const getAnimationProps = (i) => {
+    // --- ORBIT ADJUSTMENTS ---
+    // Reduced radius to match the smaller phone size, keeping the visuals tight.
+    const ORBIT_RADIUS_X = 280; 
+    const ORBIT_RADIUS_Y = 80;  
+    const FRONT_Z_INDEX = 100;
+    const BASE_SCALE = 0.7; // Kept the same scale factor for good depth
+    const angle = (i - activeIndex) * (2 * Math.PI / total) + (Math.PI / 2);
+    const x = ORBIT_RADIUS_X * Math.cos(angle);
+    const y = ORBIT_RADIUS_Y * Math.sin(angle);
+    const normalizedDepth = (y + ORBIT_RADIUS_Y) / (2 * ORBIT_RADIUS_Y);
+    const scale = BASE_SCALE + (1 - BASE_SCALE) * normalizedDepth;
+    const zIndex = Math.round(FRONT_Z_INDEX * normalizedDepth);
+    const rotate = x / 20;
+    return { x, y, scale, zIndex, rotate, opacity: scale };
   };
 
   return (
-    <section className="py-20 bg-white text-gray-800">
+    <section className="py-24 bg-gray-50 text-gray-800 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Section Heading */}
-        <div className="text-center mb-16">
+        
+        <div className="text-center">
+          <div className="mb-8">
             <h1 className="brand-section-title">
               <span className="text-[#255f99]">Peek Into Our </span>
               <span className="text-[#15a36e]">Web3 </span>
               <span className="text-[#255f99]">Investment Hub</span>
             </h1>
-          <p className="brand-description max-w-3xl mx-auto text-gray-700">
-            Manage your assets, monitor real-time performance, and view tokenized ownership — all through an intuitive interface built for next-gen investors.
-          </p>
+            <p className="brand-description max-w-3xl mx-auto text-gray-700">
+              Manage your assets, monitor real-time performance, and view tokenized ownership — all through an intuitive interface built for next-gen investors.
+            </p>
+          </div>
+
+          {/* --- MORE SPACE --- Increased margin-bottom for better separation */}
+          <div className="h-12 flex items-center justify-center mb-6">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="px-5 py-2.5 rounded-full flex items-center gap-2 font-semibold text-md text-gray-900 bg-white/70 shadow-lg backdrop-blur-md border border-gray-200"
+              >
+                {mediaItems[activeIndex].icon}
+                <span className="font-bold">{mediaItems[activeIndex].label}</span>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
 
-        {/* Glassmorphic Carousel */}
-        <div className="relative rounded-3xl px-6 py-16 overflow-hidden shadow-2xl flex flex-col items-center border border-white/20 bg-gradient-to-br from-black/15 via-white/5 to-black/15 backdrop-blur-lg ring-1 ring-white/10 ring-inset">
-
-          {/* Glow backdrop */}
-          <div className="absolute inset-0 z-0 rounded-3xl pointer-events-none">
-            <div className="w-full h-full bg-white/10 blur-2xl opacity-30 rounded-3xl" />
+        <div className="flex flex-col items-center">
+          {/* --- BIGGER CONTAINER --- Increased height to give the animation more room */}
+          <div className="relative w-full h-[750px] flex items-center justify-center">
+            {mediaItems.map((item, i) => (
+              <motion.div
+                key={item.label}
+                className="absolute cursor-pointer"
+                animate={getAnimationProps(i)}
+                transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                onClick={() => setActiveIndex(i)}
+              >
+                <PhoneMockup screenshot={item.screenshot} alt={item.label} />
+              </motion.div>
+            ))}
           </div>
 
-          {/* Logo */}
-          <div className="flex justify-center mb-10 z-10">
-            <img
-              src="/assets/copym/png/Copym-01-1.png"
-              alt="Copym Logo"
-              className="w-auto h-24 sm:h-14 md:h-24 object-contain"
-            />
-          </div>
-
-          {/* Carousel */}
-          <div className="relative w-full max-w-5xl h-[420px] flex items-center justify-center z-10">
-            {mediaItems.map((item, i) => {
-              const pos = getPosition(i);
-              let className = "absolute transition-all duration-700 ease-in-out";
-              let style = {};
-
-              if (pos === "center") {
-                style = {
-                  transform: "translateX(0) scale(1)",
-                  zIndex: 30,
-                  opacity: 1,
-                };
-              } else if (pos === "left") {
-                style = {
-                  transform: "translateX(-220px) scale(0.85) rotateY(10deg)",
-                  zIndex: 20,
-                  opacity: 0.5,
-                };
-              } else if (pos === "right") {
-                style = {
-                  transform: "translateX(220px) scale(0.85) rotateY(-10deg)",
-                  zIndex: 20,
-                  opacity: 0.5,
-                };
-              } else {
-                style = { transform: "scale(0.5)", opacity: 0, zIndex: 0 };
-              }
-
-              return (
-                <motion.div
-                  key={i}
-                  className={`${className} w-[230px] h-[450px] rounded-2xl overflow-hidden`}
-                  style={style}
-                >
-                  <div className="relative w-full h-full">
-                    {/* Screenshot inside screen */}
-                    <img
-                      src={item.screenshot}
-                      alt="App Screenshot"
-                      className="absolute top-[12%] left-[14%] w-[72%] h-[75%] object-cover rounded-xl z-0"
-                    />
-                    {/* Frame */}
-                    <div className="w-full h-full scale-[2.05]">
-                      <img
-                        src={item.src}
-                        alt={item.label}
-                        className="w-full h-full object-contain z-10 relative"
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Caption under center card */}
-          <div
-            className={`mt-6 px-4 py-2 rounded-full flex items-center gap-2 font-semibold text-sm z-10 text-gray-800 bg-gray-100/60 shadow`}
-          >
-            {mediaItems[index].icon}
-            <span className="text-gray-800 font-bold">{mediaItems[index].label}</span>
-          </div>
-
-          {/* CTA Button */}
-          <div className="flex justify-center mt-12 z-10">
-            <Link
-              to="/marketplace"
-              className="inline-flex items-center justify-center px-6 py-3 font-semibold text-white btn-gradient"
-            >
-              Get App Now
+          {/* --- REPOSITIONED CTA --- Removed negative margin, placing it clearly below the animation */}
+          <div className="flex justify-center mt-8 z-10">
+            <Link to="/marketplace" className="inline-flex items-center justify-center px-8 py-3 font-semibold text-white btn-gradient rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+              Explore the Marketplace
             </Link>
           </div>
         </div>
