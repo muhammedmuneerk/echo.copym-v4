@@ -12,7 +12,7 @@ export default function HomePage() {
       <Hero />
       <HowItWorks />
       <InvestmentSection />
-      <SupportedAssets />
+      {/* <SupportedAssets /> */}
       <MarketplacePreview />
       <IssuerSection />
       <WhyCopym />
