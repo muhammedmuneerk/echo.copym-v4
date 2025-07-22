@@ -1,4 +1,4 @@
-import Dashboard from "./sections/Dashboard";
+import MarketplacePreview from "./sections/MarketplacePreview";
 import Hero from "./sections/Hero";
 import HowItWorks from "./sections/HowItWorks";
 import IssuerSection from "./sections/IssuerSection";
@@ -13,7 +13,7 @@ export default function HomePage() {
       <HowItWorks />
       <InvestmentSection />
       <SupportedAssets />
-      <Dashboard />
+      <MarketplacePreview />
       <IssuerSection />
       <WhyCopym />
       <Testimonials />
