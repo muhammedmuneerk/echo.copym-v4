@@ -1,13 +1,96 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { BarChart3, Users, Shield } from "lucide-react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { 
+  TrendingUp, 
+  TrendingDown, 
+  DollarSign, 
+  BarChart3, 
+  PieChart, 
+  Wallet, 
+  Shield, 
+  Zap,
+  Home,
+  Building2,
+  Palette,
+  Coins,
+  Leaf,
+  Gem,
+  Activity,
+  Users,
+  ArrowUpRight,
+  ArrowDownRight,
+  Eye,
+  Star,
+  Clock,
+  Target,
+  CheckCircle,
+  AlertCircle,
+  ChevronRight,
+  ChevronDown,
+  Plus,
+  Minus,
+  Settings,
+  Bell,
+  User,
+  Search,
+  Filter,
+  Grid,
+  List,
+  RefreshCw,
+  Play,
+  Pause,
+  Volume2,
+  Wifi,
+  Battery,
+  Signal,
+  BarChart,
+  LineChart,
+  CreditCard,
+  Lock,
+  Unlock,
+  Key,
+  QrCode,
+  Send,
+  RotateCcw,
+  History,
+  Bookmark,
+  Share,
+  Download,
+  Upload,
+  Copy,
+  Edit,
+  Trash2,
+  MoreHorizontal,
+  Calendar,
+  Timer,
+  AlertTriangle,
+  Info,
+  HelpCircle,
+  ExternalLink,
+  Maximize2,
+  Minimize2,
+  RotateCw,
+  ZoomIn,
+  ZoomOut,
+  Move,
+  MousePointer,
+  Type,
+  Bold,
+  Italic,
+  Underline,
+  AlignLeft,
+  AlignCenter,
+  AlignRight
+} from 'lucide-react';
+import gsap from 'gsap';
 
 export default function MarketplacePreview() {
   const navigate = useNavigate();
   const containerRef = useRef(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [isSticky, setIsSticky] = useState(false);
+  const [isAtEnd, setIsAtEnd] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -16,54 +99,55 @@ export default function MarketplacePreview() {
 
   // Track scroll progress and update animation steps
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest > 0.2 && latest < 0.8) {
+    if (latest > 0.1 && latest < 0.9) {
       setIsSticky(true);
+      setIsAtEnd(false);
       // Map scroll progress to animation steps (0-6 for 6 devices + content)
-      const step = Math.floor((latest - 0.2) / 0.6 * 7);
+      const step = Math.floor((latest - 0.1) / 0.8 * 7);
       setCurrentStep(Math.min(step, 6));
     } else {
       setIsSticky(false);
-      if (latest <= 0.2) setCurrentStep(0);
+      if (latest <= 0.1) {
+        setCurrentStep(0);
+        setIsAtEnd(false);
+      }
+      if (latest >= 0.9) {
+        setCurrentStep(6);
+        setIsAtEnd(true);
+      }
     }
   });
 
   return (
     <div ref={containerRef} className="relative" style={{ height: '400vh' }}>
       <section
-        className={`w-full bg-green-50 overflow-hidden transition-all duration-300 ${isSticky ? 'fixed top-0 left-0 right-0 min-h-[700px]' : 'relative min-h-[700px]'
+        className={`w-full bg-green-50 overflow-hidden transition-all duration-300 ${
+          isSticky 
+            ? 'fixed top-0 left-0 right-0 min-h-[700px]' 
+            : isAtEnd 
+              ? 'absolute bottom-0 left-0 right-0 min-h-[700px]' 
+              : 'relative min-h-[700px]'
           }`}
         style={{ zIndex: isSticky ? 50 : 'auto' }}
       >
         <div className="w-full h-full px-4 sm:px-6 lg:px-8 flex justify-center">
           <div className="relative w-full max-w-7xl px-6">
-            {/* Features at Top - Horizontal Layout */}
+            {/* Main Heading */}
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
-              initial={{ opacity: 0, y: 50 }}
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 30 }}
               animate={{
                 opacity: currentStep >= 0 ? 1 : 0,
-                y: currentStep >= 0 ? 0 : 50
+                y: currentStep >= 0 ? 0 : 30
               }}
-              transition={{ duration: 0.8, staggerChildren: 0.2 }}
+              transition={{ duration: 0.8 }}
             >
-              <TopFeature
-                number="01"
-                title="AI Analytics"
-                description="Advanced AI algorithms analyze market trends and provide real-time insights for optimal investment decisions."
-                icon={<BarChart3 className="w-6 h-6 text-[#15a36e]" />}
-              />
-              <TopFeature
-                number="02"
-                title="P2P Trading"
-                description="Direct peer-to-peer trading of tokenized assets with secure smart contract execution and low fees."
-                icon={<Users className="w-6 h-6 text-[#255f99]" />}
-              />
-              <TopFeature
-                number="03"
-                title="Secure Staking"
-                description="Stake your RWA tokens to earn passive income with institutional-grade security and transparent rewards."
-                icon={<Shield className="w-6 h-6 text-[#15a36e]" />}
-              />
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Marketplace Preview
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Experience our revolutionary platform with AI-powered trading, secure staking, and seamless P2P transactions
+              </p>
             </motion.div>
 
             {/* Animated Devices Preview */}
@@ -93,27 +177,7 @@ export default function MarketplacePreview() {
   );
 }
 
-const TopFeature = ({ number, title, description, icon }) => (
-  <motion.div
-    className="text-center"
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-  >
-    <div className="flex items-center justify-center mb-4">
-      <div className="flex items-center gap-3">
-        <span className="text-sm font-bold text-[#ff6b6b] bg-[#ff6b6b]/10 px-2 py-1 rounded">
-          {number}
-        </span>
-        {icon}
-      </div>
-    </div>
-    <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-    <p className="text-gray-600 text-sm leading-relaxed max-w-xs mx-auto">
-      {description}
-    </p>
-  </motion.div>
-);
+
 
 const devices = [
   {
@@ -204,15 +268,625 @@ const devices = [
 ];
 
 function DevicesShowcase({ currentStep }) {
-  // Screen content that appears on devices based on scroll progress
-  const screenContent = [
-    { device: "desktop", content: "AI Analytics", description: "Smart Market Insights", step: 2 },
-    { device: "laptop", content: "P2P Trading", description: "Direct Asset Exchange", step: 3 },
-    { device: "ipad", content: "Staking Rewards", description: "Earn Passive Income", step: 4 },
-    { device: "tablet", content: "RWA Tokens", description: "Real Estate & More", step: 4 },
-    { device: "iphone", content: "Live Trading", description: "Mobile Portfolio", step: 5 },
-    { device: "phone", content: "Secure Wallet", description: "Multi-Asset Storage", step: 5 },
-  ];
+  // Screen content configurations for each device
+  const screenConfigs = {
+    desktop: {
+      step: 2,
+      bgColor: "rgba(255, 255, 255, 0.95)",
+      content: "dashboard"
+    },
+    laptop: {
+      step: 3,
+      bgColor: "rgba(255, 255, 255, 0.95)",
+      content: "trading"  
+    },
+    ipad: {
+      step: 4,
+      bgColor: "rgba(255, 255, 255, 0.95)",
+      content: "portfolio"
+    },
+    tablet: {
+      step: 4,
+      bgColor: "rgba(255, 255, 255, 0.95)",
+      content: "staking"
+    },
+    iphone: {
+      step: 5,
+      bgColor: "rgba(255, 255, 255, 0.95)",
+      content: "wallet"
+    },
+    phone: {
+      step: 5,
+      bgColor: "rgba(255, 255, 255, 0.95)",
+      content: "mobile"
+    }
+  };
+
+  // Function to render realistic screen content with actual UI components
+  const renderScreenContent = (contentType, isLarge = false) => {
+    const baseSize = isLarge ? 'text-xs' : 'text-xs';
+    
+    switch (contentType) {
+      case "dashboard":
+        return (
+          <div className="w-full h-full bg-white text-gray-900 overflow-hidden">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-2 border-b border-gray-200">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="text-xs font-bold text-gray-900">Copym Dashboard</div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <TrendingUp className="w-3 h-3 text-green-600" />
+                  <div className="text-xs text-green-600 font-semibold">$124,567.89</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Main Layout */}
+            <div className="flex h-full">
+              {/* Left Panel - Asset Categories */}
+              <div className="w-1/3 p-2 border-r border-gray-200 bg-gray-50/50">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-xs font-semibold text-gray-700 flex items-center">
+                    <BarChart3 className="w-3 h-3 mr-1" />
+                    Categories
+                  </div>
+                  <Activity className="w-3 h-3 text-blue-600" />
+                </div>
+                
+                <div className="space-y-1">
+                  {[
+                    { icon: <Gem className="w-3 h-3" />, name: 'Gold', value: '$45K', color: 'yellow', bg: 'bg-yellow-100', border: 'border-yellow-200', text: 'text-yellow-700' },
+                    { icon: <Building2 className="w-3 h-3" />, name: 'Real Estate', value: '$32K', color: 'blue', bg: 'bg-blue-100', border: 'border-blue-200', text: 'text-blue-700' },
+                    { icon: <Palette className="w-3 h-3" />, name: 'Art & NFTs', value: '$18K', color: 'purple', bg: 'bg-purple-100', border: 'border-purple-200', text: 'text-purple-700' },
+                    { icon: <Coins className="w-3 h-3" />, name: 'Stablecoins', value: '$15K', color: 'green', bg: 'bg-green-100', border: 'border-green-200', text: 'text-green-700' },
+                    { icon: <Zap className="w-3 h-3" />, name: 'Energy', value: '$9K', color: 'orange', bg: 'bg-orange-100', border: 'border-orange-200', text: 'text-orange-700' },
+                    { icon: <Gem className="w-3 h-3" />, name: 'Commodities', value: '$5K', color: 'red', bg: 'bg-red-100', border: 'border-red-200', text: 'text-red-700' }
+                  ].map((category, i) => (
+                    <div key={i} className={`${category.bg} p-2 rounded-lg border ${category.border} hover:shadow-sm transition-all duration-200 cursor-pointer`}>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className={`text-${category.color}-600`}>{category.icon}</div>
+                          <span className="text-xs font-medium text-gray-900">{category.name}</span>
+                        </div>
+                        <div className={`text-xs font-bold ${category.text}`}>{category.value}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Portfolio Chart */}
+                <div className="mt-3 bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="text-xs font-semibold text-gray-700 flex items-center">
+                      <LineChart className="w-3 h-3 mr-1" />
+                      Portfolio
+                    </div>
+                    <TrendingUp className="w-3 h-3 text-green-600" />
+                  </div>
+                  <div className="flex items-end justify-between h-6 space-x-1">
+                    {Array.from({length: 12}).map((_, i) => (
+                      <div 
+                        key={i}
+                        className={`flex-1 rounded-sm transition-all duration-300 ${
+                          Math.random() > 0.6 ? 'bg-green-500' : Math.random() > 0.3 ? 'bg-blue-500' : 'bg-gray-300'
+                        }`}
+                        style={{
+                          height: `${20 + Math.random() * 80}%`,
+                          animationDelay: `${i * 0.1}s`
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Panel - NFT-like Assets Grid */}
+              <div className="w-2/3 p-2">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-xs font-semibold text-gray-700 flex items-center">
+                    <Grid className="w-3 h-3 mr-1" />
+                    Assets (42)
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Filter className="w-3 h-3 text-gray-500" />
+                    <Search className="w-3 h-3 text-gray-500" />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-4 gap-1 h-full overflow-hidden">
+                  {[
+                    { icon: <Building2 className="w-4 h-4" />, name: 'NYC Apt', value: '$12K', bg: 'bg-gradient-to-br from-yellow-400 to-yellow-500', badge: 'Hot' },
+                    { icon: <Home className="w-4 h-4" />, name: 'Villa', value: '$8.5K', bg: 'bg-gradient-to-br from-blue-400 to-blue-500', badge: 'New' },
+                    { icon: <Zap className="w-4 h-4" />, name: 'Solar', value: '$6K', bg: 'bg-gradient-to-br from-green-400 to-green-500', badge: 'Trending' },
+                    { icon: <Palette className="w-4 h-4" />, name: 'Art #1', value: '$4.2K', bg: 'bg-gradient-to-br from-purple-400 to-purple-500', badge: 'Featured' },
+                    { icon: <Gem className="w-4 h-4" />, name: 'Gold', value: '$3.8K', bg: 'bg-gradient-to-br from-orange-400 to-orange-500', badge: 'Premium' },
+                    { icon: <Gem className="w-4 h-4" />, name: 'Diamond', value: '$2.9K', bg: 'bg-gradient-to-br from-red-400 to-red-500', badge: 'Rare' },
+                    { icon: <Star className="w-4 h-4" />, name: 'NFT #23', value: '$2.1K', bg: 'bg-gradient-to-br from-pink-400 to-pink-500', badge: 'Limited' },
+                    { icon: <Building2 className="w-4 h-4" />, name: 'Factory', value: '$1.8K', bg: 'bg-gradient-to-br from-indigo-400 to-indigo-500', badge: 'Industrial' },
+                    { icon: <Zap className="w-4 h-4" />, name: 'Wind', value: '$1.5K', bg: 'bg-gradient-to-br from-teal-400 to-teal-500', badge: 'Green' },
+                    { icon: <Leaf className="w-4 h-4" />, name: 'Ocean', value: '$1.2K', bg: 'bg-gradient-to-br from-cyan-400 to-cyan-500', badge: 'Ocean' },
+                    { icon: <Leaf className="w-4 h-4" />, name: 'Forest', value: '$0.9K', bg: 'bg-gradient-to-br from-lime-400 to-lime-500', badge: 'Nature' },
+                    { icon: <Activity className="w-4 h-4" />, name: 'Tesla', value: '$0.7K', bg: 'bg-gradient-to-br from-amber-400 to-amber-500', badge: 'Tech' }
+                  ].map((asset, i) => (
+                    <div key={i} className={`${asset.bg} p-2 rounded-lg text-center shadow-sm border border-white/30 hover:shadow-md transition-all duration-200 cursor-pointer relative group`}>
+                      <div className="absolute top-1 right-1">
+                        <div className="text-xs bg-white/20 backdrop-blur-sm px-1 rounded text-white font-bold">
+                          {asset.badge}
+                        </div>
+                      </div>
+                      <div className="text-white mb-1 flex justify-center">{asset.icon}</div>
+                      <div className="text-xs font-bold text-white leading-tight mb-1">{asset.name}</div>
+                      <div className="text-xs text-white/90 font-medium">{asset.value}</div>
+                      <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-200"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      
+      case "trading":
+        return (
+          <div className="w-full h-full bg-white text-gray-900 overflow-hidden">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-2 border-b border-gray-200">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="text-xs font-bold text-gray-900">P2P Trading</div>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <Activity className="w-3 h-3 text-green-600" />
+                  <div className="text-xs bg-green-600 px-2 py-0.5 rounded-full text-white font-semibold">LIVE</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Trading Interface */}
+            <div className="p-2 space-y-2">
+              {/* Price Ticker */}
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-2 rounded-lg border border-blue-200 shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                      <DollarSign className="w-3 h-3 text-blue-600" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-gray-600 font-medium">BTC/USD</div>
+                      <div className="text-sm font-bold text-green-600">$43,250.82</div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="flex items-center space-x-1">
+                      <TrendingUp className="w-3 h-3 text-green-600" />
+                      <div className="text-xs text-green-600 font-semibold">+2.45%</div>
+                    </div>
+                    <div className="text-xs text-gray-500">24h</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mini Chart */}
+              <div className="bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
+                <div className="flex items-center justify-between mb-1">
+                  <div className="text-xs font-semibold text-gray-700 flex items-center">
+                    <BarChart3 className="w-3 h-3 mr-1" />
+                    Price Chart
+                  </div>
+                  <div className="flex space-x-1">
+                    <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+                    <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                    <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="flex items-end justify-between h-4 space-x-0.5">
+                  {Array.from({length: 16}).map((_, i) => (
+                    <div 
+                      key={i}
+                      className={`flex-1 rounded-sm transition-all duration-300 ${
+                        Math.random() > 0.7 ? 'bg-green-500' : Math.random() > 0.4 ? 'bg-blue-500' : 'bg-gray-300'
+                      }`}
+                      style={{
+                        height: `${15 + Math.random() * 85}%`,
+                        animationDelay: `${i * 0.05}s`
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Order Book */}
+              <div className="bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-xs font-semibold text-gray-700 flex items-center">
+                    <List className="w-3 h-3 mr-1" />
+                    Order Book
+                  </div>
+                  <RefreshCw className="w-3 h-3 text-gray-500" />
+                </div>
+                <div className="space-y-1">
+                  {/* Sell Orders */}
+                  {Array.from({length: 3}).map((_, i) => (
+                    <div key={i} className="flex justify-between items-center text-xs">
+                      <div className="flex items-center space-x-1">
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span className="text-red-600 font-medium">43,{240 + i * 2}</span>
+                      </div>
+                      <span className="text-gray-700">0.{Math.floor(Math.random() * 9) + 1}{Math.floor(Math.random() * 9)}</span>
+                    </div>
+                  ))}
+                  {/* Spread */}
+                  <div className="border-t border-gray-300 my-1 py-1">
+                    <div className="text-center text-xs text-gray-500 font-medium">Spread: $12.50</div>
+                  </div>
+                  {/* Buy Orders */}
+                  {Array.from({length: 3}).map((_, i) => (
+                    <div key={i} className="flex justify-between items-center text-xs">
+                      <div className="flex items-center space-x-1">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-green-600 font-medium">43,{250 + i * 2}</span>
+                      </div>
+                      <span className="text-gray-700">0.{Math.floor(Math.random() * 9) + 1}{Math.floor(Math.random() * 9)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Buy/Sell Buttons */}
+              <div className="grid grid-cols-2 gap-2">
+                <button className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xs py-2 rounded-lg font-bold flex items-center justify-center space-x-1 transition-all duration-200 shadow-sm">
+                  <Plus className="w-3 h-3" />
+                  <span>BUY</span>
+                </button>
+                <button className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white text-xs py-2 rounded-lg font-bold flex items-center justify-center space-x-1 transition-all duration-200 shadow-sm">
+                  <Minus className="w-3 h-3" />
+                  <span>SELL</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      
+      case "portfolio":
+        return (
+          <div className="w-full h-full bg-white text-gray-900 overflow-hidden">
+            {/* Header */}
+            <div className="bg-gray-50 p-2">
+              <div className="text-center">
+                <div className="text-xs text-gray-600 mb-1">Portfolio Value</div>
+                <div className="text-lg font-bold text-gray-900">$45,230.67</div>
+                <div className="text-xs text-green-600">+8.4% today</div>
+              </div>
+            </div>
+            
+            {/* Pie Chart Simulation */}
+            <div className="p-2">
+              <div className="relative w-16 h-16 mx-auto mb-2">
+                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 42 42">
+                  <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#e5e7eb" strokeWidth="3"/>
+                  <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#10b981" strokeWidth="3" 
+                    strokeDasharray="40 100" strokeDashoffset="0"/>
+                  <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#3b82f6" strokeWidth="3" 
+                    strokeDasharray="30 100" strokeDashoffset="-40"/>
+                  <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#f59e0b" strokeWidth="3" 
+                    strokeDasharray="20 100" strokeDashoffset="-70"/>
+                </svg>
+              </div>
+
+              {/* Asset Breakdown */}
+              <div className="space-y-1">
+                <div className="flex justify-between items-center bg-gray-50 p-1 rounded">
+                  <div className="flex items-center space-x-1">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-xs">Real Estate</span>
+                  </div>
+                  <div className="text-xs font-semibold">$25,000</div>
+                </div>
+                <div className="flex justify-between items-center bg-gray-50 p-1 rounded">
+                  <div className="flex items-center space-x-1">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-xs">Gold Tokens</span>
+                  </div>
+                  <div className="text-xs font-semibold">$15,000</div>
+                </div>
+                <div className="flex justify-between items-center bg-gray-50 p-1 rounded">
+                  <div className="flex items-center space-x-1">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                    <span className="text-xs">Solar Farm</span>
+                  </div>
+                  <div className="text-xs font-semibold">$5,230</div>
+                </div>
+              </div>
+
+              {/* Performance Chart */}
+              <div className="mt-2 bg-gray-50 p-1 rounded">
+                <div className="text-xs text-gray-600 mb-1">7 Day Performance</div>
+                <div className="flex items-end justify-between h-6">
+                  {Array.from({length: 7}).map((_, i) => (
+                    <div 
+                      key={i}
+                      className="bg-green-500 w-1 rounded-t"
+                      style={{height: `${30 + Math.random() * 70}%`}}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      
+      case "staking":
+        return (
+          <div className="w-full h-full bg-white text-gray-900 overflow-hidden">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 p-2">
+              <div className="text-center">
+                <div className="text-xs text-gray-600 mb-1">Staking Rewards</div>
+                <div className="text-lg font-bold text-green-600">12.5% APY</div>
+                <div className="text-xs text-gray-600">Annual Percentage Yield</div>
+              </div>
+            </div>
+            
+            {/* Staking Stats */}
+            <div className="p-2 space-y-2">
+              <div className="grid grid-cols-2 gap-1">
+                <div className="bg-gray-50 p-1 rounded">
+                  <div className="text-xs text-gray-600">Staked</div>
+                  <div className="text-sm font-bold">$10,000</div>
+                </div>
+                <div className="bg-green-50 p-1 rounded">
+                  <div className="text-xs text-gray-600">Earned</div>
+                  <div className="text-sm font-bold text-green-600">$342.75</div>
+                </div>
+              </div>
+
+              {/* Progress Bar */}
+              <div className="bg-gray-200 rounded-full h-2">
+                <div className="bg-green-500 h-2 rounded-full" style={{width: '68%'}}></div>
+              </div>
+              <div className="text-xs text-center text-gray-600">Next reward in 2h 15m</div>
+
+              {/* Rewards History */}
+              <div className="bg-gray-50 p-1 rounded">
+                <div className="text-xs text-gray-600 mb-1">Recent Rewards</div>
+                <div className="space-y-0.5">
+                  <div className="flex justify-between text-xs">
+                    <span>Today</span>
+                    <span className="text-green-600">+$3.42</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span>Yesterday</span>
+                    <span className="text-green-600">+$3.41</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span>2 days ago</span>
+                    <span className="text-green-600">+$3.38</span>
+                  </div>
+                </div>
+              </div>
+
+              <button className="w-full bg-green-600 hover:bg-green-700 text-white text-xs py-1 rounded font-bold">
+                Stake More
+              </button>
+            </div>
+          </div>
+        );
+      
+      case "wallet":
+        return (
+          <div className="w-full h-full bg-white text-gray-900 overflow-hidden">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-2 border-b border-gray-200">
+              <div className="text-center">
+                <div className="flex items-center justify-center space-x-1 mb-1">
+                  <Wallet className="w-4 h-4 text-blue-600" />
+                  <div className="text-xs text-gray-600 font-medium">Total Balance</div>
+                </div>
+                <div className="text-lg font-bold text-gray-900">$8,450.32</div>
+                <div className="flex items-center justify-center space-x-1">
+                  <TrendingUp className="w-3 h-3 text-green-600" />
+                  <div className="text-xs text-green-600 font-semibold">+$234.56 today</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Wallet Assets */}
+            <div className="p-2 space-y-2">
+              <div className="bg-gradient-to-r from-orange-50 to-yellow-50 p-2 rounded-lg border border-orange-200 shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                      <Coins className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-gray-900">Bitcoin</div>
+                      <div className="text-xs text-gray-600">BTC</div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xs font-bold text-gray-900">0.185</div>
+                    <div className="text-xs text-gray-600">$7,950</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-2 rounded-lg border border-blue-200 shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                      <Gem className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-gray-900">Ethereum</div>
+                      <div className="text-xs text-gray-600">ETH</div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xs font-bold text-gray-900">2.45</div>
+                    <div className="text-xs text-gray-600">$4,200</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-2 rounded-lg border border-green-200 shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                      <Activity className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-gray-900">RWA Token</div>
+                      <div className="text-xs text-gray-600">RWA</div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xs font-bold text-gray-900">1,250</div>
+                    <div className="text-xs text-gray-600">$300</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="grid grid-cols-3 gap-2 mt-3">
+                <button className="bg-gradient-to-r from-green-500 to-green-600 text-white text-xs py-2 rounded-lg font-bold flex items-center justify-center space-x-1 shadow-sm">
+                  <Send className="w-3 h-3" />
+                  <span>Send</span>
+                </button>
+                <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs py-2 rounded-lg font-bold flex items-center justify-center space-x-1 shadow-sm">
+                  <Download className="w-3 h-3" />
+                  <span>Receive</span>
+                </button>
+                <button className="bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xs py-2 rounded-lg font-bold flex items-center justify-center space-x-1 shadow-sm">
+                  <RotateCcw className="w-3 h-3" />
+                  <span>Swap</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      
+      case "mobile":
+        return (
+          <div className="w-full h-full bg-white text-gray-900 overflow-hidden">
+            {/* Status Bar */}
+            <div className="flex justify-between items-center p-2 text-xs bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
+              <div className="flex items-center space-x-1">
+                <Signal className="w-3 h-3 text-gray-600" />
+                <span className="text-gray-900 font-medium">9:41</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <Wifi className="w-3 h-3 text-gray-600" />
+                <Battery className="w-4 h-4 text-gray-600" />
+              </div>
+            </div>
+            
+            {/* Header */}
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-3 border-b border-gray-200">
+              <div className="text-center">
+                <div className="flex items-center justify-center space-x-1 mb-1">
+                  <Wallet className="w-4 h-4 text-blue-600" />
+                  <div className="text-xs text-gray-600 font-medium">Portfolio</div>
+                </div>
+                <div className="text-lg font-bold text-green-600 mb-1">$12,340.89</div>
+                <div className="flex items-center justify-center space-x-1">
+                  <TrendingUp className="w-3 h-3 text-green-600" />
+                  <div className="text-xs text-green-600 font-semibold">+$156.23 today</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Quick Stats */}
+            <div className="p-2 space-y-2">
+              {/* Active Trade Card */}
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-3 rounded-lg border border-purple-200 shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                      <Activity className="w-4 h-4 text-purple-600" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-gray-600 font-medium">Active Trades</div>
+                      <div className="text-sm font-bold text-gray-900">BTC/USD</div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="flex items-center space-x-1">
+                      <TrendingUp className="w-3 h-3 text-green-600" />
+                      <div className="text-xs text-green-600 font-semibold">+2.3%</div>
+                    </div>
+                    <div className="text-sm font-bold text-gray-900">$43,250</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mini Chart */}
+              <div className="bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-xs font-semibold text-gray-700 flex items-center">
+                    <BarChart3 className="w-3 h-3 mr-1" />
+                    Price Chart
+                  </div>
+                  <div className="flex space-x-1">
+                    <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+                    <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                    <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="flex items-end justify-between h-6 space-x-0.5">
+                  {Array.from({length: 12}).map((_, i) => (
+                    <div 
+                      key={i}
+                      className={`flex-1 rounded-sm transition-all duration-300 ${
+                        Math.random() > 0.6 ? 'bg-green-500' : Math.random() > 0.3 ? 'bg-blue-500' : 'bg-gray-300'
+                      }`}
+                      style={{
+                        height: `${20 + Math.random() * 80}%`,
+                        animationDelay: `${i * 0.08}s`
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="grid grid-cols-2 gap-2">
+                <button className="bg-gradient-to-r from-green-500 to-green-600 text-white text-xs py-2 rounded-lg font-bold flex items-center justify-center space-x-1 shadow-sm">
+                  <ArrowUpRight className="w-3 h-3" />
+                  <span>Buy</span>
+                </button>
+                <button className="bg-gradient-to-r from-red-500 to-red-600 text-white text-xs py-2 rounded-lg font-bold flex items-center justify-center space-x-1 shadow-sm">
+                  <ArrowDownRight className="w-3 h-3" />
+                  <span>Sell</span>
+                </button>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="flex justify-between">
+                <button className="flex items-center space-x-1 text-xs text-gray-600">
+                  <History className="w-3 h-3" />
+                  <span>History</span>
+                </button>
+                <button className="flex items-center space-x-1 text-xs text-gray-600">
+                  <Settings className="w-3 h-3" />
+                  <span>Settings</span>
+                </button>
+                <button className="flex items-center space-x-1 text-xs text-gray-600">
+                  <Bell className="w-3 h-3" />
+                  <span>Alerts</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      
+      default:
+        return null;
+    }
+  };
 
   return (
     <div
@@ -274,41 +948,72 @@ function DevicesShowcase({ currentStep }) {
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
 
-              {/* Screen Content Overlay - Only lights up based on scroll */}
-              {screenContent.map((content) => {
-                if (content.device === device.key && currentStep >= content.step) {
-                  return (
+              {/* Screen Content Overlay - Realistic interface designs */}
+              {screenConfigs[device.key] && currentStep >= screenConfigs[device.key].step && (
                     <motion.div
-                      key={`${device.key}-content`}
-                      className="absolute flex items-center justify-center"
-                      initial={{ opacity: 0, scale: 0.5 }}
+                  key={`${device.key}-screen`}
+                  className="absolute overflow-hidden"
+                  initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
                       style={{
-                        top: device.key === "desktop" ? "15%" : "20%",
-                        left: device.key === "desktop" ? "15%" : "10%",
-                        right: device.key === "desktop" ? "15%" : "10%",
-                        bottom: device.key === "desktop" ? "25%" : "30%",
-                        background: "rgba(21, 163, 110, 0.15)",
-                        borderRadius: "8px",
+                    // Precise screen positioning for each device type
+                    ...(device.key === "desktop" && {
+                      top: "8%",
+                      left: "8%", 
+                      right: "8%",
+                      bottom: "20%",
+                      borderRadius: "2px",
+                    }),
+                    ...(device.key === "laptop" && {
+                      top: "12%",
+                      left: "12%",
+                      right: "12%", 
+                      bottom: "18%",
+                      borderRadius: "4px",
+                    }),
+                    ...(device.key === "ipad" && {
+                      top: "8%",
+                      left: "8%",
+                      right: "8%",
+                      bottom: "8%",
+                      borderRadius: "12px",
+                    }),
+                    ...(device.key === "tablet" && {
+                      top: "6%",
+                      left: "6%",
+                      right: "6%",
+                      bottom: "6%",
+                      borderRadius: "12px",
+                    }),
+                    ...(device.key === "iphone" && {
+                      top: "12%",
+                      left: "12%",
+                      right: "12%",
+                      bottom: "12%",
+                      borderRadius: "16px",
+                    }),
+                    ...(device.key === "phone" && {
+                      top: "8%",
+                      left: "8%",
+                      right: "8%",
+                      bottom: "8%",
+                      borderRadius: "16px",
+                    }),
+                    background: screenConfigs[device.key].bgColor,
                         backdropFilter: "blur(10px)",
-                        border: "1px solid rgba(21, 163, 110, 0.2)",
-                        boxShadow: "0 4px 20px rgba(21, 163, 110, 0.1)",
-                      }}
-                    >
-                      <div className="text-center p-2">
-                        <div className="text-lg font-semibold text-[#15a36e] mb-1">
-                          {content.content}
-                        </div>
-                        <div className="text-xs text-gray-700 font-medium">
-                          {content.description}
-                        </div>
-                      </div>
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    boxShadow: device.key === "desktop" || device.key === "laptop" 
+                      ? "inset 0 0 20px rgba(0, 0, 0, 0.3)" 
+                      : "inset 0 0 10px rgba(0, 0, 0, 0.2)",
+                  }}
+                >
+                  {renderScreenContent(
+                    screenConfigs[device.key].content,
+                    device.key === "desktop" || device.key === "laptop"
+                  )}
                     </motion.div>
-                  );
-                }
-                return null;
-              })}
+              )}
             </div>
           </motion.div>
         );
