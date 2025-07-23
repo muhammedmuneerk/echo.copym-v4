@@ -161,7 +161,7 @@ export default function Hero() {
                   Unlock Exclusive Assets, Invest With{' '}
                 </span>
                 <span
-                  className="text-[#255f99] font-bold"
+                  className="text-[#15a36e]"
                   style={{ textShadow: '2px 2px 3px rgba(223, 223, 223, 0.4)' }}
                 >
                   Confidence
