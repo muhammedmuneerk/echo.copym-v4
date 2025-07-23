@@ -1,6 +1,6 @@
 export default function TestimonialsSection() {
   return (
-    <section className="py-12 bg-gray-50 text-gray-800">
+    <section className="py-12  text-gray-800">
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* Gradient Title */}
         <h2 className="brand-section-title text-[#255f99] mb-10 bg-clip-text">

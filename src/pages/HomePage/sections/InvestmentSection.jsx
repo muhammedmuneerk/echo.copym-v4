@@ -464,7 +464,7 @@ const RealEstateInvestmentSection = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-br from-green-50 to-green-100" ref={containerRef}>
+    <div className="relative " ref={containerRef}>
       <style>{`
         @keyframes textShine {
           0% { background-position: -200% 0; }

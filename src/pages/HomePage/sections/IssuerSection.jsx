@@ -277,18 +277,20 @@ const TokenizationDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 p-6 perspective-1000">
+    <div className="min-h-screen p-12 mt-20 perspective-1000">
       <div className="max-w-7xl mx-auto">
        
         {/* Header */}
         <div className={`mb-8 transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-            Real World Asset Tokenization
+          <h1 className="brand-section-title bg-clip-text text-transparent mb-2 justify-center flex items-center">
+            <span className='text-[#255f99]'>Real World Asset</span>
+            <span className='text-[#15a36e]'> Tokenization</span>
+            
           </h1>
-          <p className="text-gray-600">Transform physical assets into digital tokens on blockchain</p>
+          <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto mb-14">Transform physical assets into digital tokens on blockchain</p>
         </div>
 
-        <div className="grid grid-cols-12 gap-8">
+        <div className="grid grid-cols-12 gap-8 mt-6 pt-6">
           
           {/* Portfolio Overview with GSAP Rotation + Zoom */}
           <div className={`col-span-4 bg-white rounded-3xl p-8 transform transition-all duration-1000 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
@@ -369,7 +371,7 @@ const TokenizationDashboard = () => {
           </div>
 
           {/* Progress Indicator */}
-          <div className={`col-span-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl p-8 text-white transform transition-all duration-1000 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className={`col-span-4 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-3xl p-8 text-white transform transition-all duration-1000 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <h3 className="text-xl font-bold mb-6">Tokenization Progress</h3>
             <div className="space-y-4">
               {stepCards.map((card, index) => (
@@ -407,7 +409,7 @@ const TokenizationDashboard = () => {
                       currentStep === index ? 'z-30' : currentStep > index ? 'z-20' : 'z-10'
                     }`}
                     style={{
-                      background: `linear-gradient(135deg, ${card.color.includes('blue') ? '#3B82F6' : card.color.includes('purple') ? '#8B5CF6' : '#EC4899'} 0%, ${card.color.includes('blue') ? '#1E40AF' : card.color.includes('purple') ? '#7C3AED' : '#BE185D'} 100%)`,
+                      background: `linear-gradient(135deg, ${card.color.includes('blue') ? '#3B82F6' : card.color.includes('purple') ? '#8B5CF6' : '#4894ecff'} 0%, ${card.color.includes('blue') ? '#1E40AF' : card.color.includes('purple') ? '#7C3AED' : '#18be36ff'} 100%)`,
                       transform: `translateY(${index * 15}px) rotateX(${index * 3}deg) rotateY(${index * 2}deg)`,
                       boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
                       zIndex: index + 10,
