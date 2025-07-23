@@ -464,7 +464,7 @@ const RealEstateInvestmentSection = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-br from-green-50 to-green-100" ref={containerRef}>
+    <div className="relative" ref={containerRef}>
       <style jsx>{`
         @keyframes textShine {
           0% { background-position: -200% 0; }
@@ -518,7 +518,7 @@ const RealEstateInvestmentSection = () => {
         {/* Left Side - Visual Panel (will be pinned by GSAP) */}
         <div
           ref={visualRef}
-          className="w-1/2 h-screen flex items-center justify-center p-12 bg-gradient-to-br from-green-50 to-green-100"
+          className="w-1/2 h-screen flex items-center justify-center p-12"
         >
           <div
             className="visual-content relative w-96 h-[500px] flex items-center justify-center"
@@ -628,3 +628,6 @@ const RealEstateInvestmentSection = () => {
 };
 
 export default RealEstateInvestmentSection;
+
+
+// bg-gradient-to-br from-green-50 to-green-100
