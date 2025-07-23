@@ -67,8 +67,8 @@ const TechnologyStackSection = () => {
           {/* Medium & up: grid */}
           <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
             {features.map((item, idx) => (
-              <AnimatedCard>
-                <div key={idx} className="p-6 rounded-xl">
+              <AnimatedCard key={idx}>
+                <div className="p-6 rounded-xl">
                   <Box
                     className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
                     sx={{

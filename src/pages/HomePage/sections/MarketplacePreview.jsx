@@ -338,20 +338,24 @@ function DevicesShowcase({ currentStep }) {
                 
                 <div className="space-y-1">
                   {[
-                    { icon: <Gem className="w-3 h-3" />, name: 'Gold', value: '$45K', color: 'yellow', bg: 'bg-yellow-100', border: 'border-yellow-200', text: 'text-yellow-700' },
-                    { icon: <Building2 className="w-3 h-3" />, name: 'Real Estate', value: '$32K', color: 'blue', bg: 'bg-blue-100', border: 'border-blue-200', text: 'text-blue-700' },
-                    { icon: <Palette className="w-3 h-3" />, name: 'Art & NFTs', value: '$18K', color: 'purple', bg: 'bg-purple-100', border: 'border-purple-200', text: 'text-purple-700' },
-                    { icon: <Coins className="w-3 h-3" />, name: 'Stablecoins', value: '$15K', color: 'green', bg: 'bg-green-100', border: 'border-green-200', text: 'text-green-700' },
-                    { icon: <Zap className="w-3 h-3" />, name: 'Energy', value: '$9K', color: 'orange', bg: 'bg-orange-100', border: 'border-orange-200', text: 'text-orange-700' },
-                    { icon: <Gem className="w-3 h-3" />, name: 'Commodities', value: '$5K', color: 'red', bg: 'bg-red-100', border: 'border-red-200', text: 'text-red-700' }
+                    { icon: <Gem className="w-3 h-3" />, color: 'yellow', bg: 'bg-yellow-100', border: 'border-yellow-200' },
+                    { icon: <Building2 className="w-3 h-3" />, color: 'blue', bg: 'bg-blue-100', border: 'border-blue-200' },
+                    { icon: <Palette className="w-3 h-3" />, color: 'purple', bg: 'bg-purple-100', border: 'border-purple-200' },
+                    { icon: <Coins className="w-3 h-3" />, color: 'green', bg: 'bg-green-100', border: 'border-green-200' },
+                    { icon: <Zap className="w-3 h-3" />, color: 'orange', bg: 'bg-orange-100', border: 'border-orange-200' },
+                    { icon: <Gem className="w-3 h-3" />, color: 'red', bg: 'bg-red-100', border: 'border-red-200' }
                   ].map((category, i) => (
                     <div key={i} className={`${category.bg} p-2 rounded-lg border ${category.border} hover:shadow-sm transition-all duration-200 cursor-pointer`}>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2">
                           <div className={`text-${category.color}-600`}>{category.icon}</div>
-                          <span className="text-xs font-medium text-gray-900">{category.name}</span>
+                          <div className="flex-1 bg-gray-200 h-2 rounded-full">
+                            <div className={`bg-${category.color}-500 h-2 rounded-full`} style={{width: `${60 + Math.random() * 40}%`}}></div>
+                          </div>
                         </div>
-                        <div className={`text-xs font-bold ${category.text}`}>{category.value}</div>
+                        <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -398,28 +402,32 @@ function DevicesShowcase({ currentStep }) {
                 
                 <div className="grid grid-cols-4 gap-1 h-full overflow-hidden">
                   {[
-                    { icon: <Building2 className="w-4 h-4" />, name: 'NYC Apt', value: '$12K', bg: 'bg-gradient-to-br from-yellow-400 to-yellow-500', badge: 'Hot' },
-                    { icon: <Home className="w-4 h-4" />, name: 'Villa', value: '$8.5K', bg: 'bg-gradient-to-br from-blue-400 to-blue-500', badge: 'New' },
-                    { icon: <Zap className="w-4 h-4" />, name: 'Solar', value: '$6K', bg: 'bg-gradient-to-br from-green-400 to-green-500', badge: 'Trending' },
-                    { icon: <Palette className="w-4 h-4" />, name: 'Art #1', value: '$4.2K', bg: 'bg-gradient-to-br from-purple-400 to-purple-500', badge: 'Featured' },
-                    { icon: <Gem className="w-4 h-4" />, name: 'Gold', value: '$3.8K', bg: 'bg-gradient-to-br from-orange-400 to-orange-500', badge: 'Premium' },
-                    { icon: <Gem className="w-4 h-4" />, name: 'Diamond', value: '$2.9K', bg: 'bg-gradient-to-br from-red-400 to-red-500', badge: 'Rare' },
-                    { icon: <Star className="w-4 h-4" />, name: 'NFT #23', value: '$2.1K', bg: 'bg-gradient-to-br from-pink-400 to-pink-500', badge: 'Limited' },
-                    { icon: <Building2 className="w-4 h-4" />, name: 'Factory', value: '$1.8K', bg: 'bg-gradient-to-br from-indigo-400 to-indigo-500', badge: 'Industrial' },
-                    { icon: <Zap className="w-4 h-4" />, name: 'Wind', value: '$1.5K', bg: 'bg-gradient-to-br from-teal-400 to-teal-500', badge: 'Green' },
-                    { icon: <Leaf className="w-4 h-4" />, name: 'Ocean', value: '$1.2K', bg: 'bg-gradient-to-br from-cyan-400 to-cyan-500', badge: 'Ocean' },
-                    { icon: <Leaf className="w-4 h-4" />, name: 'Forest', value: '$0.9K', bg: 'bg-gradient-to-br from-lime-400 to-lime-500', badge: 'Nature' },
-                    { icon: <Activity className="w-4 h-4" />, name: 'Tesla', value: '$0.7K', bg: 'bg-gradient-to-br from-amber-400 to-amber-500', badge: 'Tech' }
+                    { icon: <Building2 className="w-4 h-4" />, bg: 'bg-gradient-to-br from-yellow-400 to-yellow-500' },
+                    { icon: <Home className="w-4 h-4" />, bg: 'bg-gradient-to-br from-blue-400 to-blue-500' },
+                    { icon: <Zap className="w-4 h-4" />, bg: 'bg-gradient-to-br from-green-400 to-green-500' },
+                    { icon: <Palette className="w-4 h-4" />, bg: 'bg-gradient-to-br from-purple-400 to-purple-500' },
+                    { icon: <Gem className="w-4 h-4" />, bg: 'bg-gradient-to-br from-orange-400 to-orange-500' },
+                    { icon: <Gem className="w-4 h-4" />, bg: 'bg-gradient-to-br from-red-400 to-red-500' },
+                    { icon: <Star className="w-4 h-4" />, bg: 'bg-gradient-to-br from-pink-400 to-pink-500' },
+                    { icon: <Building2 className="w-4 h-4" />, bg: 'bg-gradient-to-br from-indigo-400 to-indigo-500' },
+                    { icon: <Zap className="w-4 h-4" />, bg: 'bg-gradient-to-br from-teal-400 to-teal-500' },
+                    { icon: <Leaf className="w-4 h-4" />, bg: 'bg-gradient-to-br from-cyan-400 to-cyan-500' },
+                    { icon: <Leaf className="w-4 h-4" />, bg: 'bg-gradient-to-br from-lime-400 to-lime-500' },
+                    { icon: <Activity className="w-4 h-4" />, bg: 'bg-gradient-to-br from-amber-400 to-amber-500' }
                   ].map((asset, i) => (
                     <div key={i} className={`${asset.bg} p-2 rounded-lg text-center shadow-sm border border-white/30 hover:shadow-md transition-all duration-200 cursor-pointer relative group`}>
                       <div className="absolute top-1 right-1">
-                        <div className="text-xs bg-white/20 backdrop-blur-sm px-1 rounded text-white font-bold">
-                          {asset.badge}
-                        </div>
+                        <div className="w-2 h-2 bg-white/40 rounded-full animate-pulse"></div>
                       </div>
-                      <div className="text-white mb-1 flex justify-center">{asset.icon}</div>
-                      <div className="text-xs font-bold text-white leading-tight mb-1">{asset.name}</div>
-                      <div className="text-xs text-white/90 font-medium">{asset.value}</div>
+                      <div className="text-white mb-2 flex justify-center">{asset.icon}</div>
+                      <div className="flex justify-center space-x-1 mb-2">
+                        {Array.from({length: 3}).map((_, j) => (
+                          <div key={j} className="w-1 h-1 bg-white/60 rounded-full"></div>
+                        ))}
+                      </div>
+                      <div className="w-full bg-white/20 h-1 rounded-full">
+                        <div className="bg-white h-1 rounded-full" style={{width: `${40 + Math.random() * 50}%`}}></div>
+                      </div>
                       <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-200"></div>
                     </div>
                   ))}
@@ -452,20 +460,24 @@ function DevicesShowcase({ currentStep }) {
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-2 rounded-lg border border-blue-200 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center space-x-2">
-                    <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
-                      <DollarSign className="w-3 h-3 text-blue-600" />
+                    <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                      <div className="w-3 h-3 bg-white rounded-full"></div>
                     </div>
-                    <div>
-                      <div className="text-xs text-gray-600 font-medium">BTC/USD</div>
-                      <div className="text-sm font-bold text-green-600">$43,250.82</div>
+                    <div className="flex flex-col space-y-1">
+                      <div className="flex space-x-1">
+                        {Array.from({length: 4}).map((_, i) => (
+                          <div key={i} className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                        ))}
+                      </div>
+                      <div className="w-12 h-2 bg-green-500 rounded-full"></div>
                     </div>
                   </div>
-                  <div className="text-right">
+                  <div className="flex flex-col items-end space-y-1">
                     <div className="flex items-center space-x-1">
                       <TrendingUp className="w-3 h-3 text-green-600" />
-                      <div className="text-xs text-green-600 font-semibold">+2.45%</div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     </div>
-                    <div className="text-xs text-gray-500">24h</div>
+                    <div className="w-8 h-1 bg-gray-300 rounded-full"></div>
                   </div>
                 </div>
               </div>
@@ -502,35 +514,49 @@ function DevicesShowcase({ currentStep }) {
               {/* Order Book */}
               <div className="bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
                 <div className="flex items-center justify-between mb-2">
-                  <div className="text-xs font-semibold text-gray-700 flex items-center">
-                    <List className="w-3 h-3 mr-1" />
-                    Order Book
+                  <div className="flex items-center space-x-1">
+                    <List className="w-3 h-3 text-gray-700" />
+                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
                   </div>
-                  <RefreshCw className="w-3 h-3 text-gray-500" />
+                  <RefreshCw className="w-3 h-3 text-gray-500 animate-spin" style={{animationDuration: '2s'}} />
                 </div>
                 <div className="space-y-1">
                   {/* Sell Orders */}
                   {Array.from({length: 3}).map((_, i) => (
-                    <div key={i} className="flex justify-between items-center text-xs">
-                      <div className="flex items-center space-x-1">
+                    <div key={i} className="flex justify-between items-center">
+                      <div className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                        <span className="text-red-600 font-medium">43,{240 + i * 2}</span>
+                        <div className="w-8 h-2 bg-red-200 rounded-full">
+                          <div className="w-6 h-2 bg-red-500 rounded-full"></div>
+                        </div>
                       </div>
-                      <span className="text-gray-700">0.{Math.floor(Math.random() * 9) + 1}{Math.floor(Math.random() * 9)}</span>
+                      <div className="flex space-x-1">
+                        {Array.from({length: 3}).map((_, j) => (
+                          <div key={j} className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                        ))}
+                      </div>
                     </div>
                   ))}
                   {/* Spread */}
                   <div className="border-t border-gray-300 my-1 py-1">
-                    <div className="text-center text-xs text-gray-500 font-medium">Spread: $12.50</div>
+                    <div className="flex justify-center">
+                      <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-green-500 rounded-full"></div>
+                    </div>
                   </div>
                   {/* Buy Orders */}
                   {Array.from({length: 3}).map((_, i) => (
-                    <div key={i} className="flex justify-between items-center text-xs">
-                      <div className="flex items-center space-x-1">
+                    <div key={i} className="flex justify-between items-center">
+                      <div className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-green-600 font-medium">43,{250 + i * 2}</span>
+                        <div className="w-8 h-2 bg-green-200 rounded-full">
+                          <div className="w-5 h-2 bg-green-500 rounded-full"></div>
+                        </div>
                       </div>
-                      <span className="text-gray-700">0.{Math.floor(Math.random() * 9) + 1}{Math.floor(Math.random() * 9)}</span>
+                      <div className="flex space-x-1">
+                        {Array.from({length: 3}).map((_, j) => (
+                          <div key={j} className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -555,17 +581,20 @@ function DevicesShowcase({ currentStep }) {
         return (
           <div className="w-full h-full bg-white text-gray-900 overflow-hidden">
             {/* Header */}
-            <div className="bg-gray-50 p-2">
-              <div className="text-center">
-                <div className="text-xs text-gray-600 mb-1">Portfolio Value</div>
-                <div className="text-lg font-bold text-gray-900">$45,230.67</div>
-                <div className="text-xs text-green-600">+8.4% today</div>
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-2 border-b border-gray-200">
+              <div className="text-center space-y-2">
+                <div className="flex justify-center space-x-1">
+                  <PieChart className="w-4 h-4 text-blue-600" />
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                </div>
+                <div className="w-20 h-3 bg-gray-800 rounded-full mx-auto"></div>
+                <div className="w-16 h-2 bg-green-400 rounded-full mx-auto"></div>
               </div>
             </div>
             
             {/* Pie Chart Simulation */}
             <div className="p-2">
-              <div className="relative w-16 h-16 mx-auto mb-2">
+              <div className="relative w-16 h-16 mx-auto mb-3">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 42 42">
                   <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#e5e7eb" strokeWidth="3"/>
                   <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#10b981" strokeWidth="3" 
@@ -575,42 +604,54 @@ function DevicesShowcase({ currentStep }) {
                   <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#f59e0b" strokeWidth="3" 
                     strokeDasharray="20 100" strokeDashoffset="-70"/>
                 </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                </div>
               </div>
 
               {/* Asset Breakdown */}
-              <div className="space-y-1">
-                <div className="flex justify-between items-center bg-gray-50 p-1 rounded">
-                  <div className="flex items-center space-x-1">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-xs">Real Estate</span>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center bg-green-50 p-2 rounded-lg border border-green-200">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <Building2 className="w-3 h-3 text-green-600" />
+                    <div className="w-12 h-2 bg-green-300 rounded-full"></div>
                   </div>
-                  <div className="text-xs font-semibold">$25,000</div>
+                  <div className="w-8 h-2 bg-gray-800 rounded-full"></div>
                 </div>
-                <div className="flex justify-between items-center bg-gray-50 p-1 rounded">
-                  <div className="flex items-center space-x-1">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-xs">Gold Tokens</span>
+                <div className="flex justify-between items-center bg-blue-50 p-2 rounded-lg border border-blue-200">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <Gem className="w-3 h-3 text-blue-600" />
+                    <div className="w-10 h-2 bg-blue-300 rounded-full"></div>
                   </div>
-                  <div className="text-xs font-semibold">$15,000</div>
+                  <div className="w-6 h-2 bg-gray-800 rounded-full"></div>
                 </div>
-                <div className="flex justify-between items-center bg-gray-50 p-1 rounded">
-                  <div className="flex items-center space-x-1">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                    <span className="text-xs">Solar Farm</span>
+                <div className="flex justify-between items-center bg-yellow-50 p-2 rounded-lg border border-yellow-200">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <Zap className="w-3 h-3 text-yellow-600" />
+                    <div className="w-8 h-2 bg-yellow-300 rounded-full"></div>
                   </div>
-                  <div className="text-xs font-semibold">$5,230</div>
+                  <div className="w-4 h-2 bg-gray-800 rounded-full"></div>
                 </div>
               </div>
 
               {/* Performance Chart */}
-              <div className="mt-2 bg-gray-50 p-1 rounded">
-                <div className="text-xs text-gray-600 mb-1">7 Day Performance</div>
-                <div className="flex items-end justify-between h-6">
+              <div className="mt-3 bg-gray-50 p-2 rounded-lg border border-gray-200">
+                <div className="flex items-center justify-center space-x-1 mb-2">
+                  <BarChart3 className="w-3 h-3 text-gray-600" />
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                </div>
+                <div className="flex items-end justify-between h-6 space-x-1">
                   {Array.from({length: 7}).map((_, i) => (
                     <div 
                       key={i}
-                      className="bg-green-500 w-1 rounded-t"
-                      style={{height: `${30 + Math.random() * 70}%`}}
+                      className="bg-green-500 flex-1 rounded-t transition-all duration-300"
+                      style={{
+                        height: `${30 + Math.random() * 70}%`,
+                        animationDelay: `${i * 0.1}s`
+                      }}
                     />
                   ))}
                 </div>
@@ -623,54 +664,73 @@ function DevicesShowcase({ currentStep }) {
         return (
           <div className="w-full h-full bg-white text-gray-900 overflow-hidden">
             {/* Header */}
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 p-2">
-              <div className="text-center">
-                <div className="text-xs text-gray-600 mb-1">Staking Rewards</div>
-                <div className="text-lg font-bold text-green-600">12.5% APY</div>
-                <div className="text-xs text-gray-600">Annual Percentage Yield</div>
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 p-2 border-b border-gray-200">
+              <div className="text-center space-y-2">
+                <div className="flex justify-center space-x-2">
+                  <Target className="w-4 h-4 text-green-600" />
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                </div>
+                <div className="w-16 h-3 bg-green-500 rounded-full mx-auto"></div>
+                <div className="flex justify-center space-x-1">
+                  {Array.from({length: 5}).map((_, i) => (
+                    <div key={i} className="w-1 h-1 bg-green-400 rounded-full"></div>
+                  ))}
+                </div>
               </div>
             </div>
             
             {/* Staking Stats */}
-            <div className="p-2 space-y-2">
-              <div className="grid grid-cols-2 gap-1">
-                <div className="bg-gray-50 p-1 rounded">
-                  <div className="text-xs text-gray-600">Staked</div>
-                  <div className="text-sm font-bold">$10,000</div>
+            <div className="p-2 space-y-3">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-gray-50 p-2 rounded-lg border border-gray-200">
+                  <div className="flex items-center justify-center space-x-1 mb-2">
+                    <Coins className="w-3 h-3 text-gray-600" />
+                    <div className="w-1 h-1 bg-gray-500 rounded-full"></div>
+                  </div>
+                  <div className="w-12 h-2 bg-gray-800 rounded-full mx-auto"></div>
                 </div>
-                <div className="bg-green-50 p-1 rounded">
-                  <div className="text-xs text-gray-600">Earned</div>
-                  <div className="text-sm font-bold text-green-600">$342.75</div>
+                <div className="bg-green-50 p-2 rounded-lg border border-green-200">
+                  <div className="flex items-center justify-center space-x-1 mb-2">
+                    <TrendingUp className="w-3 h-3 text-green-600" />
+                    <div className="w-1 h-1 bg-green-500 rounded-full animate-pulse"></div>
+                  </div>
+                  <div className="w-10 h-2 bg-green-600 rounded-full mx-auto"></div>
                 </div>
               </div>
 
               {/* Progress Bar */}
-              <div className="bg-gray-200 rounded-full h-2">
-                <div className="bg-green-500 h-2 rounded-full" style={{width: '68%'}}></div>
+              <div className="bg-gray-200 rounded-full h-3 relative overflow-hidden">
+                <div className="bg-gradient-to-r from-green-400 to-green-600 h-3 rounded-full transition-all duration-1000" style={{width: '68%'}}></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
               </div>
-              <div className="text-xs text-center text-gray-600">Next reward in 2h 15m</div>
+              
+              <div className="flex justify-center space-x-1">
+                <Clock className="w-3 h-3 text-gray-500" />
+                <div className="w-8 h-1 bg-gray-400 rounded-full"></div>
+              </div>
 
               {/* Rewards History */}
-              <div className="bg-gray-50 p-1 rounded">
-                <div className="text-xs text-gray-600 mb-1">Recent Rewards</div>
-                <div className="space-y-0.5">
-                  <div className="flex justify-between text-xs">
-                    <span>Today</span>
-                    <span className="text-green-600">+$3.42</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span>Yesterday</span>
-                    <span className="text-green-600">+$3.41</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span>2 days ago</span>
-                    <span className="text-green-600">+$3.38</span>
-                  </div>
+              <div className="bg-gray-50 p-2 rounded-lg border border-gray-200">
+                <div className="flex items-center justify-center space-x-1 mb-2">
+                  <History className="w-3 h-3 text-gray-600" />
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                </div>
+                <div className="space-y-1">
+                  {Array.from({length: 3}).map((_, i) => (
+                    <div key={i} className="flex justify-between items-center">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <div className="w-6 h-1 bg-gray-300 rounded-full"></div>
+                      </div>
+                      <div className="w-8 h-1 bg-green-400 rounded-full"></div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white text-xs py-1 rounded font-bold">
-                Stake More
+              <button className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xs py-2 rounded-lg font-bold flex items-center justify-center space-x-1 shadow-sm">
+                <Plus className="w-3 h-3" />
+                <div className="w-8 h-1 bg-white/60 rounded-full"></div>
               </button>
             </div>
           </div>
@@ -681,15 +741,15 @@ function DevicesShowcase({ currentStep }) {
           <div className="w-full h-full bg-white text-gray-900 overflow-hidden">
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-2 border-b border-gray-200">
-              <div className="text-center">
-                <div className="flex items-center justify-center space-x-1 mb-1">
+              <div className="text-center space-y-2">
+                <div className="flex items-center justify-center space-x-2">
                   <Wallet className="w-4 h-4 text-blue-600" />
-                  <div className="text-xs text-gray-600 font-medium">Total Balance</div>
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
                 </div>
-                <div className="text-lg font-bold text-gray-900">$8,450.32</div>
-                <div className="flex items-center justify-center space-x-1">
+                <div className="w-20 h-3 bg-gray-800 rounded-full mx-auto"></div>
+                <div className="flex items-center justify-center space-x-2">
                   <TrendingUp className="w-3 h-3 text-green-600" />
-                  <div className="text-xs text-green-600 font-semibold">+$234.56 today</div>
+                  <div className="w-16 h-2 bg-green-400 rounded-full"></div>
                 </div>
               </div>
             </div>
@@ -702,14 +762,14 @@ function DevicesShowcase({ currentStep }) {
                     <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
                       <Coins className="w-4 h-4 text-white" />
                     </div>
-                    <div>
-                      <div className="text-xs font-semibold text-gray-900">Bitcoin</div>
-                      <div className="text-xs text-gray-600">BTC</div>
+                    <div className="flex flex-col space-y-1">
+                      <div className="w-12 h-2 bg-orange-300 rounded-full"></div>
+                      <div className="w-8 h-1 bg-orange-200 rounded-full"></div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-xs font-bold text-gray-900">0.185</div>
-                    <div className="text-xs text-gray-600">$7,950</div>
+                  <div className="flex flex-col space-y-1 items-end">
+                    <div className="w-8 h-2 bg-gray-800 rounded-full"></div>
+                    <div className="w-12 h-1 bg-gray-400 rounded-full"></div>
                   </div>
                 </div>
               </div>
@@ -720,14 +780,14 @@ function DevicesShowcase({ currentStep }) {
                     <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                       <Gem className="w-4 h-4 text-white" />
                     </div>
-                    <div>
-                      <div className="text-xs font-semibold text-gray-900">Ethereum</div>
-                      <div className="text-xs text-gray-600">ETH</div>
+                    <div className="flex flex-col space-y-1">
+                      <div className="w-10 h-2 bg-blue-300 rounded-full"></div>
+                      <div className="w-6 h-1 bg-blue-200 rounded-full"></div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-xs font-bold text-gray-900">2.45</div>
-                    <div className="text-xs text-gray-600">$4,200</div>
+                  <div className="flex flex-col space-y-1 items-end">
+                    <div className="w-6 h-2 bg-gray-800 rounded-full"></div>
+                    <div className="w-10 h-1 bg-gray-400 rounded-full"></div>
                   </div>
                 </div>
               </div>
@@ -738,14 +798,14 @@ function DevicesShowcase({ currentStep }) {
                     <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                       <Activity className="w-4 h-4 text-white" />
                     </div>
-                    <div>
-                      <div className="text-xs font-semibold text-gray-900">RWA Token</div>
-                      <div className="text-xs text-gray-600">RWA</div>
+                    <div className="flex flex-col space-y-1">
+                      <div className="w-14 h-2 bg-green-300 rounded-full"></div>
+                      <div className="w-10 h-1 bg-green-200 rounded-full"></div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-xs font-bold text-gray-900">1,250</div>
-                    <div className="text-xs text-gray-600">$300</div>
+                  <div className="flex flex-col space-y-1 items-end">
+                    <div className="w-10 h-2 bg-gray-800 rounded-full"></div>
+                    <div className="w-6 h-1 bg-gray-400 rounded-full"></div>
                   </div>
                 </div>
               </div>
@@ -787,14 +847,14 @@ function DevicesShowcase({ currentStep }) {
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-3 border-b border-gray-200">
               <div className="text-center">
-                <div className="flex items-center justify-center space-x-1 mb-1">
+                <div className="flex items-center justify-center space-x-2 mb-2">
                   <Wallet className="w-4 h-4 text-blue-600" />
-                  <div className="text-xs text-gray-600 font-medium">Portfolio</div>
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
                 </div>
-                <div className="text-lg font-bold text-green-600 mb-1">$12,340.89</div>
-                <div className="flex items-center justify-center space-x-1">
+                <div className="w-24 h-3 bg-green-500 rounded-full mx-auto mb-2"></div>
+                <div className="flex items-center justify-center space-x-2">
                   <TrendingUp className="w-3 h-3 text-green-600" />
-                  <div className="text-xs text-green-600 font-semibold">+$156.23 today</div>
+                  <div className="w-16 h-2 bg-green-300 rounded-full"></div>
                 </div>
               </div>
             </div>

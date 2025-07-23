@@ -90,8 +90,8 @@ const AiOverview = () => {
           {/* Medium & up: grid layout */}
           <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6">
             {features.map((feature) => (
-              <AnimatedCard>
-                <div key={feature.title} className=" p-6 rounded-xl">
+              <AnimatedCard key={feature.title}>
+                <div className=" p-6 rounded-xl">
                   <Box
                     className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
                     sx={{
