@@ -4,16 +4,16 @@
 
 @layer components {
   .brand-title {
-    @apply font-brand text-4xl sm:text-5xl lg:text-6xl leading-tight font-bold;
+    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight;
   }
 
 
   .brand-section-title {
-    @apply font-brand text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight;
+    @apply text-4xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight;
   }
 
   .brand-card-title {
-    @apply font-brand text-xl font-semibold;
+    @apply text-xl font-semibold;
   }
 
   .brand-description {
@@ -26,6 +26,6 @@
 
 
   .btn-gradient-secondary {
-    @apply inline-flex items-center justify-center h-12 px-8 text-white font-semibold text-base rounded-full bg-gradient-to-r from-[#b1d8c9] to-[#a3bfdc] hover:opacity-90 transition-all duration-200;
+    @apply inline-flex items-center justify-center h-12 px-8 text-white font-semibold text-base rounded-full bg-gray-500 hover:bg-gray-600 transition-all duration-200;
   }
 }
