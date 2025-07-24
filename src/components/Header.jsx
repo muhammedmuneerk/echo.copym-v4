@@ -331,10 +331,10 @@ export default function Header() {
 
   return (
     <>
-      {/* Modern Clean Header */}
+      {/* Modern Clean Header with Glass Effect */}
       <header className="absolute top-2 inset-x-0 z-50 flex justify-center pointer-events-none">
-        {/* Main header container */}
-        <div className="w-[98%] max-w-7xl  pointer-events-auto px-8 py-4">
+        {/* Main header container with glass effect */}
+        <div className="w-[98%] max-w-7xl pointer-events-auto px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg">
           
           <div className="flex items-center justify-between w-full">
 
