@@ -131,7 +131,7 @@ const ComparisonSection = () => {
         
         <div className="max-w-4xl mx-auto">
           {/* Matrix Tabs */}
-          <div className="flex flex-wrap justify-center mb-8 gap-2 sm:gap-4">
+          <div className="flex flex-wrap justify-center mb-6 sm:mb-8 gap-2 sm:gap-4 px-4">
                 {[
                   { id: 'performance', icon: <TrendingUp />, label: 'Performance' },
                   { id: 'efficiency', icon: <Speed />, label: 'Efficiency' },
@@ -141,20 +141,20 @@ const ComparisonSection = () => {
                   <button
                 key={index}
                     onClick={() => handleTabClick(tab.id)}
-                className={`px-6 py-3 mx-2 rounded-full font-semibold transition-all duration-300 ${
+                className={`px-3 sm:px-6 py-2 sm:py-3 mx-1 sm:mx-2 rounded-full font-semibold transition-all duration-300 text-xs sm:text-sm ${
                       activeMatrixTab === tab.id
                     ? 'bg-green-400 text-black shadow-lg shadow-green-400/30'
                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                     }`}
                   >
                     {tab.icon}
-                    {tab.label}
+                    <span className="hidden sm:inline ml-1">{tab.label}</span>
                   </button>
                 ))}
             </div>
             
           {/* Matrix Content */}
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-6 sm:space-y-8 px-4">
             <h3 className="brand-card-title text-white mb-4 sm:mb-8 text-lg sm:text-xl md:text-2xl text-center">
               Performance Comparison Matrix
             </h3>
@@ -165,38 +165,38 @@ const ComparisonSection = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="p-4 sm:p-6 transition-all duration-300"
+                  className="p-3 sm:p-4 md:p-6 transition-all duration-300"
                 >
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-center">
                     {metric.icon}
-                    <span className="brand-card-title text-white text-base sm:text-lg">{metric.label}</span>
+                    <span className="brand-card-title text-white text-sm sm:text-base md:text-lg">{metric.label}</span>
                   </div>
                   <div className="space-y-2 sm:space-y-3">
                     {/* CopymAI Bar */}
                     <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                      <div className="flex-1 w-full bg-gray-700 rounded-full h-6 sm:h-8 overflow-hidden">
+                      <div className="flex-1 w-full bg-gray-700 rounded-full h-4 sm:h-6 md:h-8 overflow-hidden">
                         <div 
                           className={`h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full transition-all duration-1000 ease-out relative ${metric.copymai.instant ? 'animate-pulse' : ''}`}
                           style={{ width: metric.copymai.width }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-semibold text-white whitespace-nowrap">{metric.copymai.value}</span>
+                          <span className="absolute right-1 sm:right-2 top-1/2 transform -translate-y-1/2 text-xs font-semibold text-white whitespace-nowrap">{metric.copymai.value}</span>
                         </div>
                       </div>
-                      <span className="text-green-400 font-semibold text-xs sm:text-sm min-w-[60px] sm:min-w-[80px] text-center">CopymAI</span>
+                      <span className="text-green-400 font-semibold text-xs sm:text-sm min-w-[50px] sm:min-w-[60px] md:min-w-[80px] text-center">CopymAI</span>
                     </div>
                     {/* Traditional Bar */}
                     <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                      <div className="flex-1 w-full bg-gray-700 rounded-full h-6 sm:h-8 overflow-hidden">
+                      <div className="flex-1 w-full bg-gray-700 rounded-full h-4 sm:h-6 md:h-8 overflow-hidden">
                         <div 
                           className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full transition-all duration-1000 ease-out relative"
                           style={{ width: metric.traditional.width }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                          <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-semibold text-white whitespace-nowrap">{metric.traditional.value}</span>
+                          <span className="absolute right-1 sm:right-2 top-1/2 transform -translate-y-1/2 text-xs font-semibold text-white whitespace-nowrap">{metric.traditional.value}</span>
                         </div>
                       </div>
-                      <span className="text-blue-400 font-semibold text-xs sm:text-sm min-w-[60px] sm:min-w-[80px] text-center">Traditional</span>
+                      <span className="text-blue-400 font-semibold text-xs sm:text-sm min-w-[50px] sm:min-w-[60px] md:min-w-[80px] text-center">Traditional</span>
                     </div>
                   </div>
                 </motion.div>

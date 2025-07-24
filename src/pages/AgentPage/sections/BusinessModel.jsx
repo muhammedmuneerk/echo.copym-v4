@@ -53,15 +53,15 @@ const BusinessModel = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gray-800 border border-gray-700 rounded-xl p-6 text-center transition-all duration-300 hover:transform hover:-translate-y-1 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/10 flex-shrink-0 w-72"
+                className="bg-gray-800 border border-gray-700 rounded-xl p-4 sm:p-6 text-center transition-all duration-300 hover:transform hover:-translate-y-1 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/10 flex-shrink-0 w-64 sm:w-72"
               >
-                <div className="brand-card-title text-green-400 mb-4">
+                <div className="brand-card-title text-green-400 mb-3 sm:mb-4 text-lg sm:text-xl">
                   {stream.percentage}
                 </div>
-                <h3 className="brand-card-title mb-4 text-white">
+                <h3 className="brand-card-title mb-3 sm:mb-4 text-white text-sm sm:text-base">
                   {stream.title}
                 </h3>
-                <p className="brand-description text-gray-300 text-sm">
+                <p className="brand-description text-gray-300 text-xs sm:text-sm">
                   {stream.description}
                 </p>
               </motion.div>
@@ -79,13 +79,13 @@ const BusinessModel = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-gray-800 border border-gray-700 rounded-xl p-6 md:p-8 text-center transition-all duration-300 hover:transform hover:-translate-y-1 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/10"
             >
-              <div className="brand-card-title text-green-400 mb-4">
+              <div className="brand-card-title text-green-400 mb-4 text-lg md:text-xl">
                 {stream.percentage}
               </div>
-              <h3 className="brand-card-title mb-4 text-white">
+              <h3 className="brand-card-title mb-4 text-white text-base md:text-lg">
                 {stream.title}
               </h3>
-              <p className="brand-description text-gray-300 text-sm">
+              <p className="brand-description text-gray-300 text-sm md:text-base">
                 {stream.description}
               </p>
             </motion.div>

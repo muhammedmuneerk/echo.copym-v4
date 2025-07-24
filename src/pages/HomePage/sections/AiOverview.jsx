@@ -1,5 +1,4 @@
 import React from 'react';
-import { Player } from '@lottiefiles/react-lottie-player';
 import { Link } from 'react-router-dom';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
@@ -113,13 +112,13 @@ const AiOverview = () => {
             ))}
           </div>
 
-          {/* Right – Lottie animation & CTA */}
+          {/* Right – SVG animation & CTA */}
           <div className="flex flex-col items-center justify-center w-full">
-            <Player
-              autoplay
-              loop
-              src="/assets/lottie/loading/loading.json"
+            <img
+              src="/src/styles/iq.svg"
+              alt="IQ Ecosystem Diagram"
               style={{ height: '450px', width: '450px' }}
+              className="animate-pulse"
             />
 
             <Link

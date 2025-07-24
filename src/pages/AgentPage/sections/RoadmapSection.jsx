@@ -74,33 +74,33 @@ const RoadmapSection = () => {
         
         {/* Mobile: Horizontal scrollable container */}
         <div className="block lg:hidden">
-          <div className="flex overflow-x-auto scrollbar-hide gap-6 pb-4 -mx-4 px-4">
+          <div className="flex overflow-x-auto scrollbar-hide gap-4 sm:gap-6 pb-4 -mx-4 px-4">
             {roadmapItems.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="transition-all duration-300 hover:transform hover:-translate-y-2 relative overflow-hidden group flex-shrink-0 w-80"
+                className="transition-all duration-300 hover:transform hover:-translate-y-2 relative overflow-hidden group flex-shrink-0 w-72 sm:w-80"
               >
-                <h3 className="brand-card-title mb-6 sm:mb-8 text-green-400 text-center relative">
+                <h3 className="brand-card-title mb-4 sm:mb-6 md:mb-8 text-green-400 text-center relative text-sm sm:text-base md:text-lg">
                   {item.quarter}
                   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 h-0.5 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
                 </h3>
                 
-                <ul className="space-y-4 sm:space-y-6">
+                <ul className="space-y-3 sm:space-y-4 md:space-y-6">
                   {item.items.map((task, taskIndex) => (
                     <motion.li
                       key={taskIndex}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: taskIndex * 0.1 }}
-                      className="flex items-center justify-center gap-3 sm:gap-4 p-4 sm:p-6 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-xl transition-all duration-300 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 hover:border-green-400 hover:transform hover:translate-x-2 hover:shadow-lg hover:shadow-green-400/20 group/item text-center"
+                      className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-6 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-xl transition-all duration-300 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 hover:border-green-400 hover:transform hover:translate-x-2 hover:shadow-lg hover:shadow-green-400/20 group/item text-center"
                     >
                       <div className="flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
                         {task.icon}
                       </div>
-                      <span className="brand-description text-white text-base sm:text-lg">
+                      <span className="brand-description text-white text-sm sm:text-base md:text-lg">
                         {task.text}
                       </span>
                     </motion.li>

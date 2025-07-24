@@ -29,7 +29,7 @@ const ProblemSection = () => {
   return (
     <section 
       id="problem" 
-      className="relative overflow-hidden py-20"
+      className="relative overflow-hidden py-12 sm:py-16 md:py-20"
       style={{
         background: 'black'
       }}
@@ -42,7 +42,7 @@ const ProblemSection = () => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,24 +58,24 @@ const ProblemSection = () => {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {problems.map((problem, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center"
+              className="text-center p-4 sm:p-6"
             >
-              <div className="text-6xl mb-6 flex items-center justify-center transition-all duration-300 ease-out hover:scale-110">
+              <div className="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-6 flex items-center justify-center transition-all duration-300 ease-out hover:scale-110">
                 {problem.icon}
               </div>
               
-              <h3 className="brand-card-title mb-4 text-white leading-tight tracking-tight">
+              <h3 className="brand-card-title mb-3 sm:mb-4 text-white leading-tight tracking-tight">
                 {problem.title}
               </h3>
               
-              <p className="brand-description text-gray-300">
+              <p className="brand-description text-gray-300 text-sm sm:text-base">
                 {problem.description}
               </p>
             </motion.div>
@@ -90,7 +90,7 @@ const ProblemSection = () => {
         >
           <button className="inline-flex items-center justify-center bg-gradient-to-r from-green-400 via-teal-400 to-blue-500 text-white py-3 sm:py-4 px-4 sm:px-8 md:px-12 lg:px-16 rounded-full text-base sm:text-lg md:text-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-out border-0 cursor-pointer max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto w-full text-center leading-tight">
             <span className="whitespace-normal sm:whitespace-nowrap">
-              <strong>Result?</strong> Great opportunities are missed by everyday investors.
+            <strong>Result?</strong> Great opportunities are missed by everyday investors.
             </span>
           </button>
         </motion.div>

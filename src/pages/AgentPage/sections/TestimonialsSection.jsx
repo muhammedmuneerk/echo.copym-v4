@@ -203,14 +203,14 @@ const TestimonialsSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center"
+            className="text-center px-4"
           >
             <div className="mb-8 sm:mb-12">
               <h3 className="brand-section-title text-white mb-4 text-center">Trusted by Industry Leaders</h3>
-              <p className="brand-description text-gray-300 text-center px-4 sm:px-0">Join thousands of professionals already using CopymAI</p>
+              <p className="brand-description text-gray-300 text-center">Join thousands of professionals already using CopymAI</p>
             </div>
             
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               {[
                 { number: '500+', label: 'Investment Professionals' },
                 { number: '50+', label: 'Financial Institutions' },
@@ -219,9 +219,9 @@ const TestimonialsSection = () => {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900 border border-gray-700 rounded-2xl p-4 sm:p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/10"
+                  className="bg-gray-900 border border-gray-700 rounded-2xl p-3 sm:p-4 md:p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/10"
                 >
-                  <div className="brand-card-title text-green-400 mb-2 text-center">
+                  <div className="brand-card-title text-green-400 mb-2 text-center text-sm sm:text-base md:text-lg">
                     {stat.number}
                   </div>
                   <div className="brand-description text-gray-300 font-medium uppercase tracking-wider text-center text-xs sm:text-sm">
