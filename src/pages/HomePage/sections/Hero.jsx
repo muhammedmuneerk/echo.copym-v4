@@ -115,7 +115,7 @@ export default function Hero() {
         style={{ zIndex: 4 }}
       >
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="brand-title mb-6">
+          {/* <h1 className="brand-title mb-6">
             <span
               className="text-white drop-shadow-2xl"
               style={{ textShadow: '3px 3px 6px rgba(0, 0, 0, 0.9)' }}
@@ -132,9 +132,9 @@ export default function Hero() {
 
           <p className="text-xl text-white/95 mb-8 mt-4 max-w-2xl mx-auto drop-shadow-lg font-medium">
             Seamless on-chain investment in real estate, commodities, carbon credits, and luxury assets. No gas fees, no native token required.
-          </p>
+          </p> */}
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 mt-32 pt-32 justify-center mb-12">
             <Link
               to="/marketplace"
               className="inline-flex items-center justify-center px-8 py-3 font-semibold text-white btn-gradient shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"

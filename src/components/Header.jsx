@@ -343,7 +343,7 @@ export default function Header() {
               <img
                 src="/assets/copym/png/Copym-01-1.png"
                 alt="COPYM"
-                className="h-16 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </Link>
 

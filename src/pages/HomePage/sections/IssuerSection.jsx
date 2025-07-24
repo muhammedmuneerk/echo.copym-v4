@@ -293,7 +293,7 @@ const TokenizationDashboard = () => {
         <div className="grid grid-cols-12 gap-8 mt-6 pt-6">
           
           {/* Portfolio Overview with GSAP Rotation + Zoom */}
-          <div className={`col-span-4 bg-white rounded-3xl p-8 transform transition-all duration-1000 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
+          <div className={`col-span-4 bg-[#d3f8e3] rounded-3xl p-8 transform transition-all duration-1000 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
             <h3 className="text-xl font-bold text-gray-800 mb-6">Portfolio Distribution</h3>
             <div ref={portfolioRef} className="h-64">
               <ResponsiveContainer width="100%" height="100%">
@@ -322,14 +322,14 @@ const TokenizationDashboard = () => {
                     <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: item.color }}></div>
                     <span className="text-sm text-gray-600">{item.name}</span>
                   </div>
-                  <span className="text-sm font-semibold">{item.value}%</span>
+                  <span className="text-sm font-semibold text-gray-600">{item.value}%</span>
                 </div>
               ))}
               </div>
           </div>
 
                      {/* Performance Chart */}
-           <div className={`col-span-4 bg-white rounded-3xl p-8 transform transition-all duration-1000 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
+           <div className={`col-span-4 bg-[#d3f8e3] rounded-3xl p-8 transform transition-all duration-1000 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
              <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
                <TrendingUp className="w-6 h-6 mr-2 text-green-600" />
                Performance
@@ -371,8 +371,8 @@ const TokenizationDashboard = () => {
           </div>
 
           {/* Progress Indicator */}
-          <div className={`col-span-4 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-3xl p-8 text-white transform transition-all duration-1000 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h3 className="text-xl font-bold mb-6">Tokenization Progress</h3>
+          <div className={`col-span-4 bg-[#d3f8e3] rounded-3xl p-8 text-white transform transition-all duration-1000 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <h3 className="text-xl font-bold mb-6 text-gray-800">Tokenization Progress</h3>
             <div className="space-y-4">
               {stepCards.map((card, index) => (
                 <div key={index} className={`flex items-center p-3 rounded-2xl ${currentStep === index ? 'bg-white/20' : currentStep > index ? 'bg-white/10' : 'bg-white/5'}`}>
@@ -380,7 +380,7 @@ const TokenizationDashboard = () => {
                     {currentStep > index ? <CheckCircle className="w-5 h-5" /> : <span className="font-bold">{index + 1}</span>}
                   </div>
                   <div>
-                    <div className="font-semibold">{card.title}</div>
+                    <div className="font-semibold text-black">{card.title}</div>
                     {card.selected && (
                       <div className="text-sm opacity-80">
                         {typeof card.selected === 'object' ? card.selected.name : card.selected}
