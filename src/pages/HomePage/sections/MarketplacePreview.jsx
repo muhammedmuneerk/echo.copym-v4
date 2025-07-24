@@ -103,7 +103,7 @@ export default function MarketplacePreview() {
       setIsSticky(true);
       setIsAtEnd(false);
       // Map scroll progress to animation steps (0-6 for 6 devices + content)
-      const step = Math.floor((latest - 0.1) / 0.8 * 7);
+      const step = Math.floor((latest - 0.1) / 0.8 * 4);
       setCurrentStep(Math.min(step, 6));
     } else {
       setIsSticky(false);
@@ -272,32 +272,32 @@ function DevicesShowcase({ currentStep }) {
   // Screen content configurations for each device
   const screenConfigs = {
     desktop: {
-      step: 2,
+      step: 1,
       bgColor: "rgba(255, 255, 255, 0.95)",
       content: "dashboard"
     },
     laptop: {
-      step: 3,
+      step: 2,
       bgColor: "rgba(255, 255, 255, 0.95)",
       content: "trading"  
     },
     ipad: {
-      step: 4,
+      step: 2,
       bgColor: "rgba(255, 255, 255, 0.95)",
       content: "portfolio"
     },
     tablet: {
-      step: 4,
+      step: 3,
       bgColor: "rgba(255, 255, 255, 0.95)",
       content: "staking"
     },
     iphone: {
-      step: 5,
+      step: 3,
       bgColor: "rgba(255, 255, 255, 0.95)",
       content: "wallet"
     },
     phone: {
-      step: 5,
+      step: 3,
       bgColor: "rgba(255, 255, 255, 0.95)",
       content: "mobile"
     }
