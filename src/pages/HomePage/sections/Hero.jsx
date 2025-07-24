@@ -151,21 +151,7 @@ export default function Hero() {
               Watch Demo
             </button>
           </div>
-
-          <div className="flex items-center justify-center space-x-8 text-white/95">
-            <div className="text-center backdrop-blur-sm bg-white/10 rounded-lg p-3 border border-white/20">
-              <div className="font-bold text-2xl text-white drop-shadow-lg">500K+</div>
-              <div className="text-sm">Active Users</div>
-            </div>
-            <div className="text-center backdrop-blur-sm bg-white/10 rounded-lg p-3 border border-white/20">
-              <div className="font-bold text-2xl text-white drop-shadow-lg">$2.5B+</div>
-              <div className="text-sm">Assets Managed</div>
-            </div>
-            <div className="text-center backdrop-blur-sm bg-white/10 rounded-lg p-3 border border-white/20">
-              <div className="font-bold text-2xl text-white drop-shadow-lg">15.2%</div>
-              <div className="text-sm">Avg. Returns</div>
-            </div>
-          </div>
+          
         </div>
       </div>
 
