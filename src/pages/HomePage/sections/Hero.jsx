@@ -98,7 +98,8 @@ export default function Hero() {
           zIndex: 2,
           opacity: 0.9,
           transformStyle: 'preserve-3d',
-          perspective: '1000px'
+          perspective: '1000px',
+          marginTop:'2.5rem'
         }}
       />
 
@@ -110,7 +111,7 @@ export default function Hero() {
 
       {/* Text Content Layer */}
       <div 
-        className="relative flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-12"
+        className="relative flex items-center justify-center mt-20 min-h-screen px-4 sm:px-6 lg:px-12"
         style={{ zIndex: 4 }}
       >
         <div className="text-center max-w-4xl mx-auto">
