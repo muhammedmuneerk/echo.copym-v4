@@ -409,7 +409,7 @@ const TokenizationDashboard = () => {
                       currentStep === index ? 'z-30' : currentStep > index ? 'z-20' : 'z-10'
                     }`}
                     style={{
-                      background: `linear-gradient(135deg, ${card.color.includes('blue') ? '#3B82F6' : card.color.includes('purple') ? '#1a36e8ff' : '#4894ecff'} 0%, ${card.color.includes('blue') ? '#1E40AF' : card.color.includes('purple') ? '#0300b1ff' : '#18be36ff'} 100%)`,
+                      background: `linear-gradient(135deg, ${card.color.includes('blue') ? '#3B82F6' : card.color.includes('purple') ? '#18be36ff' : '#4894ecff'} 0%, ${card.color.includes('blue') ? '#18be36ff' : card.color.includes('purple') ? '#0300b1ff' : '#18be36ff'} 100%)`,
                       transform: `translateY(${index * 15}px) rotateX(${index * 3}deg) rotateY(${index * 2}deg)`,
                       boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
                       zIndex: index + 10,
