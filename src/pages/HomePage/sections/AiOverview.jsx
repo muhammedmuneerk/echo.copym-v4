@@ -10,61 +10,55 @@ import { Box, Typography } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const features = [
-    // ... (feature array remains the same)
     {
         title: 'Contextual Chatbots',
-        icon: <SmartToyIcon sx={{ fontSize: { xs: 30, md: 40 }, color: '#255f99' }} />,
-        description:
-          'Engage users with AI chatbots that understand context and deliver human-like responses.',
-      },
-      {
+        icon: <SmartToyIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+        description: 'Engage users with AI chatbots that understand context and deliver human-like responses.',
+    },
+    {
         title: 'Real-Time Analytics',
-        icon: <QueryStatsIcon sx={{ fontSize: { xs: 30, md: 40 }, color: '#255f99' }} />,
-        description:
-          'Our AI engine continuously analyses data streams, surfacing actionable insights in real-time.',
-      },
-      {
+        icon: <QueryStatsIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+        description: 'Our AI engine analyses data streams, surfacing actionable insights in real-time.',
+    },
+    {
         title: 'Predictive Modelling',
-        icon: <AutoGraphIcon sx={{ fontSize: { xs: 30, md: 40 }, color: '#255f99' }} />,
-        description:
-          'Leverage ML to forecast market movements, token demand, and investor behaviour.',
-      },
-      {
+        icon: <AutoGraphIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+        description: 'Leverage ML to forecast market movements, token demand, and investor behaviour.',
+    },
+    {
         title: 'Automated Compliance',
-        icon: <GavelIcon sx={{ fontSize: { xs: 30, md: 40 }, color: '#255f99' }} />,
-        description:
-          'Smart policies monitor transactions 24/7, flagging anomalies and enforcing KYC/AML rules.',
-      },
-      {
+        icon: <GavelIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+        description: 'Smart policies monitor transactions 24/7, flagging anomalies and enforcing KYC/AML rules.',
+    },
+    {
         title: 'Personalised Dashboards',
-        icon: <DashboardCustomizeIcon sx={{ fontSize: { xs: 30, md: 40 }, color: '#255f99' }} />,
-        description:
-          'Stakeholders see AI-curated KPIs, alerts, and recommendations for their unique portfolio.',
-      },
-      {
+        icon: <DashboardCustomizeIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+        description: 'Stakeholders see AI-curated KPIs, alerts, and recommendations for their unique portfolio.',
+    },
+    {
         title: 'Low-Code Integrations',
-        icon: <IntegrationInstructionsIcon sx={{ fontSize: { xs: 30, md: 40 }, color: '#255f99' }} />,
-        description:
-          'Embed powerful AI capabilities into your products in minutes with plug-and-play widgets & APIs.',
-      },
+        icon: <IntegrationInstructionsIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+        description: 'Embed powerful AI capabilities into your products in minutes with plug-and-play widgets & APIs.',
+    },
 ];
 
-const CIRCLE_RADIUS_DESKTOP = 200;
-const CIRCLE_RADIUS_MOBILE = 130;
+const CIRCLE_RADIUS_DESKTOP = 180;
+const CIRCLE_RADIUS_MOBILE = 120;
+const ROTATION_PER_ITEM = 360 / features.length;
 
 const AiOverview = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Memoize the callback to prevent re-creation on every render
   const nextFeature = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % features.length);
   }, []);
 
-  // Set up the automatic timer
   useEffect(() => {
-    const timer = setInterval(nextFeature, 5000);
+    const timer = setInterval(nextFeature, 4000);
     return () => clearInterval(timer);
   }, [nextFeature]);
+
+  const rotationAngle = activeIndex * ROTATION_PER_ITEM;
 
   return (
     <section className="w-full px-6 py-20 bg-green-50 overflow-hidden">
@@ -81,14 +75,12 @@ const AiOverview = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* --- Left Column: Interactive Circle Dial --- */}
-          <div className="relative flex items-center justify-center h-[350px] lg:h-[500px]">
-            {/* Decorative Background Dashed Circle */}
-            <Box className="absolute w-[260px] h-[260px] lg:w-[400px] lg:h-[400px] border-2 border-dashed border-gray-300 rounded-full" />
-
-            {/* Central Animated Content */}
-            <div className="relative w-40 h-40 lg:w-56 lg:h-56 flex items-center justify-center text-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-16 items-center">
+          {/* Left Column: Interactive Circle Dial */}
+          <div className="relative flex items-center justify-center h-[320px] lg:h-[450px]">
+            
+            {/* --- CRITICAL CHANGE: Central Glassmorphism Card --- */}
+            <div className="absolute w-40 h-40 lg:w-48 lg:h-48 flex flex-col items-center justify-center text-center z-20 bg-white/30 backdrop-blur-sm rounded-full shadow-lg p-4">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
@@ -96,50 +88,73 @@ const AiOverview = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.4, ease: 'easeInOut' }}
-                  className="px-2"
                 >
-                  <Typography variant="h6" className="font-bold text-gray-800 mb-2">
+                  <Typography
+                    component="h3"
+                    className="font-bold text-gray-800"
+                    sx={{ fontSize: { xs: '1rem', md: '1.125rem' }, lineHeight: 1.2, mb: 1 }}
+                  >
                     {features[activeIndex].title}
                   </Typography>
-                  <Typography className="text-gray-600 text-sm leading-snug">
+                  <Typography
+                    className="text-gray-700"
+                    sx={{ fontSize: { xs: '0.75rem', md: '0.875rem' }, lineHeight: 1.4 }}
+                  >
                     {features[activeIndex].description}
                   </Typography>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Orbiting Feature Icons */}
-            {features.map((feature, index) => {
-              const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
-              const radius = isMobile ? CIRCLE_RADIUS_MOBILE : CIRCLE_RADIUS_DESKTOP;
-              const angle = (index / features.length) * 2 * Math.PI - Math.PI / 2;
-              const x = radius * Math.cos(angle);
-              const y = radius * Math.sin(angle);
+            {/* The main rotating container for the icons */}
+            <motion.div
+              className="absolute w-full h-full"
+              animate={{ rotate: rotationAngle }}
+              transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+            >
+              {features.map((feature, index) => {
+                const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
+                const radius = isMobile ? CIRCLE_RADIUS_MOBILE : CIRCLE_RADIUS_DESKTOP;
+                const angleRad = (index / features.length) * 2 * Math.PI;
+                const x = radius * Math.cos(angleRad);
+                const y = radius * Math.sin(angleRad);
 
-              return (
-                <motion.div
-                  key={feature.title}
-                  className="absolute top-1/2 left-1/2 cursor-pointer"
-                  onClick={() => setActiveIndex(index)}
-                  initial={{ x: 0, y: 0 }}
-                  animate={{
-                    x,
-                    y,
-                    scale: activeIndex === index ? 1.25 : 1,
-                    zIndex: activeIndex === index ? 10 : 1,
-                  }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                  whileHover={{ scale: activeIndex === index ? 1.3 : 1.1 }}
-                >
-                  <Box className="w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-full flex items-center justify-center shadow-lg transition-shadow duration-300 hover:shadow-xl">
-                    {feature.icon}
-                  </Box>
-                </motion.div>
-              );
-            })}
+                return (
+                  <motion.div
+                    key={feature.title}
+                    className="absolute top-1/2 left-1/2 cursor-pointer"
+                    style={{ x: '-50%', y: '-50%' }}
+                    onClick={() => setActiveIndex(index)}
+                    animate={{ x: `calc(-50% + ${x}px)`, y: `calc(-50% + ${y}px)` }}
+                  >
+                    <motion.div
+                      className="flex items-center justify-center"
+                      animate={{
+                        rotate: -rotationAngle,
+                        scale: activeIndex === index ? 1.4 : 1,
+                      }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                      whileHover={{ scale: activeIndex === index ? 1.5 : 1.1 }}
+                    >
+                      <Box
+                        className="w-14 h-14 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center transition-all duration-300"
+                        sx={{
+                          boxShadow: activeIndex === index
+                            ? '0px 0px 25px 4px rgba(21, 163, 110, 0.5)'
+                            : '0px 4px 10px rgba(0, 0, 0, 0.1)',
+                          zIndex: activeIndex === index ? 10 : 1,
+                        }}
+                      >
+                        {feature.icon}
+                      </Box>
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
           </div>
 
-          {/* --- Right Column: Image --- */}
+          {/* Right Column: Image */}
           <div className="hidden lg:flex items-center justify-center">
             <img
               src="/src/styles/iq.svg"
@@ -151,10 +166,7 @@ const AiOverview = () => {
 
         {/* CTA Button */}
         <div className="text-center mt-12">
-          <Link
-            to="/agent"
-            className="text-white px-8 py-4 font-semibold btn-gradient"
-          >
+          <Link to="/agent" className="text-white px-8 py-4 font-semibold btn-gradient">
             Explore Our AI Agent
           </Link>
         </div>
