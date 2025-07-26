@@ -115,7 +115,7 @@ const AiOverview = () => {
           {/* Right – SVG animation & CTA */}
           <div className="flex flex-col items-center justify-center w-full">
             <img
-              src="/src/styles/iq.svg"
+              src="src/styles/iq.svg"
               alt="IQ Ecosystem Diagram"
               style={{ height: '450px', width: '450px' }}
               className="animate-pulse"
