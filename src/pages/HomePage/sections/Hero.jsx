@@ -7,6 +7,19 @@ export default function Hero() {
   const vantaRef = useRef(null);
   const vantaEffect = useRef(null);
   const cityRef = useRef(null);
+  
+  // Carousel images
+  const carouselImages = [
+    '/assets/Images/carousel/floating-city.png',
+    // '/assets/Images/carousel/carbon-credits.png',
+    // '/assets/Images/carousel/goldbar.png',
+    // '/assets/Images/carousel/art.png',
+    '/assets/Images/carousel/floating-gold-city-2.png',
+    '/assets/Images/carousel/floating-green-city-3.png',
+    '/assets/Images/carousel/floating-art-city-1.png',
+  ];
+  
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     // Load Vanta.js scripts dynamically
@@ -68,14 +81,20 @@ export default function Hero() {
     };
 
     animateCity();
+    
+    // Carousel image rotation
+    const imageInterval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+    }, 2000); // Change image every 2 seconds
 
     // Cleanup
     return () => {
       if (vantaEffect.current) {
         vantaEffect.current.destroy();
       }
+      clearInterval(imageInterval);
     };
-  }, []);
+  }, [carouselImages.length]);
 
   return (
     <section className="relative min-h-screen overflow-hidden">
@@ -87,21 +106,26 @@ export default function Hero() {
       />
 
       {/* Floating City Image Layer with 3D Animation */}
-      <div 
+      <div
         ref={cityRef}
-        className="absolute inset-0 w-full h-full transition-transform duration-100"
+        className="absolute inset-0 w-full h-full"
         style={{
-          backgroundImage: 'url(/assets/Images/floating-city.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
           zIndex: 2,
           opacity: 0.9,
           transformStyle: 'preserve-3d',
           perspective: '1000px',
-          marginTop:'2.5rem'
+          marginTop: '2.5rem'
         }}
-      />
+      >
+        {carouselImages.map((src, idx) => (
+          <img
+            key={idx}
+            src={src}
+            alt="carousel"
+            className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out ${currentImageIndex === idx ? 'opacity-100' : 'opacity-0'}`}
+          />
+        ))}
+      </div>
 
       {/* Dark overlay for better text readability */}
       <div 
