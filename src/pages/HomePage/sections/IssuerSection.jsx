@@ -393,7 +393,7 @@ const TokenizationDashboard = () => {
           </div>
 
           {/* Stacked Cards with GSAP 3D Effects */}
-          <div className="col-span-12 relative h-96 mb-8">
+          <div className="col-span-12 relative h-96 mb-8 mt-20">
             <div className="flex justify-center items-center gap-8 perspective-1000 h-full">
               {stepCards.map((card, index) => (
                 <div
