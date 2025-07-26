@@ -14,8 +14,8 @@ export default function Hero() {
     // '/assets/Images/carousel/carbon-credits.png',
     // '/assets/Images/carousel/goldbar.png',
     // '/assets/Images/carousel/art.png',
+    '/assets/Images/carousel/floating-gold-city-2.png',
     '/assets/Images/carousel/floating-green-city-3.png',
-    '/assets/Images/carousel/floating-glod-city-1.png',
     '/assets/Images/carousel/floating-art-city-1.png',
   ];
   
