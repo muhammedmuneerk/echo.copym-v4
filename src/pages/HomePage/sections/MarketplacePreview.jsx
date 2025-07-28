@@ -183,7 +183,7 @@ export default function MarketplacePreview() {
 const devices = [
   {
     key: "desktop",
-    src: "/assets/Images/devices/device-desktop.png",
+    src: "/assets/Images/devices/device-desktop-black.png",
     alt: "Desktop",
     style: {
       width: 386,
@@ -198,7 +198,7 @@ const devices = [
   },
   {
     key: "laptop",
-    src: "/assets/Images/devices/device-laptop.png",
+    src: "/assets/Images/devices/device-laptop-black.png",
     alt: "Laptop",
     style: {
       width: 355,
@@ -212,7 +212,7 @@ const devices = [
   },
   {
     key: "ipad",
-    src: "/assets/Images/devices/device-ipad.png",
+    src: "/assets/Images/devices/device-ipad-black.png",
     alt: "iPad",
     style: {
       width: 155,
@@ -226,7 +226,7 @@ const devices = [
   },
   {
     key: "iphone",
-    src: "/assets/Images/devices/device-iphone.png",
+    src: "/assets/Images/devices/device-iphone-black.png",
     alt: "iPhone",
     style: {
       width: 92,
@@ -240,7 +240,7 @@ const devices = [
   },
   {
     key: "phone",
-    src: "/assets/Images/devices/device-phone.png",
+    src: "/assets/Images/devices/device-phone-black.png",
     alt: "Phone",
     style: {
       width: 170,
@@ -254,7 +254,7 @@ const devices = [
   },
   {
     key: "tablet",
-    src: "/assets/Images/devices/device-tablet.png",
+    src: "/assets/Images/devices/device-tablet-black.png",
     alt: "Tablet",
     style: {
       width: 195,
