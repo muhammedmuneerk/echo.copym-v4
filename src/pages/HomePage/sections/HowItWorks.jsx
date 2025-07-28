@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function HowItWorks() {
+  const [activeTab, setActiveTab] = useState('business');
   const [activeStep, setActiveStep] = useState(1);
 
-  const steps = [
+  const businessSteps = [
     {
       id: 1,
-      title: "Asset Tokenization",
+      title: "Asset Tokenization for Businesses",
       description: "Transform real-world assets like real estate, commodities, and luxury items into blockchain tokens with our secure and compliant platform."
     },
     {
@@ -21,6 +22,26 @@ export default function HowItWorks() {
       description: "Purchase fractional shares of high-value assets, enabling access to investments that were previously out of reach for individual investors."
     }
   ];
+
+  const individualSteps = [
+    {
+      id: 1,
+      title: "Asset Tokenization for Individuals",
+      description: "Transform real-world assets like real estate, commodities, and luxury items into blockchain tokens with our secure and compliant platform."
+    },
+    {
+      id: 2,
+      title: "List in Marketplace",
+      description: "Tokenized assets are listed in our transparent marketplace where investors can discover and evaluate opportunities with comprehensive analytics."
+    },
+    {
+      id: 3,
+      title: "Buy Fractional Ownership",
+      description: "Purchase fractional shares of high-value assets, enabling access to investments that were previously out of reach for individual investors."
+    }
+  ];
+
+  const currentSteps = activeTab === 'business' ? businessSteps : individualSteps;
 
   return (
     <section className="min-h-screen bg-green-50 relative overflow-hidden">
@@ -43,9 +64,34 @@ export default function HowItWorks() {
               </p>
             </div>
 
+            {/* Tab Navigation */}
+            <div className="flex space-x-1 bg-gray-100 p-1 rounded-xl w-fit">
+              {[
+                { id: 'business', label: 'For Businesses' },
+                { id: 'individual', label: 'For Individuals' }
+              ].map((tab) => (
+                <motion.button
+                  key={tab.id}
+                  onClick={() => {
+                    setActiveTab(tab.id);
+                    setActiveStep(1);
+                  }}
+                  className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    activeTab === tab.id
+                      ? 'bg-white text-gray-900 shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {tab.label}
+                </motion.button>
+              ))}
+            </div>
+
             {/* Interactive Steps */}
             <div className="space-y-8">
-              {steps.map((step) => (
+              {currentSteps.map((step) => (
                 <motion.div
                   key={step.id}
                   className={`cursor-pointer transition-all duration-500 ${activeStep === step.id ? 'opacity-100' : 'opacity-50 hover:opacity-75'
@@ -133,52 +179,107 @@ export default function HowItWorks() {
 
                   {/* Content */}
                   <div className="px-4 py-3">
-                    <div className="text-center mb-4">
-                      <h2 className="text-sm font-semibold text-white mb-1">Portfolio</h2>
-                      <div className="text-lg font-bold text-green-400">$24.5K</div>
-                      <div className="text-xs text-green-400">Total Value</div>
-                    </div>
+                    {activeTab === 'business' ? (
+                      // Business Analytics Dashboard
+                      <>
+                        <div className="text-center mb-4">
+                          <h2 className="text-sm font-semibold text-white mb-1">Business Analytics</h2>
+                          <div className="text-lg font-bold text-green-400">$2.4M</div>
+                          <div className="text-xs text-green-400">Total Assets Under Management</div>
+                        </div>
 
-                    {/* Asset Performance */}
-                    <div className="mb-3">
-                      <div className="space-y-2">
-                        {[
-                          { name: "Gold Reserve", value: "$8.2K", change: "+12.5%", color: "bg-yellow-500" },
-                          { name: "Luxury Villa", value: "$12.1K", change: "+8.3%", color: "bg-blue-500" },
-                          { name: "Art Collection", value: "$4.2K", change: "+15.7%", color: "bg-purple-500" }
-                        ].map((asset, index) => (
-                          <motion.div
-                            key={index}
-                            className="flex items-center justify-between p-2 bg-gray-800 rounded"
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                          >
-                            <div className="flex items-center space-x-2">
-                              <div className={`w-3 h-3 ${asset.color} rounded-full`}></div>
-                              <div>
-                                <div className="text-xs text-white font-medium">{asset.name}</div>
-                                <div className="text-xs text-gray-400">{asset.value}</div>
-                              </div>
-                            </div>
-                            <div className="text-xs text-green-400 font-medium">{asset.change}</div>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
+                        {/* Business Performance Metrics */}
+                        <div className="mb-3">
+                          <div className="space-y-2">
+                            {[
+                              { name: "Commercial Property", value: "$1.2M", change: "+18.5%", color: "bg-blue-500" },
+                              { name: "Industrial Assets", value: "$800K", change: "+12.3%", color: "bg-green-500" },
+                              { name: "Luxury Portfolio", value: "$400K", change: "+25.7%", color: "bg-purple-500" }
+                            ].map((asset, index) => (
+                              <motion.div
+                                key={index}
+                                className="flex items-center justify-between p-2 bg-gray-800 rounded"
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                              >
+                                <div className="flex items-center space-x-2">
+                                  <div className={`w-3 h-3 ${asset.color} rounded-full`}></div>
+                                  <div>
+                                    <div className="text-xs text-white font-medium">{asset.name}</div>
+                                    <div className="text-xs text-gray-400">{asset.value}</div>
+                                  </div>
+                                </div>
+                                <div className="text-xs text-green-400 font-medium">{asset.change}</div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
 
-                    {/* Quick Actions */}
-                    <div className="space-y-1 text-white text-xs">
-                      <div className="bg-gray-800 p-2 rounded">
-                        <div className="font-medium">Buy More Shares</div>
-                      </div>
-                      <div className="bg-gray-800 p-2 rounded">
-                        <div className="font-medium">View Analytics</div>
-                      </div>
-                      <div className="bg-gray-800 p-2 rounded">
-                        <div className="font-medium">Withdraw Earnings</div>
-                      </div>
-                    </div>
+                        {/* Business Actions */}
+                        <div className="space-y-1 text-white text-xs">
+                          <div className="bg-gray-800 p-2 rounded">
+                            <div className="font-medium">Tokenize New Asset</div>
+                          </div>
+                          <div className="bg-gray-800 p-2 rounded">
+                            <div className="font-medium">View Investor Analytics</div>
+                          </div>
+                          <div className="bg-gray-800 p-2 rounded">
+                            <div className="font-medium">Manage Compliance</div>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      // Individual Portfolio Dashboard
+                      <>
+                        <div className="text-center mb-4">
+                          <h2 className="text-sm font-semibold text-white mb-1">Portfolio</h2>
+                          <div className="text-lg font-bold text-green-400">$24.5K</div>
+                          <div className="text-xs text-green-400">Total Value</div>
+                        </div>
+
+                        {/* Individual Asset Performance */}
+                        <div className="mb-3">
+                          <div className="space-y-2">
+                            {[
+                              { name: "Gold Reserve", value: "$8.2K", change: "+12.5%", color: "bg-yellow-500" },
+                              { name: "Luxury Villa", value: "$12.1K", change: "+8.3%", color: "bg-blue-500" },
+                              { name: "Art Collection", value: "$4.2K", change: "+15.7%", color: "bg-purple-500" }
+                            ].map((asset, index) => (
+                              <motion.div
+                                key={index}
+                                className="flex items-center justify-between p-2 bg-gray-800 rounded"
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                              >
+                                <div className="flex items-center space-x-2">
+                                  <div className={`w-3 h-3 ${asset.color} rounded-full`}></div>
+                                  <div>
+                                    <div className="text-xs text-white font-medium">{asset.name}</div>
+                                    <div className="text-xs text-gray-400">{asset.value}</div>
+                                  </div>
+                                </div>
+                                <div className="text-xs text-green-400 font-medium">{asset.change}</div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Individual Actions */}
+                        <div className="space-y-1 text-white text-xs">
+                          <div className="bg-gray-800 p-2 rounded">
+                            <div className="font-medium">Buy More Shares</div>
+                          </div>
+                          <div className="bg-gray-800 p-2 rounded">
+                            <div className="font-medium">View Analytics</div>
+                          </div>
+                          <div className="bg-gray-800 p-2 rounded">
+                            <div className="font-medium">Withdraw Earnings</div>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -225,17 +326,19 @@ export default function HowItWorks() {
 
                   {/* Content */}
                   <div className="px-6 py-6 text-center">
-                    <div className="text-sm text-gray-500 mb-4">Marketplace</div>
+                    <div className="text-sm text-gray-500 mb-4">
+                      {activeTab === 'business' ? 'Business Dashboard' : 'Marketplace'}
+                    </div>
                     <motion.h2
                       className="text-2xl font-semibold mb-8 text-gray-800"
-                      key={activeStep}
+                      key={`${activeTab}-${activeStep}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                      {activeStep === 1 && "Tokenize.."}
-                      {activeStep === 2 && "List Assets.."}
-                      {activeStep === 3 && "Trade.."}
+                      {activeStep === 1 && (activeTab === 'business' ? "Tokenize.." : "Tokenize..")}
+                      {activeStep === 2 && (activeTab === 'business' ? "List Assets.." : "List Assets..")}
+                      {activeStep === 3 && (activeTab === 'business' ? "Trade.." : "Trade..")}
                     </motion.h2>
 
                     {/* Large Circular Element */}
@@ -293,7 +396,7 @@ export default function HowItWorks() {
                             <div className="w-16 h-16 bg-blue-300/50 rounded-full flex items-center justify-center">
                               <motion.div
                                 className="text-2xl"
-                                key={activeStep}
+                                key={`${activeTab}-${activeStep}`}
                                 initial={{ scale: 0, rotate: -180 }}
                                 animate={{ scale: 1, rotate: 0 }}
                                 transition={{
@@ -302,9 +405,9 @@ export default function HowItWorks() {
                                   stiffness: 200
                                 }}
                               >
-                                {activeStep === 1 && "🏢"}
-                                {activeStep === 2 && "📊"}
-                                {activeStep === 3 && "💰"}
+                                {activeStep === 1 && (activeTab === 'business' ? "🏢" : "🏢")}
+                                {activeStep === 2 && (activeTab === 'business' ? "📊" : "📊")}
+                                {activeStep === 3 && (activeTab === 'business' ? "💰" : "💰")}
                               </motion.div>
                             </div>
                           </motion.div>
@@ -371,18 +474,30 @@ export default function HowItWorks() {
 
                   {/* Content */}
                   <div className="px-6 py-4">
-                    <div className="text-sm text-gray-500 mb-2">Welcome back,</div>
-                    <h2 className="text-xl font-semibold mb-6">Choose Asset Type</h2>
+                    <div className="text-sm text-gray-500 mb-2">
+                      {activeTab === 'business' ? 'Welcome back, Business' : 'Welcome back, John Doe'}
+                    </div>
+                    <h2 className="text-xl text-gray-600 font-semibold mb-6">
+                      {activeTab === 'business' ? 'Choose Asset Type' : 'Choose Asset Type'}
+                    </h2>
 
                     {/* Asset Options */}
                     <div className="space-y-3">
-                      {[
+                      {(activeTab === 'business' ? [
+                        // Business Asset Options
+                        { icon: "🏢", title: "Commercial Real Estate", desc: "Office buildings & retail spaces", color: "bg-blue-50", border: "border-blue-200" },
+                        { icon: "🏭", title: "Industrial Assets", desc: "Factories & warehouses", color: "bg-green-50", border: "border-green-200" },
+                        { icon: "🏨", title: "Hospitality", desc: "Hotels & resorts", color: "bg-purple-50", border: "border-purple-200" },
+                        { icon: "⚡", title: "Infrastructure", desc: "Solar farms & utilities", color: "bg-yellow-50", border: "border-yellow-200" },
+                        { icon: "💎", title: "Luxury Portfolio", desc: "High-end properties", color: "bg-emerald-50", border: "border-emerald-200" }
+                      ] : [
+                        // Individual Asset Options
                         { icon: "🏢", title: "Real Estate", desc: "Commercial & residential properties", color: "bg-blue-50", border: "border-blue-200" },
                         { icon: "🥇", title: "Commodities", desc: "Gold, silver, oil & gas", color: "bg-yellow-50", border: "border-yellow-200" },
                         { icon: "🎨", title: "Art & Collectibles", desc: "Fine art & luxury items", color: "bg-purple-50", border: "border-purple-200" },
                         { icon: "⚡", title: "Infrastructure", desc: "Solar farms & utilities", color: "bg-green-50", border: "border-green-200" },
                         { icon: "💎", title: "Carbon Credits", desc: "Environmental investments", color: "bg-emerald-50", border: "border-emerald-200" }
-                      ].map((option, index) => (
+                      ]).map((option, index) => (
                         <motion.div
                           key={index}
                           className={`flex items-center justify-between p-3 ${option.color} ${option.border} border rounded-xl cursor-pointer`}
