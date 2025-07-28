@@ -176,7 +176,7 @@ const TokenizationDashboard = () => {
       
       // First: Lift and scale
       tl.to(card, {
-        scale: 1.5,
+        scale: 1.2,
         y: -60,
         duration: 0.3,
         ease: "power2.out"
@@ -200,7 +200,7 @@ const TokenizationDashboard = () => {
         if (index !== cardIndex && otherCard) {
           window.gsap.killTweensOf(otherCard);
           window.gsap.to(otherCard, {
-            opacity: 0.4,
+            opacity: 0.9,
             scale: 0.95,
             duration: 0.3,
             ease: "power2.out"
@@ -426,12 +426,12 @@ const TokenizationDashboard = () => {
         </div>
 
                       {hoveredCard === index ? (
-                        <div className="flex-1 overflow-y-auto space-y-3">
+                        <div className="flex-1 overflow-y-auto space-y-2">
                           {card.items.map((item, itemIndex) => (
           <button
                               key={item.id}
                               onClick={() => handleCardClick(index, item)}
-                              className={`w-full p-4 rounded-2xl text-left transition-all duration-300 hover:scale-105 ${
+                              className={`w-full p-2 rounded-2xl text-left transition-all duration-300 hover:scale-100 ${
                                 card.selected?.id === item.id ? 'bg-white/30' : 'bg-white/10 hover:bg-white/20'
                               }`}
                               style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}
@@ -439,7 +439,7 @@ const TokenizationDashboard = () => {
                               <div className="flex items-center">
                                 {item.icon && <item.icon className="w-6 h-6 mr-3 drop-shadow-lg" />}
                                 <div>
-                                  <div className="font-semibold text-white drop-shadow-lg">{item.name}</div>
+                                  <div className="font-semibold text-sm text-white drop-shadow-lg">{item.name}</div>
                                   {item.desc && <div className="text-sm text-white/90 drop-shadow-md">{item.desc}</div>}
                                   {item.value && <div className="text-xs text-white/80 drop-shadow-md">{item.value}</div>}
                                 </div>
