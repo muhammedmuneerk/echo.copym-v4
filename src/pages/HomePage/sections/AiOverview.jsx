@@ -159,7 +159,8 @@ const AiOverview = () => {
             <img
               src="/src/styles/iq.svg"
               alt="AI Ecosystem Diagram"
-              className="w-full max-w-md animate-pulse"
+              style={{ height: '550px', width: 'auto' }}
+              className=" animate-pulse"
             />
           </div>
         </div>
