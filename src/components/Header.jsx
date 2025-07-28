@@ -331,10 +331,10 @@ export default function Header() {
 
   return (
     <>
-      {/* Modern Clean Header with Glass Effect */}
-      <header className="absolute top-0 inset-x-0 z-50 flex justify-center pointer-events-none">
-        {/* Main header container with glass effect */}
-        <div className="w-[98%] max-w-7xl pointer-events-auto px-8 py-4 bg-transparent rounded-2xl">
+      {/* Modern Clean Header */}
+      <header className="absolute top-2 inset-x-0 z-50 flex justify-center pointer-events-none">
+        {/* Main header container */}
+        <div className="w-[98%] max-w-7xl  pointer-events-auto px-8 py-4">
           
           <div className="flex items-center justify-between w-full">
 
@@ -343,7 +343,7 @@ export default function Header() {
               <img
                 src="/assets/copym/png/Copym-01-1.png"
                 alt="COPYM"
-                className="h-20 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </Link>
 
@@ -490,10 +490,8 @@ export default function Header() {
         </div>
       )}
 
-      {/* Spacer to avoid content overlap (except on Home hero) */}
-      {location.pathname !== "/" && (
-        <div className="h-20 md:h-28" />
-      )}
+      {/* Spacer to avoid content overlap */}
+      <div className="h-20 md:h-28" />
     </>
   );
 }
