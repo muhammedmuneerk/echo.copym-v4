@@ -21,7 +21,7 @@ export default function MarketplacePreview() {
         <div className="flex flex-col items-center">
           {/* Single Mobile Mockup with Video */}
           <div className="flex justify-center mb-8">
-            <div className="relative w-[280px] h-[560px] bg-black rounded-[40px] p-2 shadow-2xl">
+            <div className="relative w-[265px] h-[560px] bg-black rounded-[40px] p-2 shadow-2xl">
               <div className="w-full h-full bg-white rounded-[32px] overflow-hidden">
                 <video
                   src="/assets/videos/marketplace-mobile-app-preview-2.mp4"
