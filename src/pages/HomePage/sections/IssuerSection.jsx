@@ -88,7 +88,7 @@ const TokenizationDashboard = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Cleanup animations on unmount
+  // Cleanup animations on unmount and handle state reset
   useEffect(() => {
     return () => {
       if (typeof window !== 'undefined' && window.gsap) {
@@ -99,15 +99,23 @@ const TokenizationDashboard = () => {
     };
   }, []);
 
+  // Reset hover state when component unmounts or when cards change
+  useEffect(() => {
+    return () => {
+      setHoveredCard(null);
+      setIsAnimating(false);
+    };
+  }, []);
+
   const assetTypes = [
     { id: 'stablecoin', name: 'Stable Coin', icon: DollarSign, color: 'from-green-400 to-emerald-500', value: '$2.4B' },
     { id: 'gold', name: 'Gold', icon: Gem, color: 'from-yellow-400 to-orange-500', value: '$1.8B' },
     { id: 'art', name: 'Art & NFTs', icon: Palette, color: 'from-purple-400 to-pink-500', value: '$890M' },
     { id: 'realestate', name: 'Real Estate', icon: Home, color: 'from-blue-400 to-cyan-500', value: '$3.2B' },
     { id: 'commodities', name: 'Commodities', icon: Briefcase, color: 'from-orange-400 to-red-500', value: '$650M' },
-    { id: 'vehicles', name: 'Vehicles', icon: Car, color: 'from-indigo-400 to-purple-500', value: '$120M' },
-    { id: 'bonds', name: 'Bonds', icon: Landmark, color: 'from-gray-400 to-slate-500', value: '$5.1B' },
-    { id: 'infrastructure', name: 'Infrastructure', icon: Building, color: 'from-teal-400 to-green-500', value: '$890M' }
+    // { id: 'vehicles', name: 'Vehicles', icon: Car, color: 'from-indigo-400 to-purple-500', value: '$120M' },
+    // { id: 'bonds', name: 'Bonds', icon: Landmark, color: 'from-gray-400 to-slate-500', value: '$5.1B' },
+    // { id: 'infrastructure', name: 'Infrastructure', icon: Building, color: 'from-teal-400 to-green-500', value: '$890M' }
   ];
 
   const blockchains = [
@@ -145,63 +153,50 @@ const TokenizationDashboard = () => {
 
 
 
-  // COMPLETELY REWRITTEN GLITCH-FREE ANIMATION SYSTEM
+  // IMPROVED HOVER ANIMATION SYSTEM WITH PRECISE TIMING
   const handleCardHover = (cardIndex, isHovering) => {
     if (!window.gsap) return;
     
+    const card = cardsRef.current[cardIndex];
+    if (!card) return;
+    
+    // Immediately kill any existing animations on this card
+    window.gsap.killTweensOf(card);
+    
     if (isHovering) {
-      // Prevent multiple hovers during animation
-      if (isAnimating || (hoveredCard !== null && hoveredCard !== cardIndex)) return;
-      
+      // Set hovered state immediately
       setHoveredCard(cardIndex);
-      setIsAnimating(true);
       
-      const card = cardsRef.current[cardIndex];
-      if (!card) return;
-      
-      // STEP 1: Immediately kill any existing animations to prevent conflicts
-      window.gsap.killTweensOf(card);
-      
-      // STEP 2: Set initial state to prevent glitches
+      // Set initial transform origin
       window.gsap.set(card, {
         transformOrigin: "center center",
         zIndex: 2000
       });
       
-      // STEP 3: Create smooth timeline animation
-      const tl = window.gsap.timeline({
+      // Create smooth hover animation
+      window.gsap.to(card, {
+        scale: 1.15,
+        y: -40,
+        rotationY: 5,
+        rotationX: 5,
+        boxShadow: "0 30px 60px rgba(0,0,0,0.3)",
+        duration: 0.3,
         ease: "power2.out",
-        onComplete: () => setIsAnimating(false)
+        onComplete: () => {
+          // Only set animating to false if this card is still hovered
+          if (hoveredCard === cardIndex) {
+            setIsAnimating(false);
+          }
+        }
       });
       
-      // First: Lift and scale
-      tl.to(card, {
-        scale: 1.2,
-        y: -60,
-        duration: 0.3,
-        ease: "power2.out"
-      })
-      // Then: Spin while maintaining position
-      .to(card, {
-        rotationY: 360,
-        rotationX: 15,
-        rotationZ: 10,
-        duration: 0.6,
-        ease: "power1.inOut"
-      }, "-=0.1")
-      // Finally: Add shadow depth
-      .to(card, {
-        boxShadow: "0 40px 80px rgba(0,0,0,0.4)",
-        duration: 0.2
-      }, "-=0.3");
-      
-      // Dim other cards smoothly
+      // Dim other cards
       cardsRef.current.forEach((otherCard, index) => {
         if (index !== cardIndex && otherCard) {
           window.gsap.killTweensOf(otherCard);
           window.gsap.to(otherCard, {
-            opacity: 0.9,
-            scale: 0.95,
+            opacity: 0.7,
+            scale: 0.9,
             duration: 0.3,
             ease: "power2.out"
           });
@@ -209,36 +204,49 @@ const TokenizationDashboard = () => {
       });
       
     } else {
-      // Only reset if this card was actually hovered
-      if (hoveredCard !== cardIndex || isAnimating) return;
-      
-      setHoveredCard(null);
-      setIsAnimating(true);
-      
-      // Reset all cards with smooth timeline
-      const resetTl = window.gsap.timeline({
-        onComplete: () => setIsAnimating(false)
-      });
-      
-      cardsRef.current.forEach((card, index) => {
-        if (card) {
-          window.gsap.killTweensOf(card);
-          
-          resetTl.to(card, {
-            scale: 1,
-            opacity: 1,
-            rotationY: index * 2,
-            rotationX: index * 3,
-            rotationZ: 0,
-            y: index * 15,
-            x: 0,
-            zIndex: index + 10,
-            boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-            duration: 0.4,
-            ease: "power2.out"
-          }, index * 0.05); // Slight stagger for smooth reset
-        }
-      });
+      // Only reset if this card was actually the hovered one
+      if (hoveredCard === cardIndex) {
+        setHoveredCard(null);
+        setIsAnimating(true);
+        
+        // Reset this specific card
+        window.gsap.to(card, {
+          scale: 1,
+          opacity: 1,
+          rotationY: 0,
+          rotationX: 0,
+          rotationZ: 0,
+          y: 0,
+          x: 0,
+          zIndex: cardIndex + 10,
+          boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+          duration: 0.3,
+          ease: "power2.out",
+          onComplete: () => {
+            setIsAnimating(false);
+          }
+        });
+        
+        // Reset all other cards
+        cardsRef.current.forEach((otherCard, index) => {
+          if (index !== cardIndex && otherCard) {
+            window.gsap.killTweensOf(otherCard);
+            window.gsap.to(otherCard, {
+              scale: 1,
+              opacity: 1,
+              rotationY: 0,
+              rotationX: 0,
+              rotationZ: 0,
+              y: 0,
+              x: 0,
+              zIndex: index + 10,
+              boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+              duration: 0.3,
+              ease: "power2.out"
+            });
+          }
+        });
+      }
     }
   };
 
@@ -392,55 +400,90 @@ const TokenizationDashboard = () => {
             </div>
           </div>
 
-          {/* Stacked Cards with GSAP 3D Effects */}
-          <div className="col-span-12 relative h-96 mb-8 mt-20">
-            <div className="flex justify-center items-center gap-8 perspective-1000 h-full">
+          {/* Cards Displayed Side by Side */}
+          <div className="col-span-12 relative mb-8 mt-20">
+            <div 
+              className="flex justify-center items-center gap-8 perspective-1000"
+              onMouseLeave={() => {
+                // Reset all cards when mouse leaves the entire container
+                if (hoveredCard !== null) {
+                  setHoveredCard(null);
+                  setIsAnimating(true);
+                  
+                  cardsRef.current.forEach((card, index) => {
+                    if (card) {
+                      window.gsap.killTweensOf(card);
+                      window.gsap.to(card, {
+                        scale: 1,
+                        opacity: 1,
+                        rotationY: 0,
+                        rotationX: 0,
+                        rotationZ: 0,
+                        y: 0,
+                        x: 0,
+                        zIndex: index + 10,
+                        boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                        duration: 0.3,
+                        ease: "power2.out",
+                        onComplete: () => {
+                          if (index === cardsRef.current.length - 1) {
+                            setIsAnimating(false);
+                          }
+                        }
+                      });
+                    }
+                  });
+                }
+              }}
+            >
               {stepCards.map((card, index) => (
                 <div
                   key={index}
                   className="relative"
-                  style={{
-                    marginLeft: index > 0 ? '-120px' : '0',
-                  }}
                 >
                   <div
                     ref={el => cardsRef.current[index] = el}
-                    className={`relative w-80 h-80 rounded-3xl p-8 cursor-pointer transform-gpu ${
+                    className={`relative w-80 h-96 rounded-3xl p-6 cursor-pointer transform-gpu ${
                       currentStep === index ? 'z-30' : currentStep > index ? 'z-20' : 'z-10'
                     }`}
                     style={{
                       background: `linear-gradient(135deg, ${card.color.includes('blue') ? '#3B82F6' : card.color.includes('purple') ? '#18be36ff' : '#4894ecff'} 0%, ${card.color.includes('blue') ? '#18be36ff' : card.color.includes('purple') ? '#0300b1ff' : '#18be36ff'} 100%)`,
-                      transform: `translateY(${index * 15}px) rotateX(${index * 3}deg) rotateY(${index * 2}deg)`,
                       boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
                       zIndex: index + 10,
                       transformStyle: 'preserve-3d',
                       backfaceVisibility: 'hidden'
                     }}
-                                        onMouseEnter={() => handleCardHover(index, true)}
+                    onMouseEnter={() => handleCardHover(index, true)}
                     onMouseLeave={() => handleCardHover(index, false)}
+                    onMouseMove={(e) => {
+                      // Ensure hover state is maintained while mouse is inside
+                      if (hoveredCard !== index) {
+                        handleCardHover(index, true);
+                      }
+                    }}
                   >
                     <div className="text-white h-full flex flex-col" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                      <div className="flex items-center mb-6">
-                        <card.icon className="w-8 h-8 mr-3 drop-shadow-lg" />
-                        <h2 className="text-2xl font-bold drop-shadow-lg">{card.title}</h2>
-        </div>
+                      <div className="flex items-center mb-4">
+                        <card.icon className="w-6 h-6 mr-2 drop-shadow-lg" />
+                        <h2 className="text-xl font-bold drop-shadow-lg">{card.title}</h2>
+                      </div>
 
                       {hoveredCard === index ? (
-                        <div className="flex-1 overflow-y-auto space-y-2">
+                        <div className="flex-1 grid grid-cols-1 gap-1.5">
                           {card.items.map((item, itemIndex) => (
-          <button
+                            <button
                               key={item.id}
                               onClick={() => handleCardClick(index, item)}
-                              className={`w-full p-2 rounded-2xl text-left transition-all duration-300 hover:scale-100 ${
+                              className={`w-full p-2 rounded-xl text-left transition-all duration-300 hover:scale-105 ${
                                 card.selected?.id === item.id ? 'bg-white/30' : 'bg-white/10 hover:bg-white/20'
                               }`}
                               style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}
                             >
                               <div className="flex items-center">
-                                {item.icon && <item.icon className="w-6 h-6 mr-3 drop-shadow-lg" />}
-                                <div>
-                                  <div className="font-semibold text-sm text-white drop-shadow-lg">{item.name}</div>
-                                  {item.desc && <div className="text-sm text-white/90 drop-shadow-md">{item.desc}</div>}
+                                {item.icon && <item.icon className="w-4 h-4 mr-2 drop-shadow-lg flex-shrink-0" />}
+                                <div className="min-w-0 flex-1">
+                                  <div className="font-semibold text-xs text-white drop-shadow-lg truncate">{item.name}</div>
+                                  {item.desc && <div className="text-xs text-white/90 drop-shadow-md truncate">{item.desc}</div>}
                                   {item.value && <div className="text-xs text-white/80 drop-shadow-md">{item.value}</div>}
                                 </div>
                               </div>
@@ -450,10 +493,10 @@ const TokenizationDashboard = () => {
                       ) : (
                         <div className="flex-1 flex items-center justify-center">
                           <div className="text-center" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                            <div className="text-lg font-semibold mb-2 text-white drop-shadow-lg">
+                            <div className="text-base font-semibold mb-2 text-white drop-shadow-lg">
                               {card.selected ? `Selected: ${card.selected.name || card.selected}` : 'Hover to select'}
                             </div>
-                            <div className="text-sm text-white/90 drop-shadow-md">
+                            <div className="text-xs text-white/90 drop-shadow-md">
                               {card.items.length} options available
                             </div>
                           </div>
@@ -467,7 +510,7 @@ const TokenizationDashboard = () => {
           </div>
 
           {/* Smart Contract Deployment */}
-          {selectedAsset && selectedBlockchain && selectedStandard && (
+          {/* {selectedAsset && selectedBlockchain && selectedStandard && (
             <div className={`col-span-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-3xl p-8 text-white transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-2xl`}>
               <div className="flex justify-between items-center">
                 <div>
@@ -496,7 +539,7 @@ const TokenizationDashboard = () => {
           </button>
               </div>
             </div>
-          )}
+          )} */}
         </div>
         </div>
      
