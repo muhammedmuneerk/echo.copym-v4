@@ -16,34 +16,34 @@ export default function Header() {
         description: "Transform real-world assets into blockchain tokens with our secure and compliant platform",
         path: "/tokenization",
         visual: (
-          <div className="w-full h-48 bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 relative overflow-hidden border border-green-200">
-            <div className="absolute top-4 left-4 text-xs text-green-700 font-medium">Asset Selection</div>
-            <div className="mt-8 space-y-3">
-              <div className="flex items-center justify-between p-2 bg-white rounded-lg border border-green-100">
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-xs text-gray-700 font-medium">Gold Reserve</span>
+          <div className="w-full h-52 bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-4 relative overflow-hidden border border-green-200">
+            <div className="absolute top-3 left-3 text-sm text-green-700 font-medium">Asset Selection</div>
+            <div className="mt-8 space-y-2">
+              <div className="flex items-center justify-between p-2 bg-white rounded border border-green-100">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                  <span className="text-sm text-gray-700 font-medium">Gold Reserve</span>
                 </div>
-                <div className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-md font-medium">$500K</div>
+                <div className="px-2 py-1 bg-green-100 text-green-700 text-sm rounded font-medium">$500K</div>
               </div>
-              <div className="flex items-center justify-between p-2 bg-white rounded-lg border border-green-100">
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-xs text-gray-700 font-medium">Art Collection</span>
+              <div className="flex items-center justify-between p-2 bg-white rounded border border-green-100">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                  <span className="text-sm text-gray-700 font-medium">Art Collection</span>
                 </div>
-                <div className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-md font-medium">$1.2M</div>
+                <div className="px-2 py-1 bg-green-100 text-green-700 text-sm rounded font-medium">$1.2M</div>
               </div>
-              <div className="flex items-center justify-between p-2 bg-white rounded-lg border border-green-100">
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-xs text-gray-700 font-medium">Real Estate</span>
+              <div className="flex items-center justify-between p-2 bg-white rounded border border-green-100">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                  <span className="text-sm text-gray-700 font-medium">Real Estate</span>
                 </div>
-                <div className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-md font-medium">$2.8M</div>
+                <div className="px-2 py-1 bg-green-100 text-green-700 text-sm rounded font-medium">$2.8M</div>
               </div>
-              <div className="mt-4 flex items-center justify-center space-x-2">
-                <div className="w-6 h-6 bg-green-200 rounded-full flex items-center justify-center text-green-700 text-xs font-medium">+</div>
-                <div className="w-6 h-6 bg-green-300 rounded-full flex items-center justify-center text-green-700 text-xs font-medium">→</div>
-                <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-medium">RWA</div>
+              <div className="mt-3 flex items-center justify-center space-x-2">
+                <div className="w-5 h-5 bg-green-200 rounded-full flex items-center justify-center text-green-700 text-sm font-medium">+</div>
+                <div className="w-5 h-5 bg-green-300 rounded-full flex items-center justify-center text-green-700 text-sm font-medium">→</div>
+                <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-medium">RWA</div>
               </div>
             </div>
           </div>
@@ -54,84 +54,84 @@ export default function Header() {
         description: "Trade tokenized assets in our secure and transparent marketplace with advanced analytics",
         path: "/marketplace",
         visual: (
-          <div className="w-full h-48 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 relative overflow-hidden border border-blue-200">
-            <div className="absolute top-4 left-4 text-xs text-blue-700 font-medium">Marketplace Dashboard</div>
+          <div className="w-full h-52 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-4 relative overflow-hidden border border-blue-200">
+            <div className="absolute top-3 left-3 text-sm text-blue-700 font-medium">Marketplace Dashboard</div>
             <div className="mt-8 flex h-full">
               {/* Sidebar */}
-              <div className="w-2/5 pr-3">
-                <div className="bg-white rounded-lg border border-blue-200 p-3 h-full">
-                  <div className="text-xs text-blue-600 font-medium mb-2">Assets</div>
-                  <div className="space-y-2">
+              <div className="w-2/5 pr-2">
+                <div className="bg-white rounded border border-blue-200 p-2 h-full">
+                  <div className="text-sm text-blue-600 font-medium mb-2">Assets</div>
+                  <div className="space-y-1.5">
                     <div className="flex items-center space-x-2 p-1 bg-blue-50 rounded border border-blue-200">
                       <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                      <span className="text-xs text-gray-700">Gold</span>
+                      <span className="text-sm text-gray-700">Gold</span>
                     </div>
                     <div className="flex items-center space-x-2 p-1 bg-blue-50 rounded border border-blue-200">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-xs text-gray-700">Real Estate</span>
+                      <span className="text-sm text-gray-700">Real Estate</span>
                     </div>
                     <div className="flex items-center space-x-2 p-1 bg-blue-50 rounded border border-blue-200">
                       <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                      <span className="text-xs text-gray-700">Art</span>
+                      <span className="text-sm text-gray-700">Art</span>
                     </div>
                     <div className="flex items-center space-x-2 p-1 bg-blue-50 rounded border border-blue-200">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-xs text-gray-700">Commodities</span>
+                      <span className="text-sm text-gray-700">Commodities</span>
                     </div>
                     <div className="flex items-center space-x-2 p-1 bg-blue-50 rounded border border-blue-200">
                       <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <span className="text-xs text-gray-700">Infrastructure</span>
+                      <span className="text-sm text-gray-700">Infrastructure</span>
                     </div>
                   </div>
                 </div>
               </div>
               
               {/* Main Content */}
-              <div className="w-3/5 pl-3">
-                <div className="bg-white rounded-lg border border-blue-200 p-3 h-full">
-                  <div className="text-xs text-blue-600 font-medium mb-2">Featured NFTs</div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="bg-gray-50 rounded border p-2">
-                      <div className="w-full h-8 bg-gradient-to-r from-yellow-200 to-yellow-300 rounded mb-2"></div>
-                      <div className="text-xs text-gray-700 font-medium">Gold Reserve #42</div>
+              <div className="w-3/5 pl-2">
+                <div className="bg-white rounded border border-blue-200 p-2 h-full">
+                  <div className="text-sm text-blue-600 font-medium mb-2">Featured NFTs</div>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    <div className="bg-gray-50 rounded border p-1.5">
+                      <div className="w-full h-5 bg-gradient-to-r from-yellow-200 to-yellow-300 rounded mb-1"></div>
+                      <div className="text-sm text-gray-700 font-medium">Gold Reserve #42</div>
                       <div className="text-xs text-gray-500">RWA Collection</div>
-                      <div className="flex items-center justify-between mt-1">
-                        <span className="text-xs text-blue-600 font-medium">2.45 ETH</span>
-                        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-blue-600 font-medium">2.45 ETH</span>
+                        <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
                       </div>
                     </div>
-                    <div className="bg-gray-50 rounded border p-2">
-                      <div className="w-full h-8 bg-gradient-to-r from-blue-200 to-blue-300 rounded mb-2"></div>
-                      <div className="text-xs text-gray-700 font-medium">Luxury Villa #18</div>
+                    <div className="bg-gray-50 rounded border p-1.5">
+                      <div className="w-full h-5 bg-gradient-to-r from-blue-200 to-blue-300 rounded mb-1"></div>
+                      <div className="text-sm text-gray-700 font-medium">Luxury Villa #18</div>
                       <div className="text-xs text-gray-500">Real Estate</div>
-                      <div className="flex items-center justify-between mt-1">
-                        <span className="text-xs text-blue-600 font-medium">8.2 ETH</span>
-                        <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-blue-600 font-medium">8.2 ETH</span>
+                        <div className="w-2.5 h-2.5 bg-blue-500 rounded-full"></div>
                       </div>
                     </div>
-                    <div className="bg-gray-50 rounded border p-2">
-                      <div className="w-full h-8 bg-gradient-to-r from-purple-200 to-purple-300 rounded mb-2"></div>
-                      <div className="text-xs text-gray-700 font-medium">Art Piece #7</div>
+                    <div className="bg-gray-50 rounded border p-1.5">
+                      <div className="w-full h-5 bg-gradient-to-r from-purple-200 to-purple-300 rounded mb-1"></div>
+                      <div className="text-sm text-gray-700 font-medium">Art Piece #7</div>
                       <div className="text-xs text-gray-500">Art Collection</div>
-                      <div className="flex items-center justify-between mt-1">
-                        <span className="text-xs text-blue-600 font-medium">3.8 ETH</span>
-                        <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-blue-600 font-medium">3.8 ETH</span>
+                        <div className="w-2.5 h-2.5 bg-purple-500 rounded-full"></div>
                       </div>
                     </div>
-                    <div className="bg-gray-50 rounded border p-2">
-                      <div className="w-full h-8 bg-gradient-to-r from-green-200 to-green-300 rounded mb-2"></div>
-                      <div className="text-xs text-gray-700 font-medium">Solar Farm #12</div>
+                    <div className="bg-gray-50 rounded border p-1.5">
+                      <div className="w-full h-5 bg-gradient-to-r from-green-200 to-green-300 rounded mb-1"></div>
+                      <div className="text-sm text-gray-700 font-medium">Solar Farm #12</div>
                       <div className="text-xs text-gray-500">Infrastructure</div>
-                      <div className="flex items-center justify-between mt-1">
-                        <span className="text-xs text-blue-600 font-medium">15.5 ETH</span>
-                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-blue-600 font-medium">15.5 ETH</span>
+                        <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
                       </div>
                     </div>
                   </div>
-                  <div className="mt-3 p-2 bg-blue-50 rounded border border-blue-200">
+                  <div className="mt-2 p-2 bg-blue-50 rounded border border-blue-200">
                     <div className="flex justify-between items-center">
-                      <div className="text-xs text-blue-600 font-medium">Floor Price</div>
-                      <div className="text-xs font-bold text-blue-800">2.45 ETH</div>
+                      <div className="text-sm text-blue-600 font-medium">Floor Price</div>
+                      <div className="text-sm font-bold text-blue-800">2.45 ETH</div>
                     </div>
                   </div>
                 </div>
@@ -146,24 +146,24 @@ export default function Header() {
         title: "AccessPass",
         description: "Verified investor onboarding with comprehensive KYC/AML compliance and accreditation verification",
         visual: (
-          <div className="w-full h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl p-6 relative overflow-hidden">
-            <div className="absolute top-4 left-4 text-xs text-emerald-600 font-semibold">Investor Verification</div>
-            <div className="mt-8 space-y-3">
+          <div className="w-full h-52 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-lg p-4 relative overflow-hidden">
+            <div className="absolute top-3 left-3 text-sm text-emerald-600 font-semibold">Investor Verification</div>
+            <div className="mt-8 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-emerald-700">KYC Status</span>
-                <div className="px-2 py-1 bg-green-400 text-white text-xs rounded">Verified</div>
+                <span className="text-sm text-emerald-700">KYC Status</span>
+                <div className="px-2 py-1 bg-green-400 text-white text-sm rounded">Verified</div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-emerald-700">AML Check</span>
-                <div className="px-2 py-1 bg-green-400 text-white text-xs rounded">Passed</div>
+                <span className="text-sm text-emerald-700">AML Check</span>
+                <div className="px-2 py-1 bg-green-400 text-white text-sm rounded">Passed</div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-emerald-700">Accreditation</span>
-                <div className="px-2 py-1 bg-green-400 text-white text-xs rounded">Approved</div>
+                <span className="text-sm text-emerald-700">Accreditation</span>
+                <div className="px-2 py-1 bg-green-400 text-white text-sm rounded">Approved</div>
               </div>
-              <div className="mt-4 flex items-center justify-center">
-                <div className="w-16 h-16 bg-emerald-300 rounded-full flex items-center justify-center">
-                  <div className="w-8 h-8 bg-emerald-500 rounded-full"></div>
+              <div className="mt-3 flex items-center justify-center">
+                <div className="w-10 h-10 bg-emerald-300 rounded-full flex items-center justify-center">
+                  <div className="w-5 h-5 bg-emerald-500 rounded-full"></div>
                 </div>
               </div>
             </div>
@@ -174,24 +174,24 @@ export default function Header() {
         title: "LaunchKit",
         description: "Comprehensive tools for tokenizing and managing assets with smart contract deployment",
         visual: (
-          <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl p-6 relative overflow-hidden">
-            <div className="absolute top-4 left-4 text-xs text-blue-600 font-semibold">Asset Management</div>
-            <div className="mt-8 space-y-4">
+          <div className="w-full h-52 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg p-4 relative overflow-hidden">
+            <div className="absolute top-3 left-3 text-sm text-blue-600 font-semibold">Asset Management</div>
+            <div className="mt-8 space-y-2">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center text-white text-xs">1</div>
+                <div className="w-7 h-7 bg-blue-400 rounded-full flex items-center justify-center text-white text-sm">1</div>
                 <div className="h-2 bg-blue-300 rounded flex-1"></div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center text-white text-xs">2</div>
+                <div className="w-7 h-7 bg-blue-400 rounded-full flex items-center justify-center text-white text-sm">2</div>
                 <div className="h-2 bg-blue-300 rounded flex-1"></div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-300 rounded-full flex items-center justify-center text-white text-xs">3</div>
+                <div className="w-7 h-7 bg-blue-300 rounded-full flex items-center justify-center text-white text-sm">3</div>
                 <div className="h-2 bg-blue-200 rounded flex-1"></div>
               </div>
-              <div className="mt-4 bg-blue-300 rounded-lg p-3">
+              <div className="mt-3 bg-blue-300 rounded p-3">
                 <div className="text-sm font-bold text-blue-800">Smart Contracts</div>
-                <div className="text-xs text-blue-600">Deployed & Ready</div>
+                <div className="text-sm text-blue-600">Deployed & Ready</div>
               </div>
             </div>
           </div>
@@ -202,25 +202,25 @@ export default function Header() {
         description: "Smart analytics and platform intelligence powered by advanced AI for optimal decision making",
         path: "/agent",
         visual: (
-          <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 relative overflow-hidden border border-gray-200">
-            <div className="absolute top-4 left-4 text-xs text-gray-600 font-semibold">AI Analytics</div>
-            <div className="mt-8 space-y-3">
+          <div className="w-full h-52 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg p-4 relative overflow-hidden border border-gray-200">
+            <div className="absolute top-3 left-3 text-sm text-gray-600 font-semibold">AI Analytics</div>
+            <div className="mt-8 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-700">Market Analysis</span>
-                <div className="px-2 py-1 bg-green-400 text-white text-xs rounded">94%</div>
+                <span className="text-sm text-gray-700">Market Analysis</span>
+                <div className="px-2 py-1 bg-green-400 text-white text-sm rounded">94%</div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-700">Risk Assessment</span>
-                <div className="px-2 py-1 bg-green-400 text-white text-xs rounded">87%</div>
+                <span className="text-sm text-gray-700">Risk Assessment</span>
+                <div className="px-2 py-1 bg-green-400 text-white text-sm rounded">87%</div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-700">Predictions</span>
-                <div className="px-2 py-1 bg-green-400 text-white text-xs rounded">91%</div>
+                <span className="text-sm text-gray-700">Predictions</span>
+                <div className="px-2 py-1 bg-green-400 text-white text-sm rounded">91%</div>
               </div>
-              <div className="mt-4 flex items-center justify-center space-x-2">
-                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                <div className="w-8 h-8 bg-gray-400 rounded-full"></div>
-                <div className="w-8 h-8 bg-gray-500 rounded-full"></div>
+              <div className="mt-3 flex items-center justify-center space-x-3">
+                <div className="w-5 h-5 bg-gray-300 rounded-full"></div>
+                <div className="w-5 h-5 bg-gray-400 rounded-full"></div>
+                <div className="w-5 h-5 bg-gray-500 rounded-full"></div>
               </div>
             </div>
           </div>
@@ -233,7 +233,7 @@ export default function Header() {
         description: "Vision, team, and mission - discover the story behind our revolutionary approach to real-world asset tokenization",
         path: "/about",
         visual: (
-          <div className="w-full h-48 bg-gradient-to-br from-teal-100 to-cyan-200 rounded-xl p-6 relative overflow-hidden">
+          <div className="w-full h-52 bg-gradient-to-br from-teal-100 to-cyan-200 rounded-lg p-4 relative overflow-hidden">
             <div className="absolute top-6 left-6">
               <div className="w-16 h-16 bg-teal-300 rounded-full opacity-60 relative">
                 <div className="absolute inset-2 bg-teal-400 rounded-full"></div>
@@ -256,36 +256,36 @@ export default function Header() {
         description: "Explore our development timeline and upcoming features that will shape the future of RWA tokenization",
         path: "/roadmap",
         visual: (
-          <div className="w-full h-48 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-6 relative overflow-hidden">
-            <div className="absolute top-4 left-4 text-xs text-purple-600 font-semibold">Development Timeline</div>
-            <div className="mt-8 space-y-3">
+          <div className="w-full h-52 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg p-4 relative overflow-hidden">
+            <div className="absolute top-3 left-3 text-sm text-purple-600 font-semibold">Development Timeline</div>
+            <div className="mt-8 space-y-2">
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                <div className="w-5 h-5 bg-green-400 rounded-full flex items-center justify-center">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                 </div>
                 <div className="h-2 bg-purple-300 rounded flex-1"></div>
-                <div className="text-xs text-purple-700 font-medium">Q1 2024</div>
+                <div className="text-sm text-purple-700 font-medium">Q1 2024</div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                <div className="w-5 h-5 bg-green-400 rounded-full flex items-center justify-center">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                 </div>
                 <div className="h-2 bg-purple-300 rounded flex-1"></div>
-                <div className="text-xs text-purple-700 font-medium">Q2 2024</div>
+                <div className="text-sm text-purple-700 font-medium">Q2 2024</div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-purple-300 rounded-full flex items-center justify-center">
+                <div className="w-5 h-5 bg-purple-300 rounded-full flex items-center justify-center">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                 </div>
                 <div className="h-2 bg-purple-200 rounded flex-1"></div>
-                <div className="text-xs text-purple-600 font-medium">Q3 2024</div>
+                <div className="text-sm text-purple-600 font-medium">Q3 2024</div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+                <div className="w-5 h-5 bg-gray-300 rounded-full flex items-center justify-center">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                 </div>
                 <div className="h-2 bg-gray-200 rounded flex-1"></div>
-                <div className="text-xs text-gray-500 font-medium">Q4 2024</div>
+                <div className="text-sm text-gray-500 font-medium">Q4 2024</div>
               </div>
             </div>
           </div>
@@ -296,31 +296,31 @@ export default function Header() {
         description: "Let's connect - reach out to our team for partnerships, support, or to learn more about our platform",
         path: "/contact",
         visual: (
-          <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl p-6 relative overflow-hidden">
-            <div className="absolute top-4 left-4 text-xs text-blue-600 font-semibold">Get in Touch</div>
-            <div className="mt-8 space-y-3">
+          <div className="w-full h-52 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg p-4 relative overflow-hidden">
+            <div className="absolute top-3 left-3 text-sm text-blue-600 font-semibold">Get in Touch</div>
+            <div className="mt-8 space-y-2">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                <div className="w-7 h-7 bg-blue-400 rounded-full flex items-center justify-center">
                   <div className="w-3 h-3 bg-white rounded-full"></div>
                 </div>
-                <div className="text-xs text-blue-700">hello@copym.ai</div>
+                <div className="text-sm text-blue-700">hello@copym.ai</div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                <div className="w-7 h-7 bg-blue-400 rounded-full flex items-center justify-center">
                   <div className="w-3 h-3 bg-white rounded-full"></div>
                 </div>
-                <div className="text-xs text-blue-700">+1 (555) 123-4567</div>
+                <div className="text-sm text-blue-700">+1 (555) 123-4567</div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                <div className="w-7 h-7 bg-blue-400 rounded-full flex items-center justify-center">
                   <div className="w-3 h-3 bg-white rounded-full"></div>
                 </div>
-                <div className="text-xs text-blue-700">Support & Partnerships</div>
+                <div className="text-sm text-blue-700">Support & Partnerships</div>
               </div>
             </div>
             <div className="absolute bottom-6 right-6">
-              <div className="w-12 h-12 bg-blue-300 rounded-full flex items-center justify-center">
-                <div className="w-6 h-6 bg-blue-500 rounded-full"></div>
+              <div className="w-10 h-10 bg-blue-300 rounded-full flex items-center justify-center">
+                <div className="w-5 h-5 bg-blue-500 rounded-full"></div>
               </div>
             </div>
           </div>
@@ -392,7 +392,12 @@ export default function Header() {
       <AnimatePresence>
         {activeDropdown && (
           <motion.div
-            className="absolute top-24 left-0 right-0 z-40 px-4 md:px-0"
+            className="absolute top-24 z-40 px-4"
+            style={{
+              right: activeDropdown === 'Products' ? '28%' : 
+                     activeDropdown === 'Services' ? '17%' : 
+                     activeDropdown === 'Company' ? '5.5%' : '20%'
+            }}
             initial={{ 
               opacity: 0, 
               y: -20
@@ -412,61 +417,59 @@ export default function Header() {
             onMouseEnter={() => setActiveDropdown(activeDropdown)}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <div className="max-w-7xl mx-auto">
-              <div className="bg-gradient-to-br from-teal-50 via-cyan-50 to-teal-100 backdrop-blur-md rounded-2xl shadow-2xl border border-teal-100 p-8">
-                <div className={`grid gap-8 ${navigationData[activeDropdown].length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
-                  {navigationData[activeDropdown].map((section, index) => (
-                    <Link
-                      key={index}
-                      to={section.path}
-                      className="block"
-                      onClick={() => setActiveDropdown(null)}
+            <div className="bg-gradient-to-br from-teal-50 via-cyan-50 to-teal-100 backdrop-blur-md rounded-2xl shadow-2xl border border-teal-100 p-6">
+              <div className={`grid gap-4 ${navigationData[activeDropdown].length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+                {navigationData[activeDropdown].map((section, index) => (
+                  <Link
+                    key={index}
+                    to={section.path}
+                    className="block"
+                    onClick={() => setActiveDropdown(null)}
+                  >
+                    <motion.div
+                      className="bg-white rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer border border-teal-100 w-80 h-[400px] flex flex-col"
+                      initial={{ 
+                        opacity: 0, 
+                        y: 30 
+                      }}
+                      animate={{ 
+                        opacity: 1, 
+                        y: 0 
+                      }}
+                      transition={{ 
+                        delay: index * 0.1,
+                        duration: 0.4,
+                        ease: "easeOut"
+                      }}
+                      whileHover={{ y: -8, scale: 1.02 }}
                     >
-                      <motion.div
-                        className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer border border-teal-100"
-                        initial={{ 
-                          opacity: 0, 
-                          y: 30 
-                        }}
-                        animate={{ 
-                          opacity: 1, 
-                          y: 0 
-                        }}
-                        transition={{ 
-                          delay: index * 0.1,
-                          duration: 0.4,
-                          ease: "easeOut"
-                        }}
-                        whileHover={{ y: -8, scale: 1.02 }}
+                      {/* Visual Preview */}
+                      <div className="mb-4 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+                        {section.visual}
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="space-y-3 flex-1 flex flex-col">
+                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-teal-700 transition-colors duration-200 leading-tight">
+                          {section.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 leading-relaxed flex-1">
+                          {section.description}
+                        </p>
+                      </div>
+                      
+                      {/* Learn More Link - Positioned at bottom */}
+                      <motion.div 
+                        className="flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium text-sm pb-4 pt-4 mt-auto"
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        {/* Visual Preview */}
-                        <div className="mb-6 group-hover:scale-105 transition-transform duration-300">
-                          {section.visual}
-                        </div>
-                        
-                        {/* Content */}
-                        <div className="space-y-4">
-                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-teal-700 transition-colors duration-200 leading-tight">
-                            {section.title}
-                          </h3>
-                          <p className="text-sm text-gray-600 leading-relaxed">
-                            {section.description}
-                          </p>
-                          
-                          {/* Learn More Link */}
-                          <motion.div 
-                            className="flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium text-sm pt-2"
-                            whileHover={{ x: 5 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <span>Learn more</span>
-                            <ArrowRight className="w-4 h-4" />
-                          </motion.div>
-                        </div>
+                        <span>Learn more</span>
+                        <ArrowRight className="w-4 h-4" />
                       </motion.div>
-                    </Link>
-                  ))}
-                </div>
+                    </motion.div>
+                  </Link>
+                ))}
               </div>
             </div>
           </motion.div>

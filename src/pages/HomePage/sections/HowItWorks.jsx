@@ -500,7 +500,7 @@ export default function HowItWorks() {
                       ]).map((option, index) => (
                         <motion.div
                           key={index}
-                          className={`flex items-center justify-between p-3 ${option.color} ${option.border} border rounded-xl cursor-pointer`}
+                          className={`flex items-center p-3 ${option.color} ${option.border} border rounded-xl cursor-pointer`}
                           whileHover={{
                             scale: 1.02,
                             x: 5,
@@ -515,9 +515,9 @@ export default function HowItWorks() {
                             ease: "easeOut"
                           }}
                         >
-                          <div className="flex items-center space-x-3">
+                          <div className="flex items-center space-x-3 w-full">
                             <motion.div
-                              className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm"
+                              className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm"
                               animate={{ rotate: [0, 5, -5, 0] }}
                               transition={{
                                 duration: 2,
@@ -525,24 +525,24 @@ export default function HowItWorks() {
                                 delay: index * 0.2
                               }}
                             >
-                              <span className="text-lg">{option.icon}</span>
+                              <span className="text-sm">{option.icon}</span>
                             </motion.div>
-                            <div>
+                            <div className="flex-1">
                               <div className="font-medium text-sm text-gray-900">{option.title}</div>
                               <div className="text-xs text-gray-600">{option.desc}</div>
                             </div>
+                            <motion.div
+                              className="text-gray-400 text-lg"
+                              animate={{ x: [0, 3, 0] }}
+                              transition={{
+                                duration: 1.5,
+                                repeat: Infinity,
+                                delay: index * 0.1
+                              }}
+                            >
+                              ›
+                            </motion.div>
                           </div>
-                          <motion.div
-                            className="text-gray-400"
-                            animate={{ x: [0, 3, 0] }}
-                            transition={{
-                              duration: 1.5,
-                              repeat: Infinity,
-                              delay: index * 0.1
-                            }}
-                          >
-                            ›
-                          </motion.div>
                         </motion.div>
                       ))}
                     </div>
