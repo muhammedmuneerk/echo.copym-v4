@@ -195,7 +195,7 @@ const TokenizationDashboard = () => {
         if (index !== cardIndex && otherCard) {
           window.gsap.killTweensOf(otherCard);
           window.gsap.to(otherCard, {
-            opacity: 0.7,
+            opacity: 0.9,
             scale: 0.9,
             duration: 0.3,
             ease: "power2.out"
