@@ -157,7 +157,7 @@ const AiOverview = () => {
           {/* Right Column: Image */}
           <div className="hidden lg:flex items-center justify-center">
             <img
-              src="/src/styles/iq.svg"
+              src="/assets/svg/iq.svg"
               alt="AI Ecosystem Diagram"
               style={{ height: '550px', width: 'auto' }}
               className=" animate-pulse"
