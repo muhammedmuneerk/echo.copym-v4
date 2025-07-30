@@ -53,6 +53,14 @@ const RealEstateInvestmentSection = () => {
       content: "Access institutional-grade opportunities in real estate, gold, private equity, commodities, and fine art. Our AI agent provides market insights, performance analytics, and portfolio recommendations.",
       highlight: "Smart Diversification",
       visual: "world-assets"
+    },
+    {
+      id: 5,
+      title: "Embedded Stablecoin Wallet",
+      subtitle: "Instant, Programmable, Multi-Currency",
+      content: "Users can deposit, send, receive, or swap stablecoins like USDC in real-time — all from a single, secure wallet. Built-in support for fiat ramps and multi-chain operations ensures seamless experiences across borders.",
+      highlight: "Fintech Evolution",
+      visual: "stablecoin-wallet"
     }
   ];
 
@@ -118,16 +126,14 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       {/* Main building */}
       <div className="relative">
-        <div className={`w-48 h-80 bg-gradient-to-t from-blue-600 to-blue-400 rounded-lg shadow-2xl relative overflow-hidden visual-element ${
-          isAnimating ? 'stagger-in' : ''
-        }`} style={{ animationDelay: '0.1s' }}>
+        <div className={`w-48 h-80 bg-gradient-to-t from-blue-600 to-blue-400 rounded-lg shadow-2xl relative overflow-hidden visual-element ${isAnimating ? 'stagger-in' : ''
+          }`} style={{ animationDelay: '0.1s' }}>
           {/* Building windows */}
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className={`absolute w-4 h-4 bg-yellow-300 rounded-sm visual-element ${
-                isAnimating ? 'stagger-in' : 'animate-pulse'
-              }`}
+              className={`absolute w-4 h-4 bg-yellow-300 rounded-sm visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+                }`}
               style={{
                 left: `${15 + (i % 3) * 20}px`,
                 top: `${10 + Math.floor(i / 3) * 15}px`,
@@ -135,15 +141,14 @@ const RealEstateInvestmentSection = () => {
               }}
             />
           ))}
-          
+
           {/* Fraction lines */}
           <div className="absolute inset-0 grid grid-cols-4 gap-0">
             {Array.from({ length: 16 }).map((_, i) => (
               <div
                 key={i}
-                className={`border border-white/40 visual-element ${
-                  isAnimating ? 'stagger-in' : 'animate-pulse'
-                }`}
+                className={`border border-white/40 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+                  }`}
                 style={{ animationDelay: isAnimating ? `${0.4 + i * 0.02}s` : `${i * 0.1}s` }}
               />
             ))}
@@ -154,9 +159,8 @@ const RealEstateInvestmentSection = () => {
         {['25%', '12.5%', '6.25%', '31.25%'].map((percent, i) => (
           <div
             key={i}
-            className={`absolute w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg visual-element ${
-              isAnimating ? 'stagger-in' : 'animate-bounce'
-            }`}
+            className={`absolute w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
+              }`}
             style={{
               left: `${-30 + i * 40}px`,
               top: `${60 + Math.sin(i) * 25}px`,
@@ -169,9 +173,8 @@ const RealEstateInvestmentSection = () => {
         ))}
 
         {/* AI Agent indicator */}
-        <div className={`absolute -top-6 -right-6 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center visual-element ${
-          isAnimating ? 'stagger-in' : 'animate-pulse'
-        }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
+        <div className={`absolute -top-6 -right-6 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+          }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
           <span className="text-white text-lg">📊</span>
         </div>
       </div>
@@ -181,57 +184,67 @@ const RealEstateInvestmentSection = () => {
   const renderPassiveEarning = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
-        {/* Central money flow */}
-        <div className={`w-48 h-48 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-2xl visual-element ${
-          isAnimating ? 'stagger-in' : ''
-        }`} style={{ animationDelay: '0.1s' }}>
-          <DollarSign className={`w-24 h-24 text-white ${isAnimating ? '' : 'animate-pulse'}`} />
+        {/* 3D Coin with Dollar Sign */}
+        <div className={`w-56 h-56 relative visual-element ${isAnimating ? 'stagger-in' : ''
+          }`} style={{ animationDelay: '0.1s' }}>
+          {/* Main coin body */}
+          <div className="w-full h-full bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 rounded-full shadow-2xl relative overflow-hidden">
+            {/* Coin rim with milled texture */}
+            <div className="absolute inset-0 rounded-full border-4 border-yellow-300 shadow-inner"></div>
+
+            {/* Inner ring with braided pattern */}
+            <div className="absolute inset-4 rounded-full border-2 border-gray-300 bg-gradient-to-br from-gray-200 to-gray-300"></div>
+
+            {/* Central field */}
+            <div className="absolute inset-8 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+              {/* Dollar sign with 3D effect */}
+              <div className="relative">
+                <div className="text-6xl font-bold text-yellow-600 drop-shadow-lg">$</div>
+                {/* Small yellow circle intersecting dollar sign */}
+                <div className="absolute w-4 h-4 bg-yellow-400 rounded-full" style={{
+                  left: '50%',
+                  top: '50%',
+                  transform: 'translate(-50%, -50%) translateX(2px)'
+                }}></div>
+              </div>
+            </div>
+
+            {/* 3D depth effect */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-transparent via-transparent to-black opacity-20"></div>
+          </div>
         </div>
 
-        {/* Orbiting coins */}
-        {Array.from({ length: 6 }).map((_, i) => (
+        {/* Growth percentage bubbles - diagonal arrangement */}
+        {[
+          { value: '+18.2%', position: { left: '-60px', top: '-40px' } },
+          { value: '+12.8%', position: { left: '-40px', top: '-80px' } },
+          { value: '+16.3%', position: { left: '-20px', top: '-120px' } }
+        ].map((item, i) => (
           <div
             key={i}
-            className={`absolute w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center text-base font-bold visual-element ${
-              isAnimating ? 'stagger-in' : ''
-            }`}
+            className={`absolute bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+              }`}
             style={{
-              left: '50%',
-              top: '50%',
-              marginLeft: '-20px',
-              marginTop: '-20px',
-              transformOrigin: `${Math.cos(i * Math.PI / 3) * 70}px ${Math.sin(i * Math.PI / 3) * 70}px`,
-              animation: isAnimating ? 'staggerSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards' : 'spin 8s linear infinite',
+              ...item.position,
               animationDelay: isAnimating ? `${0.2 + i * 0.1}s` : `${i * 0.3}s`
             }}
           >
-            $
+            {item.value}
           </div>
         ))}
 
-        {/* Yield streams */}
-        {['+16.3%', '+12.8%', '+18.2%'].map((yield_, i) => (
-          <div
-            key={i}
-            className={`absolute bg-green-500 text-white px-4 py-2 rounded-full text-base font-medium visual-element ${
-              isAnimating ? 'stagger-in' : 'animate-bounce'
-            }`}
-            style={{
-              left: `${-50 + i * 50}px`,
-              top: `${-80 + i * 25}px`,
-              animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : `${i * 0.4}s`
-            }}
-          >
-            {yield_}
+        {/* Expert Management badge */}
+        <div className={`absolute -bottom-16 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-3 rounded-lg text-sm font-medium shadow-lg visual-element ${isAnimating ? 'stagger-in' : ''
+          }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
+          <div className="text-center">
+            <div className="font-bold">Expert</div>
+            <div className="text-xs opacity-90">Management</div>
           </div>
-        ))}
-
-        {/* Professional management indicator */}
-        <div className={`absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-6 py-3 rounded-lg text-sm visual-element ${
-          isAnimating ? 'stagger-in' : 'animate-pulse'
-        }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
-          Expert Management
         </div>
+
+        {/* Subtle decorative elements */}
+        <div className="absolute -bottom-8 -left-8 w-3 h-3 bg-purple-400 rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute -bottom-8 -right-8 w-3 h-3 bg-pink-400 rounded-full opacity-60 animate-pulse"></div>
       </div>
     </div>
   );
@@ -240,17 +253,15 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* Chart container */}
-        <div className={`w-64 h-40 bg-white rounded-lg shadow-2xl p-6 relative overflow-hidden visual-element ${
-          isAnimating ? 'stagger-in' : ''
-        }`} style={{ animationDelay: '0.1s' }}>
+        <div className={`w-64 h-40 bg-white rounded-lg shadow-2xl p-6 relative overflow-hidden visual-element ${isAnimating ? 'stagger-in' : ''
+          }`} style={{ animationDelay: '0.1s' }}>
           {/* Animated chart bars */}
           <div className="flex items-end justify-between h-full">
             {[65, 45, 80, 35, 90, 70, 95].map((height, i) => (
               <div
                 key={i}
-                className={`bg-gradient-to-t from-blue-500 to-green-400 w-6 rounded-t visual-element ${
-                  isAnimating ? 'stagger-in' : ''
-                }`}
+                className={`bg-gradient-to-t from-blue-500 to-green-400 w-6 rounded-t visual-element ${isAnimating ? 'stagger-in' : ''
+                  }`}
                 style={{
                   height: `${height}%`,
                   animationDelay: isAnimating ? `${0.2 + i * 0.05}s` : `${i * 0.2}s`,
@@ -274,9 +285,8 @@ const RealEstateInvestmentSection = () => {
         </div>
 
         {/* Percentage indicators */}
-        <div className={`absolute -top-12 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full font-bold text-xl visual-element ${
-          isAnimating ? 'stagger-in' : 'animate-bounce'
-        }`} style={{ animationDelay: isAnimating ? '0.3s' : '0s' }}>
+        <div className={`absolute -top-12 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full font-bold text-xl visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
+          }`} style={{ animationDelay: isAnimating ? '0.3s' : '0s' }}>
           16.3%
         </div>
 
@@ -288,9 +298,8 @@ const RealEstateInvestmentSection = () => {
         ].map((metric, i) => (
           <div
             key={i}
-            className={`absolute ${metric.color} text-white px-4 py-2 rounded text-sm visual-element ${
-              isAnimating ? 'stagger-in' : 'animate-pulse'
-            }`}
+            className={`absolute ${metric.color} text-white px-4 py-2 rounded text-sm visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+              }`}
             style={{
               left: `${-40 + i * 40}px`,
               bottom: `${-50 + i * 15}px`,
@@ -309,14 +318,12 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* Trading interface mockup */}
-        <div className={`w-56 h-64 bg-gray-900 rounded-2xl p-4 shadow-2xl visual-element ${
-          isAnimating ? 'stagger-in' : ''
-        }`} style={{ animationDelay: '0.1s' }}>
+        <div className={`w-56 h-64 bg-gray-900 rounded-2xl p-4 shadow-2xl visual-element ${isAnimating ? 'stagger-in' : ''
+          }`} style={{ animationDelay: '0.1s' }}>
           <div className="bg-white rounded-lg p-4 h-full">
             {/* Header */}
-            <div className={`text-center mb-6 visual-element ${
-              isAnimating ? 'stagger-in' : ''
-            }`} style={{ animationDelay: '0.2s' }}>
+            <div className={`text-center mb-6 visual-element ${isAnimating ? 'stagger-in' : ''
+              }`} style={{ animationDelay: '0.2s' }}>
               <div className="text-base font-bold text-gray-800">Secondary Market</div>
               <div className="text-sm text-gray-500">Instant Liquidity</div>
             </div>
@@ -328,9 +335,8 @@ const RealEstateInvestmentSection = () => {
                 { name: 'Gold ETF', price: '$1,890', change: '+2.1%' },
                 { name: 'Art Token', price: '$950', change: '+8.7%' }
               ].map((asset, i) => (
-                <div key={i} className={`bg-gray-50 rounded p-3 text-sm visual-element ${
-                  isAnimating ? 'stagger-in' : ''
-                }`} style={{ animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : '0s' }}>
+                <div key={i} className={`bg-gray-50 rounded p-3 text-sm visual-element ${isAnimating ? 'stagger-in' : ''
+                  }`} style={{ animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : '0s' }}>
                   <div className="font-medium text-gray-800">{asset.name}</div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">{asset.price}</span>
@@ -341,9 +347,8 @@ const RealEstateInvestmentSection = () => {
             </div>
 
             {/* Sell button */}
-            <button className={`w-full bg-red-500 text-white py-3 rounded font-medium text-sm visual-element ${
-              isAnimating ? 'stagger-in' : 'animate-pulse'
-            }`} style={{ animationDelay: isAnimating ? '0.6s' : '0s' }}>
+            <button className={`w-full bg-red-500 text-white py-3 rounded font-medium text-sm visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+              }`} style={{ animationDelay: isAnimating ? '0.6s' : '0s' }}>
               Sell Instantly
             </button>
           </div>
@@ -353,9 +358,8 @@ const RealEstateInvestmentSection = () => {
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
-            className={`absolute w-4 h-4 bg-blue-400 rounded-full visual-element ${
-              isAnimating ? 'stagger-in' : 'animate-ping'
-            }`}
+            className={`absolute w-4 h-4 bg-blue-400 rounded-full visual-element ${isAnimating ? 'stagger-in' : 'animate-ping'
+              }`}
             style={{
               left: `${Math.cos(i * Math.PI / 3) * 100}px`,
               top: `${Math.sin(i * Math.PI / 3) * 100}px`,
@@ -365,9 +369,8 @@ const RealEstateInvestmentSection = () => {
         ))}
 
         {/* Transaction speed indicator */}
-        <div className={`absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-2 rounded-full text-sm visual-element ${
-          isAnimating ? 'stagger-in' : 'animate-bounce'
-        }`} style={{ animationDelay: isAnimating ? '0.7s' : '0s' }}>
+        <div className={`absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-2 rounded-full text-sm visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
+          }`} style={{ animationDelay: isAnimating ? '0.7s' : '0s' }}>
           ⚡ 2-second settlement
         </div>
       </div>
@@ -378,11 +381,10 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* Central globe */}
-        <div className={`w-48 h-48 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center shadow-2xl relative visual-element ${
-          isAnimating ? 'stagger-in' : ''
-        }`} style={{ animationDelay: '0.1s' }}>
+        <div className={`w-48 h-48 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center shadow-2xl relative visual-element ${isAnimating ? 'stagger-in' : ''
+          }`} style={{ animationDelay: '0.1s' }}>
           <Globe className={`w-24 h-24 text-white ${isAnimating ? '' : 'animate-spin'}`} style={{ animationDuration: '10s' }} />
-          
+
           {/* Orbiting asset icons */}
           {[
             { icon: Home, color: 'bg-blue-500', label: 'Real Estate' },
@@ -394,13 +396,12 @@ const RealEstateInvestmentSection = () => {
             const radius = 120;
             const x = Math.cos(angle) * radius;
             const y = Math.sin(angle) * radius;
-            
+
             return (
               <div
                 key={i}
-                className={`absolute w-14 h-14 ${asset.color} rounded-full flex items-center justify-center shadow-lg visual-element ${
-                  isAnimating ? 'stagger-in' : ''
-                }`}
+                className={`absolute w-14 h-14 ${asset.color} rounded-full flex items-center justify-center shadow-lg visual-element ${isAnimating ? 'stagger-in' : ''
+                  }`}
                 style={{
                   left: `calc(50% + ${x}px)`,
                   top: `calc(50% + ${y}px)`,
@@ -420,9 +421,8 @@ const RealEstateInvestmentSection = () => {
         {['Real Estate', 'Gold', 'Commodities', 'Private Equity'].map((asset, i) => (
           <div
             key={i}
-            className={`absolute bg-white shadow-lg rounded-full px-4 py-2 text-sm font-medium text-gray-900 visual-element ${
-              isAnimating ? 'stagger-in' : 'animate-pulse'
-            }`}
+            className={`absolute bg-white shadow-lg rounded-full px-4 py-2 text-sm font-medium text-gray-900 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+              }`}
             style={{
               left: `${-60 + i * 45}px`,
               top: `${-90 + Math.sin(i) * 40}px`,
@@ -435,10 +435,127 @@ const RealEstateInvestmentSection = () => {
         ))}
 
         {/* AI insights badge */}
-        <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full text-sm visual-element ${
-          isAnimating ? 'stagger-in' : 'animate-bounce'
-        }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
+        <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full text-sm visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
+          }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
           📈 AI Investment Insights
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderStablecoinWallet = (isAnimating = false) => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="relative">
+        {/* Professional wallet interface */}
+        <div className={`w-80 h-[500px] bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative visual-element ${isAnimating ? 'stagger-in' : ''
+          }`} style={{ animationDelay: '0.1s' }}>
+
+          {/* Balance - Focal Point */}
+          <div className={`text-center mb-12 visual-element ${isAnimating ? 'stagger-in' : ''
+            }`} style={{ animationDelay: '0.2s' }}>
+            <div className="text-gray-500 text-sm font-medium mb-3">BALANCE</div>
+            <div className="text-5xl font-light text-gray-900 mb-2">$150.00</div>
+            <div className="text-green-600 text-sm font-medium">+2.3% today</div>
+          </div>
+
+          {/* Action buttons */}
+          <div className={`flex justify-center gap-8 mb-10 visual-element ${isAnimating ? 'stagger-in' : ''
+            }`} style={{ animationDelay: '0.3s' }}>
+            {[
+              {
+                label: 'Deposit',
+                color: 'bg-blue-600',
+                icon: (
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                )
+              },
+              {
+                label: 'Send',
+                color: 'bg-green-600',
+                icon: (
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                )
+              },
+              {
+                label: 'Receive',
+                color: 'bg-purple-600',
+                icon: (
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 13L17 7M7 7L17 13M7 7V17M17 7V17" />
+                  </svg>
+                )
+              }
+            ].map((action, i) => (
+              <div key={i} className="text-center">
+                <div className={`w-16 h-16 ${action.color} rounded-full flex items-center justify-center mx-auto mb-3 shadow-md visual-element ${isAnimating ? 'stagger-in' : 'hover:shadow-lg transition-shadow'
+                  }`} style={{ animationDelay: isAnimating ? `${0.4 + i * 0.1}s` : '0s' }}>
+                  {action.icon}
+                </div>
+                <div className="text-gray-700 text-sm font-medium">{action.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Recent transactions */}
+          <div className="space-y-3">
+            {/* Send transaction */}
+            <div className={`bg-gray-50 rounded-lg p-4 visual-element ${isAnimating ? 'stagger-in' : ''
+              }`} style={{ animationDelay: '0.6s' }}>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <div className="text-gray-900 font-medium text-sm">Sent <span className="font-semibold">$14.00 USDC</span></div>
+                  <div className="text-gray-500 text-xs">Just now</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Swap transaction */}
+            <div className={`bg-gray-50 rounded-lg p-4 visual-element ${isAnimating ? 'stagger-in' : ''
+              }`} style={{ animationDelay: '0.7s' }}>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <div className="text-gray-900 font-medium text-sm"><span className="font-semibold">100 USDC → 91.82 EUR</span></div>
+                  <div className="text-gray-500 text-xs">2 minutes ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Currency indicators */}
+        {['USD', 'EUR', 'GBP'].map((currency, i) => (
+          <div
+            key={i}
+            className={`absolute bg-white shadow-md rounded-lg px-3 py-2 text-xs font-medium text-gray-600 border border-gray-200 visual-element ${isAnimating ? 'stagger-in' : ''
+              }`}
+            style={{
+              left: `${-40 + i * 35}px`,
+              top: `${-60 + Math.sin(i) * 20}px`,
+              animationDelay: isAnimating ? `${0.8 + i * 0.1}s` : `${i * 0.3}s`
+            }}
+          >
+            {currency}
+          </div>
+        ))}
+
+        {/* Professional badge */}
+        <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-2 rounded-lg text-sm font-medium shadow-lg visual-element ${isAnimating ? 'stagger-in' : ''
+          }`} style={{ animationDelay: isAnimating ? '1s' : '0s' }}>
+          Multi-Currency Wallet
         </div>
       </div>
     </div>
@@ -446,7 +563,7 @@ const RealEstateInvestmentSection = () => {
 
   const renderVisualContent = (sectionIndex) => {
     const isCurrentlyAnimating = activeSection === sectionIndex;
-    
+
     switch (sections[sectionIndex]?.visual) {
       case 'asset-fractionalization':
         return renderAssetFractionalization(isCurrentlyAnimating);
@@ -458,6 +575,8 @@ const RealEstateInvestmentSection = () => {
         return renderFlexibleExit(isCurrentlyAnimating);
       case 'world-assets':
         return renderWorldAssets(isCurrentlyAnimating);
+      case 'stablecoin-wallet':
+        return renderStablecoinWallet(isCurrentlyAnimating);
       default:
         return renderAssetFractionalization(isCurrentlyAnimating);
     }
@@ -512,7 +631,7 @@ const RealEstateInvestmentSection = () => {
           background: linear-gradient(to bottom right, #f0fdf4, #dcfce7) !important;
         }
       `}</style>
-      
+
       {/* Main Container with proper flex layout */}
       <div className="flex">
         {/* Left Side - Visual Panel (will be pinned by GSAP) */}
@@ -561,66 +680,62 @@ const RealEstateInvestmentSection = () => {
 
         {/* Right Side - Scrollable Content */}
         <div ref={contentRef} className="w-1/2">
-            {sections.map((section, index) => (
-              <div
-                key={section.id}
-                ref={el => sectionsRef.current[index] = el}
+          {sections.map((section, index) => (
+            <div
+              key={section.id}
+              ref={el => sectionsRef.current[index] = el}
               className="min-h-screen flex items-center px-12 py-20"
-              >
-                <div className="max-w-lg">
-                  <div className="flex items-center gap-3 mb-6">
+            >
+              <div className="max-w-lg">
+                <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-sm">AI</span>
-                    </div>
-                  <div className="text-sm font-medium text-green-600">
-                      COPYM • 0{index + 1}
-                    </div>
+                    <span className="text-white font-bold text-sm">AI</span>
                   </div>
-                  
-                  <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 ${
-                    activeSection === index 
-                    ? 'bg-green-500/20 text-green-700 border border-green-500/30' 
+                  <div className="text-sm font-medium text-green-600">
+                    COPYM • 0{index + 1}
+                  </div>
+                </div>
+
+                <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 ${activeSection === index
+                    ? 'bg-green-500/20 text-green-700 border border-green-500/30'
                     : 'bg-gray-200/50 text-gray-600 border border-gray-300/30'
                   }`}>
-                    {section.highlight}
-                  </div>
-                  
-                  <h2 className={`text-5xl font-bold mb-4 transition-all duration-700 leading-tight ${
-                    activeSection === index 
-                    ? 'text-gray-900' 
-                      : 'text-gray-500'
-                  }`}>
-                    {section.title}
-                  </h2>
-                  
-                  <h3 className={`text-2xl font-semibold mb-6 transition-all duration-500 ${
-                    activeSection === index 
-                    ? 'text-blue-600' 
-                      : 'text-gray-600'
-                  }`}>
-                    {section.subtitle}
-                  </h3>
-                  
-                  <p className={`text-lg leading-relaxed transition-all duration-500 ${
-                    activeSection === index 
-                    ? 'text-gray-700' 
-                      : 'text-gray-500'
-                  }`}>
-                    {section.content}
-                  </p>
+                  {section.highlight}
+                </div>
 
-                  {activeSection === index && (
-                    <div className="mt-8 space-y-4">
-                      <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
+                <h2 className={`text-5xl font-bold mb-4 transition-all duration-700 leading-tight ${activeSection === index
+                    ? 'text-gray-900'
+                    : 'text-gray-500'
+                  }`}>
+                  {section.title}
+                </h2>
+
+                <h3 className={`text-2xl font-semibold mb-6 transition-all duration-500 ${activeSection === index
+                    ? 'text-blue-600'
+                    : 'text-gray-600'
+                  }`}>
+                  {section.subtitle}
+                </h3>
+
+                <p className={`text-lg leading-relaxed transition-all duration-500 ${activeSection === index
+                    ? 'text-gray-700'
+                    : 'text-gray-500'
+                  }`}>
+                  {section.content}
+                </p>
+
+                {activeSection === index && (
+                  <div className="mt-8 space-y-4">
+                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
                     <div className="flex items-center gap-2 text-sm text-gray-600">
                       <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                        AI Investment Assistant • Market Analytics
-                      </div>
+                      AI Investment Assistant • Market Analytics
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
-            ))}
+            </div>
+          ))}
         </div>
       </div>
     </div>
