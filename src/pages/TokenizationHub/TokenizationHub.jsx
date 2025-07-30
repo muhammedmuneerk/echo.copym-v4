@@ -36,7 +36,7 @@ import AnimatedCard from "../../ui/AnimatedCard.jsx"
 // Hero Section Component
 const Hero = () => {
   return (
-    <section className="relative bg-white py-12 lg:py-20 overflow-hidden">
+    <section className="relative  py-12 lg:py-20 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
@@ -134,7 +134,7 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -214,7 +214,7 @@ const TokenDistribution = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -305,7 +305,7 @@ const IssuerDashboard = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -379,7 +379,7 @@ const InvestorManagement = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -450,7 +450,7 @@ const SecurityProtocols = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -527,7 +527,7 @@ const AnalyticsReporting = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -587,7 +587,7 @@ export default function TokenizationHub() {
   }), []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Hero />
       <TokenizationProcess onLaunchCreator={openCreateModal} />
       <TokenDistribution />
