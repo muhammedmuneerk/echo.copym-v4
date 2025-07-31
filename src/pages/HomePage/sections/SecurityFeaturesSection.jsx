@@ -160,7 +160,7 @@ const SecurityFeaturesSection = () => {
             <Player
               autoplay
               loop
-              src="/assets/lottie/CyberSecurity%20Net%20lock/CyberSecurity%20Net%20lock.json"
+              src="/assets/lottie/Password Authentication/Password Authentication.json"
               style={{ height: "450px", width: "450px" }}
             />
           </div>
