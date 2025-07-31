@@ -61,26 +61,26 @@ const AiOverview = () => {
   const rotationAngle = activeIndex * ROTATION_PER_ITEM;
 
   return (
-    <section className="w-full px-6 py-20 bg-green-50 overflow-hidden">
+    <section className="w-full px-4 sm:px-6 py-12 sm:py-20 bg-green-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="brand-section-title text-center mb-4 bg-clip-text">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="brand-section-title text-center mb-3 sm:mb-4 bg-clip-text text-2xl sm:text-3xl lg:text-4xl">
             <span className="text-[#255f99]">An Ecosystem </span>
             <span className="text-[#15a36e]">of Intelligence</span>
           </h2>
-          <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto">
+          <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto px-4 sm:px-0 text-sm sm:text-base">
             Our AI capabilities work in concert to create a smarter, faster, and
             more secure tokenization journey.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 gap-x-16 items-center">
           {/* Left Column: Interactive Circle Dial */}
-          <div className="relative flex items-center justify-center h-[320px] lg:h-[450px]">
+          <div className="relative flex items-center justify-center h-[280px] sm:h-[320px] lg:h-[450px]">
             
             {/* --- CRITICAL CHANGE: Central Glassmorphism Card --- */}
-            <div className="absolute w-40 h-40 lg:w-56 lg:h-56 flex flex-col items-center justify-center text-center z-20 bg-white/30 backdrop-blur-sm rounded-full shadow-lg p-4">
+            <div className="absolute w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56 flex flex-col items-center justify-center text-center z-20 bg-white/30 backdrop-blur-sm rounded-full shadow-lg p-3 sm:p-4">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
@@ -92,13 +92,13 @@ const AiOverview = () => {
                   <Typography
                     component="h3"
                     className="font-bold text-gray-800"
-                    sx={{ fontSize: { xs: '1rem', md: '1.125rem' }, lineHeight: 1.2, mb: 1 }}
+                    sx={{ fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' }, lineHeight: 1.2, mb: 1 }}
                   >
                     {features[activeIndex].title}
                   </Typography>
                   <Typography
                     className="text-gray-700"
-                    sx={{ fontSize: { xs: '0.75rem', md: '0.875rem' }, lineHeight: 1.4 }}
+                    sx={{ fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.875rem' }, lineHeight: 1.4 }}
                   >
                     {features[activeIndex].description}
                   </Typography>
@@ -137,7 +137,7 @@ const AiOverview = () => {
                       whileHover={{ scale: activeIndex === index ? 1.5 : 1.1 }}
                     >
                       <Box
-                        className="w-14 h-14 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center transition-all duration-300"
+                        className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center transition-all duration-300"
                         sx={{
                           boxShadow: activeIndex === index
                             ? '0px 0px 25px 4px rgba(21, 163, 110, 0.5)'
@@ -159,15 +159,15 @@ const AiOverview = () => {
             <img
               src="/assets/svg/iq.svg"
               alt="AI Ecosystem Diagram"
-              style={{ height: '550px', width: 'auto' }}
-              className=" animate-pulse"
+              style={{ height: 'auto', width: '100%', maxHeight: '400px', maxWidth: '400px' }}
+              className="animate-pulse mx-auto lg:mx-0 lg:h-[550px] lg:w-auto"
             />
           </div>
         </div>
 
         {/* CTA Button */}
-        <div className="text-center mt-12">
-          <Link to="/agent" className="text-white px-8 py-4 font-semibold btn-gradient">
+        <div className="text-center mt-8 sm:mt-12">
+          <Link to="/agent" className="text-white px-6 sm:px-8 py-3 sm:py-4 font-semibold btn-gradient text-sm sm:text-base">
             Explore Our AI Agent
           </Link>
         </div>

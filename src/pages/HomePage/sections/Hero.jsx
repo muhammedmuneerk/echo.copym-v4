@@ -36,7 +36,7 @@ export default function Hero() {
       0.1,
       1000
     );
-    camera.position.set(0, 0, 12);
+    camera.position.set(-28, 0, 150);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
@@ -69,7 +69,7 @@ export default function Hero() {
     scene.add(cube);
 
     loader.load(
-      '/assets/glb/abstract_shape.glb',
+      '/assets/glb/copym-logo.glb',
       (gltf) => {
         const model = gltf.scene;
         model.scale.set(60, 60, 60);
@@ -110,7 +110,7 @@ export default function Hero() {
       if (modelRef.current) {
         // Center the model on mobile screens, use mouse interaction on larger screens
         if (window.innerWidth < 640) {
-          modelRef.current.position.x = 0;
+          modelRef.current.position.x = -21;
           modelRef.current.position.y = -5;
         } else {
           modelRef.current.position.x = (mouseRef.current.x * 1.5) + 2.2;
