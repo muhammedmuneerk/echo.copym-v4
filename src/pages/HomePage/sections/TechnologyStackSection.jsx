@@ -77,7 +77,7 @@ const TechnologyStackSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="brand-section-title text-center mb-4 bg-clip-text text-2xl sm:text-3xl lg:text-4xl">
+          <h2 className="brand-section-title text-center mb-4 bg-clip-text text-2xl sm:text-3xl lg:text-5xl">
             <span className="text-[#255f99]">Unified Access To All </span>
             <span className="text-[#15a36e]">Major Blockchains</span>
           </h2>

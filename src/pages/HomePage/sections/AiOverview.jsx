@@ -65,7 +65,7 @@ const AiOverview = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-16">
-          <h2 className="brand-section-title text-center mb-3 sm:mb-4 bg-clip-text text-2xl sm:text-3xl lg:text-4xl">
+          <h2 className="brand-section-title text-center mb-3 sm:mb-4 bg-clip-text text-2xl sm:text-3xl lg:text-5xl">
             <span className="text-[#255f99]">An Ecosystem </span>
             <span className="text-[#15a36e]">of Intelligence</span>
           </h2>
