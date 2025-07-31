@@ -165,14 +165,14 @@ export default function Hero() {
             <div className="text-center lg:text-left lg:-mt-12 lg:ml-4 order-2 lg:order-1">
               <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                 <span
-                  className="text-[#255f99]"
-                  style={{ textShadow: '1px 1px 2px rgba(255, 255, 255, 0.4)' }}
+                  className="text-[#ffffff]"
+                  // style={{ textShadow: '1px 1px 2px rgba(255, 255, 255, 0.4)' }}
                 >
                   Unlock Exclusive Assets, Invest With{' '}
                 </span>
                 <span
-                  className="text-[#15a36e]"
-                  style={{ textShadow: '2px 2px 3px rgba(223, 223, 223, 0.4)' }}
+                  className="text-[#ffffff]"
+                  // style={{ textShadow: '2px 2px 3px rgba(223, 223, 223, 0.4)' }}
                 >
                   Confidence
                 </span>
