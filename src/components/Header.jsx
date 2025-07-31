@@ -561,33 +561,25 @@ export default function Header() {
                                 whileHover={{ x: 4 }}
                                 whileTap={{ scale: 0.98 }}
                               >
-                                <div className="flex flex-col space-y-3">
-                                  {/* Visual Preview */}
-                                  <div className="w-full h-24 rounded-lg overflow-hidden">
-                                    {item.visual}
+                                <div className="flex items-start space-x-3">
+                                  {/* Icon placeholder */}
+                                  <div className="w-10 h-10 bg-gradient-to-br from-teal-100 to-teal-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <div className="w-5 h-5 bg-teal-600 rounded-full opacity-60"></div>
                                   </div>
                                   
                                   {/* Content */}
-                                  <div className="flex items-start space-x-3">
-                                    {/* Icon placeholder */}
-                                    <div className="w-8 h-8 bg-gradient-to-br from-teal-100 to-teal-200 rounded-lg flex items-center justify-center flex-shrink-0">
-                                      <div className="w-4 h-4 bg-teal-600 rounded-full opacity-60"></div>
-                                    </div>
-                                    
-                                    {/* Content */}
-                                    <div className="flex-1 min-w-0">
-                                      <h4 className="font-semibold text-gray-900 text-sm leading-tight mb-1">
-                                        {item.title}
-                                      </h4>
-                                      <p className="text-xs text-gray-600 leading-relaxed line-clamp-2">
-                                        {item.description}
-                                      </p>
-                                    </div>
-                                    
-                                    {/* Arrow */}
-                                    <div className="flex-shrink-0">
-                                      <ArrowRight className="w-4 h-4 text-teal-600" />
-                                    </div>
+                                  <div className="flex-1 min-w-0">
+                                    <h4 className="font-semibold text-gray-900 text-sm leading-tight mb-1">
+                                      {item.title}
+                                    </h4>
+                                    <p className="text-xs text-gray-600 leading-relaxed line-clamp-2">
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                  
+                                  {/* Arrow */}
+                                  <div className="flex-shrink-0">
+                                    <ArrowRight className="w-4 h-4 text-teal-600" />
                                   </div>
                                 </div>
                               </motion.div>
