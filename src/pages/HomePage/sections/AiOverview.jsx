@@ -155,7 +155,7 @@ const AiOverview = () => {
           </div>
 
           {/* Right Column: Image */}
-          <div className="hidden lg:flex items-center justify-center">
+          <div className="lg:flex items-center justify-center">
             <img
               src="/assets/svg/iq.svg"
               alt="AI Ecosystem Diagram"
