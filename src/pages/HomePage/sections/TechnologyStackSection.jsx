@@ -80,7 +80,7 @@ const TechnologyStackSection = () => {
           {/* Left Column: Interactive Circle Dial */}
           <div className="relative flex items-center justify-center h-[320px] lg:h-[450px]">
             {/* Central Glassmorphism Card */}
-            <div className="absolute w-40 h-40 lg:w-48 lg:h-48 flex flex-col items-center justify-center text-center z-20 bg-white/30 backdrop-blur-sm rounded-full shadow-lg p-4">
+            <div className="absolute w-40 h-40 lg:w-56 lg:h-56 flex flex-col items-center justify-center text-center z-20 bg-white/30 backdrop-blur-sm rounded-full shadow-lg p-4">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
