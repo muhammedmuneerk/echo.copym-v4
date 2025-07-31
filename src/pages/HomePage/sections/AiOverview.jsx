@@ -46,6 +46,54 @@ const CIRCLE_RADIUS_DESKTOP = 180;
 const CIRCLE_RADIUS_MOBILE = 120;
 const ROTATION_PER_ITEM = 360 / features.length;
 
+// Curved Text Component
+const CurvedText = ({ text, radius = 60, fontSize = 14, color = '#255f99', rotation = 0 }) => {
+  const characters = text.split('');
+  const angleStep = (2 * Math.PI) / characters.length;
+  
+  return (
+    <svg
+      width={radius * 2}
+      height={radius * 2}
+      viewBox={`0 0 ${radius * 2} ${radius * 2}`}
+      style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+    >
+      <defs>
+        <path
+          id={`circle-path-${text}`}
+          d={`M ${radius},${radius} m -${radius},0 a ${radius},${radius} 0 1,1 ${radius * 2},0 a ${radius},${radius} 0 1,1 -${radius * 2},0`}
+        />
+      </defs>
+      
+      <g transform={`rotate(${rotation}, ${radius}, ${radius})`}>
+        {characters.map((char, index) => {
+          const angle = index * angleStep - Math.PI / 2; // Start from top
+          const x = radius + (radius - 10) * Math.cos(angle);
+          const y = radius + (radius - 10) * Math.sin(angle);
+          const rotation = (angle * 180) / Math.PI + 90;
+          
+          return (
+            <text
+              key={index}
+              x={x}
+              y={y}
+              fontSize={fontSize}
+              fill={color}
+              fontWeight="bold"
+              textAnchor="middle"
+              dominantBaseline="middle"
+              transform={`rotate(${rotation}, ${x}, ${y})`}
+              style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+            >
+              {char}
+            </text>
+          );
+        })}
+      </g>
+    </svg>
+  );
+};
+
 const AiOverview = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -79,31 +127,95 @@ const AiOverview = () => {
           {/* Left Column: Interactive Circle Dial */}
           <div className="relative flex items-center justify-center h-[320px] lg:h-[450px]">
             
-            {/* --- CRITICAL CHANGE: Central Glassmorphism Card --- */}
-            <div className="absolute w-40 h-40 lg:w-48 lg:h-48 flex flex-col items-center justify-center text-center z-20 bg-white/30 backdrop-blur-sm rounded-full shadow-lg p-4">
+            {/* --- CRITICAL CHANGE: Central Glassmorphism Card with Curved Text --- */}
+            <div className="relative w-40 h-40 lg:w-48 lg:h-48 flex flex-col items-center justify-center text-center z-20 bg-white/30 backdrop-blur-sm rounded-full shadow-lg p-4">
+              
+              {/* Curved Text Ring - Outer */}
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={activeIndex}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  key={`curved-outer-${activeIndex}`}
+                  initial={{ opacity: 0, rotate: -180 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 180 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
                 >
-                  <Typography
-                    component="h3"
-                    className="font-bold text-gray-800"
-                    sx={{ fontSize: { xs: '1rem', md: '1.125rem' }, lineHeight: 1.2, mb: 1 }}
-                  >
-                    {features[activeIndex].title}
-                  </Typography>
-                  <Typography
-                    className="text-gray-700"
-                    sx={{ fontSize: { xs: '0.75rem', md: '0.875rem' }, lineHeight: 1.4 }}
-                  >
-                    {features[activeIndex].description}
-                  </Typography>
+                  <CurvedText
+                    text={features[activeIndex].title.toUpperCase()}
+                    radius={85}
+                    fontSize={10}
+                    color="#255f99"
+                    rotation={rotationAngle}
+                  />
                 </motion.div>
               </AnimatePresence>
+
+              {/* Curved Text Ring - Inner */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`curved-inner-${activeIndex}`}
+                  initial={{ opacity: 0, rotate: 180 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: -180 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.2 }}
+                >
+                  <CurvedText
+                    text="AI ECOSYSTEM"
+                    radius={45}
+                    fontSize={8}
+                    color="#15a36e"
+                    rotation={-rotationAngle}
+                  />
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Central Content */}
+              <div className="relative z-10 bg-white/80 backdrop-blur-sm rounded-full w-24 h-24 lg:w-28 lg:h-28 flex items-center justify-center shadow-lg">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeIndex}
+                    initial={{ opacity: 0, scale: 0.8, rotate: -90 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, rotate: 90 }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                    className="text-center"
+                  >
+                    <Typography
+                      component="h3"
+                      className="font-bold text-gray-800"
+                      sx={{ fontSize: { xs: '0.75rem', md: '0.875rem' }, lineHeight: 1.2, mb: 0.5 }}
+                    >
+                      {features[activeIndex].title.split(' ')[0]}
+                    </Typography>
+                    <Typography
+                      component="h3"
+                      className="font-bold text-gray-800"
+                      sx={{ fontSize: { xs: '0.75rem', md: '0.875rem' }, lineHeight: 1.2, mb: 0.5 }}
+                    >
+                      {features[activeIndex].title.split(' ').slice(1).join(' ')}
+                    </Typography>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Description Text - Bottom */}
+              <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-48 lg:w-56">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`desc-${activeIndex}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4, ease: 'easeInOut', delay: 0.3 }}
+                  >
+                    <Typography
+                      className="text-gray-700 text-center"
+                      sx={{ fontSize: { xs: '0.7rem', md: '0.8rem' }, lineHeight: 1.4 }}
+                    >
+                      {features[activeIndex].description}
+                    </Typography>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
 
             {/* The main rotating container for the icons */}

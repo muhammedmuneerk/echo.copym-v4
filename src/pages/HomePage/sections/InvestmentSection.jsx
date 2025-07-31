@@ -571,29 +571,29 @@ const RealEstateInvestmentSection = () => {
           </div>
         </div>
 
-        {/* Stacked Performance Metrics - Left Side */}
-        <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 space-y-2">
+        {/* Stacked Performance Metrics - Bottom Left */}
+        <div className="absolute bottom-16 left-4 space-y-1">
           {[
             { label: 'ROI', value: '+16.3%', color: 'from-green-500 to-green-600', icon: Target },
             { label: 'Growth', value: '+24%', color: 'from-blue-500 to-blue-600', icon: TrendingUp },
             { label: 'Yield', value: '+8.2%', color: 'from-purple-500 to-purple-600', icon: BarChart3 }
-          ].map((metric, i) => (
-            <div
-              key={i}
-              className={`bg-gradient-to-r ${metric.color} text-white px-4 py-2 rounded-lg text-sm visual-element shadow-lg ${isAnimating ? 'stagger-in' : 'animate-pulse'
-                }`}
-              style={{
+        ].map((metric, i) => (
+          <div
+            key={i}
+              className={`bg-gradient-to-r ${metric.color} text-white px-3 py-1.5 rounded-lg text-sm visual-element shadow-md ${isAnimating ? 'stagger-in' : 'animate-pulse'
+              }`}
+            style={{
                 animationDelay: isAnimating ? `${0.4 + i * 0.1}s` : `${i * 0.3}s`,
-                transform: `translateX(${i * -3}px)`
+                transform: `translateY(${i * -2}px)`
               }}
             >
-              <div className="flex items-center gap-2">
-                <metric.icon className="w-4 h-4" />
-                <div className="font-bold">{metric.value}</div>
+              <div className="flex items-center gap-1">
+                <metric.icon className="w-3 h-3" />
+                <div className="font-semibold">{metric.value}</div>
                 <div className="text-xs opacity-90">{metric.label}</div>
               </div>
-            </div>
-          ))}
+          </div>
+        ))}
         </div>
 
         {/* AI Analytics Badge - Bottom Center */}
@@ -911,75 +911,75 @@ const RealEstateInvestmentSection = () => {
           {/* Outer border */}
           <circle cx="250" cy="250" r="220" fill="none" stroke="#4dabf7" strokeWidth="2" opacity="0.8"/>
         </svg>
-      </div>
-    </div>
+              </div>
+        </div>
   );
 
   const renderStablecoinWallet = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
       <div className={`visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
         {/* Main Wallet Container */}
-        <div className={`relative w-72 h-96 bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-6 border border-gray-200 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.2s' }}>
+        <div className="relative w-72 h-96 bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-6 border border-gray-200">
           {/* Currency Selection Tags */}
-          <div className={`absolute -top-3 -left-2 flex space-x-1 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.3s' }}>
-            <div className={`bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-lg visual-element ${isAnimating ? 'stagger-in' : 'hover:scale-105 transition-transform duration-300'}`} style={{ animationDelay: '0.4s' }}>
+          <div className="absolute -top-3 -left-2 flex space-x-1">
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-lg">
               USD
-            </div>
-            <div className={`bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-medium border border-gray-200 visual-element ${isAnimating ? 'stagger-in' : 'hover:scale-105 transition-transform duration-300'}`} style={{ animationDelay: '0.5s' }}>
+          </div>
+            <div className="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-medium border border-gray-200">
               EUR
             </div>
-            <div className={`bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-medium border border-gray-200 visual-element ${isAnimating ? 'stagger-in' : 'hover:scale-105 transition-transform duration-300'}`} style={{ animationDelay: '0.6s' }}>
+            <div className="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-medium border border-gray-200">
               GBP
             </div>
           </div>
 
           {/* Balance Section */}
-          <div className={`text-center mb-6 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.7s' }}>
-            <div className={`text-gray-500 text-xs font-medium uppercase tracking-wide mb-2 flex items-center justify-center gap-2 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.8s' }}>
+          <div className="text-center mb-6">
+            <div className="text-gray-500 text-xs font-medium uppercase tracking-wide mb-2 flex items-center justify-center gap-2">
               <Wallet className="w-3 h-3" />
               Balance
-            </div>
-            <div className={`text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'}`} style={{ animationDelay: '0.9s' }}>
+        </div>
+            <div className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">
               $150.00
-            </div>
-            <div className={`text-green-600 text-sm font-semibold flex items-center justify-center gap-1 visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'}`} style={{ animationDelay: '1.0s' }}>
+      </div>
+            <div className="text-green-600 text-sm font-semibold flex items-center justify-center gap-1">
               <TrendingUp className="w-3 h-3" />
               +2.3% today
-            </div>
+    </div>
           </div>
 
           {/* Action Buttons */}
-          <div className={`flex justify-center space-x-4 mb-6 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '1.1s' }}>
-            <div className={`text-center visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '1.2s' }}>
-              <div className={`w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'}`} style={{ animationDelay: '1.3s' }}>
+          <div className="flex justify-center space-x-4 mb-6">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <Plus className="w-5 h-5 text-white" />
               </div>
               <div className="text-xs text-gray-700 font-medium">Deposit</div>
             </div>
             
-            <div className={`text-center visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '1.4s' }}>
-              <div className={`w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mb-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'}`} style={{ animationDelay: '1.5s' }}>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mb-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <Send className="w-5 h-5 text-white" />
               </div>
               <div className="text-xs text-gray-700 font-medium">Send</div>
-            </div>
-            
-            <div className={`text-center visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '1.6s' }}>
-              <div className={`w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'}`} style={{ animationDelay: '1.7s' }}>
+          </div>
+
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <MessageCircle className="w-5 h-5 text-white" />
-              </div>
+                </div>
               <div className="text-xs text-gray-700 font-medium">Receive</div>
-            </div>
+              </div>
           </div>
 
           {/* Transaction History */}
-          <div className={`space-y-3 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '1.8s' }}>
+          <div className="space-y-3">
             {/* Transaction 1 */}
-            <div className={`bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-3 flex items-center border border-gray-200 hover:shadow-md transition-all duration-300 visual-element ${isAnimating ? 'stagger-in' : 'hover:scale-105'}`} style={{ animationDelay: '1.9s' }}>
-              <div className={`w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-3 shadow-md visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'}`} style={{ animationDelay: '2.0s' }}>
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-3 flex items-center border border-gray-200 hover:shadow-md transition-all duration-300">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-3 shadow-md">
                 <ArrowUp className="w-4 h-4 text-white" />
-              </div>
-              <div className="flex-1">
+                </div>
+                <div className="flex-1">
                 <div className="text-sm font-semibold text-gray-800">Sent $14.00 USDC</div>
                 <div className="text-xs text-gray-500 flex items-center gap-1">
                   <Clock className="w-3 h-3" />
@@ -989,32 +989,32 @@ const RealEstateInvestmentSection = () => {
             </div>
 
             {/* Transaction 2 */}
-            <div className={`bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-3 flex items-center border border-gray-200 hover:shadow-md transition-all duration-300 visual-element ${isAnimating ? 'stagger-in' : 'hover:scale-105'}`} style={{ animationDelay: '2.1s' }}>
-              <div className={`w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3 shadow-md visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'}`} style={{ animationDelay: '2.2s' }}>
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-3 flex items-center border border-gray-200 hover:shadow-md transition-all duration-300">
+              <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3 shadow-md">
                 <ArrowLeftRight className="w-4 h-4 text-white" />
-              </div>
-              <div className="flex-1">
+                </div>
+                <div className="flex-1">
                 <div className="text-sm font-semibold text-gray-800">100 USDC → 91.82 EUR</div>
                 <div className="text-xs text-gray-500 flex items-center gap-1">
                   <Clock className="w-3 h-3" />
                   2 minutes ago
-                </div>
               </div>
             </div>
           </div>
+        </div>
 
           {/* Multi-Currency Wallet Badge */}
-          <div className={`absolute -bottom-4 -right-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-xl border border-gray-700 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'}`} style={{ animationDelay: '2.3s' }}>
+          <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-xl border border-gray-700">
             <div className="flex items-center gap-2">
               <CreditCard className="w-3 h-3" />
               Multi-Currency Wallet
-            </div>
+          </div>
           </div>
 
           {/* Decorative Elements */}
-          <div className={`absolute top-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-ping visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '2.4s' }}></div>
-          <div className={`absolute bottom-8 left-4 w-3 h-3 bg-blue-400 rounded-full animate-bounce visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '2.5s' }}></div>
-          <div className={`absolute top-8 left-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '2.6s' }}></div>
+          <div className="absolute top-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+          <div className="absolute bottom-8 left-4 w-3 h-3 bg-blue-400 rounded-full animate-bounce"></div>
+          <div className="absolute top-8 left-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
         </div>
       </div>
     </div>
