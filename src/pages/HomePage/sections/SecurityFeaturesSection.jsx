@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Player } from '@lottiefiles/react-lottie-player';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import LockIcon from '@mui/icons-material/Lock';
@@ -155,13 +154,12 @@ const SecurityFeaturesSection = () => {
             </motion.div>
           </div>
 
-          {/* Right Column: Lottie animation */}
-          <div className="hidden lg:flex items-center justify-center w-full">
-            <Player
-              autoplay
-              loop
-              src="/assets/lottie/CyberSecurity%20Net%20lock/CyberSecurity%20Net%20lock.json"
-              style={{ height: "450px", width: "450px" }}
+          {/* Right Column: Security Image */}
+          <div className="hidden lg:flex items-center justify-center w-full h-[450px] relative">
+            <img 
+              src="/assets/Images/security-image.png" 
+              alt="Security Features Visualization" 
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
