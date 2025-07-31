@@ -1,5 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { TrendingUp, Shield, Zap, RefreshCw, Building, Coins, PieChart, Gem, BarChart3, DollarSign, ArrowUpRight, Repeat, Globe, Home, Briefcase, Palette } from 'lucide-react';
+import { 
+  TrendingUp, Shield, Zap, RefreshCw, Building, Coins, PieChart, Gem, BarChart3, 
+  DollarSign, ArrowUpRight, Repeat, Globe, Home, Briefcase, Palette, Plus, 
+  Send, MessageCircle, ArrowUp, ArrowDown, ArrowLeftRight, CreditCard, 
+  Wallet, Banknote, Activity, Target, Star, Award, CheckCircle, Clock, 
+  Calendar, Users, Settings, Bell, Search, Filter, Download, Upload, 
+  Share, Heart, Bookmark, Eye, EyeOff, Lock, Unlock, Key, Database, 
+  Server, Cpu, HardDrive, Wifi, Signal, Battery, Volume2, VolumeX, 
+  Play, Pause, SkipBack, SkipForward, RotateCcw, RotateCw, Maximize2, 
+  Minimize2, X, Check, AlertCircle, Info, HelpCircle, ExternalLink
+} from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -74,7 +84,7 @@ const RealEstateInvestmentSection = () => {
         ScrollTrigger.create({
           trigger: containerRef.current,
           start: "top top",
-          end: () => `+=${contentRef.current.scrollHeight - window.innerHeight}`,
+          end: () => contentRef.current ? `+=${contentRef.current.scrollHeight - window.innerHeight}` : "+=100vh",
           pin: visualRef.current,
           pinSpacing: false,
           anticipatePin: 1,
@@ -124,9 +134,9 @@ const RealEstateInvestmentSection = () => {
 
   const renderAssetFractionalization = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
-      <img 
-        src="/assets/Images/fractions.png" 
-        alt="Fractional Ownership Visualization" 
+      <img
+        src="/assets/Images/fractions.png"
+        alt="Fractional Ownership Visualization"
         className={`w-96 h-auto object-contain visual-element ${isAnimating ? 'stagger-in' : ''}`}
               style={{
           animationDelay: '0.1s',
@@ -142,11 +152,11 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* High-resolution coin image with premium styling */}
-        <img 
-          src="/assets/Images/coin.webp" 
-          alt="Premium Coin Visualization" 
+        <img
+          src="/assets/Images/coin.webp"
+          alt="Premium Coin Visualization"
           className={`w-72 h-72 object-contain visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
-          style={{ 
+          style={{
             animationDelay: '0.1s',
             filter: 'contrast(1.1) brightness(1.05) saturate(1.05) drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
             maxWidth: '100%',
@@ -156,17 +166,17 @@ const RealEstateInvestmentSection = () => {
         />
 
         {/* Subtle glow effect behind coin */}
-        <div className="absolute inset-0 bg-gray-200/30 rounded-full blur-3xl -z-10 scale-110"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-200/30 to-gray-300/30 rounded-full blur-3xl -z-10 scale-110"></div>
 
         {/* Growth percentage bubbles - clean monochromatic styling */}
         {[
-          { value: '+18.2%', position: { left: '-80px', top: '-50px' } },
-          { value: '+12.8%', position: { left: '-60px', top: '-100px' } },
-          { value: '+16.3%', position: { left: '-40px', top: '-150px' } }
+          { value: '+18.2%', position: { left: '-80px', top: '-50px' }, icon: TrendingUp },
+          { value: '+12.8%', position: { left: '-60px', top: '-100px' }, icon: Target },
+          { value: '+16.3%', position: { left: '-40px', top: '-150px' }, icon: Star }
         ].map((item, i) => (
           <div
             key={i}
-            className={`absolute bg-white text-gray-800 px-6 py-3 rounded-full text-sm font-bold shadow-xl visual-element backdrop-blur-sm border border-gray-200 ${isAnimating ? 'stagger-in' : 'animate-pulse'
+            className={`absolute bg-gradient-to-r from-white to-gray-50 text-gray-800 px-6 py-3 rounded-full text-sm font-bold shadow-xl visual-element backdrop-blur-sm border border-gray-200 ${isAnimating ? 'stagger-in' : 'animate-pulse'
               }`}
             style={{
               ...item.position,
@@ -175,6 +185,7 @@ const RealEstateInvestmentSection = () => {
             }}
           >
             <div className="flex items-center gap-2">
+              <item.icon className="w-3 h-3 text-gray-600" />
               <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
             {item.value}
             </div>
@@ -182,69 +193,423 @@ const RealEstateInvestmentSection = () => {
         ))}
 
         {/* Clean Expert Management badge */}
-        <div className={`absolute -bottom-20 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-8 py-4 rounded-xl text-sm font-medium shadow-2xl visual-element backdrop-blur-sm ${isAnimating ? 'stagger-in' : ''
-          }`} style={{ 
+        <div className={`absolute -bottom-20 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gray-900 to-gray-800 text-white px-8 py-4 rounded-xl text-sm font-medium shadow-2xl visual-element backdrop-blur-sm ${isAnimating ? 'stagger-in' : ''
+          }`} style={{
             animationDelay: isAnimating ? '0.5s' : '0s',
             boxShadow: '0 15px 35px rgba(0,0,0,0.15), 0 5px 15px rgba(0,0,0,0.1)'
           }}>
           <div className="text-center">
-            <div className="font-bold text-lg">Expert</div>
-            <div className="text-xs opacity-90 font-medium">Management</div>
+            <div className="flex items-center justify-center gap-2">
+              <Award className="w-4 h-4" />
+              <div className="font-bold text-lg">Expert Management</div>
+            </div>
           </div>
         </div>
 
         {/* Subtle decorative elements */}
-        <div className="absolute -bottom-12 -left-12 w-4 h-4 bg-gray-300 rounded-full opacity-60 animate-pulse shadow-lg"></div>
-        <div className="absolute -bottom-12 -right-12 w-4 h-4 bg-gray-400 rounded-full opacity-60 animate-pulse shadow-lg"></div>
-        <div className="absolute -top-8 -right-8 w-3 h-3 bg-gray-200 rounded-full opacity-70 animate-bounce shadow-md"></div>
-        <div className="absolute -top-8 -left-8 w-3 h-3 bg-gray-300 rounded-full opacity-70 animate-bounce shadow-md"></div>
+        <div className="absolute -bottom-12 -left-12 w-4 h-4 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full opacity-60 animate-pulse shadow-lg"></div>
+        <div className="absolute -bottom-12 -right-12 w-4 h-4 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full opacity-60 animate-pulse shadow-lg"></div>
+        <div className="absolute -top-8 -right-8 w-3 h-3 bg-gradient-to-r from-gray-200 to-gray-300 rounded-full opacity-70 animate-bounce shadow-md"></div>
+        <div className="absolute -top-8 -left-8 w-3 h-3 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full opacity-70 animate-bounce shadow-md"></div>
       </div>
     </div>
   );
 
   const renderHighReturns = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="relative">
-        {/* High-resolution graph image */}
-        <img 
-          src="/assets/Images/graph-removebg-preview.png" 
-          alt="Investment Performance Chart" 
-          className={`w-80 h-auto object-contain visual-element ${isAnimating ? 'stagger-in' : ''}`}
-                style={{
-            animationDelay: '0.1s',
-            filter: 'contrast(1.1) brightness(1.05) saturate(1.1)',
-            maxWidth: '100%',
-            height: 'auto',
-            imageRendering: 'high-quality'
-          }}
-        />
-
-        {/* Percentage indicators */}
-        <div className={`absolute -top-12 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full font-bold text-xl visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
-          }`} style={{ animationDelay: isAnimating ? '0.3s' : '0s' }}>
-          +16.3%
+      <div className="relative w-full h-full flex flex-col items-center justify-center">
+        {/* 3D Bar Chart SVG - Centered */}
+        <div className="relative mb-8">
+          <svg width="500" height="350" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" className={`visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+            <defs>
+              {/* Background gradient */}
+              <radialGradient id="backgroundGradient" cx="50%" cy="30%" r="70%">
+                <stop offset="0%" style={{stopColor: "#f0f8ff", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#e6f3f0", stopOpacity: 1}} />
+              </radialGradient>
+              
+              {/* Bar gradients for 3D effect */}
+              {/* Dark Blue bars */}
+              <linearGradient id="darkBlueFront" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#4a90e2", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#2563eb", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#1e40af", stopOpacity: 1}} />
+              </linearGradient>
+              
+              <linearGradient id="darkBlueTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#7bb3f0", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#4a90e2", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#2563eb", stopOpacity: 1}} />
+              </linearGradient>
+              
+              <linearGradient id="darkBlueSide" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#2563eb", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#1e40af", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#1e3a8a", stopOpacity: 1}} />
+              </linearGradient>
+              
+              {/* Light Blue bars */}
+              <linearGradient id="lightBlueFront" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#7dd3fc", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#38bdf8", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#0ea5e9", stopOpacity: 1}} />
+              </linearGradient>
+              
+              <linearGradient id="lightBlueTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#bae6fd", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#7dd3fc", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#38bdf8", stopOpacity: 1}} />
+              </linearGradient>
+              
+              <linearGradient id="lightBlueSide" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#38bdf8", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#0ea5e9", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#0284c7", stopOpacity: 1}} />
+              </linearGradient>
+              
+              {/* Green bars */}
+              <linearGradient id="greenFront" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#4ade80", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#22c55e", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#16a34a", stopOpacity: 1}} />
+              </linearGradient>
+              
+              <linearGradient id="greenTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#86efac", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#4ade80", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#22c55e", stopOpacity: 1}} />
+              </linearGradient>
+              
+              <linearGradient id="greenSide" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#22c55e", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#16a34a", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#15803d", stopOpacity: 1}} />
+              </linearGradient>
+              
+              {/* Teal bars */}
+              <linearGradient id="tealFront" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#2dd4bf", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#14b8a6", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#0f766e", stopOpacity: 1}} />
+              </linearGradient>
+              
+              <linearGradient id="tealTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#7dd3fc", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#2dd4bf", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#14b8a6", stopOpacity: 1}} />
+              </linearGradient>
+              
+              <linearGradient id="tealSide" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#14b8a6", stopOpacity: 1}} />
+                <stop offset="50%" style={{stopColor: "#0f766e", stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: "#0d5858", stopOpacity: 1}} />
+              </linearGradient>
+              
+              {/* Shadow filter */}
+              <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="2" dy="4" stdDeviation="3" floodColor="#000000" floodOpacity="0.2"/>
+              </filter>
+              
+              {/* Reflection gradient for base */}
+              <linearGradient id="reflection" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{stopColor: "#ffffff", stopOpacity: 0.3}} />
+                <stop offset="100%" style={{stopColor: "#ffffff", stopOpacity: 0}} />
+              </linearGradient>
+            </defs>
+            
+            {/* Background */}
+            {/* Removed white background for transparency */}
+            
+            {/* Base/Floor reflection */}
+            <ellipse cx="300" cy="360" rx="250" ry="20" fill="url(#reflection)" opacity="0.4"/>
+            
+            {/* Purple accent dot (top-left) */}
+            <circle cx="50" cy="50" r="6" fill="#a855f7" opacity="0.8">
+              <animate attributeName="opacity" values="0.8;0.4;0.8" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            
+            {/* Bar 1 - Shortest (dark blue) */}
+            <g id="bar1" transform="translate(80,320)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="40" fill="url(#darkBlueFront)" stroke="#1e40af" strokeWidth="0.5">
+                <animate attributeName="height" values="0;40" dur="0.8s" begin="0s" fill="freeze"/>
+                <animate attributeName="y" values="40;0" dur="0.8s" begin="0s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,32 25,40" fill="url(#darkBlueSide)" stroke="#1e3a8a" strokeWidth="0.5">
+                <animate attributeName="points" values="25,40 35,32 35,32 25,40;25,0 35,-8 35,32 25,40" dur="0.8s" begin="0s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#darkBlueTop)" stroke="#4a90e2" strokeWidth="0.5">
+                <animate attributeName="points" values="0,40 25,40 35,32 10,32;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="0s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 2 - Short (teal) */}
+            <g id="bar2" transform="translate(120,290)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="70" fill="url(#tealFront)" stroke="#0f766e" strokeWidth="0.5">
+                <animate attributeName="height" values="0;70" dur="0.8s" begin="0.1s" fill="freeze"/>
+                <animate attributeName="y" values="70;0" dur="0.8s" begin="0.1s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,62 25,70" fill="url(#tealSide)" stroke="#0d5858" strokeWidth="0.5">
+                <animate attributeName="points" values="25,70 35,62 35,62 25,70;25,0 35,-8 35,62 25,70" dur="0.8s" begin="0.1s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#tealTop)" stroke="#2dd4bf" strokeWidth="0.5">
+                <animate attributeName="points" values="0,70 25,70 35,62 10,62;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="0.1s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 3 - Medium (dark blue) */}
+            <g id="bar3" transform="translate(160,250)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="110" fill="url(#darkBlueFront)" stroke="#1e40af" strokeWidth="0.5">
+                <animate attributeName="height" values="0;110" dur="0.8s" begin="0.2s" fill="freeze"/>
+                <animate attributeName="y" values="110;0" dur="0.8s" begin="0.2s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,102 25,110" fill="url(#darkBlueSide)" stroke="#1e3a8a" strokeWidth="0.5">
+                <animate attributeName="points" values="25,110 35,102 35,102 25,110;25,0 35,-8 35,102 25,110" dur="0.8s" begin="0.2s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#darkBlueTop)" stroke="#4a90e2" strokeWidth="0.5">
+                <animate attributeName="points" values="0,110 25,110 35,102 10,102;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="0.2s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 4 - Medium-tall (light blue) */}
+            <g id="bar4" transform="translate(200,230)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="130" fill="url(#lightBlueFront)" stroke="#0ea5e9" strokeWidth="0.5">
+                <animate attributeName="height" values="0;130" dur="0.8s" begin="0.3s" fill="freeze"/>
+                <animate attributeName="y" values="130;0" dur="0.8s" begin="0.3s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,122 25,130" fill="url(#lightBlueSide)" stroke="#0284c7" strokeWidth="0.5">
+                <animate attributeName="points" values="25,130 35,122 35,122 25,130;25,0 35,-8 35,122 25,130" dur="0.8s" begin="0.3s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#lightBlueTop)" stroke="#7dd3fc" strokeWidth="0.5">
+                <animate attributeName="points" values="0,130 25,130 35,122 10,122;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="0.3s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 5 - Small (green) */}
+            <g id="bar5" transform="translate(240,310)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="50" fill="url(#greenFront)" stroke="#16a34a" strokeWidth="0.5">
+                <animate attributeName="height" values="0;50" dur="0.8s" begin="0.4s" fill="freeze"/>
+                <animate attributeName="y" values="50;0" dur="0.8s" begin="0.4s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,42 25,50" fill="url(#greenSide)" stroke="#15803d" strokeWidth="0.5">
+                <animate attributeName="points" values="25,50 35,42 35,42 25,50;25,0 35,-8 35,42 25,50" dur="0.8s" begin="0.4s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#greenTop)" stroke="#4ade80" strokeWidth="0.5">
+                <animate attributeName="points" values="0,50 25,50 35,42 10,42;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="0.4s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 6 - Tall (green) */}
+            <g id="bar6" transform="translate(280,180)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="180" fill="url(#greenFront)" stroke="#16a34a" strokeWidth="0.5">
+                <animate attributeName="height" values="0;180" dur="0.8s" begin="0.5s" fill="freeze"/>
+                <animate attributeName="y" values="180;0" dur="0.8s" begin="0.5s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,172 25,180" fill="url(#greenSide)" stroke="#15803d" strokeWidth="0.5">
+                <animate attributeName="points" values="25,180 35,172 35,172 25,180;25,0 35,-8 35,172 25,180" dur="0.8s" begin="0.5s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#greenTop)" stroke="#4ade80" strokeWidth="0.5">
+                <animate attributeName="points" values="0,180 25,180 35,172 10,172;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="0.5s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 7 - Very tall (teal) */}
+            <g id="bar7" transform="translate(320,120)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="240" fill="url(#tealFront)" stroke="#0f766e" strokeWidth="0.5">
+                <animate attributeName="height" values="0;240" dur="0.8s" begin="0.6s" fill="freeze"/>
+                <animate attributeName="y" values="240;0" dur="0.8s" begin="0.6s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,232 25,240" fill="url(#tealSide)" stroke="#0d5858" strokeWidth="0.5">
+                <animate attributeName="points" values="25,240 35,232 35,232 25,240;25,0 35,-8 35,232 25,240" dur="0.8s" begin="0.6s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#tealTop)" stroke="#2dd4bf" strokeWidth="0.5">
+                <animate attributeName="points" values="0,240 25,240 35,232 10,232;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="0.6s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 8 - Medium (light blue) */}
+            <g id="bar8" transform="translate(360,200)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="160" fill="url(#lightBlueFront)" stroke="#0ea5e9" strokeWidth="0.5">
+                <animate attributeName="height" values="0;160" dur="0.8s" begin="0.7s" fill="freeze"/>
+                <animate attributeName="y" values="160;0" dur="0.8s" begin="0.7s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,152 25,160" fill="url(#lightBlueSide)" stroke="#0284c7" strokeWidth="0.5">
+                <animate attributeName="points" values="25,160 35,152 35,152 25,160;25,0 35,-8 35,152 25,160" dur="0.8s" begin="0.7s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#lightBlueTop)" stroke="#7dd3fc" strokeWidth="0.5">
+                <animate attributeName="points" values="0,160 25,160 35,152 10,152;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="0.7s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 9 - Short (green) */}
+            <g id="bar9" transform="translate(400,270)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="90" fill="url(#greenFront)" stroke="#16a34a" strokeWidth="0.5">
+                <animate attributeName="height" values="0;90" dur="0.8s" begin="0.8s" fill="freeze"/>
+                <animate attributeName="y" values="90;0" dur="0.8s" begin="0.8s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,82 25,90" fill="url(#greenSide)" stroke="#15803d" strokeWidth="0.5">
+                <animate attributeName="points" values="25,90 35,82 35,82 25,90;25,0 35,-8 35,82 25,90" dur="0.8s" begin="0.8s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#greenTop)" stroke="#4ade80" strokeWidth="0.5">
+                <animate attributeName="points" values="0,90 25,90 35,82 10,82;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="0.8s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 10 - Medium-short (light blue) */}
+            <g id="bar10" transform="translate(440,240)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="120" fill="url(#lightBlueFront)" stroke="#0ea5e9" strokeWidth="0.5">
+                <animate attributeName="height" values="0;120" dur="0.8s" begin="0.9s" fill="freeze"/>
+                <animate attributeName="y" values="120;0" dur="0.8s" begin="0.9s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,112 25,120" fill="url(#lightBlueSide)" stroke="#0284c7" strokeWidth="0.5">
+                <animate attributeName="points" values="25,120 35,112 35,112 25,120;25,0 35,-8 35,112 25,120" dur="0.8s" begin="0.9s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#lightBlueTop)" stroke="#7dd3fc" strokeWidth="0.5">
+                <animate attributeName="points" values="0,120 25,120 35,112 10,112;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="0.9s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 11 - Tallest (teal) */}
+            <g id="bar11" transform="translate(480,80)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="280" fill="url(#tealFront)" stroke="#0f766e" strokeWidth="0.5">
+                <animate attributeName="height" values="0;280" dur="0.8s" begin="1.0s" fill="freeze"/>
+                <animate attributeName="y" values="280;0" dur="0.8s" begin="1.0s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,272 25,280" fill="url(#tealSide)" stroke="#0d5858" strokeWidth="0.5">
+                <animate attributeName="points" values="25,280 35,272 35,272 25,280;25,0 35,-8 35,272 25,280" dur="0.8s" begin="1.0s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#tealTop)" stroke="#2dd4bf" strokeWidth="0.5">
+                <animate attributeName="points" values="0,280 25,280 35,272 10,272;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="1.0s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Bar 12 - Medium (light blue) */}
+            <g id="bar12" transform="translate(520,210)" filter="url(#shadow)">
+              {/* Front face */}
+              <rect x="0" y="0" width="25" height="150" fill="url(#lightBlueFront)" stroke="#0ea5e9" strokeWidth="0.5">
+                <animate attributeName="height" values="0;150" dur="0.8s" begin="1.1s" fill="freeze"/>
+                <animate attributeName="y" values="150;0" dur="0.8s" begin="1.1s" fill="freeze"/>
+              </rect>
+              {/* Right side face */}
+              <polygon points="25,0 35,-8 35,142 25,150" fill="url(#lightBlueSide)" stroke="#0284c7" strokeWidth="0.5">
+                <animate attributeName="points" values="25,150 35,142 35,142 25,150;25,0 35,-8 35,142 25,150" dur="0.8s" begin="1.1s" fill="freeze"/>
+              </polygon>
+              {/* Beveled top */}
+              <polygon points="0,0 25,0 35,-8 10,-8" fill="url(#lightBlueTop)" stroke="#7dd3fc" strokeWidth="0.5">
+                <animate attributeName="points" values="0,150 25,150 35,142 10,142;0,0 25,0 35,-8 10,-8" dur="0.8s" begin="1.1s" fill="freeze"/>
+              </polygon>
+            </g>
+            
+            {/* Subtle sparkle effects */}
+            <g id="sparkles" opacity="0.6">
+              <circle cx="300" cy="100" r="1.5" fill="#ffffff">
+                <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="450" cy="140" r="1" fill="#ffffff">
+                <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+              </circle>
+              <circle cx="200" cy="180" r="1.2" fill="#ffffff">
+                <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" begin="1s"/>
+              </circle>
+              <circle cx="380" cy="120" r="0.8" fill="#ffffff">
+                <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" begin="1.5s"/>
+              </circle>
+            </g>
+            
+            {/* Ambient lighting */}
+            <g id="ambientLight" opacity="0.1">
+              <radialGradient id="lightGlow" cx="30%" cy="20%" r="60%">
+                <stop offset="0%" style={{stopColor: "#ffffff", stopOpacity: 0.8}} />
+                <stop offset="100%" style={{stopColor: "#ffffff", stopOpacity: 0}} />
+              </radialGradient>
+              <rect width="600" height="400" fill="url(#lightGlow)"/>
+            </g>
+          </svg>
         </div>
 
-        {/* Performance metrics */}
-        {[
-          { label: 'ROI', value: '+16.3%', color: 'bg-green-500' },
-          { label: 'Growth', value: '+24%', color: 'bg-blue-500' },
-          { label: 'Yield', value: '+8.2%', color: 'bg-purple-500' }
-        ].map((metric, i) => (
-          <div
-            key={i}
-            className={`absolute ${metric.color} text-white px-4 py-2 rounded text-sm visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
-              }`}
-            style={{
-              left: `${-40 + i * 40}px`,
-              bottom: `${-50 + i * 15}px`,
-              animationDelay: isAnimating ? `${0.4 + i * 0.1}s` : `${i * 0.3}s`
-            }}
-          >
-            <div className="font-bold">{metric.value}</div>
-            <div className="text-xs opacity-80">{metric.label}</div>
+        {/* Performance indicators positioned around the chart */}
+        <div className="absolute top-4 right-4">
+          {/* Main Performance Indicator */}
+          <div className={`bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-lg font-bold text-lg visual-element shadow-lg ${isAnimating ? 'stagger-in' : 'animate-bounce'
+          }`} style={{ animationDelay: isAnimating ? '0.3s' : '0s' }}>
+            <div className="flex items-center gap-2">
+              <TrendingUp className="w-4 h-4" />
+              +16.3%
+            </div>
           </div>
-        ))}
+        </div>
+
+        {/* Stacked Performance Metrics - Left Side */}
+        <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 space-y-2">
+          {[
+            { label: 'ROI', value: '+16.3%', color: 'from-green-500 to-green-600', icon: Target },
+            { label: 'Growth', value: '+24%', color: 'from-blue-500 to-blue-600', icon: TrendingUp },
+            { label: 'Yield', value: '+8.2%', color: 'from-purple-500 to-purple-600', icon: BarChart3 }
+          ].map((metric, i) => (
+            <div
+              key={i}
+              className={`bg-gradient-to-r ${metric.color} text-white px-4 py-2 rounded-lg text-sm visual-element shadow-lg ${isAnimating ? 'stagger-in' : 'animate-pulse'
+                }`}
+              style={{
+                animationDelay: isAnimating ? `${0.4 + i * 0.1}s` : `${i * 0.3}s`,
+                transform: `translateX(${i * -3}px)`
+              }}
+            >
+              <div className="flex items-center gap-2">
+                <metric.icon className="w-4 h-4" />
+                <div className="font-bold">{metric.value}</div>
+                <div className="text-xs opacity-90">{metric.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* AI Analytics Badge - Bottom Center */}
+        <div className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-xl text-sm font-semibold shadow-2xl visual-element ${isAnimating ? 'stagger-in' : ''
+          }`} style={{ animationDelay: isAnimating ? '0.6s' : '0s' }}>
+          <div className="flex items-center gap-2">
+            <Cpu className="w-4 h-4" />
+            AI Analytics
+          </div>
+        </div>
+
+        {/* Decorative elements */}
+        <div className="absolute top-8 left-8 w-3 h-3 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full animate-pulse shadow-md"></div>
+        <div className="absolute top-12 right-12 w-2 h-2 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full animate-bounce shadow-sm"></div>
+        <div className="absolute bottom-8 right-8 w-2 h-2 bg-gradient-to-r from-green-400 to-green-500 rounded-full animate-ping shadow-sm"></div>
+        <div className="absolute bottom-12 left-12 w-3 h-3 bg-gradient-to-r from-pink-400 to-pink-500 rounded-full animate-pulse shadow-md"></div>
       </div>
     </div>
   );
@@ -253,50 +618,71 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* Trading interface mockup */}
-        <div className={`w-64 h-80 bg-gray-900 rounded-3xl p-2 shadow-2xl visual-element ${isAnimating ? 'stagger-in' : ''
+        <div className={`w-64 h-80 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-2 shadow-2xl visual-element ${isAnimating ? 'stagger-in' : ''
           }`} style={{ animationDelay: '0.1s' }}>
-          <div className="bg-white rounded-2xl p-2 h-full flex flex-col">
+          <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-2 h-full flex flex-col border border-gray-200">
             {/* Header */}
             <div className={`text-center mb-2 visual-element ${isAnimating ? 'stagger-in' : ''
               }`} style={{ animationDelay: '0.2s' }}>
-              <div className="text-base font-bold text-gray-800">Secondary Market</div>
-              <div className="text-xs text-gray-500">Instant Liquidity</div>
+              <div className="text-base font-bold text-gray-800 flex items-center justify-center gap-2">
+                <Activity className="w-4 h-4 text-blue-600" />
+                Secondary Market
+              </div>
+              <div className="text-xs text-gray-500 flex items-center justify-center gap-1">
+                <Zap className="w-3 h-3" />
+                Instant Liquidity
+              </div>
             </div>
 
             {/* Asset tokens */}
             <div className="flex-1 space-y-1.5 mb-2">
               {[
-                { name: 'NYC Apt #123', price: '$2,450', change: '+5.2%' },
-                { name: 'Gold ETF', price: '$1,890', change: '+2.1%' },
-                { name: 'Art Token', price: '$950', change: '+8.7%' }
+                { name: 'NYC Apt #123', price: '$2,450', change: '+5.2%', icon: Building },
+                { name: 'Gold ETF', price: '$1,890', change: '+2.1%', icon: Gem },
+                { name: 'Art Token', price: '$950', change: '+8.7%', icon: Palette }
               ].map((asset, i) => (
-                <div key={i} className={`bg-gray-50 rounded-lg p-2 text-xs visual-element ${isAnimating ? 'stagger-in' : ''
+                <div key={i} className={`bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-2 text-xs visual-element border border-gray-200 hover:shadow-md transition-all duration-300 ${isAnimating ? 'stagger-in' : ''
                   }`} style={{ animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : '0s' }}>
-                  <div className="font-medium text-gray-800">{asset.name}</div>
+                  <div className="font-semibold text-gray-800 flex items-center gap-2">
+                    <asset.icon className="w-3 h-3 text-blue-600" />
+                    {asset.name}
+                  </div>
                   <div className="flex justify-between items-center mt-1">
-                    <span className="text-gray-600">{asset.price}</span>
-                    <span className="text-green-600 font-medium">{asset.change}</span>
+                    <span className="text-gray-600 font-medium">{asset.price}</span>
+                    <span className="text-green-600 font-bold flex items-center gap-1">
+                      <TrendingUp className="w-3 h-3" />
+                      {asset.change}
+                    </span>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Settlement indicator */}
-            <div className={`bg-blue-500 text-white px-2 py-1 rounded-lg text-xs text-center mb-2 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+            <div className={`bg-gradient-to-r from-blue-500 to-blue-600 text-white px-2 py-1 rounded-lg text-xs text-center mb-2 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
               }`} style={{ animationDelay: isAnimating ? '0.6s' : '0s' }}>
-              ⚡ 2-second settlement
+              <div className="flex items-center justify-center gap-1">
+                <Zap className="w-3 h-3" />
+                2-second settlement
+              </div>
             </div>
 
             {/* Buy and Sell buttons in single line */}
             <div className="flex gap-1.5">
-              <button className={`flex-1 bg-green-500 text-white py-1.5 rounded-lg font-medium text-xs visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+              <button className={`flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white py-1.5 rounded-lg font-semibold text-xs visual-element hover:shadow-lg transition-all duration-300 transform hover:scale-105 ${isAnimating ? 'stagger-in' : 'animate-pulse'
                 }`} style={{ animationDelay: isAnimating ? '0.7s' : '0s' }}>
-                Buy Instantly
+                <div className="flex items-center justify-center gap-1">
+                  <Plus className="w-3 h-3" />
+                  Buy Instantly
+                </div>
               </button>
-              <button className={`flex-1 bg-red-500 text-white py-1.5 rounded-lg font-medium text-xs visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+              <button className={`flex-1 bg-gradient-to-r from-red-500 to-red-600 text-white py-1.5 rounded-lg font-semibold text-xs visual-element hover:shadow-lg transition-all duration-300 transform hover:scale-105 ${isAnimating ? 'stagger-in' : 'animate-pulse'
                 }`} style={{ animationDelay: isAnimating ? '0.8s' : '0s' }}>
-                Sell Instantly
-              </button>
+                <div className="flex items-center justify-center gap-1">
+                  <ArrowDown className="w-3 h-3" />
+              Sell Instantly
+                </div>
+            </button>
             </div>
           </div>
         </div>
@@ -305,7 +691,7 @@ const RealEstateInvestmentSection = () => {
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
-            className={`absolute w-3 h-3 bg-blue-400 rounded-full visual-element ${isAnimating ? 'stagger-in' : 'animate-ping'
+            className={`absolute w-3 h-3 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full visual-element shadow-lg ${isAnimating ? 'stagger-in' : 'animate-ping'
               }`}
             style={{
               left: `${Math.cos(i * Math.PI / 3) * 80}px`,
@@ -316,10 +702,10 @@ const RealEstateInvestmentSection = () => {
         ))}
 
         {/* Subtle decorative elements */}
-        <div className="absolute -bottom-8 -left-8 w-3 h-3 bg-purple-400 rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute -bottom-8 -right-8 w-3 h-3 bg-pink-400 rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute -top-8 -right-8 w-2 h-2 bg-blue-400 rounded-full opacity-70 animate-bounce"></div>
-        <div className="absolute -top-8 -left-8 w-2 h-2 bg-green-400 rounded-full opacity-70 animate-bounce"></div>
+        <div className="absolute -bottom-8 -left-8 w-3 h-3 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full opacity-60 animate-pulse shadow-lg"></div>
+        <div className="absolute -bottom-8 -right-8 w-3 h-3 bg-gradient-to-r from-pink-400 to-pink-500 rounded-full opacity-60 animate-pulse shadow-lg"></div>
+        <div className="absolute -top-8 -right-8 w-2 h-2 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full opacity-70 animate-bounce shadow-md"></div>
+        <div className="absolute -top-8 -left-8 w-2 h-2 bg-gradient-to-r from-green-400 to-green-500 rounded-full opacity-70 animate-bounce shadow-md"></div>
       </div>
     </div>
   );
@@ -327,182 +713,308 @@ const RealEstateInvestmentSection = () => {
   const renderWorldAssets = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
-        {/* Central globe */}
-        <div className={`w-48 h-48 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center shadow-2xl relative visual-element ${isAnimating ? 'stagger-in' : ''
-          }`} style={{ animationDelay: '0.1s' }}>
-          <Globe className={`w-24 h-24 text-white ${isAnimating ? '' : 'animate-spin'}`} style={{ animationDuration: '10s' }} />
-
-          {/* Orbiting asset icons */}
-          {[
-            { icon: Home, color: 'bg-blue-500', label: 'Real Estate' },
-            { icon: Coins, color: 'bg-yellow-500', label: 'Gold' },
-            { icon: Briefcase, color: 'bg-purple-500', label: 'Private Equity' },
-            { icon: BarChart3, color: 'bg-green-500', label: 'Commodities' }
-          ].map((asset, i) => {
-            const angle = (i * Math.PI / 2); // 0, 90, 180, 270 degrees
-            const radius = 120;
-            const x = Math.cos(angle) * radius;
-            const y = Math.sin(angle) * radius;
-
-            return (
-              <div
-                key={i}
-                className={`absolute w-14 h-14 ${asset.color} rounded-full flex items-center justify-center shadow-lg visual-element ${isAnimating ? 'stagger-in' : ''
-                  }`}
-                style={{
-                  left: `calc(50% + ${x}px)`,
-                  top: `calc(50% + ${y}px)`,
-                  marginLeft: '-28px',
-                  marginTop: '-28px',
-                  animation: isAnimating ? 'staggerSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards' : 'spin 12s linear infinite',
-                  animationDelay: isAnimating ? `${0.2 + i * 0.1}s` : `${i * 0.5}s`
-                }}
-              >
-                <asset.icon className="w-7 h-7 text-white" />
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Asset class labels */}
-        {['Real Estate', 'Gold', 'Commodities', 'Private Equity'].map((asset, i) => (
-          <div
-            key={i}
-            className={`absolute bg-white shadow-lg rounded-full px-4 py-2 text-sm font-medium text-gray-900 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
-              }`}
-            style={{
-              left: `${-60 + i * 45}px`,
-              top: `${-90 + Math.sin(i) * 40}px`,
-              animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : `${i * 0.4}s`,
-              animationDuration: isAnimating ? '0.6s' : '3s'
-            }}
-          >
-            {asset}
-          </div>
-        ))}
-
-        {/* AI insights badge */}
-        <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full text-sm visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'
-          }`} style={{ animationDelay: isAnimating ? '0.5s' : '0s' }}>
-          📈 AI Investment Insights
-        </div>
+        <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" className={`visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+          {/* Definitions for gradients and patterns */}
+          <defs>
+            {/* Main globe gradient with blockchain theme */}
+            <radialGradient id="globeGradient" cx="0.3" cy="0.3" r="0.8">
+              <stop offset="0%" style={{stopColor: "#f8f9fa", stopOpacity: 1}} />
+              <stop offset="40%" style={{stopColor: "#e3f2fd", stopOpacity: 1}} />
+              <stop offset="80%" style={{stopColor: "#bbdefb", stopOpacity: 1}} />
+              <stop offset="100%" style={{stopColor: "#64b5f6", stopOpacity: 1}} />
+            </radialGradient>
+            
+            {/* Token gradient */}
+            <radialGradient id="tokenGradient" cx="0.3" cy="0.3" r="0.7">
+              <stop offset="0%" style={{stopColor: "#ffd700", stopOpacity: 1}} />
+              <stop offset="50%" style={{stopColor: "#ffa000", stopOpacity: 1}} />
+              <stop offset="100%" style={{stopColor: "#ff6f00", stopOpacity: 1}} />
+            </radialGradient>
+            
+            {/* Digital asset gradient */}
+            <linearGradient id="digitalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style={{stopColor: "#4caf50", stopOpacity: 1}} />
+              <stop offset="100%" style={{stopColor: "#2e7d32", stopOpacity: 1}} />
+            </linearGradient>
+            
+            {/* Blockchain grid pattern */}
+            <pattern id="blockchainGrid" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
+              <rect width="25" height="25" fill="none" stroke="#4dabf7" strokeWidth="0.5" opacity="0.3"/>
+              <circle cx="12.5" cy="12.5" r="1.5" fill="#4dabf7" opacity="0.4"/>
+            </pattern>
+            
+            {/* Token flow animation */}
+            <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style={{stopColor: "#4dabf7", stopOpacity: 0}} />
+              <stop offset="50%" style={{stopColor: "#4dabf7", stopOpacity: 1}} />
+              <stop offset="100%" style={{stopColor: "#4dabf7", stopOpacity: 0}} />
+              <animateTransform attributeName="gradientTransform" attributeType="XML" type="translate" values="-100 0;400 0;-100 0" dur="3s" repeatCount="indefinite"/>
+            </linearGradient>
+          </defs>
+          
+          {/* Background circle (digital globe) */}
+          <circle cx="250" cy="250" r="220" fill="url(#globeGradient)" stroke="#4dabf7" strokeWidth="2"/>
+          
+          {/* Blockchain grid overlay */}
+          <circle cx="250" cy="250" r="220" fill="url(#blockchainGrid)" opacity="0.6"/>
+          
+          {/* Tokenized Real Estate (North America) */}
+          <g id="realEstate">
+            <path d="M 100 150 Q 85 135 75 120 Q 80 105 90 95 Q 105 90 120 100 Q 135 105 150 120 Q 160 135 170 150 Q 180 165 175 180 Q 170 195 165 210 Q 150 220 140 225 Q 125 230 110 225 Q 95 220 85 205 Q 80 190 85 175 Q 90 160 100 150 Z" 
+                  fill="url(#digitalGradient)" opacity="0.8" stroke="#4caf50" strokeWidth="1.5"/>
+            {/* Real Estate Tokens */}
+            <circle cx="120" cy="140" r="6" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1"/>
+            <text x="120" y="144" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="6" fill="#fff" fontWeight="bold">RE</text>
+            <circle cx="145" cy="165" r="5" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1"/>
+            <text x="145" y="168" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="5" fill="#fff">$</text>
+          </g>
+          
+          {/* Tokenized Commodities (South America) */}
+          <g id="commodities">
+            <path d="M 150 260 Q 140 245 145 230 Q 150 215 155 205 Q 160 200 165 205 Q 170 215 175 230 Q 180 245 185 260 Q 190 275 185 290 Q 180 305 175 320 Q 170 335 160 340 Q 150 345 140 340 Q 135 325 138 310 Q 142 295 145 280 Q 148 265 150 260 Z" 
+                  fill="url(#digitalGradient)" opacity="0.8" stroke="#4caf50" strokeWidth="1.5"/>
+            {/* Commodity Tokens */}
+            <circle cx="165" cy="280" r="6" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1"/>
+            <text x="165" y="284" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="6" fill="#fff" fontWeight="bold">OIL</text>
+            <circle cx="150" cy="305" r="4" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1"/>
+            <text x="150" y="308" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="4" fill="#fff">AU</text>
+          </g>
+          
+          {/* Tokenized Art & IP (Europe) */}
+          <g id="artIP">
+            <path d="M 230 130 Q 225 125 228 120 Q 235 118 240 120 Q 245 122 248 125 Q 250 130 248 135 Q 245 140 240 142 Q 235 145 230 142 Q 228 138 230 135 Q 232 130 230 130 Z" 
+                  fill="url(#digitalGradient)" opacity="0.8" stroke="#4caf50" strokeWidth="1.5"/>
+            {/* Art/IP Tokens */}
+            <circle cx="240" cy="135" r="5" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1"/>
+            <text x="240" y="138" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="5" fill="#fff" fontWeight="bold">NFT</text>
+          </g>
+          
+          {/* Tokenized Carbon Credits (Africa) */}
+          <g id="carbon">
+            <path d="M 240 165 Q 238 160 240 155 Q 245 152 250 155 Q 255 158 258 162 Q 260 167 262 172 Q 264 177 263 182 Q 262 187 258 190 Q 255 193 250 192 Q 245 190 242 185 Q 240 180 241 175 Q 242 170 243 165 Q 244 160 240 165 Z" 
+                  fill="url(#digitalGradient)" opacity="0.8" stroke="#4caf50" strokeWidth="1.5"/>
+            {/* Carbon Credit Tokens */}
+            <circle cx="255" cy="175" r="6" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1"/>
+            <text x="255" y="179" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="5" fill="#fff" fontWeight="bold">CO₂</text>
+            <circle cx="245" cy="190" r="4" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1"/>
+            <text x="245" y="193" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="4" fill="#fff">C</text>
+          </g>
+          
+          {/* Tokenized Infrastructure (Asia) */}
+          <g id="infrastructure">
+            <path d="M 280 115 Q 275 110 278 105 Q 285 102 295 105 Q 305 108 310 115 Q 315 122 318 130 Q 320 138 318 145 Q 315 152 310 158 Q 305 164 295 167 Q 285 170 278 167 Q 275 164 272 158 Q 270 152 271 145 Q 272 138 274 130 Q 276 122 280 115 Z" 
+                  fill="url(#digitalGradient)" opacity="0.8" stroke="#4caf50" strokeWidth="1.5"/>
+            {/* Infrastructure Tokens */}
+            <circle cx="295" cy="130" r="6" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1"/>
+            <text x="295" y="134" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="5" fill="#fff" fontWeight="bold">INFR</text>
+            <circle cx="280" cy="150" r="5" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1"/>
+            <text x="280" y="153" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="5" fill="#fff">₿</text>
+          </g>
+          
+          {/* Tokenized Resources (Australia) */}
+          <g id="resources">
+            <path d="M 315 285 Q 312 280 315 278 Q 320 276 325 278 Q 330 280 332 285 Q 335 290 334 295 Q 332 300 328 302 Q 325 305 320 303 Q 318 300 319 297 Q 320 295 320 290 Q 321 285 315 285 Z" 
+                  fill="url(#digitalGradient)" opacity="0.8" stroke="#4caf50" strokeWidth="1.5"/>
+            {/* Resource Tokens */}
+            <circle cx="325" cy="290" r="5" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1"/>
+            <text x="325" y="293" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="5" fill="#fff" fontWeight="bold">MIN</text>
+          </g>
+          
+          {/* Floating Token Clusters */}
+          <g id="floatingTokens">
+            {/* DeFi Token Cluster */}
+            <circle cx="375" cy="100" r="10" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1.5" opacity="0.9"/>
+            <text x="375" y="104" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="7" fill="#fff" fontWeight="bold">DeFi</text>
+            
+            {/* Stablecoin Cluster */}
+            <circle cx="125" cy="325" r="8" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1.5" opacity="0.9"/>
+            <text x="125" y="329" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="6" fill="#fff" fontWeight="bold">USDT</text>
+            
+            {/* Governance Token */}
+            <circle cx="415" cy="315" r="7" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1.5" opacity="0.9"/>
+            <text x="415" y="319" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="6" fill="#fff" fontWeight="bold">GOV</text>
+            
+            {/* Utility Token */}
+            <circle cx="65" cy="165" r="6" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="1.5" opacity="0.9"/>
+            <text x="65" y="169" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="5" fill="#fff" fontWeight="bold">UTL</text>
+          </g>
+          
+          {/* Blockchain Connection Lines */}
+          <g id="blockchainConnections" stroke="#4dabf7" strokeWidth="1.5" fill="none" opacity="0.6">
+            {/* Connecting tokens to main blockchain network */}
+            <path d="M 250 250 Q 210 210 170 170 Q 130 130 120 140" strokeDasharray="4,4">
+              <animate attributeName="strokeDashoffset" values="0;-16" dur="2s" repeatCount="indefinite"/>
+            </path>
+            <path d="M 250 250 Q 265 235 280 220 Q 295 205 295 130"/>
+            <path d="M 250 250 Q 235 265 220 280 Q 205 295 165 280"/>
+            <path d="M 250 250 Q 285 265 315 280 Q 345 295 325 290"/>
+            <path d="M 250 250 Q 330 210 375 100"/>
+          </g>
+          
+          {/* Token Flow Animation Lines */}
+          <g id="tokenFlows">
+            <line x1="40" y1="250" x2="460" y2="250" stroke="url(#flowGradient)" strokeWidth="2" opacity="0.8"/>
+            <line x1="250" y1="40" x2="250" y2="460" stroke="url(#flowGradient)" strokeWidth="2" opacity="0.8"/>
+          </g>
+          
+          {/* Central Tokenization Hub */}
+          <g id="centralhub">
+            <circle cx="250" cy="250" r="25" fill="url(#tokenGradient)" stroke="#ffd700" strokeWidth="2" opacity="0.95"/>
+            <circle cx="250" cy="250" r="20" fill="none" stroke="#fff" strokeWidth="1.5" opacity="0.7"/>
+            <text x="250" y="245" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fill="#fff" fontWeight="bold">TOKEN</text>
+            <text x="250" y="256" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="6" fill="#fff" fontWeight="bold">HUB</text>
+            
+            {/* Pulsing effect */}
+            <circle cx="250" cy="250" r="30" fill="none" stroke="#ffd700" strokeWidth="1.5" opacity="0.5">
+              <animate attributeName="r" values="30;38;30" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+          
+          {/* Latitude/Longitude Grid (Blockchain Network) */}
+          <g id="blockchainGrid" stroke="#4dabf7" strokeWidth="0.8" fill="none" opacity="0.4">
+            <ellipse cx="250" cy="250" rx="220" ry="220"/>
+            <ellipse cx="250" cy="250" rx="220" ry="165"/>
+            <ellipse cx="250" cy="250" rx="220" ry="110"/>
+            <ellipse cx="250" cy="250" rx="220" ry="55"/>
+            <ellipse cx="250" cy="250" rx="165" ry="220"/>
+            <ellipse cx="250" cy="250" rx="110" ry="220"/>
+            <ellipse cx="250" cy="250" rx="55" ry="220"/>
+            <line x1="250" y1="30" x2="250" y2="470"/>
+            <line x1="30" y1="250" x2="470" y2="250"/>
+          </g>
+          
+          {/* Asset Category Labels */}
+          <g id="categoryLabels" fontFamily="Arial, sans-serif" fontSize="8" fill="#2e7d32" fontWeight="bold">
+            <text x="120" y="110" textAnchor="middle">REAL ESTATE</text>
+            <text x="165" y="360" textAnchor="middle">COMMODITIES</text>
+            <text x="240" y="105" textAnchor="middle">ART & IP</text>
+            <text x="255" y="200" textAnchor="middle">CARBON</text>
+            <text x="295" y="85" textAnchor="middle">INFRASTRUCTURE</text>
+            <text x="325" y="320" textAnchor="middle">RESOURCES</text>
+          </g>
+          
+          {/* Tokenization Stats */}
+          <g id="stats" fontFamily="Arial, sans-serif" fontSize="7" fill="#4dabf7">
+            <text x="40" y="450">Total Value Locked: $2.4T</text>
+            <text x="40" y="460">Active Tokens: 847,293</text>
+            <text x="40" y="470">Global Coverage: 195 Countries</text>
+            
+            <text x="360" y="450">Market Cap: $1.8T</text>
+            <text x="360" y="460">Daily Volume: $127B</text>
+            <text x="360" y="470">Network: Multi-Chain</text>
+          </g>
+          
+          {/* Shine effect */}
+          <ellipse cx="210" cy="180" rx="65" ry="95" fill="rgba(255,255,255,0.2)" opacity="0.6" transform="rotate(-20 210 180)"/>
+          
+          {/* Outer border */}
+          <circle cx="250" cy="250" r="220" fill="none" stroke="#4dabf7" strokeWidth="2" opacity="0.8"/>
+        </svg>
       </div>
     </div>
   );
 
   const renderStablecoinWallet = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="relative">
-        {/* Professional wallet interface */}
-        <div className={`w-80 h-[500px] bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative visual-element ${isAnimating ? 'stagger-in' : ''
-          }`} style={{ animationDelay: '0.1s' }}>
-
-          {/* Balance - Focal Point */}
-          <div className={`text-center mb-12 visual-element ${isAnimating ? 'stagger-in' : ''
-            }`} style={{ animationDelay: '0.2s' }}>
-            <div className="text-gray-500 text-sm font-medium mb-3">BALANCE</div>
-            <div className="text-5xl font-light text-gray-900 mb-2">$150.00</div>
-            <div className="text-green-600 text-sm font-medium">+2.3% today</div>
+      <div className={`visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+        {/* Main Wallet Container */}
+        <div className={`relative w-72 h-96 bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-6 border border-gray-200 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.2s' }}>
+          {/* Currency Selection Tags */}
+          <div className={`absolute -top-3 -left-2 flex space-x-1 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.3s' }}>
+            <div className={`bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-lg visual-element ${isAnimating ? 'stagger-in' : 'hover:scale-105 transition-transform duration-300'}`} style={{ animationDelay: '0.4s' }}>
+              USD
+            </div>
+            <div className={`bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-medium border border-gray-200 visual-element ${isAnimating ? 'stagger-in' : 'hover:scale-105 transition-transform duration-300'}`} style={{ animationDelay: '0.5s' }}>
+              EUR
+            </div>
+            <div className={`bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-medium border border-gray-200 visual-element ${isAnimating ? 'stagger-in' : 'hover:scale-105 transition-transform duration-300'}`} style={{ animationDelay: '0.6s' }}>
+              GBP
+            </div>
           </div>
 
-          {/* Action buttons */}
-          <div className={`flex justify-center gap-8 mb-10 visual-element ${isAnimating ? 'stagger-in' : ''
-            }`} style={{ animationDelay: '0.3s' }}>
-            {[
-              {
-                label: 'Deposit',
-                color: 'bg-blue-600',
-                icon: (
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                  </svg>
-                )
-              },
-              {
-                label: 'Send',
-                color: 'bg-green-600',
-                icon: (
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
-                  </svg>
-                )
-              },
-              {
-                label: 'Receive',
-                color: 'bg-purple-600',
-                icon: (
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 13L17 7M7 7L17 13M7 7V17M17 7V17" />
-                  </svg>
-                )
-              }
-            ].map((action, i) => (
-              <div key={i} className="text-center">
-                <div className={`w-16 h-16 ${action.color} rounded-full flex items-center justify-center mx-auto mb-3 shadow-md visual-element ${isAnimating ? 'stagger-in' : 'hover:shadow-lg transition-shadow'
-                  }`} style={{ animationDelay: isAnimating ? `${0.4 + i * 0.1}s` : '0s' }}>
-                  {action.icon}
-                </div>
-                <div className="text-gray-700 text-sm font-medium">{action.label}</div>
+          {/* Balance Section */}
+          <div className={`text-center mb-6 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.7s' }}>
+            <div className={`text-gray-500 text-xs font-medium uppercase tracking-wide mb-2 flex items-center justify-center gap-2 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.8s' }}>
+              <Wallet className="w-3 h-3" />
+              Balance
+            </div>
+            <div className={`text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'}`} style={{ animationDelay: '0.9s' }}>
+              $150.00
+            </div>
+            <div className={`text-green-600 text-sm font-semibold flex items-center justify-center gap-1 visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'}`} style={{ animationDelay: '1.0s' }}>
+              <TrendingUp className="w-3 h-3" />
+              +2.3% today
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className={`flex justify-center space-x-4 mb-6 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '1.1s' }}>
+            <div className={`text-center visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '1.2s' }}>
+              <div className={`w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'}`} style={{ animationDelay: '1.3s' }}>
+                <Plus className="w-5 h-5 text-white" />
               </div>
-            ))}
+              <div className="text-xs text-gray-700 font-medium">Deposit</div>
+            </div>
+            
+            <div className={`text-center visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '1.4s' }}>
+              <div className={`w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mb-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'}`} style={{ animationDelay: '1.5s' }}>
+                <Send className="w-5 h-5 text-white" />
+              </div>
+              <div className="text-xs text-gray-700 font-medium">Send</div>
+            </div>
+            
+            <div className={`text-center visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '1.6s' }}>
+              <div className={`w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'}`} style={{ animationDelay: '1.7s' }}>
+                <MessageCircle className="w-5 h-5 text-white" />
+              </div>
+              <div className="text-xs text-gray-700 font-medium">Receive</div>
+            </div>
           </div>
 
-          {/* Recent transactions */}
-          <div className="space-y-3">
-            {/* Send transaction */}
-            <div className={`bg-gray-50 rounded-lg p-4 visual-element ${isAnimating ? 'stagger-in' : ''
-              }`} style={{ animationDelay: '0.6s' }}>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <div className="text-gray-900 font-medium text-sm">Sent <span className="font-semibold">$14.00 USDC</span></div>
-                  <div className="text-gray-500 text-xs">Just now</div>
+          {/* Transaction History */}
+          <div className={`space-y-3 visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '1.8s' }}>
+            {/* Transaction 1 */}
+            <div className={`bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-3 flex items-center border border-gray-200 hover:shadow-md transition-all duration-300 visual-element ${isAnimating ? 'stagger-in' : 'hover:scale-105'}`} style={{ animationDelay: '1.9s' }}>
+              <div className={`w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-3 shadow-md visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'}`} style={{ animationDelay: '2.0s' }}>
+                <ArrowUp className="w-4 h-4 text-white" />
+              </div>
+              <div className="flex-1">
+                <div className="text-sm font-semibold text-gray-800">Sent $14.00 USDC</div>
+                <div className="text-xs text-gray-500 flex items-center gap-1">
+                  <Clock className="w-3 h-3" />
+                  Just now
                 </div>
               </div>
             </div>
 
-            {/* Swap transaction */}
-            <div className={`bg-gray-50 rounded-lg p-4 visual-element ${isAnimating ? 'stagger-in' : ''
-              }`} style={{ animationDelay: '0.7s' }}>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <div className="text-gray-900 font-medium text-sm"><span className="font-semibold">100 USDC → 91.82 EUR</span></div>
-                  <div className="text-gray-500 text-xs">2 minutes ago</div>
+            {/* Transaction 2 */}
+            <div className={`bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-3 flex items-center border border-gray-200 hover:shadow-md transition-all duration-300 visual-element ${isAnimating ? 'stagger-in' : 'hover:scale-105'}`} style={{ animationDelay: '2.1s' }}>
+              <div className={`w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3 shadow-md visual-element ${isAnimating ? 'stagger-in' : 'animate-bounce'}`} style={{ animationDelay: '2.2s' }}>
+                <ArrowLeftRight className="w-4 h-4 text-white" />
+              </div>
+              <div className="flex-1">
+                <div className="text-sm font-semibold text-gray-800">100 USDC → 91.82 EUR</div>
+                <div className="text-xs text-gray-500 flex items-center gap-1">
+                  <Clock className="w-3 h-3" />
+                  2 minutes ago
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Currency indicators */}
-        {['USD', 'EUR', 'GBP'].map((currency, i) => (
-          <div
-            key={i}
-            className={`absolute bg-white shadow-md rounded-lg px-3 py-2 text-xs font-medium text-gray-600 border border-gray-200 visual-element ${isAnimating ? 'stagger-in' : ''
-              }`}
-            style={{
-              left: `${-40 + i * 35}px`,
-              top: `${-60 + Math.sin(i) * 20}px`,
-              animationDelay: isAnimating ? `${0.8 + i * 0.1}s` : `${i * 0.3}s`
-            }}
-          >
-            {currency}
+          {/* Multi-Currency Wallet Badge */}
+          <div className={`absolute -bottom-4 -right-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-xl border border-gray-700 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'}`} style={{ animationDelay: '2.3s' }}>
+            <div className="flex items-center gap-2">
+              <CreditCard className="w-3 h-3" />
+              Multi-Currency Wallet
+            </div>
           </div>
-        ))}
 
-        {/* Professional badge */}
-        <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-2 rounded-lg text-sm font-medium shadow-lg visual-element ${isAnimating ? 'stagger-in' : ''
-          }`} style={{ animationDelay: isAnimating ? '1s' : '0s' }}>
-          Multi-Currency Wallet
+          {/* Decorative Elements */}
+          <div className={`absolute top-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-ping visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '2.4s' }}></div>
+          <div className={`absolute bottom-8 left-4 w-3 h-3 bg-blue-400 rounded-full animate-bounce visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '2.5s' }}></div>
+          <div className={`absolute top-8 left-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '2.6s' }}></div>
         </div>
       </div>
     </div>
@@ -643,11 +1155,19 @@ const RealEstateInvestmentSection = () => {
                   </div>
                 </div>
 
-                <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 ${activeSection === index
-                    ? 'bg-green-500/20 text-green-700 border border-green-500/30'
-                    : 'bg-gray-200/50 text-gray-600 border border-gray-300/30'
+                <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 border ${activeSection === index
+                  ? 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-700 border-green-500/30 shadow-lg'
+                  : 'bg-gray-200/50 text-gray-600 border-gray-300/30'
                   }`}>
+                  <div className="flex items-center gap-2">
+                    {index === 0 && <Building className="w-4 h-4" />}
+                    {index === 1 && <TrendingUp className="w-4 h-4" />}
+                    {index === 2 && <BarChart3 className="w-4 h-4" />}
+                    {index === 3 && <Zap className="w-4 h-4" />}
+                    {index === 4 && <Globe className="w-4 h-4" />}
+                    {index === 5 && <Wallet className="w-4 h-4" />}
                   {section.highlight}
+                  </div>
                 </div>
 
                 <h2 className={`text-5xl font-bold mb-4 transition-all duration-700 leading-tight ${activeSection === index
@@ -676,7 +1196,15 @@ const RealEstateInvestmentSection = () => {
                     <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
                     <div className="flex items-center gap-2 text-sm text-gray-600">
                       <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      AI Investment Assistant • Market Analytics
+                      <div className="flex items-center gap-1">
+                        <Cpu className="w-3 h-3" />
+                        AI Investment Assistant
+                      </div>
+                      <span>•</span>
+                      <div className="flex items-center gap-1">
+                        <BarChart3 className="w-3 h-3" />
+                        Market Analytics
+                      </div>
                     </div>
                   </div>
                 )}
