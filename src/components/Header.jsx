@@ -6,7 +6,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [mobileDropdowns, setMobileDropdowns] = useState({});
   const location = useLocation();
+
+  // Helper function to toggle mobile dropdowns
+  const toggleMobileDropdown = (navItem) => {
+    setMobileDropdowns(prev => ({
+      ...prev,
+      [navItem]: !prev[navItem]
+    }));
+  };
 
   // Navigation data with dropdown content
   const navigationData = {
@@ -334,7 +343,7 @@ export default function Header() {
       {/* Modern Clean Header */}
       <header className="absolute top-2 inset-x-0 z-50 flex justify-center pointer-events-none">
         {/* Main header container */}
-        <div className="w-[98%] max-w-7xl  pointer-events-auto px-8 py-4">
+        <div className="w-[98%] max-w-7xl pointer-events-auto px-4 sm:px-6 md:px-8 py-3 md:py-4">
           
           <div className="flex items-center justify-between w-full">
 
@@ -343,7 +352,7 @@ export default function Header() {
               <img
                 src="/assets/copym/png/Copym-01-1.png"
                 alt="COPYM"
-                className="h-16 w-auto object-contain"
+                className="h-12 w-auto object-contain sm:h-14 md:h-16"
               />
             </Link>
 
@@ -379,7 +388,7 @@ export default function Header() {
 
             {/* Mobile Toggle */}
             <button
-              className="md:hidden text-gray-700 hover:text-teal-600 transition-colors duration-200"
+              className="md:hidden text-gray-700 hover:text-teal-600 transition-colors duration-200 p-2 -m-2 rounded-lg hover:bg-gray-100"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -478,23 +487,140 @@ export default function Header() {
 
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
-        <div className="fixed top-24 left-0 right-0 z-40 px-4 md:hidden">
-          <div className="bg-white rounded-2xl shadow-xl py-4 px-6 space-y-4 text-center">
-            {Object.keys(navigationData).map(navItem => (
-              <div
-                key={navItem}
-                className="block text-gray-700 font-medium hover:text-teal-600 transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {navItem}
+        <motion.div 
+          className="fixed inset-0 z-40 md:hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            onClick={() => setIsMenuOpen(false)}
+          />
+          
+          {/* Menu Container */}
+          <motion.div 
+            className="absolute top-20 sm:top-22 md:top-24 left-4 right-4 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden max-h-[80vh] flex flex-col"
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            {/* Mobile Navigation Items - Scrollable */}
+            <div className="py-6 px-4 flex-1 overflow-y-auto">
+              {Object.keys(navigationData).map((navItem, index) => (
+                <motion.div
+                  key={navItem}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                  className="mb-4 last:mb-0"
+                >
+                  {/* Section Header - Clickable to toggle dropdown */}
+                  <motion.button
+                    onClick={() => toggleMobileDropdown(navItem)}
+                    className="w-full flex items-center justify-between text-lg font-semibold text-gray-900 mb-3 px-2 py-2 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span>{navItem}</span>
+                    <motion.div
+                      animate={{ 
+                        rotate: mobileDropdowns[navItem] ? 180 : 0 
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <ChevronDown className="w-5 h-5 text-teal-600" />
+                    </motion.div>
+                  </motion.button>
+                  
+                  {/* Dropdown Content */}
+                  <AnimatePresence>
+                    {mobileDropdowns[navItem] && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="space-y-2 pl-2">
+                          {navigationData[navItem].map((item, itemIndex) => (
+                            <Link
+                              key={itemIndex}
+                              to={item.path || "#"}
+                              className="block"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              <motion.div
+                                className="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all duration-200 border border-gray-100 hover:border-teal-200"
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: itemIndex * 0.05, duration: 0.2 }}
+                                whileHover={{ x: 4 }}
+                                whileTap={{ scale: 0.98 }}
+                              >
+                                <div className="flex flex-col space-y-3">
+                                  {/* Visual Preview */}
+                                  <div className="w-full h-24 rounded-lg overflow-hidden">
+                                    {item.visual}
+                                  </div>
+                                  
+                                  {/* Content */}
+                                  <div className="flex items-start space-x-3">
+                                    {/* Icon placeholder */}
+                                    <div className="w-8 h-8 bg-gradient-to-br from-teal-100 to-teal-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                                      <div className="w-4 h-4 bg-teal-600 rounded-full opacity-60"></div>
+                                    </div>
+                                    
+                                    {/* Content */}
+                                    <div className="flex-1 min-w-0">
+                                      <h4 className="font-semibold text-gray-900 text-sm leading-tight mb-1">
+                                        {item.title}
+                                      </h4>
+                                      <p className="text-xs text-gray-600 leading-relaxed line-clamp-2">
+                                        {item.description}
+                                      </p>
+                                    </div>
+                                    
+                                    {/* Arrow */}
+                                    <div className="flex-shrink-0">
+                                      <ArrowRight className="w-4 h-4 text-teal-600" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </motion.div>
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Mobile Menu Footer - Fixed at bottom */}
+            <div className="border-t border-gray-100 bg-gray-50 px-4 py-4 flex-shrink-0">
+              <div className="flex items-center justify-between">
+                <div className="text-sm text-gray-600">
+                  © 2024 Copym
+                </div>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-teal-600 hover:text-teal-700 font-medium text-sm"
+                >
+                  Close
+                </button>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </motion.div>
+        </motion.div>
       )}
 
       {/* Spacer to avoid content overlap */}
-      <div className="h-20 md:h-28" />
+      <div className="h-16 sm:h-18 md:h-28" />
     </>
   );
 }
