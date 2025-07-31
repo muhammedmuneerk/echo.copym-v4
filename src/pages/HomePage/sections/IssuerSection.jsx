@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, LineChart, Line, Area
 import { 
   ArrowUpRight, ArrowLeft, ArrowRight, MoreHorizontal, TrendingUp, Coins, Users, 
   Palette, Building, Gem, DollarSign, Landmark, Car, Home, Briefcase,
-  Cpu, Shield, Zap, Code, Bot, CheckCircle, Clock, AlertCircle
+  Cpu, Shield, Zap, Code, Bot, CheckCircle, Clock, AlertCircle, ChevronDown, ChevronUp
 } from 'lucide-react';
 
 const TokenizationDashboard = () => {
@@ -14,6 +14,7 @@ const TokenizationDashboard = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [hoveredCard, setHoveredCard] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [expandedMobileStep, setExpandedMobileStep] = useState(null);
   const [livePerformanceData, setLivePerformanceData] = useState([
     { month: 'Jan', value: 4200 },
     { month: 'Feb', value: 4800 },
@@ -151,7 +152,14 @@ const TokenizationDashboard = () => {
     { name: 'Bonds', value: 22, color: '#6B7280' }
   ];
 
-
+  // Handle mobile progress step click
+  const handleMobileStepClick = (stepIndex) => {
+    if (expandedMobileStep === stepIndex) {
+      setExpandedMobileStep(null);
+    } else {
+      setExpandedMobileStep(stepIndex);
+    }
+  };
 
   // IMPROVED HOVER ANIMATION SYSTEM WITH PRECISE TIMING
   const handleCardHover = (cardIndex, isHovering) => {
@@ -285,33 +293,33 @@ const TokenizationDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen p-12 mt-20 perspective-1000">
+    <div className="min-h-screen p-4 sm:p-6 md:p-8 lg:p-12 mt-20 perspective-1000">
       <div className="max-w-7xl mx-auto">
        
         {/* Header */}
-        <div className={`mb-8 transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-          <h1 className="brand-section-title bg-clip-text text-transparent mb-2 justify-center flex items-center">
+        <div className={`mb-4 sm:mb-6 md:mb-8 transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
+          <h1 className="brand-section-title bg-clip-text text-transparent mb-2 justify-center flex items-center text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
             <span className='text-[#255f99]'>Real World Asset</span>
             <span className='text-[#15a36e]'> Tokenization</span>
             
           </h1>
-          <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto mb-14">Transform physical assets into digital tokens on blockchain</p>
+          <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-14 text-sm sm:text-base">Transform physical assets into digital tokens on blockchain</p>
         </div>
 
-        <div className="grid grid-cols-12 gap-8 mt-6 pt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 md:gap-8 mt-6 pt-6">
           
           {/* Portfolio Overview with GSAP Rotation + Zoom */}
-          <div className={`col-span-4 bg-[#d3f8e3] rounded-3xl p-8 transform transition-all duration-1000 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
-            <h3 className="text-xl font-bold text-gray-800 mb-6">Portfolio Distribution</h3>
-            <div ref={portfolioRef} className="h-64">
+          <div className={`lg:col-span-4 bg-[#d3f8e3] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 transform transition-all duration-1000 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
+            <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Portfolio Distribution</h3>
+            <div ref={portfolioRef} className="h-48 sm:h-56 md:h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={portfolioData}
                     cx="50%"
                     cy="50%"
-                    innerRadius={50}
-                    outerRadius={100}
+                    innerRadius={40}
+                    outerRadius={80}
                     dataKey="value"
                     animationBegin={1000}
                     animationDuration={2000}
@@ -323,30 +331,30 @@ const TokenizationDashboard = () => {
                 </PieChart>
               </ResponsiveContainer>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-1 sm:space-y-2">
               {portfolioData.map((item, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: item.color }}></div>
-                    <span className="text-sm text-gray-600">{item.name}</span>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full mr-2" style={{ backgroundColor: item.color }}></div>
+                    <span className="text-xs sm:text-sm text-gray-600">{item.name}</span>
                   </div>
-                  <span className="text-sm font-semibold text-gray-600">{item.value}%</span>
+                  <span className="text-xs sm:text-sm font-semibold text-gray-600">{item.value}%</span>
                 </div>
               ))}
               </div>
           </div>
 
                      {/* Performance Chart */}
-           <div className={`col-span-4 bg-[#d3f8e3] rounded-3xl p-8 transform transition-all duration-1000 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
-             <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
-               <TrendingUp className="w-6 h-6 mr-2 text-green-600" />
+           <div className={`lg:col-span-4 bg-[#d3f8e3] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 transform transition-all duration-1000 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
+             <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6 flex items-center">
+               <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-green-600" />
                Performance
                <div className="ml-auto flex items-center">
                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></div>
                  <span className="text-xs text-green-600 font-medium">LIVE</span>
                </div>
              </h3>
-                         <div className="h-48">
+                         <div className="h-36 sm:h-40 md:h-48">
                <ResponsiveContainer width="100%" height="100%">
                  <AreaChart data={livePerformanceData}>
                    <Area 
@@ -367,7 +375,7 @@ const TokenizationDashboard = () => {
                  </AreaChart>
                </ResponsiveContainer>
              </div>
-                         <div className="flex justify-between text-sm text-gray-600 mt-4">
+                         <div className="flex justify-between text-xs sm:text-sm text-gray-600 mt-3 sm:mt-4">
                <span>Total Value: ${((livePerformanceData[livePerformanceData.length - 1]?.value || 6500) / 1000).toFixed(1)}M</span>
                <span className={`font-semibold ${
                  livePerformanceData[livePerformanceData.length - 1]?.value > 6000 ? 'text-green-600' : 'text-red-600'
@@ -379,31 +387,102 @@ const TokenizationDashboard = () => {
           </div>
 
           {/* Progress Indicator */}
-          <div className={`col-span-4 bg-[#d3f8e3] rounded-3xl p-8 text-white transform transition-all duration-1000 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h3 className="text-xl font-bold mb-6 text-gray-800">Tokenization Progress</h3>
-            <div className="space-y-4">
+          <div className={`lg:col-span-4 bg-[#d3f8e3] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-white transform transition-all duration-1000 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-gray-800">Tokenization Progress</h3>
+            <div className="space-y-3 sm:space-y-4">
               {stepCards.map((card, index) => (
-                <div key={index} className={`flex items-center p-3 rounded-2xl ${currentStep === index ? 'bg-white/20' : currentStep > index ? 'bg-white/10' : 'bg-white/5'}`}>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${currentStep > index ? 'bg-green-500' : currentStep === index ? 'bg-white text-indigo-600' : 'bg-white/20'}`}>
-                    {currentStep > index ? <CheckCircle className="w-5 h-5" /> : <span className="font-bold">{index + 1}</span>}
+                <button
+                  key={index}
+                  onClick={() => handleMobileStepClick(index)}
+                  className={`w-full flex items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl transition-all duration-300 lg:cursor-default ${
+                    expandedMobileStep === index 
+                      ? 'bg-white/30' 
+                      : currentStep > index 
+                        ? 'bg-white/10 hover:bg-white/20' 
+                        : 'bg-white/5 hover:bg-white/10'
+                  }`}
+                >
+                  <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-2 sm:mr-3 ${
+                    expandedMobileStep === index
+                      ? 'bg-white text-indigo-600'
+                      : currentStep > index 
+                        ? 'bg-green-500 text-white' 
+                        : 'bg-white/20 text-gray-600'
+                  }`}>
+                    {currentStep > index ? <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" /> : <span className="font-bold text-sm sm:text-base">{index + 1}</span>}
                   </div>
-                  <div>
-                    <div className="font-semibold text-black">{card.title}</div>
+                  <div className="flex-1 text-left">
+                    <div className="font-semibold text-black text-sm sm:text-base">{card.title}</div>
                     {card.selected && (
-                      <div className="text-sm opacity-80">
+                      <div className="text-xs sm:text-sm opacity-80">
                         {typeof card.selected === 'object' ? card.selected.name : card.selected}
                       </div>
                     )}
                   </div>
-                </div>
+                  {/* Mobile expand/collapse button - only visible on mobile */}
+                  <div className="lg:hidden p-1 rounded-full">
+                    {expandedMobileStep === index ? (
+                      <ChevronUp className="w-4 h-4 text-gray-600" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-gray-600" />
+                    )}
+                  </div>
+                </button>
               ))}
             </div>
           </div>
 
-          {/* Cards Displayed Side by Side */}
-          <div className="col-span-12 relative mb-8 mt-20">
+          {/* Mobile Interactive Cards - Only show when step is expanded */}
+          <div className="lg:hidden col-span-1 relative mb-4 sm:mb-6 md:mb-8 mt-4">
+            {expandedMobileStep !== null && (
+              <div className="w-full max-w-sm mx-auto">
+                <div
+                  ref={el => cardsRef.current[expandedMobileStep] = el}
+                  className={`relative w-full h-80 rounded-2xl p-4 cursor-pointer transform-gpu`}
+                  style={{
+                    background: `linear-gradient(135deg, ${stepCards[expandedMobileStep].color.includes('blue') ? '#3B82F6' : stepCards[expandedMobileStep].color.includes('purple') ? '#18be36ff' : '#4894ecff'} 0%, ${stepCards[expandedMobileStep].color.includes('blue') ? '#18be36ff' : stepCards[expandedMobileStep].color.includes('purple') ? '#0300b1ff' : '#18be36ff'} 100%)`,
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+                    transformStyle: 'preserve-3d',
+                    backfaceVisibility: 'hidden'
+                  }}
+                >
+                  <div className="text-white h-full flex flex-col" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+                                         <div className="flex items-center mb-3">
+                       {React.createElement(stepCards[expandedMobileStep].icon, { className: "w-5 h-5 mr-2 drop-shadow-lg" })}
+                       <h2 className="text-lg font-bold drop-shadow-lg">{stepCards[expandedMobileStep].title}</h2>
+                     </div>
+
+                    <div className="flex-1 grid grid-cols-1 gap-1">
+                      {stepCards[expandedMobileStep].items.map((item, itemIndex) => (
+                        <button
+                          key={item.id}
+                          onClick={() => handleCardClick(expandedMobileStep, item)}
+                          className={`w-full p-2 rounded-lg text-left transition-all duration-300 hover:scale-105 ${
+                            stepCards[expandedMobileStep].selected?.id === item.id ? 'bg-white/30' : 'bg-white/10 hover:bg-white/20'
+                          }`}
+                          style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}
+                        >
+                          <div className="flex items-center">
+                            {item.icon && <item.icon className="w-3 h-3 mr-2 drop-shadow-lg flex-shrink-0" />}
+                            <div className="min-w-0 flex-1">
+                              <div className="font-semibold text-xs text-white drop-shadow-lg truncate">{item.name}</div>
+                              {item.desc && <div className="text-xs text-white/90 drop-shadow-md truncate">{item.desc}</div>}
+                              {item.value && <div className="text-xs text-white/80 drop-shadow-md">{item.value}</div>}
+                            </div>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Desktop Cards Displayed Side by Side - Only visible on desktop */}
+          <div className="hidden lg:block col-span-12 relative mb-4 sm:mb-6 md:mb-8 mt-8 sm:mt-12 md:mt-20">
             <div 
-              className="flex justify-center items-center gap-8 perspective-1000"
+              className="flex flex-col lg:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 perspective-1000"
               onMouseLeave={() => {
                 // Reset all cards when mouse leaves the entire container
                 if (hoveredCard !== null) {
@@ -463,26 +542,26 @@ const TokenizationDashboard = () => {
                     }}
                   >
                     <div className="text-white h-full flex flex-col" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                      <div className="flex items-center mb-4">
-                        <card.icon className="w-6 h-6 mr-2 drop-shadow-lg" />
-                        <h2 className="text-xl font-bold drop-shadow-lg">{card.title}</h2>
+                      <div className="flex items-center mb-3 sm:mb-4">
+                        <card.icon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 drop-shadow-lg" />
+                        <h2 className="text-lg sm:text-xl font-bold drop-shadow-lg">{card.title}</h2>
                       </div>
 
                       {hoveredCard === index ? (
-                        <div className="flex-1 grid grid-cols-1 gap-1.5">
+                        <div className="flex-1 grid grid-cols-1 gap-1 sm:gap-1.5">
                           {card.items.map((item, itemIndex) => (
                             <button
                               key={item.id}
                               onClick={() => handleCardClick(index, item)}
-                              className={`w-full p-2 rounded-xl text-left transition-all duration-300 hover:scale-105 ${
+                              className={`w-full p-2 sm:p-2 rounded-lg sm:rounded-xl text-left transition-all duration-300 hover:scale-105 ${
                                 card.selected?.id === item.id ? 'bg-white/30' : 'bg-white/10 hover:bg-white/20'
                               }`}
                               style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}
                             >
                               <div className="flex items-center">
-                                {item.icon && <item.icon className="w-4 h-4 mr-2 drop-shadow-lg flex-shrink-0" />}
+                                {item.icon && <item.icon className="w-3 h-3 sm:w-4 sm:h-4 mr-2 drop-shadow-lg flex-shrink-0" />}
                                 <div className="min-w-0 flex-1">
-                                  <div className="font-semibold text-xs text-white drop-shadow-lg truncate">{item.name}</div>
+                                  <div className="font-semibold text-xs sm:text-xs text-white drop-shadow-lg truncate">{item.name}</div>
                                   {item.desc && <div className="text-xs text-white/90 drop-shadow-md truncate">{item.desc}</div>}
                                   {item.value && <div className="text-xs text-white/80 drop-shadow-md">{item.value}</div>}
                                 </div>
@@ -493,7 +572,7 @@ const TokenizationDashboard = () => {
                       ) : (
                         <div className="flex-1 flex items-center justify-center">
                           <div className="text-center" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                            <div className="text-base font-semibold mb-2 text-white drop-shadow-lg">
+                            <div className="text-sm sm:text-base font-semibold mb-2 text-white drop-shadow-lg">
                               {card.selected ? `Selected: ${card.selected.name || card.selected}` : 'Hover to select'}
                             </div>
                             <div className="text-xs text-white/90 drop-shadow-md">
