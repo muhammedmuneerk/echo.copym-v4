@@ -18,10 +18,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 const RealEstateInvestmentSection = () => {
   const [activeSection, setActiveSection] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef(null);
   const visualRef = useRef(null);
   const contentRef = useRef(null);
   const sectionsRef = useRef([]);
+
+  // Check if screen is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const sections = [
     {
@@ -80,7 +93,8 @@ const RealEstateInvestmentSection = () => {
         // Kill any existing ScrollTriggers
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-        // Pin the visual panel ONLY within this section
+        if (!isMobile) {
+          // Desktop layout - Pin the visual panel ONLY within this section
         ScrollTrigger.create({
           trigger: containerRef.current,
           start: "top top",
@@ -123,6 +137,24 @@ const RealEstateInvestmentSection = () => {
             });
           }
         });
+        } else {
+          // Mobile layout - Simple scroll triggers for each section
+          sectionsRef.current.forEach((section, index) => {
+            if (section) {
+              ScrollTrigger.create({
+                trigger: section,
+                start: "top center",
+                end: "bottom center",
+                onEnter: () => {
+                  setActiveSection(index);
+                },
+                onEnterBack: () => {
+                  setActiveSection(index);
+                },
+              });
+            }
+          });
+        }
 
       }, containerRef);
 
@@ -130,14 +162,14 @@ const RealEstateInvestmentSection = () => {
     }, 100);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isMobile]);
 
   const renderAssetFractionalization = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
       <img
         src="/assets/Images/fractions.png"
         alt="Fractional Ownership Visualization"
-        className={`w-96 h-auto object-contain visual-element ${isAnimating ? 'stagger-in' : ''}`}
+        className={`${isMobile ? 'w-76' : 'w-96'} h-auto object-contain visual-element ${isAnimating ? 'stagger-in' : ''}`}
               style={{
           animationDelay: '0.1s',
           filter: 'contrast(1.1) brightness(1.05) saturate(1.1)',
@@ -153,7 +185,7 @@ const RealEstateInvestmentSection = () => {
       <div className="relative">
         {/* Custom SVG coin with premium styling */}
         <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" 
-             className={`w-72 h-72 visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
+             className={`${isMobile ? 'w-56 h-56' : 'w-72 h-72'} visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
           style={{
             animationDelay: '0.1s',
                filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
@@ -460,7 +492,7 @@ const RealEstateInvestmentSection = () => {
         ))}
 
         {/* Clean Expert Management badge */}
-        <div className={`absolute -bottom-20 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gray-900 to-gray-800 text-white px-8 py-4 rounded-xl text-sm font-medium shadow-2xl visual-element backdrop-blur-sm ${isAnimating ? 'stagger-in' : ''
+        {/* <div className={`absolute -bottom-20 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gray-900 to-gray-800 text-white px-8 py-4 rounded-xl text-sm font-medium shadow-2xl visual-element backdrop-blur-sm ${isAnimating ? 'stagger-in' : ''
           }`} style={{
             animationDelay: isAnimating ? '0.5s' : '0s',
             boxShadow: '0 15px 35px rgba(0,0,0,0.15), 0 5px 15px rgba(0,0,0,0.1)'
@@ -471,7 +503,7 @@ const RealEstateInvestmentSection = () => {
               <div className="font-bold text-lg">Expert Management</div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Subtle decorative elements */}
         <div className="absolute -bottom-12 -left-12 w-4 h-4 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full opacity-60 animate-pulse shadow-lg"></div>
@@ -487,7 +519,7 @@ const RealEstateInvestmentSection = () => {
       <div className="relative w-full h-full flex flex-col items-center justify-center">
         {/* 3D Bar Chart SVG - Centered */}
         <div className="relative mb-8">
-          <svg width="500" height="350" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" className={`visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+          <svg width="500" height="350" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" className={`${isMobile ? 'w-80 h-56' : 'w-full h-auto'} visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
             <defs>
               {/* Background gradient */}
               <radialGradient id="backgroundGradient" cx="50%" cy="30%" r="70%">
@@ -885,7 +917,7 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* Trading interface mockup */}
-        <div className={`w-64 h-80 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-2 shadow-2xl visual-element ${isAnimating ? 'stagger-in' : ''
+        <div className={`${isMobile ? 'w-56 h-72' : 'w-64 h-80'} bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-2 shadow-2xl visual-element ${isAnimating ? 'stagger-in' : ''
           }`} style={{ animationDelay: '0.1s' }}>
           <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-2 h-full flex flex-col border border-gray-200">
             {/* Header */}
@@ -980,7 +1012,7 @@ const RealEstateInvestmentSection = () => {
   const renderWorldAssets = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
-        <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" className={`visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+        <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" className={`${isMobile ? 'w-80 h-80' : 'w-full h-auto'} visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
           {/* Definitions for gradients and patterns */}
           <defs>
             {/* Main globe gradient with blockchain theme */}
@@ -1186,7 +1218,7 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className={`visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
         {/* Main Wallet Container */}
-        <div className="relative w-72 h-96 bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-6 border border-gray-200">
+        <div className={`relative ${isMobile ? 'w-64 h-80' : 'w-72 h-96'} bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-6 border border-gray-200`}>
           {/* Currency Selection Tags */}
           <div className="absolute -top-3 -left-2 flex space-x-1">
             <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-lg">
@@ -1309,7 +1341,7 @@ const RealEstateInvestmentSection = () => {
   };
 
   return (
-    <div className="relative " ref={containerRef}>
+    <div className="relative" ref={containerRef}>
       <style>{`
         @keyframes textShine {
           0% { background-position: -200% 0; }
@@ -1358,7 +1390,133 @@ const RealEstateInvestmentSection = () => {
         }
       `}</style>
 
-      {/* Main Container with proper flex layout */}
+      {isMobile ? (
+        /* Mobile Layout - Vertical alternating animation and content */
+        <div className="w-full">
+          {sections.map((section, index) => (
+            <div
+              key={section.id}
+              ref={el => sectionsRef.current[index] = el}
+              className="w-full"
+            >
+              {/* Animation Section */}
+              <div className="min-h-[60vh] flex items-center justify-center p-6 bg-gradient-to-br from-green-50 to-green-100">
+                <div
+                  className="visual-content relative flex items-center justify-center"
+                  style={{
+                    background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, transparent 100%)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '20px',
+                    transition: 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    width: '100%',
+                    maxWidth: '320px',
+                    height: '400px',
+                  }}
+                >
+                  {/* Animated background particles */}
+                  <div className="absolute inset-0 overflow-hidden rounded-2xl">
+                    {Array.from({ length: 10 }).map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute w-1 h-1 bg-white/20 rounded-full animate-pulse"
+                        style={{
+                          left: `${Math.random() * 100}%`,
+                          top: `${Math.random() * 100}%`,
+                          animationDelay: `${i * 0.1}s`,
+                          animationDuration: `${2 + Math.random()}s`
+                        }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Main visual content */}
+                  <div className="relative z-10" style={{ overflow: 'visible' }}>
+                    {renderVisualContent(index)}
+                  </div>
+
+                  {/* Corner decorations */}
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400 rounded-full animate-bounce"></div>
+                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+                  <div className="absolute bottom-4 right-4 w-3 h-3 bg-pink-400 rounded-full animate-spin" style={{ animationDuration: '3s' }}></div>
+                </div>
+              </div>
+
+              {/* Content Section */}
+              <div className="min-h-[60vh] flex items-center px-6 py-12 bg-white">
+                <div className="w-full max-w-md mx-auto">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <span className="text-white font-bold text-sm">AI</span>
+                    </div>
+                    <div className="text-sm font-medium text-green-600">
+                      COPYM • 0{index + 1}
+                    </div>
+                  </div>
+
+                  <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 border ${activeSection === index
+                    ? 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-700 border-green-500/30 shadow-lg'
+                    : 'bg-gray-200/50 text-gray-600 border-gray-300/30'
+                    }`}>
+                    <div className="flex items-center gap-2">
+                      {index === 0 && <Building className="w-4 h-4" />}
+                      {index === 1 && <TrendingUp className="w-4 h-4" />}
+                      {index === 2 && <BarChart3 className="w-4 h-4" />}
+                      {index === 3 && <Zap className="w-4 h-4" />}
+                      {index === 4 && <Globe className="w-4 h-4" />}
+                      {index === 5 && <Wallet className="w-4 h-4" />}
+                      {section.highlight}
+                    </div>
+                  </div>
+
+                  <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-all duration-700 leading-tight ${activeSection === index
+                      ? 'text-gray-900'
+                      : 'text-gray-500'
+                    }`}>
+                    {section.title}
+                  </h2>
+
+                  <h3 className={`text-xl font-semibold mb-6 transition-all duration-500 ${activeSection === index
+                      ? 'text-blue-600'
+                      : 'text-gray-600'
+                    }`}>
+                    {section.subtitle}
+                  </h3>
+
+                  <p className={`text-base leading-relaxed transition-all duration-500 ${activeSection === index
+                      ? 'text-gray-700'
+                      : 'text-gray-500'
+                    }`}>
+                    {section.content}
+                  </p>
+
+                  {activeSection === index && (
+                    <div className="mt-8 space-y-4">
+                      <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-sm text-gray-600">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                          <div className="flex items-center gap-1">
+                            <Cpu className="w-3 h-3" />
+                            AI Investment Assistant
+                          </div>
+                        </div>
+                        <span className="hidden sm:inline">•</span>
+                        <div className="flex items-center gap-1">
+                          <BarChart3 className="w-3 h-3" />
+                          Market Analytics
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        /* Desktop Layout - Original side-by-side layout */
       <div className="flex">
         {/* Left Side - Visual Panel (will be pinned by GSAP) */}
         <div
@@ -1480,6 +1638,7 @@ const RealEstateInvestmentSection = () => {
           ))}
         </div>
       </div>
+      )}
     </div>
   );
 };
