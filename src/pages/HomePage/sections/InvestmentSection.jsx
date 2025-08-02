@@ -1386,7 +1386,7 @@ const RealEstateInvestmentSection = () => {
               className="w-full"
             >
               {/* Animation Section */}
-              <div className="min-h-[60vh] flex items-center justify-center p-6 bg-gradient-to-br from-green-50 to-green-100">
+              <div className="min-h-[60vh] flex items-center justify-center p-6 bg-blue-100">
                 <div
                   className="visual-content relative flex items-center justify-center"
                   style={{

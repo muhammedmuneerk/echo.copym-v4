@@ -5,7 +5,7 @@ import TechnologyStackSection from "./TechnologyStackSection";
 
 const WhyCopymSection = () => {
   return (
-    <section className="w-full px-6 py-12 bg-green-50">
+    <section className="w-full px-6 py-12 ">
       <div className="max-w-7xl mx-auto text-center mb-20">
         <h2 className="text-4xl md:text-5xl brand-title text-[#255f99] relative inline-block">
           Why Copym?

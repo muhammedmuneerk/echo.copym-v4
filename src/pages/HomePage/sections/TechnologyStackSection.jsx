@@ -156,7 +156,7 @@ const TechnologyStackSection = () => {
   const currentFeature = features[activeIndex];
 
   return (
-    <section className="w-full px-4 sm:px-6 py-12 sm:py-16 bg-green-50">
+    <section className="w-full px-4 sm:px-6 py-12 sm:py-16">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">

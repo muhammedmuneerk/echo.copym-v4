@@ -5,7 +5,7 @@ export default function MarketplacePreview() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24 bg-green-50 text-gray-800 overflow-x-hidden">
+    <section className="py-24  text-gray-800 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Heading - Keeping the original title and description */}

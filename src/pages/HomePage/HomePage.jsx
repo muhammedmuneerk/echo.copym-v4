@@ -8,7 +8,7 @@ import Testimonials from "./sections/Testimonials";
 import SupportedAssets from "./sections/SupportedAssets";
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-green-50">
+    <div className="min-h-screen bg-blue-100">
       <Hero />
       <HowItWorks />
       <InvestmentSection />

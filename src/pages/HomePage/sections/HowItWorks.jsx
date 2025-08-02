@@ -44,7 +44,7 @@ export default function HowItWorks() {
   const currentSteps = activeTab === 'business' ? businessSteps : individualSteps;
 
   return (
-    <section className="min-h-screen bg-green-50 relative overflow-hidden">
+    <section className="min-h-screen  relative overflow-hidden">
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-8 lg:px-12 pt-12 pb-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">

@@ -142,7 +142,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative bg-green-50 py-12 sm:py-16 lg:py-0 overflow-hidden">
+    <section className="relative py-12 sm:py-16 lg:py-0 overflow-hidden">
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
           <path d="M100 100C200 200 300 50 400 150C500 250 600 100 700 200C800 300 900 150 1000 250" stroke="currentColor" strokeWidth="2" className="text-black" />

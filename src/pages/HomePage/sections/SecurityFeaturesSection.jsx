@@ -146,7 +146,7 @@ const SecurityFeaturesSection = () => {
   const currentFeature = features[activeIndex];
 
   return (
-    <section className="relative w-full px-4 sm:px-6 py-16 sm:py-24 bg-green-50 overflow-hidden">
+    <section className="relative w-full px-4 sm:px-6 py-16 sm:py-24  overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12 sm:mb-16">
