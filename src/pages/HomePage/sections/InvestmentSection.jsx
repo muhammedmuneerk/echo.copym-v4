@@ -171,7 +171,6 @@ const RealEstateInvestmentSection = () => {
         alt="Fractional Ownership Visualization"
         className={`${isMobile ? 'w-76' : 'w-96'} h-auto object-contain visual-element ${isAnimating ? 'stagger-in' : ''}`}
               style={{
-          animationDelay: '0.1s',
           filter: 'contrast(1.1) brightness(1.05) saturate(1.1)',
           maxWidth: '100%',
           height: 'auto'
@@ -187,7 +186,6 @@ const RealEstateInvestmentSection = () => {
         <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" 
              className={`${isMobile ? 'w-56 h-56' : 'w-72 h-72'} visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
           style={{
-            animationDelay: '0.1s',
                filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
             maxWidth: '100%',
                height: 'auto'
@@ -519,7 +517,7 @@ const RealEstateInvestmentSection = () => {
       <div className="relative w-full h-full flex flex-col items-center justify-center">
         {/* 3D Bar Chart SVG - Centered */}
         <div className="relative mb-8">
-          <svg width="500" height="350" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" className={`${isMobile ? 'w-80 h-56' : 'w-full h-auto'} visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+          <svg width="500" height="350" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" className={`${isMobile ? 'w-80 h-56' : 'w-full h-auto'} visual-element ${isAnimating ? 'stagger-in' : ''}`}>
             <defs>
               {/* Background gradient */}
               <radialGradient id="backgroundGradient" cx="50%" cy="30%" r="70%">
@@ -918,7 +916,7 @@ const RealEstateInvestmentSection = () => {
       <div className="relative">
         {/* Trading interface mockup */}
         <div className={`${isMobile ? 'w-56 h-72' : 'w-64 h-80'} bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-2 shadow-2xl visual-element ${isAnimating ? 'stagger-in' : ''
-          }`} style={{ animationDelay: '0.1s' }}>
+          }`}>
           <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-2 h-full flex flex-col border border-gray-200">
             {/* Header */}
             <div className={`text-center mb-2 visual-element ${isAnimating ? 'stagger-in' : ''
@@ -998,7 +996,7 @@ const RealEstateInvestmentSection = () => {
   const renderWorldAssets = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
-        <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" className={`${isMobile ? 'w-80 h-80' : 'w-full h-auto'} visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+        <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" className={`${isMobile ? 'w-80 h-80' : 'w-full h-auto'} visual-element ${isAnimating ? 'stagger-in' : ''}`}>
           {/* Definitions for gradients and patterns */}
           <defs>
             {/* Main globe gradient with blockchain theme */}
@@ -1202,7 +1200,7 @@ const RealEstateInvestmentSection = () => {
 
   const renderStablecoinWallet = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className={`visual-element ${isAnimating ? 'stagger-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+      <div className={`visual-element ${isAnimating ? 'stagger-in' : ''}`}>
         {/* Main Wallet Container */}
         <div className={`relative ${isMobile ? 'w-64 h-80' : 'w-72 h-96'} bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-6 border border-gray-200`}>
           {/* Currency Selection Tags */}
