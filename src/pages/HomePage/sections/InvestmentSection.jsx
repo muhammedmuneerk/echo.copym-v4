@@ -475,7 +475,7 @@ const RealEstateInvestmentSection = () => {
         ].map((item, i) => (
           <div
             key={i}
-            className={`absolute bg-gradient-to-r from-white to-gray-50 text-gray-800 px-6 py-3 rounded-full text-sm font-bold shadow-xl visual-element backdrop-blur-sm border border-gray-200 ${isAnimating ? 'stagger-in' : 'animate-pulse'
+            className={`absolute bg-gradient-to-r mt-6 from-white to-gray-50 text-gray-800 px-6 py-3 rounded-full text-sm font-bold shadow-xl visual-element backdrop-blur-sm border border-gray-200 ${isAnimating ? 'stagger-in' : 'animate-pulse'
               }`}
             style={{
               ...item.position,
@@ -871,7 +871,7 @@ const RealEstateInvestmentSection = () => {
         </div>
 
         {/* Stacked Performance Metrics - Left Side */}
-        <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 space-y-3">
+        <div className="absolute pb-32 -left-8 top-1/2 transform -translate-y-1/2 space-y-3">
           {[
             { label: 'ROI', value: '+16.3%', color: 'from-green-500 to-green-600', icon: Target },
             { label: 'Growth', value: '+24%', color: 'from-blue-500 to-blue-600', icon: TrendingUp },
@@ -967,7 +967,7 @@ const RealEstateInvestmentSection = () => {
             </div>
 
             {/* Buy and Sell buttons in single line */}
-            <div className="flex gap-1.5">
+            <div className="flex gap-1.5 mt-6 md:mt-0">
               <button className={`flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white py-1.5 rounded-lg font-semibold text-xs visual-element hover:shadow-lg transition-all duration-300 transform hover:scale-105 ${isAnimating ? 'stagger-in' : 'animate-pulse'
                 }`} style={{ animationDelay: isAnimating ? '0.7s' : '0s' }}>
                 <div className="flex items-center justify-center gap-1">
@@ -1303,17 +1303,17 @@ const RealEstateInvestmentSection = () => {
         </div>
 
           {/* Multi-Currency Wallet Badge */}
-          <div className="absolute -bottom-8 -right-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-xl border border-gray-700">
+          {/* <div className="absolute -bottom-8 -right-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-xl border border-gray-700">
             <div className="flex items-center gap-2">
               <CreditCard className="w-3 h-3" />
               Multi-Currency Wallet
           </div>
-          </div>
+          </div> */}
 
           {/* Decorative Elements */}
-          <div className="absolute top-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+          {/* <div className="absolute top-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
           <div className="absolute bottom-8 left-4 w-3 h-3 bg-blue-400 rounded-full animate-bounce"></div>
-          <div className="absolute top-8 left-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+          <div className="absolute top-8 left-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div> */}
         </div>
       </div>
     </div>
