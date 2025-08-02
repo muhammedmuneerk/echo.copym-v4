@@ -1,12 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import LockIcon from '@mui/icons-material/Lock';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import CloudDoneIcon from '@mui/icons-material/CloudDone';
-import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
+import { Box, Typography, useMediaQuery, useTheme, IconButton, Tooltip } from '@mui/material';
+import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Player } from '@lottiefiles/react-lottie-player';
 
 const features = [
@@ -14,31 +16,43 @@ const features = [
     title: 'MPC Wallet Infrastructure',
     desc: 'Secure custody with Multi-Party Computation — no single point of failure.',
     icon: <VpnKeyIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+    color: '#255f99',
+    gradient: 'from-blue-500 to-blue-700',
   },
   {
     title: 'Blockchain Transparency',
     desc: 'Immutable transactions and audit trails are recorded directly on-chain for full visibility.',
-    icon: <VisibilityIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+    icon: <VisibilityIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#15a36e' }} />,
+    color: '#15a36e',
+    gradient: 'from-green-500 to-green-700',
   },
   {
     title: 'End-to-End Encryption',
     desc: 'Military-grade encryption protects your sensitive data at all times, at rest and in transit.',
     icon: <LockIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+    color: '#255f99',
+    gradient: 'from-blue-500 to-blue-700',
   },
   {
     title: 'Access Control & Whitelisting',
     desc: 'Only verified and explicitly permissioned participants can interact with digital assets.',
-    icon: <VerifiedUserIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+    icon: <VerifiedUserIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#15a36e' }} />,
+    color: '#15a36e',
+    gradient: 'from-green-500 to-green-700',
   },
   {
     title: 'Audit-Ready Architecture',
     desc: 'Built for compliance with easy integration for KYC, AML, and reporting tools.',
     icon: <FactCheckIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+    color: '#255f99',
+    gradient: 'from-blue-500 to-blue-700',
   },
   {
     title: 'Uptime & Redundancy',
     desc: 'Highly available infrastructure with automated backups and failover to ensure reliability.',
-    icon: <CloudDoneIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#255f99' }} />,
+    icon: <CloudDoneIcon sx={{ fontSize: { xs: 28, md: 36 }, color: '#15a36e' }} />,
+    color: '#15a36e',
+    gradient: 'from-green-500 to-green-700',
   },
 ];
 
@@ -48,19 +62,88 @@ const ROTATION_PER_ITEM = 360 / features.length;
 
 const SecurityFeaturesSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [progress, setProgress] = useState(0);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
+  const intervalRef = useRef(null);
+  const progressRef = useRef(0);
+
+  // Motion values for drag interaction
+  const dragX = useMotionValue(0);
+  const dragY = useMotionValue(0);
+  const dragRotation = useTransform([dragX, dragY], ([x, y]) => {
+    const angle = Math.atan2(y, x) * (180 / Math.PI);
+    return angle;
+  });
 
   const nextFeature = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % features.length);
+    setProgress(0);
+    progressRef.current = 0;
   }, []);
 
+  const prevFeature = useCallback(() => {
+    setActiveIndex((prevIndex) => (prevIndex - 1 + features.length) % features.length);
+    setProgress(0);
+    progressRef.current = 0;
+  }, []);
+
+  // Auto-rotation with progress tracking
   useEffect(() => {
-    const timer = setInterval(nextFeature, 4000); // Cycle every 4 seconds
-    return () => clearInterval(timer);
-  }, [nextFeature]);
+    if (!isPlaying) return;
+
+    intervalRef.current = setInterval(() => {
+      progressRef.current += 2.5; // 2.5% every 100ms = 4s total
+      setProgress(progressRef.current);
+      
+      if (progressRef.current >= 100) {
+        nextFeature();
+      }
+    }, 100);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isPlaying, nextFeature]);
+
+  const togglePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleFeatureClick = (index) => {
+    setActiveIndex(index);
+    setProgress(0);
+    progressRef.current = 0;
+  };
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      switch (e.key) {
+        case 'ArrowLeft':
+          e.preventDefault();
+          prevFeature();
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          nextFeature();
+          break;
+        case ' ':
+          e.preventDefault();
+          togglePlayPause();
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [nextFeature, prevFeature]);
 
   const rotationAngle = activeIndex * ROTATION_PER_ITEM;
+  const currentFeature = features[activeIndex];
 
   return (
     <section className="relative w-full px-4 sm:px-6 py-16 sm:py-24 bg-green-50 overflow-hidden">
@@ -80,80 +163,262 @@ const SecurityFeaturesSection = () => {
 
         {/* Two-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 gap-x-16 items-center">
-          {/* Left Column: Interactive Circle Dial */}
-          <div className="relative flex items-center justify-center h-[280px] sm:h-[320px] lg:h-[450px]">
-            {/* Central Glassmorphism Card */}
-            <div className="absolute w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56 flex flex-col items-center justify-center text-center z-20 bg-white/30 backdrop-blur-sm rounded-full shadow-lg p-3 sm:p-4">
+          {/* Left Column: Advanced Interactive Circle Dial */}
+          <div className="relative flex items-center mb-20 md:mb-0 justify-center h-[320px] sm:h-[380px] lg:h-[500px]">
+            
+            {/* Outer Progress Ring */}
+            <div className="absolute w-[260px] h-[260px] sm:w-[340px] sm:h-[340px] lg:w-[380px] lg:h-[380px] rounded-full z-1">
+              <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                {/* Background circle */}
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="48"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.3)"
+                  strokeWidth="0.5"
+                />
+                {/* Progress circle */}
+                <motion.circle
+                  cx="50"
+                  cy="50"
+                  r="48"
+                  fill="none"
+                  stroke={currentFeature.color}
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  strokeDasharray="301.59"
+                  strokeDashoffset={301.59 - (301.59 * progress) / 100}
+                  initial={{ strokeDashoffset: 301.59 }}
+                  animate={{ strokeDashoffset: 301.59 - (301.59 * progress) / 100 }}
+                  transition={{ duration: 0.1 }}
+                  opacity={isPlaying ? 1 : 0.5}
+                />
+              </svg>
+            </div>
+
+            {/* Central Enhanced Glassmorphism Card */}
+            <motion.div 
+              className="absolute w-28 h-28 sm:w-44 sm:h-44 lg:w-44 lg:h-44 flex flex-col items-center justify-center text-center z-20 rounded-full shadow-2xl p-3 sm:p-4 backdrop-blur-lg border border-white/20"
+              style={{
+                background: `linear-gradient(135deg, ${currentFeature.color}15, ${currentFeature.color}25, rgba(255,255,255,0.1))`,
+              }}
+              animate={{
+                boxShadow: [
+                  `0 0 30px ${currentFeature.color}30`,
+                  `0 0 50px ${currentFeature.color}50`,
+                  `0 0 30px ${currentFeature.color}30`,
+                ],
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  initial={{ opacity: 0, scale: 0.8, rotateY: -90 }}
+                  animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, rotateY: 90 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  className="flex flex-col items-center"
                 >
+                  {/* Feature icon with pulsing effect */}
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.1, 1],
+                      rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity, 
+                      ease: "easeInOut",
+                      delay: Math.random() * 2
+                    }}
+                    className="mb-2 sm:mb-3"
+                  >
+                    {currentFeature.icon}
+                  </motion.div>
+                  
                   <Typography
                     component="h3"
-                    className="font-bold text-gray-800"
-                    sx={{ fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' }, lineHeight: 1.2, mb: 1 }}
+                    className="font-bold text-gray-800 mb-2"
+                    sx={{ fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' }, lineHeight: 1.2 }}
                   >
-                    {features[activeIndex].title}
+                    {currentFeature.title}
                   </Typography>
-                  {/* <Typography
-                    className="text-gray-700"
-                    sx={{ fontSize: { xs: '0.625rem', sm: '0.75rem', md: '0.875rem' }, lineHeight: 1.4 }}
-                  >
-                    {features[activeIndex].desc}
-                  </Typography> */}
                 </motion.div>
               </AnimatePresence>
-            </div>
+            </motion.div>
 
-            {/* The main rotating container for the icons */}
+            {/* Enhanced Rotating Container with Advanced Animations */}
             <motion.div
               className="absolute w-full h-full"
               animate={{ rotate: rotationAngle }}
-              transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+              transition={{ 
+                type: 'spring', 
+                stiffness: 120, 
+                damping: 25,
+                mass: 1
+              }}
+              style={{
+                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))'
+              }}
             >
               {features.map((feature, index) => {
                 const radius = isMobile ? CIRCLE_RADIUS_MOBILE : CIRCLE_RADIUS_DESKTOP;
                 const angleRad = (index / features.length) * 2 * Math.PI;
                 const x = radius * Math.cos(angleRad);
                 const y = radius * Math.sin(angleRad);
+                const isActive = activeIndex === index;
 
                 return (
                   <motion.div
                     key={feature.title}
-                    className="absolute top-1/2 left-1/2 cursor-pointer"
+                    className="absolute top-1/2 left-1/2 cursor-pointer group"
                     style={{ x: '-50%', y: '-50%' }}
-                    onClick={() => setActiveIndex(index)}
-                    animate={{ x: `calc(-50% + ${x}px)`, y: `calc(-50% + ${y}px)` }}
+                    onClick={() => handleFeatureClick(index)}
+                    animate={{ 
+                      x: `calc(-50% + ${x}px)`, 
+                      y: `calc(-50% + ${y}px)` 
+                    }}
+                    whileHover={{ scale: 1.05, z: 10 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <motion.div
-                      className="flex items-center justify-center"
-                      animate={{
-                        rotate: -rotationAngle,
-                        scale: activeIndex === index ? 1.4 : 1,
+                    <Tooltip 
+                      title={feature.title} 
+                      placement="top"
+                      arrow
+                      componentsProps={{
+                        tooltip: {
+                          sx: {
+                            bgcolor: feature.color,
+                            '& .MuiTooltip-arrow': {
+                              color: feature.color,
+                            },
+                          },
+                        },
                       }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-                      whileHover={{ scale: activeIndex === index ? 1.5 : 1.1 }}
                     >
-                      <Box
-                        className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center transition-all duration-300"
-                        sx={{
-                          boxShadow: activeIndex === index
-                            ? '0px 0px 25px 4px rgba(37, 95, 153, 0.5)' // Blue glow
-                            : '0px 4px 10px rgba(0, 0, 0, 0.1)',
-                          zIndex: activeIndex === index ? 10 : 1,
+                      <motion.div
+                        className="flex items-center justify-center relative"
+                        animate={{
+                          rotate: -rotationAngle,
+                          scale: isActive ? 1.5 : 1,
+                        }}
+                        transition={{ 
+                          type: 'spring', 
+                          stiffness: 300, 
+                          damping: 20,
+                          scale: { duration: 0.3 }
                         }}
                       >
-                        {feature.icon}
-                      </Box>
-                    </motion.div>
+                        {/* Ripple effect for active item */}
+                        {isActive && (
+                          <motion.div
+                            className="absolute inset-0 rounded-full"
+                            style={{ background: feature.color }}
+                            initial={{ scale: 1, opacity: 0.6 }}
+                            animate={{ 
+                              scale: [1, 1.8, 1], 
+                              opacity: [0.6, 0, 0.6] 
+                            }}
+                            transition={{ 
+                              duration: 2, 
+                              repeat: Infinity, 
+                              ease: "easeInOut" 
+                            }}
+                          />
+                        )}
+                        
+                        {/* Enhanced icon container with gradient background */}
+                        <Box
+                          className={`w-12 h-12 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full flex items-center justify-center transition-all duration-300 relative overflow-hidden`}
+                          sx={{
+                            background: isActive 
+                              ? `linear-gradient(135deg, ${feature.color}, ${feature.color}dd)` 
+                              : 'linear-gradient(135deg, #ffffff, #f8f9fa)',
+                            boxShadow: isActive
+                              ? `0 8px 32px ${feature.color}40, 0 4px 16px ${feature.color}30`
+                              : '0px 4px 16px rgba(0, 0, 0, 0.1)',
+                            zIndex: isActive ? 15 : 5,
+                            border: isActive ? `2px solid ${feature.color}` : '2px solid transparent',
+                          }}
+                        >
+                          {/* Animated background for active state */}
+                          {isActive && (
+                            <motion.div
+                              className="absolute inset-0 rounded-full opacity-20"
+                              style={{ background: feature.color }}
+                              animate={{ 
+                                scale: [1, 1.2, 1],
+                                opacity: [0.2, 0.4, 0.2]
+                              }}
+                              transition={{ 
+                                duration: 1.5, 
+                                repeat: Infinity, 
+                                ease: "easeInOut" 
+                              }}
+                            />
+                          )}
+                          
+                          <motion.div
+                            animate={isActive ? { 
+                              scale: [1, 1.1, 1],
+                              rotate: [0, 360]
+                            } : {}}
+                            transition={isActive ? { 
+                              scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                              rotate: { duration: 8, repeat: Infinity, ease: "linear" }
+                            } : {}}
+                          >
+                            {React.cloneElement(feature.icon, {
+                              sx: { 
+                                fontSize: { xs: 24, md: 28 }, 
+                                color: isActive ? 'white' : feature.color,
+                                filter: isActive ? 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))' : 'none'
+                              }
+                            })}
+                          </motion.div>
+                        </Box>
+                      </motion.div>
+                    </Tooltip>
                   </motion.div>
                 );
               })}
             </motion.div>
+
+            {/* Control Panel */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-16 flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+              <Tooltip title={isPlaying ? "Pause rotation" : "Resume rotation"}>
+                <IconButton
+                  onClick={togglePlayPause}
+                  size="small"
+                  sx={{ 
+                    color: currentFeature.color,
+                    '&:hover': { 
+                      backgroundColor: `${currentFeature.color}20` 
+                    }
+                  }}
+                >
+                  {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
+                </IconButton>
+              </Tooltip>
+              
+              {/* Progress indicator dots */}
+              <div className="flex gap-1 mx-2">
+                {features.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    className="w-2 h-2 rounded-full transition-all duration-300"
+                    style={{
+                      backgroundColor: index === activeIndex ? currentFeature.color : '#d1d5db'
+                    }}
+                    onClick={() => handleFeatureClick(index)}
+                    whileHover={{ scale: 1.5 }}
+                    whileTap={{ scale: 0.8 }}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Right Column: Lottie animation */}
