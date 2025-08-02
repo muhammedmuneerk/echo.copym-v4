@@ -309,7 +309,7 @@ const TokenizationDashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 md:gap-8 mt-6 pt-6">
           
           {/* Portfolio Overview with GSAP Rotation + Zoom */}
-          <div className={`lg:col-span-4 bg-[#d3f8e3] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 transform transition-all duration-1000 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
+          <div className={`lg:col-span-4 bg-gradient-to-r from-[#d3f8e3] to-[#C7DBF0] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 transform transition-all duration-1000 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
             <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Portfolio Distribution</h3>
             <div ref={portfolioRef} className="h-48 sm:h-56 md:h-64">
               <ResponsiveContainer width="100%" height="100%">
@@ -345,7 +345,7 @@ const TokenizationDashboard = () => {
           </div>
 
                      {/* Performance Chart */}
-           <div className={`lg:col-span-4 bg-[#d3f8e3] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 transform transition-all duration-1000 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
+           <div className={`lg:col-span-4 bg-gradient-to-r from-[#d3f8e3] to-[#C7DBF0] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 transform transition-all duration-1000 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6 flex items-center">
                <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-green-600" />
                Performance
@@ -387,7 +387,7 @@ const TokenizationDashboard = () => {
           </div>
 
           {/* Progress Indicator */}
-          <div className={`lg:col-span-4 bg-[#d3f8e3] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-white transform transition-all duration-1000 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className={`lg:col-span-4 bg-gradient-to-r from-[#d3f8e3] to-[#C7DBF0] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-white transform transition-all duration-1000 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-gray-800">Tokenization Progress</h3>
             <div className="space-y-3 sm:space-y-4">
               {stepCards.map((card, index) => (
