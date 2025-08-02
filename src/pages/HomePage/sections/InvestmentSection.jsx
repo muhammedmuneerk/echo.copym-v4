@@ -987,24 +987,10 @@ const RealEstateInvestmentSection = () => {
         </div>
 
         {/* Blockchain indicators */}
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-3 h-3 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full visual-element shadow-lg ${isAnimating ? 'stagger-in' : 'animate-ping'
-              }`}
-            style={{
-              left: `${Math.cos(i * Math.PI / 3) * 80}px`,
-              top: `${Math.sin(i * Math.PI / 3) * 80}px`,
-              animationDelay: isAnimating ? `${0.4 + i * 0.05}s` : `${i * 0.2}s`
-            }}
-          />
-        ))}
+      
 
         {/* Subtle decorative elements */}
-        <div className="absolute -bottom-8 -left-8 w-3 h-3 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full opacity-60 animate-pulse shadow-lg"></div>
-        <div className="absolute -bottom-8 -right-8 w-3 h-3 bg-gradient-to-r from-pink-400 to-pink-500 rounded-full opacity-60 animate-pulse shadow-lg"></div>
-        <div className="absolute -top-8 -right-8 w-2 h-2 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full opacity-70 animate-bounce shadow-md"></div>
-        <div className="absolute -top-8 -left-8 w-2 h-2 bg-gradient-to-r from-green-400 to-green-500 rounded-full opacity-70 animate-bounce shadow-md"></div>
+       
       </div>
     </div>
   );
