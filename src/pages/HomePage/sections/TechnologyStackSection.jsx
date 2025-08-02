@@ -113,7 +113,7 @@ const TechnologyStackSection = () => {
                   >
                     {features[activeIndex].title}
                   </Typography>
-                  <Typography
+                  {/* <Typography
                     className="text-gray-700"
                     sx={{ 
                       fontSize: { xs: '0.625rem', sm: '0.75rem', md: '0.875rem' }, 
@@ -122,7 +122,7 @@ const TechnologyStackSection = () => {
                     }}
                   >
                     {features[activeIndex].desc}
-                  </Typography>
+                  </Typography> */}
                 </motion.div>
               </AnimatePresence>
             </div>
