@@ -81,7 +81,7 @@ export default function Hero() {
         scene.add(model);
         modelRef.current = model;
 
-        gsap.fromTo(model.rotation, { y: 0 }, { y: Math.PI * 2, duration: 20, ease: 'none', repeat: -1 });
+        // gsap.fromTo(model.rotation, { y: 0 }, { y: Math.PI * 2, duration: 20, ease: 'none', repeat: -1 });
 
         gsap.fromTo(model.scale, { x: 0, y: 0, z: 0 }, {
           x: 60, y: 60, z: 60,

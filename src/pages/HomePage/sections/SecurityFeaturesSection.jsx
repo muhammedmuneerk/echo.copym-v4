@@ -363,7 +363,7 @@ const SecurityFeaturesSection = () => {
                           <motion.div
                             animate={isActive ? { 
                               scale: [1, 1.1, 1],
-                              rotate: [0, 360]
+                              // rotate: [0, 360]
                             } : {}}
                             transition={isActive ? { 
                               scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
