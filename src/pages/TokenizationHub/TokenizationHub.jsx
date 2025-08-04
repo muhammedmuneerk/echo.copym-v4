@@ -31,7 +31,6 @@ import {
   CheckCircle,
   AlertCircle
 } from 'lucide-react';
-import AnimatedCard from "../../ui/AnimatedCard.jsx"
 
 // Hero Section Component
 const Hero = () => {
@@ -154,7 +153,7 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <AnimatedCard key={index}>
+            <div key={index}>
               <div className="relative">
                 <div className="rounded-2xl p-6">
                   <Box
@@ -176,7 +175,7 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
                   </div>
                 )}
               </div>
-            </AnimatedCard>
+            </div>
           ))}
         </div>
       </div>
@@ -227,7 +226,7 @@ const TokenDistribution = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {distributionMethods.map((method, index) => (
-            <AnimatedCard>
+            
             <div key={index} className=" rounded-2xl p-6">
               <Box
                 className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
@@ -250,7 +249,6 @@ const TokenDistribution = () => {
                 ))}
               </ul>
             </div>
-            </AnimatedCard>
           ))}
         </div>
 
@@ -392,7 +390,7 @@ const InvestorManagement = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {managementTools.map((tool, index) => (
-            <AnimatedCard>
+            
             <div key={index} className="text-center">
               <div className=" rounded-2xl p-8">
                 <Box
@@ -412,7 +410,6 @@ const InvestorManagement = () => {
                 </div>
               </div>
             </div>
-            </AnimatedCard>
           ))}
         </div>
       </div>
@@ -540,7 +537,7 @@ const AnalyticsReporting = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reportingFeatures.map((feature, index) => (
-            <AnimatedCard>
+            
             <div key={index} className="rounded-2xl p-6">
               <Box
                 className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
@@ -563,7 +560,6 @@ const AnalyticsReporting = () => {
                 ))}
               </div>
             </div>
-            </AnimatedCard>
           ))}
         </div>
       </div>
