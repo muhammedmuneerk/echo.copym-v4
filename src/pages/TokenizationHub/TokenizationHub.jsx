@@ -29,7 +29,9 @@ import {
   Globe,
   Coins,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 // Hero Section Component
@@ -105,6 +107,30 @@ const Hero = () => {
 
 // Tokenization Process Section Component
 const TokenizationProcess = ({ onLaunchCreator }) => {
+  const [expandedSteps, setExpandedSteps] = useState(new Set([0, 1, 2, 3])); // All steps expanded by default on large screens
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  // Check screen size on mount and resize
+  React.useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024); // lg breakpoint
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  // Initialize expanded state based on screen size
+  React.useEffect(() => {
+    if (isLargeScreen) {
+      setExpandedSteps(new Set([0, 1, 2, 3])); // All expanded on large screens
+    } else {
+      setExpandedSteps(new Set()); // All collapsed on small screens
+    }
+  }, [isLargeScreen]);
+
   const steps = [
     {
       step: '01',
@@ -132,6 +158,16 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
     }
   ];
 
+  const toggleStep = (index) => {
+    const newExpandedSteps = new Set(expandedSteps);
+    if (newExpandedSteps.has(index)) {
+      newExpandedSteps.delete(index);
+    } else {
+      newExpandedSteps.add(index);
+    }
+    setExpandedSteps(newExpandedSteps);
+  };
+
   return (
     <section className="py-20 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -155,7 +191,7 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
           {steps.map((step, index) => (
             <div key={index}>
               <div className="relative">
-                <div className="rounded-2xl p-6">
+                <div className="rounded-2xl p-6 cursor-pointer hover:bg-gradient-to-r from-[#d3f8e3] to-[#C7DBF0] transition-colors duration-200" onClick={() => toggleStep(index)}>
                   <Box
                     className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
                     sx={{
@@ -166,8 +202,15 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
                   >
                     <step.icon className="h-6 w-6 text-blue-500" />
                   </Box>
-                  <h3 className="brand-card-title text-black mb-3">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
+                                                        <div className="flex items-center justify-between">
+                     <h3 className="brand-card-title text-black">{step.title}</h3>
+                     <div className={`transform transition-transform duration-200 ${expandedSteps.has(index) ? 'rotate-180' : ''}`}>
+                       <ChevronDown className="h-5 w-5 text-gray-400" />
+                     </div>
+                   </div>
+                   <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSteps.has(index) ? 'max-h-32 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
+                     <p className="text-gray-600">{step.description}</p>
+                   </div>
                 </div>
                 {index < steps.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 -right-1 transform -translate-y-1/2">
@@ -185,6 +228,30 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
 
 // Token Distribution Section Component
 const TokenDistribution = () => {
+  const [expandedDistribution, setExpandedDistribution] = useState(new Set([0, 1, 2, 3])); // All expanded by default on large screens
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  // Check screen size on mount and resize
+  React.useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024); // lg breakpoint
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  // Initialize expanded state based on screen size
+  React.useEffect(() => {
+    if (isLargeScreen) {
+      setExpandedDistribution(new Set([0, 1, 2, 3])); // All expanded on large screens
+    } else {
+      setExpandedDistribution(new Set()); // All collapsed on small screens
+    }
+  }, [isLargeScreen]);
+
   const distributionMethods = [
     {
       title: 'Private Sales',
@@ -212,6 +279,16 @@ const TokenDistribution = () => {
     }
   ];
 
+  const toggleDistribution = (index) => {
+    const newExpandedDistribution = new Set(expandedDistribution);
+    if (newExpandedDistribution.has(index)) {
+      newExpandedDistribution.delete(index);
+    } else {
+      newExpandedDistribution.add(index);
+    }
+    setExpandedDistribution(newExpandedDistribution);
+  };
+
   return (
     <section className="py-20 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -227,7 +304,7 @@ const TokenDistribution = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {distributionMethods.map((method, index) => (
             
-            <div key={index} className=" rounded-2xl p-6">
+            <div key={index} className="rounded-2xl p-6 cursor-pointer hover:bg-gradient-to-r from-[#d3f8e3] to-[#C7DBF0] transition-colors duration-200" onClick={() => toggleDistribution(index)}>
               <Box
                 className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
                 sx={{
@@ -238,16 +315,23 @@ const TokenDistribution = () => {
               >
                 <method.icon className="h-6 w-6 text-blue-500" />
               </Box>
-              <h3 className="brand-card-title text-black mb-3">{method.title}</h3>
-              <p className="text-gray-600 mb-4">{method.description}</p>
-              <ul className="space-y-2">
-                {method.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              <div className="flex items-center justify-between">
+                <h3 className="brand-card-title text-black">{method.title}</h3>
+                <div className={`transform transition-transform duration-200 ${expandedDistribution.has(index) ? 'rotate-180' : ''}`}>
+                  <ChevronDown className="h-5 w-5 text-gray-400" />
+                </div>
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedDistribution.has(index) ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
+                <p className="text-gray-600 mb-4">{method.description}</p>
+                <ul className="space-y-2">
+                  {method.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-gray-600">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
@@ -349,6 +433,30 @@ const IssuerDashboard = () => {
 
 // Investor Management Section Component
 const InvestorManagement = () => {
+  const [expandedManagement, setExpandedManagement] = useState(new Set([0, 1, 2, 3])); // All expanded by default on large screens
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  // Check screen size on mount and resize
+  React.useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024); // lg breakpoint
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  // Initialize expanded state based on screen size
+  React.useEffect(() => {
+    if (isLargeScreen) {
+      setExpandedManagement(new Set([0, 1, 2, 3])); // All expanded on large screens
+    } else {
+      setExpandedManagement(new Set()); // All collapsed on small screens
+    }
+  }, [isLargeScreen]);
+
   const managementTools = [
     {
       title: 'KYC/AML Verification',
@@ -376,6 +484,16 @@ const InvestorManagement = () => {
     }
   ];
 
+  const toggleManagement = (index) => {
+    const newExpandedManagement = new Set(expandedManagement);
+    if (newExpandedManagement.has(index)) {
+      newExpandedManagement.delete(index);
+    } else {
+      newExpandedManagement.add(index);
+    }
+    setExpandedManagement(newExpandedManagement);
+  };
+
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -388,11 +506,11 @@ const InvestorManagement = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
           {managementTools.map((tool, index) => (
             
-            <div key={index} className="text-center">
-              <div className=" rounded-2xl p-8">
+            <div key={index} className="w-full max-w-sm">
+              <div className="rounded-2xl p-8 cursor-pointer hover:bg-gradient-to-r from-[#d3f8e3] to-[#C7DBF0] transition-colors duration-200 w-full text-center" onClick={() => toggleManagement(index)}>
                 <Box
                   className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon mx-auto"
                   sx={{
@@ -403,10 +521,25 @@ const InvestorManagement = () => {
                 >
                   <tool.icon className="h-6 w-6 text-blue-500" />
                 </Box>
-                <h3 className="brand-card-title text-black mb-3">{tool.title}</h3>
-                <p className="text-gray-600 mb-4">{tool.description}</p>
-                <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                  {tool.stats}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex-1"></div>
+                  <h3 className="brand-card-title text-black flex-1 text-center">{tool.title}</h3>
+                  <div className="flex-1 flex justify-end">
+                    <div className="relative">
+                      <div className={`transition-opacity duration-200 ${expandedManagement.has(index) ? 'opacity-100' : 'opacity-0'}`}>
+                        <ChevronUp className="h-5 w-5 text-gray-400 absolute" />
+                      </div>
+                      <div className={`transition-opacity duration-200 ${expandedManagement.has(index) ? 'opacity-0' : 'opacity-100'}`}>
+                        <ChevronDown className="h-5 w-5 text-gray-400" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedManagement.has(index) ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <p className="text-gray-600 mb-4">{tool.description}</p>
+                  <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                    {tool.stats}
+                  </div>
                 </div>
               </div>
             </div>
@@ -496,6 +629,30 @@ const SecurityProtocols = () => {
 
 // Analytics & Reporting Section Component
 const AnalyticsReporting = () => {
+  const [expandedAnalytics, setExpandedAnalytics] = useState(new Set([0, 1, 2, 3])); // All expanded by default on large screens
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  // Check screen size on mount and resize
+  React.useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024); // lg breakpoint
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  // Initialize expanded state based on screen size
+  React.useEffect(() => {
+    if (isLargeScreen) {
+      setExpandedAnalytics(new Set([0, 1, 2, 3])); // All expanded on large screens
+    } else {
+      setExpandedAnalytics(new Set()); // All collapsed on small screens
+    }
+  }, [isLargeScreen]);
+
   const reportingFeatures = [
     {
       title: 'Performance Analytics',
@@ -523,6 +680,16 @@ const AnalyticsReporting = () => {
     }
   ];
 
+  const toggleAnalytics = (index) => {
+    const newExpandedAnalytics = new Set(expandedAnalytics);
+    if (newExpandedAnalytics.has(index)) {
+      newExpandedAnalytics.delete(index);
+    } else {
+      newExpandedAnalytics.add(index);
+    }
+    setExpandedAnalytics(newExpandedAnalytics);
+  };
+
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -538,7 +705,7 @@ const AnalyticsReporting = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reportingFeatures.map((feature, index) => (
             
-            <div key={index} className="rounded-2xl p-6">
+            <div key={index} className="rounded-2xl p-6 cursor-pointer hover:bg-gradient-to-r from-[#d3f8e3] to-[#C7DBF0] transition-colors duration-200" onClick={() => toggleAnalytics(index)}>
               <Box
                 className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl card-icon"
                 sx={{
@@ -549,15 +716,22 @@ const AnalyticsReporting = () => {
               >
                 <feature.icon className="h-6 w-6 text-blue-500" />
               </Box>
-              <h3 className="brand-card-title text-green-800 mb-3">{feature.title}</h3>
-              <p className="text-green-700 mb-4">{feature.description}</p>
-              <div className="space-y-2">
-                {feature.metrics.map((metric, idx) => (
-                  <div key={idx} className="flex items-center text-sm text-green-700">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                    {metric}
-                  </div>
-                ))}
+              <div className="flex items-center justify-between">
+                <h3 className="brand-card-title text-green-800">{feature.title}</h3>
+                <div className={`transform transition-transform duration-200 ${expandedAnalytics.has(index) ? 'rotate-180' : ''}`}>
+                  <ChevronDown className="h-5 w-5 text-gray-400" />
+                </div>
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedAnalytics.has(index) ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
+                <p className="text-green-700 mb-4">{feature.description}</p>
+                <div className="space-y-2">
+                  {feature.metrics.map((metric, idx) => (
+                    <div key={idx} className="flex items-center text-sm text-green-700">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                      {metric}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
