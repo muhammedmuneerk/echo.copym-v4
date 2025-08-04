@@ -182,7 +182,7 @@ const RealEstateInvestmentSection = () => {
   const renderPassiveEarning = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
-        {/* Custom SVG coin with premium styling */}
+        {/* 3D Dollar Coin SVG with Enhanced Depth and Perspective */}
         <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" 
              className={`${isMobile ? 'w-56 h-56' : 'w-72 h-72'} visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
           style={{
@@ -191,167 +191,116 @@ const RealEstateInvestmentSection = () => {
                height: 'auto'
              }}>
           <defs>
-            {/* Premium gold coin gradients */}
-            <radialGradient id="coinBaseGradient" cx="0.35" cy="0.25" r="0.9">
+            {/* Enhanced 3D gradients for realistic depth */}
+            <radialGradient id="coinBaseGradient" cx="0.3" cy="0.2" r="0.8">
               <stop offset="0%" style={{stopColor:"#fffbf0",stopOpacity:1}} />
-              <stop offset="20%" style={{stopColor:"#fff8dc",stopOpacity:1}} />
-              <stop offset="45%" style={{stopColor:"#ffd700",stopOpacity:1}} />
-              <stop offset="70%" style={{stopColor:"#daa520",stopOpacity:1}} />
-              <stop offset="90%" style={{stopColor:"#b8860b",stopOpacity:1}} />
-              <stop offset="100%" style={{stopColor:"#8b6914",stopOpacity:1}} />
-            </radialGradient>
-            {/* Outer rim gradient */}
-            <radialGradient id="rimGradient" cx="0.3" cy="0.2" r="0.95">
-              <stop offset="0%" style={{stopColor:"#fffbf0",stopOpacity:1}} />
-              <stop offset="30%" style={{stopColor:"#ffd700",stopOpacity:1}} />
+              <stop offset="15%" style={{stopColor:"#fff8dc",stopOpacity:1}} />
+              <stop offset="35%" style={{stopColor:"#ffd700",stopOpacity:1}} />
               <stop offset="60%" style={{stopColor:"#daa520",stopOpacity:1}} />
-              <stop offset="85%" style={{stopColor:"#b8860b",stopOpacity:1}} />
+              <stop offset="80%" style={{stopColor:"#b8860b",stopOpacity:1}} />
               <stop offset="100%" style={{stopColor:"#8b6914",stopOpacity:1}} />
             </radialGradient>
-            {/* Dollar sign gradient - clean white */}
+            
+            {/* 3D rim gradient with depth */}
+            <radialGradient id="rimGradient" cx="0.25" cy="0.15" r="0.9">
+              <stop offset="0%" style={{stopColor:"#fffbf0",stopOpacity:1}} />
+              <stop offset="25%" style={{stopColor:"#ffd700",stopOpacity:1}} />
+              <stop offset="55%" style={{stopColor:"#daa520",stopOpacity:1}} />
+              <stop offset="80%" style={{stopColor:"#b8860b",stopOpacity:1}} />
+              <stop offset="100%" style={{stopColor:"#8b6914",stopOpacity:1}} />
+            </radialGradient>
+            
+            {/* 3D dollar sign gradient with depth */}
             <linearGradient id="dollarSignGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" style={{stopColor:"#ffffff",stopOpacity:1}} />
-              <stop offset="25%" style={{stopColor:"#f8f8f8",stopOpacity:1}} />
-              <stop offset="50%" style={{stopColor:"#e8e8e8",stopOpacity:1}} />
-              <stop offset="75%" style={{stopColor:"#d0d0d0",stopOpacity:1}} />
+              <stop offset="20%" style={{stopColor:"#f8f8f8",stopOpacity:1}} />
+              <stop offset="45%" style={{stopColor:"#e8e8e8",stopOpacity:1}} />
+              <stop offset="70%" style={{stopColor:"#d0d0d0",stopOpacity:1}} />
               <stop offset="100%" style={{stopColor:"#b8b8b8",stopOpacity:1}} />
             </linearGradient>
-            {/* Rope/chain pattern gradient */}
-            <linearGradient id="ropeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{stopColor:"#fffbf0",stopOpacity:1}} />
-              <stop offset="40%" style={{stopColor:"#ffd700",stopOpacity:1}} />
-              <stop offset="70%" style={{stopColor:"#daa520",stopOpacity:1}} />
-              <stop offset="100%" style={{stopColor:"#b8860b",stopOpacity:1}} />
-            </linearGradient>
-            {/* Edge detail gradient */}
+            
+            {/* 3D edge gradient */}
             <linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" style={{stopColor:"#daa520",stopOpacity:1}} />
               <stop offset="50%" style={{stopColor:"#b8860b",stopOpacity:1}} />
               <stop offset="100%" style={{stopColor:"#8b6914",stopOpacity:1}} />
             </linearGradient>
-            {/* Soft highlight gradients */}
-            <radialGradient id="highlightGradient" cx="0.25" cy="0.15" r="0.6">
-              <stop offset="0%" style={{stopColor:"#ffffff",stopOpacity:0.4}} />
-              <stop offset="40%" style={{stopColor:"#ffffff",stopOpacity:0.2}} />
-              <stop offset="70%" style={{stopColor:"#ffffff",stopOpacity:0.1}} />
-              <stop offset="100%" style={{stopColor:"#ffffff",stopOpacity:0}} />
-            </radialGradient>
-            {/* Secondary highlight for depth */}
-            <radialGradient id="secondaryHighlight" cx="0.7" cy="0.3" r="0.4">
-              <stop offset="0%" style={{stopColor:"#ffffff",stopOpacity:0.3}} />
+            
+            {/* Enhanced 3D highlight gradients */}
+            <radialGradient id="highlightGradient" cx="0.2" cy="0.1" r="0.7">
+              <stop offset="0%" style={{stopColor:"#ffffff",stopOpacity:0.6}} />
+              <stop offset="30%" style={{stopColor:"#ffffff",stopOpacity:0.3}} />
               <stop offset="60%" style={{stopColor:"#ffffff",stopOpacity:0.1}} />
               <stop offset="100%" style={{stopColor:"#ffffff",stopOpacity:0}} />
             </radialGradient>
-            {/* Shadow filter */}
+            
+            {/* Secondary 3D highlight */}
+            <radialGradient id="secondaryHighlight" cx="0.8" cy="0.3" r="0.5">
+              <stop offset="0%" style={{stopColor:"#ffffff",stopOpacity:0.4}} />
+              <stop offset="50%" style={{stopColor:"#ffffff",stopOpacity:0.2}} />
+              <stop offset="100%" style={{stopColor:"#ffffff",stopOpacity:0}} />
+            </radialGradient>
+            
+            {/* 3D shadow filter */}
             <filter id="coinShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="8" dy="12" stdDeviation="8" floodColor="#000000" floodOpacity="0.3"/>
+              <feDropShadow dx="12" dy="16" stdDeviation="12" floodColor="#000000" floodOpacity="0.4"/>
             </filter>
-            {/* Inner shadow filter */}
-            <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="2" dy="3" stdDeviation="2" floodColor="#000000" floodOpacity="0.2"/>
-            </filter>
-            {/* Emboss filter for raised effect */}
+            
+            {/* Enhanced 3D emboss filter */}
             <filter id="embossFilter" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
-              <feSpecularLighting result="specOut" in="blur" specularConstant="2" specularExponent="20" lightingColor="white">
-                <fePointLight x="-50" y="-50" z="200"/>
+              <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+              <feSpecularLighting result="specOut" in="blur" specularConstant="3" specularExponent="25" lightingColor="white">
+                <fePointLight x="-100" y="-100" z="300"/>
               </feSpecularLighting>
               <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut2"/>
               <feComposite in="SourceGraphic" in2="specOut2" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
             </filter>
-            {/* Texture pattern for metallic surface */}
-            <pattern id="metallicTexture" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-              <circle cx="4" cy="4" r="0.5" fill="rgba(255,255,255,0.1)"/>
-              <circle cx="2" cy="2" r="0.3" fill="rgba(255,255,255,0.05)"/>
-              <circle cx="6" cy="6" r="0.3" fill="rgba(255,255,255,0.05)"/>
-            </pattern>
+            
+            {/* 3D depth filter */}
+            <filter id="depthFilter" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+              <feSpecularLighting result="depthOut" in="blur" specularConstant="1.5" specularExponent="15" lightingColor="white">
+                <fePointLight x="50" y="50" z="150"/>
+              </feSpecularLighting>
+              <feComposite in="depthOut" in2="SourceAlpha" operator="in" result="depthOut2"/>
+              <feComposite in="SourceGraphic" in2="depthOut2" operator="arithmetic" k1="0" k2="0.5" k3="0.5" k4="0"/>
+            </filter>
           </defs>
-          {/* Transparent background - only coin visible */}
+          
+          {/* 3D Coin Base with Enhanced Depth */}
           <circle cx="200" cy="200" r="190" fill="url(#coinBaseGradient)" filter="url(#coinShadow)"/>
-          {/* Outer rim with rope/chain pattern */}
-          <circle cx="200" cy="200" r="190" fill="none" stroke="url(#rimGradient)" strokeWidth="8"/>
-          {/* Sharp decorative pattern on outer rim */}
-          <g id="ropePattern" stroke="url(#ropeGradient)" strokeWidth="2" fill="none" opacity="0.9">
-            {/* Clean dotted pattern around the edge */}
-            <circle cx="200" cy="200" r="185" strokeDasharray="4,6" opacity="0.7"/>
-            <circle cx="200" cy="200" r="182" strokeDasharray="2,8" opacity="0.5"/>
-            {/* Sharp geometric pattern */}
-            <g transform="translate(200,200)">
-              <g id="patternSegment">
-                <rect x="-185" y="-2" width="4" height="4" fill="url(#ropeGradient)" opacity="0.8"/>
-                <rect x="-175" y="-1" width="3" height="3" fill="url(#ropeGradient)" opacity="0.6"/>
-              </g>
-              {/* Repeat sharp pattern around circumference */}
-              <use href="#patternSegment" transform="rotate(15)"/>
-              <use href="#patternSegment" transform="rotate(30)"/>
-              <use href="#patternSegment" transform="rotate(45)"/>
-              <use href="#patternSegment" transform="rotate(60)"/>
-              <use href="#patternSegment" transform="rotate(75)"/>
-              <use href="#patternSegment" transform="rotate(90)"/>
-              <use href="#patternSegment" transform="rotate(105)"/>
-              <use href="#patternSegment" transform="rotate(120)"/>
-              <use href="#patternSegment" transform="rotate(135)"/>
-              <use href="#patternSegment" transform="rotate(150)"/>
-              <use href="#patternSegment" transform="rotate(165)"/>
-              <use href="#patternSegment" transform="rotate(180)"/>
-              <use href="#patternSegment" transform="rotate(195)"/>
-              <use href="#patternSegment" transform="rotate(210)"/>
-              <use href="#patternSegment" transform="rotate(225)"/>
-              <use href="#patternSegment" transform="rotate(240)"/>
-              <use href="#patternSegment" transform="rotate(255)"/>
-              <use href="#patternSegment" transform="rotate(270)"/>
-              <use href="#patternSegment" transform="rotate(285)"/>
-              <use href="#patternSegment" transform="rotate(300)"/>
-              <use href="#patternSegment" transform="rotate(315)"/>
-              <use href="#patternSegment" transform="rotate(330)"/>
-              <use href="#patternSegment" transform="rotate(345)"/>
-            </g>
-          </g>
-          {/* Reeded edge */}
+          
+          {/* 3D Outer Rim with Depth */}
+          <circle cx="200" cy="200" r="190" fill="none" stroke="url(#rimGradient)" strokeWidth="10"/>
+          
+          {/* 3D Inner Rim for Depth */}
+          <circle cx="200" cy="200" r="180" fill="none" stroke="url(#rimGradient)" strokeWidth="3" opacity="0.6"/>
+          
+          {/* 3D Reeded Edge with Enhanced Pattern */}
           <g transform="translate(200,200)">
-            <g id="ridge">
-              <rect x="188" y="-2" width="4" height="4" fill="url(#edgeGradient)" />
+            <g id="ridge3D">
+              <rect x="188" y="-3" width="6" height="6" fill="url(#edgeGradient)" rx="1"/>
             </g>
-            {/* 72 ridges (5° apart) */}
-            <use href="#ridge" transform="rotate(0)"/><use href="#ridge" transform="rotate(5)"/><use href="#ridge" transform="rotate(10)"/>
-            <use href="#ridge" transform="rotate(15)"/><use href="#ridge" transform="rotate(20)"/><use href="#ridge" transform="rotate(25)"/>
-            <use href="#ridge" transform="rotate(30)"/><use href="#ridge" transform="rotate(35)"/><use href="#ridge" transform="rotate(40)"/>
-            <use href="#ridge" transform="rotate(45)"/><use href="#ridge" transform="rotate(50)"/><use href="#ridge" transform="rotate(55)"/>
-            <use href="#ridge" transform="rotate(60)"/><use href="#ridge" transform="rotate(65)"/><use href="#ridge" transform="rotate(70)"/>
-            <use href="#ridge" transform="rotate(75)"/><use href="#ridge" transform="rotate(80)"/><use href="#ridge" transform="rotate(85)"/>
-            <use href="#ridge" transform="rotate(90)"/><use href="#ridge" transform="rotate(95)"/><use href="#ridge" transform="rotate(100)"/>
-            <use href="#ridge" transform="rotate(105)"/><use href="#ridge" transform="rotate(110)"/><use href="#ridge" transform="rotate(115)"/>
-            <use href="#ridge" transform="rotate(120)"/><use href="#ridge" transform="rotate(125)"/><use href="#ridge" transform="rotate(130)"/>
-            <use href="#ridge" transform="rotate(135)"/><use href="#ridge" transform="rotate(140)"/><use href="#ridge" transform="rotate(145)"/>
-            <use href="#ridge" transform="rotate(150)"/><use href="#ridge" transform="rotate(155)"/><use href="#ridge" transform="rotate(160)"/>
-            <use href="#ridge" transform="rotate(165)"/><use href="#ridge" transform="rotate(170)"/><use href="#ridge" transform="rotate(175)"/>
-            <use href="#ridge" transform="rotate(180)"/><use href="#ridge" transform="rotate(185)"/><use href="#ridge" transform="rotate(190)"/>
-            <use href="#ridge" transform="rotate(195)"/><use href="#ridge" transform="rotate(200)"/><use href="#ridge" transform="rotate(205)"/>
-            <use href="#ridge" transform="rotate(210)"/><use href="#ridge" transform="rotate(215)"/><use href="#ridge" transform="rotate(220)"/>
-            <use href="#ridge" transform="rotate(225)"/><use href="#ridge" transform="rotate(230)"/><use href="#ridge" transform="rotate(235)"/>
-            <use href="#ridge" transform="rotate(240)"/><use href="#ridge" transform="rotate(245)"/><use href="#ridge" transform="rotate(250)"/>
-            <use href="#ridge" transform="rotate(255)"/><use href="#ridge" transform="rotate(260)"/><use href="#ridge" transform="rotate(265)"/>
-            <use href="#ridge" transform="rotate(270)"/><use href="#ridge" transform="rotate(275)"/><use href="#ridge" transform="rotate(280)"/>
-            <use href="#ridge" transform="rotate(285)"/><use href="#ridge" transform="rotate(290)"/><use href="#ridge" transform="rotate(295)"/>
-            <use href="#ridge" transform="rotate(300)"/><use href="#ridge" transform="rotate(305)"/><use href="#ridge" transform="rotate(310)"/>
-            <use href="#ridge" transform="rotate(315)"/><use href="#ridge" transform="rotate(320)"/><use href="#ridge" transform="rotate(325)"/>
-            <use href="#ridge" transform="rotate(330)"/><use href="#ridge" transform="rotate(335)"/><use href="#ridge" transform="rotate(340)"/>
-            <use href="#ridge" transform="rotate(345)"/><use href="#ridge" transform="rotate(350)"/><use href="#ridge" transform="rotate(355)"/>
+            {/* 72 ridges with 3D effect */}
+            {Array.from({length: 72}, (_, i) => (
+              <use key={i} href="#ridge3D" transform={`rotate(${i * 5})`}/>
+            ))}
           </g>
-          {/* Dollar sign - main body */}
-          <g id="dollarSign" transform="translate(200,200)">
-            {/* Top bar of dollar sign */}
-            <rect x="-3" y="-95" width="6" height="20" rx="3" fill="url(#dollarSignGradient)" />
+          
+          {/* 3D Dollar Sign with Enhanced Depth */}
+          <g id="dollarSign3D" transform="translate(200,200)">
+            {/* 3D Top bar with depth */}
+            <rect x="-3" y="-75" width="6" height="18" rx="3" fill="url(#dollarSignGradient)" filter="url(#depthFilter)"/>
             
-            {/* Bottom bar of dollar sign */}
-            <rect x="-3" y="75" width="6" height="20" rx="3" fill="url(#dollarSignGradient)" />
+            {/* 3D Bottom bar with depth */}
+            <rect x="-3" y="60" width="6" height="18" rx="3" fill="url(#dollarSignGradient)" filter="url(#depthFilter)"/>
             
-            {/* Main 3D Dollar Sign - perfectly centered */}
+            {/* 3D Main Dollar Sign with enhanced emboss */}
             <text
               x="0"
-              y="-5"
+              y="-2"
               fontFamily="Arial Black, sans-serif"
-              fontSize="140"
+              fontSize="110"
               fontWeight="bold"
               textAnchor="middle"
               dominantBaseline="central"
@@ -361,105 +310,26 @@ const RealEstateInvestmentSection = () => {
               $
             </text>
           </g>
-          {/* Edge ridges/reeding */}
-          <g id="edgeRidges" opacity="0.4">
-            {/* Create ridged edge pattern */}
-            <g transform="translate(200,200)">
-              <g id="ridge">
-                <rect x="188" y="-2" width="4" height="4" fill="url(#edgeGradient)" transform="rotate(0)"/>
-              </g>
-              {/* Repeat ridges around the edge */}
-              <g id="ridgePattern">
-                <use href="#ridge" transform="rotate(0)"/>
-                <use href="#ridge" transform="rotate(5)"/>
-                <use href="#ridge" transform="rotate(10)"/>
-                <use href="#ridge" transform="rotate(15)"/>
-                <use href="#ridge" transform="rotate(20)"/>
-                <use href="#ridge" transform="rotate(25)"/>
-                <use href="#ridge" transform="rotate(30)"/>
-                <use href="#ridge" transform="rotate(35)"/>
-                <use href="#ridge" transform="rotate(40)"/>
-                <use href="#ridge" transform="rotate(45)"/>
-                <use href="#ridge" transform="rotate(50)"/>
-                <use href="#ridge" transform="rotate(55)"/>
-                <use href="#ridge" transform="rotate(60)"/>
-                <use href="#ridge" transform="rotate(65)"/>
-                <use href="#ridge" transform="rotate(70)"/>
-                <use href="#ridge" transform="rotate(75)"/>
-                <use href="#ridge" transform="rotate(80)"/>
-                <use href="#ridge" transform="rotate(85)"/>
-                <use href="#ridge" transform="rotate(90)"/>
-                <use href="#ridge" transform="rotate(95)"/>
-                <use href="#ridge" transform="rotate(100)"/>
-                <use href="#ridge" transform="rotate(105)"/>
-                <use href="#ridge" transform="rotate(110)"/>
-                <use href="#ridge" transform="rotate(115)"/>
-                <use href="#ridge" transform="rotate(120)"/>
-                <use href="#ridge" transform="rotate(125)"/>
-                <use href="#ridge" transform="rotate(130)"/>
-                <use href="#ridge" transform="rotate(135)"/>
-                <use href="#ridge" transform="rotate(140)"/>
-                <use href="#ridge" transform="rotate(145)"/>
-                <use href="#ridge" transform="rotate(150)"/>
-                <use href="#ridge" transform="rotate(155)"/>
-                <use href="#ridge" transform="rotate(160)"/>
-                <use href="#ridge" transform="rotate(165)"/>
-                <use href="#ridge" transform="rotate(170)"/>
-                <use href="#ridge" transform="rotate(175)"/>
-                <use href="#ridge" transform="rotate(180)"/>
-                <use href="#ridge" transform="rotate(185)"/>
-                <use href="#ridge" transform="rotate(190)"/>
-                <use href="#ridge" transform="rotate(195)"/>
-                <use href="#ridge" transform="rotate(200)"/>
-                <use href="#ridge" transform="rotate(205)"/>
-                <use href="#ridge" transform="rotate(210)"/>
-                <use href="#ridge" transform="rotate(215)"/>
-                <use href="#ridge" transform="rotate(220)"/>
-                <use href="#ridge" transform="rotate(225)"/>
-                <use href="#ridge" transform="rotate(230)"/>
-                <use href="#ridge" transform="rotate(235)"/>
-                <use href="#ridge" transform="rotate(240)"/>
-                <use href="#ridge" transform="rotate(245)"/>
-                <use href="#ridge" transform="rotate(250)"/>
-                <use href="#ridge" transform="rotate(255)"/>
-                <use href="#ridge" transform="rotate(260)"/>
-                <use href="#ridge" transform="rotate(265)"/>
-                <use href="#ridge" transform="rotate(270)"/>
-                <use href="#ridge" transform="rotate(275)"/>
-                <use href="#ridge" transform="rotate(280)"/>
-                <use href="#ridge" transform="rotate(285)"/>
-                <use href="#ridge" transform="rotate(290)"/>
-                <use href="#ridge" transform="rotate(295)"/>
-                <use href="#ridge" transform="rotate(300)"/>
-                <use href="#ridge" transform="rotate(305)"/>
-                <use href="#ridge" transform="rotate(310)"/>
-                <use href="#ridge" transform="rotate(315)"/>
-                <use href="#ridge" transform="rotate(320)"/>
-                <use href="#ridge" transform="rotate(325)"/>
-                <use href="#ridge" transform="rotate(330)"/>
-                <use href="#ridge" transform="rotate(335)"/>
-                <use href="#ridge" transform="rotate(340)"/>
-                <use href="#ridge" transform="rotate(345)"/>
-                <use href="#ridge" transform="rotate(350)"/>
-                <use href="#ridge" transform="rotate(355)"/>
-              </g>
-            </g>
-          </g>
-          {/* Premium lighting effects */}
-          {/* Primary highlight - soft and realistic */}
-          <ellipse cx="160" cy="140" rx="50" ry="70" fill="url(#highlightGradient)" opacity="0.5" transform="rotate(-25 160 140)"/>
           
-          {/* Secondary highlight for depth */}
-          <ellipse cx="180" cy="130" rx="25" ry="35" fill="url(#secondaryHighlight)" opacity="0.4" transform="rotate(-20 180 130)"/>
+          {/* 3D Lighting Effects */}
+          {/* Primary 3D highlight */}
+          <ellipse cx="150" cy="120" rx="60" ry="80" fill="url(#highlightGradient)" opacity="0.6" transform="rotate(-30 150 120)"/>
           
-          {/* Subtle depth shadow */}
-          <ellipse cx="220" cy="220" rx="120" ry="120" fill="rgba(0,0,0,0.08)" opacity="0.4"/>
+          {/* Secondary 3D highlight */}
+          <ellipse cx="170" cy="110" rx="30" ry="40" fill="url(#secondaryHighlight)" opacity="0.5" transform="rotate(-25 170 110)"/>
           
-          {/* Edge bevel highlight */}
-          <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2" opacity="0.8"/>
+          {/* 3D Edge bevel highlight */}
+          <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="3" opacity="0.9"/>
           
-          {/* Inner bevel for depth */}
-          <circle cx="200" cy="200" r="180" fill="none" stroke="rgba(0,0,0,0.1)" strokeWidth="1" opacity="0.6"/>
+          {/* 3D Inner bevel for depth */}
+          <circle cx="200" cy="200" r="175" fill="none" stroke="rgba(0,0,0,0.15)" strokeWidth="2" opacity="0.7"/>
+          
+          {/* 3D Center depth ring */}
+          <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" opacity="0.5"/>
+          
+          {/* 3D Specular highlights for metallic effect */}
+          <ellipse cx="140" cy="90" rx="20" ry="25" fill="rgba(255,255,255,0.8)" opacity="0.4" transform="rotate(-20 140 90)"/>
+          <ellipse cx="180" cy="80" rx="15" ry="20" fill="rgba(255,255,255,0.6)" opacity="0.3" transform="rotate(-15 180 80)"/>
         </svg>
 
         {/* Subtle glow effect behind coin */}
