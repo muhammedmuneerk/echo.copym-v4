@@ -24,7 +24,19 @@ const mediaItems = [
 
 export default function AppPeekSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const total = mediaItems.length;
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -46,7 +58,8 @@ export default function AppPeekSection() {
     const normalizedDepth = (y + ORBIT_RADIUS_Y) / (2 * ORBIT_RADIUS_Y);
     const scale = BASE_SCALE + (1 - BASE_SCALE) * normalizedDepth;
     const zIndex = Math.round(FRONT_Z_INDEX * normalizedDepth);
-    const rotate = x / 20;
+    // Only apply rotation on larger screens (md and up)
+    const rotate = isMobile ? 0 : x / 20;
     return { x, y, scale, zIndex, rotate, opacity: scale };
   };
 
