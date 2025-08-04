@@ -395,39 +395,7 @@ const TechnologyStackSection = () => {
               })}
             </motion.div>
 
-            {/* Control Panel */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-16 flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-              <Tooltip title={isPlaying ? "Pause rotation" : "Resume rotation"}>
-                <IconButton
-                  onClick={togglePlayPause}
-                  size="small"
-                  sx={{ 
-                    color: currentFeature.color,
-                    '&:hover': { 
-                      backgroundColor: `${currentFeature.color}20` 
-                    }
-                  }}
-                >
-                  {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
-                </IconButton>
-              </Tooltip>
-              
-              {/* Progress indicator dots */}
-              <div className="flex gap-1 mx-2">
-                {features.map((_, index) => (
-                  <motion.button
-                    key={index}
-                    className="w-2 h-2 rounded-full transition-all duration-300"
-                    style={{
-                      backgroundColor: index === activeIndex ? currentFeature.color : '#d1d5db'
-                    }}
-                    onClick={() => handleFeatureClick(index)}
-                    whileHover={{ scale: 1.5 }}
-                    whileTap={{ scale: 0.8 }}
-                  />
-                ))}
-              </div>
-            </div>
+
           </div>
 
           {/* Right Column: Lottie animation */}
