@@ -5,7 +5,7 @@ import TestimonialsSection from "./sections/TestimonialsSection";
 
 export default function Marketplace() {
   return (
-    <div className="bg-green-50">
+    <div className="min-h-screen bg-blue-100">
       <Hero />
       <AppPeekSection />
       <div
