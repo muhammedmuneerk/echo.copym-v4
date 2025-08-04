@@ -339,7 +339,7 @@ const TokenDistribution = () => {
         {/* Token Distribution Network Image */}
         <div className="flex flex-col items-center mt-16">
           <img
-            src="/assets/Images/Token-Distribution.png"
+            src="/assets/Images/dashboarddddd.png"
             alt="The Digital Securities Distribution Network"
             className="max-w-full h-auto rounded-xl shadow-lg border border-gray-100"
             style={{ background: 'white' }}
